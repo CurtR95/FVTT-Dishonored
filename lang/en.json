@@ -1,0 +1,33 @@
+{
+"dishonored.momentum": "Momentum Track",
+"dishonored.name": "Name",
+"dishonored.age": "Age",
+"dishonored.stress": "Stress Track",
+"dishonored.skill": "Skills",
+"dishonored.style": "Styles",
+"dishonored.skillText": "Skill Name",
+"dishonored.styleText": "Style Name",
+"dishonored.select": "Selected",
+"dishonored.mod": "Modifier",
+"dishonored.check": "Perform Check",
+
+"dishonored.character.firstTruth": "First Truth",
+"dishonored.character.secondTruth": "Second Truth",
+"dishonored.character.archetype": "Archetype",
+"dishonored.character.outlook": "Outlook",
+"dishonored.character.void": "Void Points Track",
+
+"CHASKI.fight": "Fight",
+"CHASKI.move": "Move",
+"CHASKI.study": "Study",
+"CHASKI.survive": "Survive",
+"CHASKI.talk": "Talk",
+"CHASKI.tinker": "Tinker",
+
+"CHASTY.boldly": "Boldly",
+"CHASTY.carefully": "Carefully",
+"CHASTY.cleverly": "Cleverly",
+"CHASTY.forcefully": "Forcefully",
+"CHASTY.quietly": "Quietly",
+"CHASTY.swiftly": "Swiftly"
+}

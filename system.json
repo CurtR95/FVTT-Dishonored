@@ -1,0 +1,28 @@
+{
+  "name": "dishonored",
+  "title": "Dishonored Roleplaying Game",
+  "description": "WIP System for Dishonored Role Playing Game",
+  "version": 0.36,
+  "minimumCoreVersion": "0.6.4",
+  "compatibleCoreVersion": "0.6.5",
+  "templateVersion": 2,
+  "author": "KaitoR95",
+  "esmodules": ["module/dishonored.js"],
+  "styles": ["styles/dishonored.css"],
+  "packs": [],
+  "languages": [
+    {
+	  "lang": "en",
+	  "name": "English",
+	  "path": "lang/en.json"
+	}
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "stress",
+  "secondaryTokenAttribute": "void",
+  "url": "https://gitlab.com/foundrynet/worldbuilding/",
+  "manifest": "https://gitlab.com/foundrynet/worldbuilding/raw/master/system.json",
+  "download": "https://gitlab.com/foundrynet/worldbuilding/-/archive/release-036/worldbuilding-release-036.zip",
+  "license": "LICENSE.txt"
+}
