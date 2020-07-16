@@ -8,7 +8,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
   	  classes: ["dishonored", "sheet", "actor"],
-  	  template: "systems/FVTT-Dishonored/templates/actor-sheet.html",
+  	  template: "systems/FVTT-Dishonored/templates/actors/character-sheet.html",
       width: 700,
       height: 600,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
@@ -194,7 +194,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
 	  var checkTotal = parseInt(selectedSkillValue)+parseInt(selectedStyleValue);
       let r = new Roll("2d20cs<="+checkTotal);
 	  r.roll();
-	  r.toMessage("Test");
+	  r.toMessage();
 	});
 	
 	function barRenderer() {
