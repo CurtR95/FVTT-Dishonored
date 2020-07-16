@@ -14,7 +14,7 @@ import { DishonoredCharacterSheet } from "./actors/sheets/character-sheet.js";
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
-  console.log(`Initializing Simple Worldbuilding System`);
+  console.log(`Initializing Dishonored Tabletop Roleplaying Game System`);
 
 	/**
 	 * Set an initiative formula for the system
