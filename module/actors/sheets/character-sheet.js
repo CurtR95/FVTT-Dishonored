@@ -1,3 +1,5 @@
+import { DishonoredRollDialog } from '../../apps/roll-dialog.js'
+import { DishonoredRoll } from '../../roll.js'
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -8,7 +10,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
   	  classes: ["dishonored", "sheet", "actor"],
-  	  template: "systems/FVTT-Dishonored/templates/actor-sheet.html",
+  	  template: "systems/FVTT-Dishonored/templates/actors/character-sheet.html",
       width: 700,
       height: 600,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
@@ -26,30 +28,31 @@ export class DishonoredCharacterSheet extends ActorSheet {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
 	
-	if( data.data.skills.fight.value > 8) data.data.skills.fight.value = 8;
-	if( data.data.skills.move.value > 8) data.data.skills.move.value = 8;
-	if( data.data.skills.study.value > 8) data.data.skills.study.value = 8;
-	if( data.data.skills.survive.value > 8) data.data.skills.survive.value = 8;
-	if( data.data.skills.talk.value > 8) data.data.skills.talk.value = 8;
-	if( data.data.skills.tinker.value > 8) data.data.skills.tinker.value = 8;
-	if( data.data.styles.boldly.value > 8) data.data.styles.boldly.value = 8;
-	if( data.data.styles.carefully.value > 8) data.data.styles.carefully.value = 8;
-	if( data.data.styles.cleverly.value > 8) data.data.styles.cleverly.value = 8;
-	if( data.data.styles.forcefully.value > 8) data.data.styles.forcefully.value = 8;
-	if( data.data.styles.quietly.value > 8) data.data.styles.quietly.value = 8;
-	if( data.data.styles.swiftly.value > 8) data.data.styles.swiftly.value = 8;
-	if( data.data.skills.fight.value < 4) data.data.skills.fight.value = 4;
-	if( data.data.skills.move.value < 4) data.data.skills.move.value = 4;
-	if( data.data.skills.study.value < 4) data.data.skills.study.value = 4;
-	if( data.data.skills.survive.value < 4) data.data.skills.survive.value = 4;
-	if( data.data.skills.talk.value < 4) data.data.skills.talk.value = 4;
-	if( data.data.skills.tinker.value < 4) data.data.skills.tinker.value = 4;
-	if( data.data.styles.boldly.value < 4) data.data.styles.boldly.value = 4;
-	if( data.data.styles.carefully.value < 4) data.data.styles.carefully.value = 4;
-	if( data.data.styles.cleverly.value < 4) data.data.styles.cleverly.value = 4;
-	if( data.data.styles.forcefully.value < 4) data.data.styles.forcefully.value = 4;
-	if( data.data.styles.quietly.value < 4) data.data.styles.quietly.value = 4;
-	if( data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
+	if(data.data.skills.fight.value > 8) data.data.skills.fight.value = 8;
+	if(data.data.skills.move.value > 8) data.data.skills.move.value = 8;
+	if(data.data.skills.study.value > 8) data.data.skills.study.value = 8;
+	if(data.data.skills.survive.value > 8) data.data.skills.survive.value = 8;
+	if(data.data.skills.talk.value > 8) data.data.skills.talk.value = 8;
+	if(data.data.skills.tinker.value > 8) data.data.skills.tinker.value = 8;
+	if(data.data.styles.boldly.value > 8) data.data.styles.boldly.value = 8;
+	if(data.data.styles.carefully.value > 8) data.data.styles.carefully.value = 8;
+	if(data.data.styles.cleverly.value > 8) data.data.styles.cleverly.value = 8;
+	if(data.data.styles.forcefully.value > 8) data.data.styles.forcefully.value = 8;
+	if(data.data.styles.quietly.value > 8) data.data.styles.quietly.value = 8;
+	if(data.data.styles.swiftly.value > 8) data.data.styles.swiftly.value = 8;
+	if(data.data.skills.fight.value < 4) data.data.skills.fight.value = 4;
+	if(data.data.skills.move.value < 4) data.data.skills.move.value = 4;
+	if(data.data.skills.study.value < 4) data.data.skills.study.value = 4;
+	if(data.data.skills.survive.value < 4) data.data.skills.survive.value = 4;
+	if(data.data.skills.talk.value < 4) data.data.skills.talk.value = 4;
+	if(data.data.skills.tinker.value < 4) data.data.skills.tinker.value = 4;
+	if(data.data.styles.boldly.value < 4) data.data.styles.boldly.value = 4;
+	if(data.data.styles.carefully.value < 4) data.data.styles.carefully.value = 4;
+	if(data.data.styles.cleverly.value < 4) data.data.styles.cleverly.value = 4;
+	if(data.data.styles.forcefully.value < 4) data.data.styles.forcefully.value = 4;
+	if(data.data.styles.quietly.value < 4) data.data.styles.quietly.value = 4;
+	if(data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
+	if(data.data.stress.value < 0) data.data.stress.value = 0;
 	
     return data;
   }
@@ -191,11 +194,11 @@ export class DishonoredCharacterSheet extends ActorSheet {
 			var selectedStyleValue = document.getElementById(selectedStyle).value;
 		}
       }
-	  var checkTotal = parseInt(selectedSkillValue)+parseInt(selectedStyleValue);
-      let r = new Roll("2d20cs<="+checkTotal);
-	  r.roll();
-	  r.toMessage("Test");
+	  var checkTarget = parseInt(selectedSkillValue)+parseInt(selectedStyleValue);
+	  this.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle);
 	});
+	
+	
 	
 	function barRenderer() {
 	  var i;
@@ -239,6 +242,17 @@ export class DishonoredCharacterSheet extends ActorSheet {
 	
 	barRenderer();
 	
+  }
+  
+  async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle) {
+	event.preventDefault();
+	let rolldialog = await DishonoredRollDialog.create();
+	if( rolldialog ) {
+		let dicePool = rolldialog.get("dicePoolSlider");
+		let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
+		let dishonoredRoll = new DishonoredRoll();
+		dishonoredRoll.perform(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle);
+	}
   }
 
   /* -------------------------------------------- */

@@ -33,7 +33,7 @@
 .dishonored .mombox {
   width: 16.6666666666%;
   height: 14px;
-  border: 1px solid #191813;
+  border: 1px solid #191919;
   border-collapse: collapse;
   padding: 0px;
   display: block;
@@ -96,9 +96,9 @@
 }
 
 .dishonored .stressbox {
-  width: 19px;
+  width: calc(100% / 12);
   height: 14px;
-  border: 1px solid #191813;
+  border: 1px solid #191919;
   border-collapse: collapse;
   padding: 0px;
   display: block;
@@ -138,9 +138,9 @@
 }
 
 .dishonored .voidbox {
-  width: 76px;
+  width: calc(100% / 3);
   height: 14px;
-  border: 1px solid #191813;
+  border: 1px solid #191919;
   border-collapse: collapse;
   padding: 0px;
   display: block;
@@ -151,6 +151,17 @@
 .dishonored .voidbox:hover {
   box-shadow: 0 0 8px red;
   cursor: pointer;
+}
+
+.dishonored .check-button {
+  height: 40px;
+  background-color: #000000;
+  color: #ffffff;
+  line-height: 40px;
+  margin: 5px 0;
+  font-size: 14pt;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
 }
 
 .dishonored .check-button:hover {
