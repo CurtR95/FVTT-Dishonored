@@ -36,8 +36,8 @@ Hooks.once("init", async function() {
 
   // Register system settings
   game.settings.register("FVTT-Dishonored", "multipleComplications", {
-    name: "Allow Multiple Complications",
-    hint: "As the rulebook is slightly unclear, allow multiple complications to happen?",
+    name: 'Allow Multiple Complications?',
+    hint: 'The rulebook states "Any die which rolled 20 causes a complication". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display "There were x Complications" if multiple 20s are rolled. Disabling will just state a single complication.',
     scope: "world",
     type: Boolean,
     default: true,
