@@ -29,5 +29,19 @@
 "CHASTY.cleverly": "Cleverly",
 "CHASTY.forcefully": "Forcefully",
 "CHASTY.quietly": "Quietly",
-"CHASTY.swiftly": "Swiftly"
+"CHASTY.swiftly": "Swiftly",
+
+"dishonored.apps.dicepoolwindow": "Dice Pool",
+"dishonored.apps.focus": "Focus Rating",
+"dishonored.apps.pool": "Number of Dice in Pool",
+"dishonored.apps.rolldice": "Roll Dice",
+
+"dishonored.roll.success": " Success",
+"dishonored.roll.successPlural": " Successes",
+"dishonored.roll.test": " Skill Test",
+"dishonored.roll.complication": "There was a complication!",
+"dishonored.roll.complicationPlural": "There were |#| complications!"
+
+
+
 }
