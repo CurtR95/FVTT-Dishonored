@@ -30,9 +30,9 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("dnd5e", DishonoredCharacterSheet, { makeDefault: true });
+  Actors.registerSheet("dishonored", DishonoredCharacterSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("dnd5e", DishonoredItemSheet, {makeDefault: true});
+  Items.registerSheet("dishonored", DishonoredItemSheet, {makeDefault: true});
 
   // Register system settings
   game.settings.register("worldbuilding", "macroShorthand", {

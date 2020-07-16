@@ -8,7 +8,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
   	  classes: ["dishonored", "sheet", "actor"],
-  	  template: "systems/dishonored/templates/actor-sheet.html",
+  	  template: "systems/FVTT-Dishonored/templates/actor-sheet.html",
       width: 700,
       height: 600,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
