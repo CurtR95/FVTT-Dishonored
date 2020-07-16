@@ -1,5 +1,5 @@
 import { DishonoredRollDialog } from '../../apps/roll-dialog.js'
-import { DishonoredRoll } from '../roll.js'
+import { DishonoredRoll } from '../../roll.js'
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -195,7 +195,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
 		}
       }
 	  var checkTarget = parseInt(selectedSkillValue)+parseInt(selectedStyleValue);
-	  this.rollSkillTest(event, checkTarget);
+	  this.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle);
 	});
 	
 	
@@ -244,15 +244,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
 	
   }
   
-  async rollSkillTest(event, checkTarget) {
+  async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle) {
 	event.preventDefault();
 	let rolldialog = await DishonoredRollDialog.create();
 	if( rolldialog ) {
+		let dicePool = rolldialog.get("dicePoolSlider");
+		let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
 		let dishonoredRoll = new DishonoredRoll();
-		let r = new Roll(rolldialog.get("dicePoolSlider")+"d20cs<="+checkTarget);
-		r.roll();
-		r.toMessage();
-		dishonoredRoll.perform();
+		dishonoredRoll.perform(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle);
 	}
   }
 

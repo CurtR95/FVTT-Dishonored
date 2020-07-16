@@ -2,7 +2,7 @@ export class DishonoredRollDialog {
 
 	static async create()
 	{
-		const html = await renderTemplate("systems/FVTT-Dishonored/templates/apps/bonus.html");
+		const html = await renderTemplate("systems/FVTT-Dishonored/templates/apps/dicepool.html");
 		return new Promise((resolve) => {
 			let formData = null;
 			const dlg = new Dialog({
