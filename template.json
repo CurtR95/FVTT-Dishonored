@@ -8,74 +8,76 @@
 	"archetype": "",
 	"outlook": "",
     "stress": {
-      "value": 0
+	  "value": 0,
+	  "max":8
     },
     "void": {
-      "value": 3
+	  "value": 3,
+	  "max":3
     },
 	"momentum": {
 	  "value": 0
 	},
     "skills": {
 	  "fight": {
-	    "label": "CHASKI.fight",
+	    "label": "dishonored.actor.skill.fight",
 	    "value": 4,
 		"selected": true
 	  },
 	  "move": {
-	    "label": "CHASKI.move",
+	    "label": "dishonored.actor.skill.move",
 	    "value": 4,
 		"selected": false
 	  },
 	  "study": {
-	    "label": "CHASKI.study",
+	    "label": "dishonored.actor.skill.study",
 	    "value": 4,
 		"selected": false
 	  },
 	  "survive": {
-	    "label": "CHASKI.survive",
+	    "label": "dishonored.actor.skill.survive",
 	    "value": 4,
 		"selected": false
 	  },
 	  "talk": {
-	    "label": "CHASKI.talk",
+	    "label": "dishonored.actor.skill.talk",
 	    "value": 4,
 		"selected": false
 	  },
 	  "tinker": {
-	    "label": "CHASKI.tinker",
+	    "label": "dishonored.actor.skill.tinker",
 	    "value": 4,
 		"selected": false
 	  }
 	},
     "styles": {
 	  "boldly": {
-	    "label": "CHASTY.boldly",
+	    "label": "dishonored.actor.style.boldly",
 	    "value": 4,
 		"selected": true
 	  },
 	  "carefully": {
-	    "label": "CHASTY.carefully",
+	    "label": "dishonored.actor.style.carefully",
 	    "value": 4,
 		"selected": false
 	  },
 	  "cleverly": {
-	    "label": "CHASTY.cleverly",
+	    "label": "dishonored.actor.style.cleverly",
 	    "value": 4,
 		"selected": false
 	  },
 	  "forcefully": {
-	    "label": "CHASTY.forcefully",
+	    "label": "dishonored.actor.style.forcefully",
 	    "value": 4,
 		"selected": false
 	  },
 	  "quietly": {
-	    "label": "CHASTY.quietly",
+	    "label": "dishonored.actor.style.quietly",
 	    "value": 4,
 		"selected": false
 	  },
 	  "swiftly": {
-	    "label": "CHASTY.swiftly",
+	    "label": "dishonored.actor.style.swiftly",
 	    "value": 4,
 		"selected": false
 	  }

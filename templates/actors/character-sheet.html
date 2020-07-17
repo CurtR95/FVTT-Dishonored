@@ -2,16 +2,16 @@
 	<div class="header-fields">
 		<div class="row">
 			<div class="column headings" style="width:40%">
-				{{localize 'dishonored.name'}}
+				{{localize 'dishonored.actor.character.name'}}
 			</div>
 			<div class="column headings" style="width:25%">
-				{{localize 'dishonored.character.archetype'}} 
+				{{localize 'dishonored.actor.character.archetype'}} 
 			</div>
 			<div class="column headings" style="width:25%">
-				{{localize 'dishonored.character.outlook'}} 
+				{{localize 'dishonored.actor.character.outlook'}} 
 			</div>
 			<div class="column headings" style="width:10%">
-				{{localize 'dishonored.age'}}
+				{{localize 'dishonored.actor.character.age'}}
 			</div>
 		</div>
 		<div class="row">
@@ -30,10 +30,10 @@
 		</div>
 		<div class="row">
 			<div class="column headings">
-				<div> {{localize 'dishonored.character.firstTruth'}} </div>
+				<div> {{localize 'dishonored.actor.character.firstTruth'}} </div>
 			</div>
 			<div class="column headings">
-				<div> {{localize 'dishonored.character.secondTruth'}} </div>
+				<div> {{localize 'dishonored.actor.character.secondTruth'}} </div>
 			</div>
 		</div>
 		<div class="row">
@@ -46,7 +46,7 @@
 		</div>
 		<div class="momentum-section">
 			<div class="momentum-title headings">
-				{{localize 'dishonored.momentum'}}
+				{{localize 'dishonored.actor.character.momentum'}}
 			</div>
 			<div class="momentum-track">
 				<input type="hidden" id="total-mom" name="data.momentum.value" value="{{data.momentum.value}}" data-dtype="Number" />
@@ -65,12 +65,12 @@
 			<div class="column">
 				<div class="skill-section">
 					<div class="skill-title section-title">
-						{{localize 'dishonored.skill'}}
+						{{localize 'dishonored.actor.skill.title'}}
 					</div>
 					<div class="stat-flex-row">
-						<div class="advisory">{{localize 'dishonored.select'}}</div>
-						<div class="stat-text advisory">{{localize 'dishonored.skillText'}}</div>
-						<div class="stat-field advisory">{{localize 'dishonored.mod'}}</div>
+						<div class="advisory">{{localize 'dishonored.actor.skisty.select'}}</div>
+						<div class="stat-text advisory">{{localize 'dishonored.actor.skill.name'}}</div>
+						<div class="stat-field advisory">{{localize 'dishonored.actor.skisty.mod'}}</div>
 					</div>
 					{{#each data.skills as |skill key|}}
 						<div class="stat-flex-row">
@@ -80,12 +80,11 @@
 						</div>
 					{{/each}}
 				</div>
-				<div class="separator"></div>
 			</div>
 			<div class="column">
 				<div class="stress-section">
 					<div class="stress-title headings">
-						{{localize 'dishonored.stress'}}
+						{{localize 'dishonored.actor.character.stress'}}
 					</div>
 					<div class="mainflex">
 						<input type="hidden" id="total-stress" name="data.stress.value" value="{{data.stress.value}}" data-dtype="Number" />
@@ -108,32 +107,19 @@
 					<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/>
 				</div>
 				<div class="separator"></div>
-				<div class="void-section">
-					<div class="void-title headings">
-						{{localize 'dishonored.character.void'}}
-					</div>
-					<div class="mainflex">
-						<input type="hidden" id="total-void" name="data.void.value" value="{{data.void.value}}" data-dtype="Number" />
-						<div class="voidbox" id="void-1">1</div>
-						<div class="voidbox" id="void-2">2</div>
-						<div class="voidbox" id="void-3">3</div>
-					</div>
-				</div>
-				<div class="separator"></div>
 				<div class="check-section">
-					<div class="check-button">{{localize 'dishonored.check'}}</div>
+					<div class="check-button">{{localize 'dishonored.actor.skisty.check'}}</div>
 				</div>
-				<div class="separator"></div>
 			</div>
 			<div class="column">
 				<div class="style-section">
 					<div class="style-title section-title">
-						{{localize 'dishonored.style'}}
+						{{localize 'dishonored.actor.style.title'}}
 					</div>
 					<div class="stat-flex-row">
-						<div class="stat-field advisory">{{localize 'dishonored.mod'}}</div>
-						<div class="stat-text advisory">{{localize 'dishonored.styleText'}}</div>
-						<div class="advisory">{{localize 'dishonored.select'}}</div>
+						<div class="stat-field advisory">{{localize 'dishonored.actor.skisty.mod'}}</div>
+						<div class="stat-text advisory">{{localize 'dishonored.actor.style.name'}}</div>
+						<div class="advisory">{{localize 'dishonored.actor.skisty.select'}}</div>
 					</div>
 					{{#each data.styles as |style key|}}
 						<div class="stat-flex-row">
@@ -143,7 +129,68 @@
 						</div>
 					{{/each}}
 				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+				<div class="contacts-section">
+					<div class="contact-title section-title">
+						{{localize 'dishonored.actor.contact.title'}}
+					</div>
+					<div class="stat-flex-row">
+						<div class="stat-text advisory">{{localize 'dishonored.actor.contact.name'}}</div>
+						<div class="stat-field advisory">{{localize 'dishonored.actor.contact.relationship'}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="void-section">
+					<div class="void-title headings">
+						{{localize 'dishonored.actor.character.void'}}
+					</div>
+					<div class="mainflex">
+						<input type="hidden" id="total-void" name="data.void.value" value="{{data.void.value}}" data-dtype="Number" />
+						<div class="voidbox" id="void-1">1</div>
+						<div class="voidbox" id="void-2">2</div>
+						<div class="voidbox" id="void-3">3</div>
+					</div>
+				</div>
 				<div class="separator"></div>
+				<div class="talent-section">
+					<div class="talent-title section-title">
+						{{localize 'dishonored.actor.talent.title'}}
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="focus-section">
+					<div class="focus-title section-title">
+						{{localize 'dishonored.actor.focus.title'}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+				<div class="note-section">
+					<div class="note-title section-title">
+						{{localize 'dishonored.actor.note.title'}}
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="power-section">
+					<div class="power-title section-title">
+						{{localize 'dishonored.actor.power.title'}}
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="belonging-section">
+					<div class="belonging-title section-title">
+						{{localize 'dishonored.actor.belonging.title'}}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

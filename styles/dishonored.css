@@ -1,8 +1,8 @@
-.dishonored {
-  /* Sheet Tabs */
-  /* Items List */
-  /* Attributes */
-}
+/* .dishonored {
+  Sheet Tabs
+  Items List
+  Attributes
+} */
 
 .dishonored .header-fields {
   flex: 1;
@@ -154,10 +154,10 @@
 }
 
 .dishonored .check-button {
-  height: 40px;
+  height: 30px;
   background-color: #000000;
   color: #ffffff;
-  line-height: 40px;
+  line-height: 30px;
   margin: 5px 0;
   font-size: 14pt;
   border-radius: 4px;

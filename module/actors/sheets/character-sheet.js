@@ -28,6 +28,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
 	
+	//Ensure skill and style values don't weigh over the max of 8 and minimum of 4.
 	if(data.data.skills.fight.value > 8) data.data.skills.fight.value = 8;
 	if(data.data.skills.move.value > 8) data.data.skills.move.value = 8;
 	if(data.data.skills.study.value > 8) data.data.skills.study.value = 8;
@@ -52,7 +53,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
 	if(data.data.styles.forcefully.value < 4) data.data.styles.forcefully.value = 4;
 	if(data.data.styles.quietly.value < 4) data.data.styles.quietly.value = 4;
 	if(data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
-	if(data.data.stress.value < 0) data.data.stress.value = 0;
 	
     return data;
   }

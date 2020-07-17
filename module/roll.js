@@ -49,7 +49,7 @@ export class DishonoredRoll {
 			var complicationText = '';
 		}
 		
-		let flavor = game.i18n.format("CHASKI."+selectedSkill) + " " + game.i18n.format("CHASTY."+selectedStyle) + game.i18n.format("dishonored.roll.test");
+		let flavor = game.i18n.format("dishonored.actor.skill."+selectedSkill) + " " + game.i18n.format("dishonored.actor.style."+selectedStyle) + game.i18n.format("dishonored.roll.test");
 		
 		let html =  `
 			<div class="dice-roll">
