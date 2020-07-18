@@ -1,15 +1,15 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="resource">
-            	<label>Quantity</label>
-                <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+                <label>Quantity</label>
+                <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" />
             </div>
             <div class="resource">
-            	<label>Weight</label>
-                <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+                <label>Weight</label>
+                <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number" />
             </div>
         </div>
     </header>
@@ -39,15 +39,12 @@
             </header>
 
             <ol class="attributes-list">
-            {{#each data.attributes as |attr key|}}
+                {{#each data.attributes as |attr key|}}
                 <li class="attribute flexrow" data-attribute="{{key}}">
-                    <input class="attribute-key" type="text" name="data.attributes.{{key}}.key" value="{{key}}"/>
-                    {{#if attr.isCheckbox}}
-                    <label class="attribute-value checkbox"><input type="checkbox" name="data.attributes.{{key}}.value" {{checked attr.value}}/></label>
-                    {{else}}
-                    <input class="attribute-value" type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}"/>
-                    {{/if}}
-                    <input class="attribute-label" type="text" name="data.attributes.{{key}}.label" value="{{attr.label}}"/>
+                    <input class="attribute-key" type="text" name="data.attributes.{{key}}.key" value="{{key}}" /> {{#if attr.isCheckbox}}
+                    <label class="attribute-value checkbox"><input type="checkbox" name="data.attributes.{{key}}.value" {{checked attr.value}}/></label> {{else}}
+                    <input class="attribute-value" type="text" name="data.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="{{attr.dtype}}" /> {{/if}}
+                    <input class="attribute-label" type="text" name="data.attributes.{{key}}.label" value="{{attr.label}}" />
                     <select class="attribute-dtype" name="data.attributes.{{key}}.dtype">
                         {{#select attr.dtype}}
                         {{#each ../dtypes as |t|}}
@@ -57,7 +54,7 @@
                     </select>
                     <a class="attribute-control" data-action="delete"><i class="fas fa-trash"></i></a>
                 </li>
-            {{/each}}
+                {{/each}}
             </ol>
         </div>
     </section>

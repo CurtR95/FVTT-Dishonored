@@ -1,97 +1,98 @@
 {
-"Actor": {
-  "types": ["character"],
-  "character": {
-	"age": 21,
-	"truth1": "",
-    "truth2": "",
-	"archetype": "",
-	"outlook": "",
-    "stress": {
-	  "value": 0,
-	  "max":8
+    "Actor": {
+        "types": ["character", "npc"],
+        "character": {
+            "age": 21,
+            "truth1": "",
+            "truth2": "",
+            "archetype": "",
+            "outlook": "",
+            "notes":"",
+            "stress": {
+                "value": 0,
+                "max": 8
+            },
+            "void": {
+                "value": 3,
+                "max": 3
+            },
+            "momentum": {
+                "value": 0
+            },
+            "skills": {
+                "fight": {
+                    "label": "dishonored.actor.skill.fight",
+                    "value": 4,
+                    "selected": true
+                },
+                "move": {
+                    "label": "dishonored.actor.skill.move",
+                    "value": 4,
+                    "selected": false
+                },
+                "study": {
+                    "label": "dishonored.actor.skill.study",
+                    "value": 4,
+                    "selected": false
+                },
+                "survive": {
+                    "label": "dishonored.actor.skill.survive",
+                    "value": 4,
+                    "selected": false
+                },
+                "talk": {
+                    "label": "dishonored.actor.skill.talk",
+                    "value": 4,
+                    "selected": false
+                },
+                "tinker": {
+                    "label": "dishonored.actor.skill.tinker",
+                    "value": 4,
+                    "selected": false
+                }
+            },
+            "styles": {
+                "boldly": {
+                    "label": "dishonored.actor.style.boldly",
+                    "value": 4,
+                    "selected": true
+                },
+                "carefully": {
+                    "label": "dishonored.actor.style.carefully",
+                    "value": 4,
+                    "selected": false
+                },
+                "cleverly": {
+                    "label": "dishonored.actor.style.cleverly",
+                    "value": 4,
+                    "selected": false
+                },
+                "forcefully": {
+                    "label": "dishonored.actor.style.forcefully",
+                    "value": 4,
+                    "selected": false
+                },
+                "quietly": {
+                    "label": "dishonored.actor.style.quietly",
+                    "value": 4,
+                    "selected": false
+                },
+                "swiftly": {
+                    "label": "dishonored.actor.style.swiftly",
+                    "value": 4,
+                    "selected": false
+                }
+            },
+            "attributes": {}
+        }
     },
-    "void": {
-	  "value": 3,
-	  "max":3
-    },
-	"momentum": {
-	  "value": 0
-	},
-    "skills": {
-	  "fight": {
-	    "label": "dishonored.actor.skill.fight",
-	    "value": 4,
-		"selected": true
-	  },
-	  "move": {
-	    "label": "dishonored.actor.skill.move",
-	    "value": 4,
-		"selected": false
-	  },
-	  "study": {
-	    "label": "dishonored.actor.skill.study",
-	    "value": 4,
-		"selected": false
-	  },
-	  "survive": {
-	    "label": "dishonored.actor.skill.survive",
-	    "value": 4,
-		"selected": false
-	  },
-	  "talk": {
-	    "label": "dishonored.actor.skill.talk",
-	    "value": 4,
-		"selected": false
-	  },
-	  "tinker": {
-	    "label": "dishonored.actor.skill.tinker",
-	    "value": 4,
-		"selected": false
-	  }
-	},
-    "styles": {
-	  "boldly": {
-	    "label": "dishonored.actor.style.boldly",
-	    "value": 4,
-		"selected": true
-	  },
-	  "carefully": {
-	    "label": "dishonored.actor.style.carefully",
-	    "value": 4,
-		"selected": false
-	  },
-	  "cleverly": {
-	    "label": "dishonored.actor.style.cleverly",
-	    "value": 4,
-		"selected": false
-	  },
-	  "forcefully": {
-	    "label": "dishonored.actor.style.forcefully",
-	    "value": 4,
-		"selected": false
-	  },
-	  "quietly": {
-	    "label": "dishonored.actor.style.quietly",
-	    "value": 4,
-		"selected": false
-	  },
-	  "swiftly": {
-	    "label": "dishonored.actor.style.swiftly",
-	    "value": 4,
-		"selected": false
-	  }
-	},
-    "attributes": {}
-  }
-},
-"Item": {
-  "types": ["item"],
-  "item": {
-    "description": "",
-    "quantity": 1,
-    "weight": 0,
-    "attributes": {}
-  }
-}
+    "Item": {
+        "types": ["item", "rune", "focus", "bonecharm", "weapon", "armor", "talent", "contact", "power"],
+        "item": {
+            "description": "",
+            "quantity": 1,
+            "weight": 0,
+            "attributes": {}
+        }
+    }
 }
