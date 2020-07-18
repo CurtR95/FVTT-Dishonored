@@ -1,28 +1,26 @@
 {
-  "name": "FVTT-Dishonored",
-  "title": "Dishonored Roleplaying Game",
-  "description": "A personal rendition of the Modiphius tabletop role playing game system.",
-  "version": "0.1.1",
-  "minimumCoreVersion": "0.6.4",
-  "compatibleCoreVersion": "0.6.5",
-  "templateVersion": 1,
-  "author": "KaitoR95",
-  "esmodules": ["module/dishonored.js"],
-  "styles": ["styles/dishonored.css"],
-  "packs": [],
-  "languages": [
-    {
-	  "lang": "en",
-	  "name": "English",
-	  "path": "lang/en.json"
-	}
-  ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
-  "primaryTokenAttribute": "stress",
-  "secondaryTokenAttribute": "void",
-  "url": "https://github.com/CurtR95/FVTT-Dishonored",
-  "manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/0.1.1/system.json",
-  "download": "https://github.com/CurtR95/FVTT-Dishonored/archive/0.1.1.zip",
-  "license": "LICENSE.txt"
+    "name": "FVTT-Dishonored",
+    "title": "Dishonored Roleplaying Game",
+    "description": "A personal rendition of the Modiphius tabletop role playing game system.",
+    "version": "0.1.2",
+    "minimumCoreVersion": "0.6.4",
+    "compatibleCoreVersion": "0.6.5",
+    "templateVersion": 1,
+    "author": "KaitoR95",
+    "esmodules": ["module/dishonored.js"],
+    "styles": ["styles/dishonored.css"],
+    "packs": [],
+    "languages": [{
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
+    }],
+    "gridDistance": 5,
+    "gridUnits": "ft",
+    "primaryTokenAttribute": "stress",
+    "secondaryTokenAttribute": "void",
+    "url": "https://github.com/CurtR95/FVTT-Dishonored",
+    "manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/0.1.2/system.json",
+    "download": "https://github.com/CurtR95/FVTT-Dishonored/archive/0.1.2.zip",
+    "license": "LICENSE.txt"
 }

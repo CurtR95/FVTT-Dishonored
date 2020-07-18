@@ -8,7 +8,7 @@ import {
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class DishonoredCharacterSheet extends ActorSheet {
+export class DishonoredNPCSheet extends ActorSheet {
 
     /** @override */
     static get defaultOptions() {
@@ -17,6 +17,11 @@ export class DishonoredCharacterSheet extends ActorSheet {
             template: "systems/FVTT-Dishonored/templates/actors/character-sheet.html",
             width: 700,
             height: 600,
+            tabs: [{
+                navSelector: ".sheet-tabs",
+                contentSelector: ".sheet-body",
+                initial: "description"
+            }],
             dragDrop: [{
                 dragSelector: ".item-list .item",
                 dropSelector: null
@@ -216,16 +221,20 @@ export class DishonoredCharacterSheet extends ActorSheet {
             var i;
             for (i = 0; i <= 5; i++) {
                 html.find('.skill-roll-selector')[i].checked = false;
+                // html.find('.skill-roll-selector')[i].style.backgroundColor = "";
             }
             $(ev.currentTarget)[0].checked = true;
+            // $(ev.currentTarget)[0].style.backgroundColor = "#191813";
         });
 
         html.find('.style-roll-selector').click(ev => {
             var i;
             for (i = 0; i <= 5; i++) {
                 html.find('.style-roll-selector')[i].checked = false;
+                // html.find('.style-roll-selector')[i].style.backgroundColor = "";
             }
             $(ev.currentTarget)[0].checked = true;
+            // $(ev.currentTarget)[0].style.backgroundColor = "#191813";
         });
 
         html.find('.check-button').click(ev => {
@@ -260,7 +269,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                     html.find('[id^="mom"]')[i].style.color = "#ffffff";
                 } else {
                     html.find('[id^="mom"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="mom"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
+                    html.find('[id^="mom"]')[i].style.backgroundColor = "";
                     html.find('[id^="mom"]')[i].style.color = "";
                 }
             }
@@ -271,7 +280,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                     html.find('[id^="stress"]')[i].style.color = "#ffffff";
                 } else {
                     html.find('[id^="stress"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
+                    html.find('[id^="stress"]')[i].style.backgroundColor = "";
                     html.find('[id^="stress"]')[i].style.color = "";
                 }
             }
@@ -282,7 +291,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                     html.find('[id^="void"]')[i].style.color = "#ffffff";
                 } else {
                     html.find('[id^="void"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="void"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
+                    html.find('[id^="void"]')[i].style.backgroundColor = "";
                     html.find('[id^="void"]')[i].style.color = "";
                 }
             }

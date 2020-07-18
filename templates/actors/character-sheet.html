@@ -1,151 +1,311 @@
 <form class="{{cssClass}}" autocomplete="off">
-	<div class="header-fields">
-		<div class="row">
-			<div class="column headings" style="width:40%">
-				{{localize 'dishonored.name'}}
-			</div>
-			<div class="column headings" style="width:25%">
-				{{localize 'dishonored.character.archetype'}} 
-			</div>
-			<div class="column headings" style="width:25%">
-				{{localize 'dishonored.character.outlook'}} 
-			</div>
-			<div class="column headings" style="width:10%">
-				{{localize 'dishonored.age'}}
-			</div>
-		</div>
-		<div class="row">
-			<div class="column headings" style="width:40%">
-				<input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-			</div>
-			<div class="column headings" style="width:25%">
-				<input name="data.archetype" type="text" value="{{data.archetype}}"/>
-			</div>
-			<div class="column headings" style="width:25%">
-				<input name="data.outlook" type="text" value="{{data.outlook}}"/>
-			</div>
-			<div class="column headings" style="width:10%">
-				<input name="data.age" type="text" value="{{data.age}}" placeholder="21"/>
-			</div>
-		</div>
-		<div class="row">
-			<div class="column headings">
-				<div> {{localize 'dishonored.character.firstTruth'}} </div>
-			</div>
-			<div class="column headings">
-				<div> {{localize 'dishonored.character.secondTruth'}} </div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="column">
-				<input name="data.truth1" type="text" value="{{data.truth1}}"/>
-			</div>
-			<div class="column">
-				<input name="data.truth2" type="text" value="{{data.truth2}}"/>
-			</div>
-		</div>
-		<div class="momentum-section">
-			<div class="momentum-title headings">
-				{{localize 'dishonored.momentum'}}
-			</div>
-			<div class="momentum-track">
-				<input type="hidden" id="total-mom" name="data.momentum.value" value="{{data.momentum.value}}" data-dtype="Number" />
-				<div class="mombox" id="mom-1">1</div>
-				<div class="mombox" id="mom-2">2</div>
-				<div class="mombox" id="mom-3">3</div>
-				<div class="mombox" id="mom-4">4</div>
-				<div class="mombox" id="mom-5">5</div>
-				<div class="mombox" id="mom-6">6</div>
-			</div>
-		</div>
-	</div>
-	<div class="separator"></div>
-	<div class="main">
-		<div class="row">
-			<div class="column">
-				<div class="skill-section">
-					<div class="skill-title section-title">
-						{{localize 'dishonored.skill'}}
-					</div>
-					<div class="stat-flex-row">
-						<div class="advisory">{{localize 'dishonored.select'}}</div>
-						<div class="stat-text advisory">{{localize 'dishonored.skillText'}}</div>
-						<div class="stat-field advisory">{{localize 'dishonored.mod'}}</div>
-					</div>
-					{{#each data.skills as |skill key|}}
-						<div class="stat-flex-row">
-							<input class="skill-roll-selector" id="{{key}}.selector" type="checkbox" name="data.skills.{{key}}.selected" data-dtype="Boolean" {{checked skill.selected}} >
-							<div class="stat-text"> {{localize skill.label}} </div>
-							<input class="stat-field" id="{{key}}" name="data.skills.{{key}}.value" type="text" value="{{skill.value}}"/>
-						</div>
-					{{/each}}
-				</div>
-				<div class="separator"></div>
-			</div>
-			<div class="column">
-				<div class="stress-section">
-					<div class="stress-title headings">
-						{{localize 'dishonored.stress'}}
-					</div>
-					<div class="mainflex">
-						<input type="hidden" id="total-stress" name="data.stress.value" value="{{data.stress.value}}" data-dtype="Number" />
-						<div class="stressbox" id="stress-1">1</div>
-						<div class="stressbox" id="stress-2">2</div>
-						<div class="stressbox" id="stress-3">3</div>
-						<div class="stressbox" id="stress-4">4</div>
-						<div class="stressbox" id="stress-5">5</div>
-						<div class="stressbox" id="stress-6">6</div>
-						<div class="stressbox" id="stress-7">7</div>
-						<div class="stressbox" id="stress-8">8</div>
-						<div class="stressbox" id="stress-9">9</div>
-						<div class="stressbox" id="stress-10">10</div>
-						<div class="stressbox" id="stress-11">11</div>
-						<div class="stressbox" id="stress-12">12</div>
-					</div>
-				</div>
-				<div class="separator"></div>
-				<div class="img-section">
-					<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150"/>
-				</div>
-				<div class="separator"></div>
-				<div class="void-section">
-					<div class="void-title headings">
-						{{localize 'dishonored.character.void'}}
-					</div>
-					<div class="mainflex">
-						<input type="hidden" id="total-void" name="data.void.value" value="{{data.void.value}}" data-dtype="Number" />
-						<div class="voidbox" id="void-1">1</div>
-						<div class="voidbox" id="void-2">2</div>
-						<div class="voidbox" id="void-3">3</div>
-					</div>
-				</div>
-				<div class="separator"></div>
-				<div class="check-section">
-					<div class="check-button">{{localize 'dishonored.check'}}</div>
-				</div>
-				<div class="separator"></div>
-			</div>
-			<div class="column">
-				<div class="style-section">
-					<div class="style-title section-title">
-						{{localize 'dishonored.style'}}
-					</div>
-					<div class="stat-flex-row">
-						<div class="stat-field advisory">{{localize 'dishonored.mod'}}</div>
-						<div class="stat-text advisory">{{localize 'dishonored.styleText'}}</div>
-						<div class="advisory">{{localize 'dishonored.select'}}</div>
-					</div>
-					{{#each data.styles as |style key|}}
-						<div class="stat-flex-row">
-							<input class="stat-field" id="{{key}}" name="data.styles.{{key}}.value" type="text" value="{{style.value}}" placeholder="Name"/>
-							<div class="stat-text"> {{localize style.label}} </div>
-							<input class="style-roll-selector" id="{{key}}.selector" type="checkbox" name="data.styles.{{key}}.selected" data-dtype="Boolean" {{checked style.selected}} >
-						</div>
-					{{/each}}
-				</div>
-				<div class="separator"></div>
-			</div>
-		</div>
-	</div>
+    <div class="main-content">
+        <div class="header-fields">
+            <div class="row">
+                <div class="column headings" style="width:40%">
+                    {{localize 'dishonored.actor.character.name'}}
+                </div>
+                <div class="column headings" style="width:25%">
+                    {{localize 'dishonored.actor.character.archetype'}}
+                </div>
+                <div class="column headings" style="width:25%">
+                    {{localize 'dishonored.actor.character.outlook'}}
+                </div>
+                <div class="column headings" style="width:10%">
+                    {{localize 'dishonored.actor.character.age'}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="column headings" style="width:40%">
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+                </div>
+                <div class="column headings" style="width:25%">
+                    <input name="data.archetype" type="text" value="{{data.archetype}}" />
+                </div>
+                <div class="column headings" style="width:25%">
+                    <input name="data.outlook" type="text" value="{{data.outlook}}" />
+                </div>
+                <div class="column headings" style="width:10%">
+                    <input name="data.age" type="text" value="{{data.age}}" placeholder="21" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="column headings">
+                    <div> {{localize 'dishonored.actor.character.firstTruth'}} </div>
+                </div>
+                <div class="column headings">
+                    <div> {{localize 'dishonored.actor.character.secondTruth'}} </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <input name="data.truth1" type="text" value="{{data.truth1}}" />
+                </div>
+                <div class="column">
+                    <input name="data.truth2" type="text" value="{{data.truth2}}" />
+                </div>
+            </div>
+            <div class="momentum-section">
+                <div class="momentum-title headings">
+                    {{localize 'dishonored.actor.character.momentum'}}
+                </div>
+                <div class="momentum-track">
+                    <input type="hidden" id="total-mom" name="data.momentum.value" value="{{data.momentum.value}}" data-dtype="Number" />
+                    <div class="mombox" id="mom-1">1</div>
+                    <div class="mombox" id="mom-2">2</div>
+                    <div class="mombox" id="mom-3">3</div>
+                    <div class="mombox" id="mom-4">4</div>
+                    <div class="mombox" id="mom-5">5</div>
+                    <div class="mombox" id="mom-6">6</div>
+                </div>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="main">
+            <div class="row">
+                <div class="column">
+                    <div class="skill-section">
+                        <div class="skill-title section-title">
+                            {{localize 'dishonored.actor.skill.title'}}
+                        </div>
+                        <div class="stat-flex-row">
+                            <div class="advisory">{{localize 'dishonored.actor.skisty.select'}}</div>
+                            <div class="stat-text advisory">{{localize 'dishonored.actor.skill.name'}}</div>
+                            <div class="stat-field advisory">{{localize 'dishonored.actor.skisty.mod'}}</div>
+                        </div>
+                        {{#each data.skills as |skill key|}}
+                        <div class="stat-flex-row">
+                            <input class="skill-roll-selector" id="{{key}}.selector" type="checkbox" name="data.skills.{{key}}.selected" data-dtype="Boolean" {{checked skill.selected}}>
+                            <div class="stat-text"> {{localize skill.label}} </div>
+                            <input class="stat-field" id="{{key}}" name="data.skills.{{key}}.value" type="text" value="{{skill.value}}" />
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="stress-section">
+                        <div class="stress-title headings">
+                            {{localize 'dishonored.actor.character.stress'}}
+                        </div>
+                        <div class="mainflex">
+                            <input type="hidden" id="total-stress" name="data.stress.value" value="{{data.stress.value}}" data-dtype="Number" />
+                            <div class="stressbox" id="stress-1">1</div>
+                            <div class="stressbox" id="stress-2">2</div>
+                            <div class="stressbox" id="stress-3">3</div>
+                            <div class="stressbox" id="stress-4">4</div>
+                            <div class="stressbox" id="stress-5">5</div>
+                            <div class="stressbox" id="stress-6">6</div>
+                            <div class="stressbox" id="stress-7">7</div>
+                            <div class="stressbox" id="stress-8">8</div>
+                            <div class="stressbox" id="stress-9">9</div>
+                            <div class="stressbox" id="stress-10">10</div>
+                            <div class="stressbox" id="stress-11">11</div>
+                            <div class="stressbox" id="stress-12">12</div>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="img-section">
+                        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150" />
+                    </div>
+                    <div class="separator"></div>
+                    <div class="check-section">
+                        <div class="check-button">{{localize 'dishonored.actor.skisty.check'}}</div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="style-section">
+                        <div class="style-title section-title">
+                            {{localize 'dishonored.actor.style.title'}}
+                        </div>
+                        <div class="stat-flex-row">
+                            <div class="stat-field advisory">{{localize 'dishonored.actor.skisty.mod'}}</div>
+                            <div class="stat-text advisory">{{localize 'dishonored.actor.style.name'}}</div>
+                            <div class="advisory">{{localize 'dishonored.actor.skisty.select'}}</div>
+                        </div>
+                        {{#each data.styles as |style key|}}
+                        <div class="stat-flex-row">
+                            <input class="stat-field" id="{{key}}" name="data.styles.{{key}}.value" type="text" value="{{style.value}}" placeholder="Name" />
+                            <div class="stat-text"> {{localize style.label}} </div>
+                            <input class="style-roll-selector" id="{{key}}.selector" type="checkbox" name="data.styles.{{key}}.selected" data-dtype="Boolean" {{checked style.selected}}>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="contacts-section">
+                        <div class="contact-title section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.contact.title'}}</div>
+                            <a class="item-control item-create add-item" title="Create item" data-type="contact"><i class="fas fa-plus"></i></a>
+                        </div>
+                        <div class="stat-flex-row">
+                            <div class="stat-text advisory">{{localize 'dishonored.actor.contact.name'}}</div>
+                            <div class="stat-field advisory">{{localize 'dishonored.actor.contact.relationship'}}</div>
+                        </div>
+                        {{#each actor.items as |item id|}}
+                        {{#if (eq item.type "contact")}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-controls">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="void-section">
+                        <div class="void-title headings">
+                            {{localize 'dishonored.actor.character.void'}}
+                        </div>
+                        <div class="mainflex">
+                            <input type="hidden" id="total-void" name="data.void.value" value="{{data.void.value}}" data-dtype="Number" />
+                            <input type="hidden" id="max-void" name="data.void.max" value="{{data.void.max}}" data-dtype="Number" />
+                            <div class="voidchange" id="decrease-void-max"><i class="fas fa-minus"></i></div>
+                            <div id="bar-void-renderer" class="mainflex voidbar"></div>
+                            <div class="voidchange" id="increase-void-max"><i class="fas fa-plus"></i></div>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="talent-section">
+                        <div class="talent-title section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.talent.title'}}</div>
+                            <a class="item-control item-create add-item" title="Create item" data-type="talent"><i class="fas fa-plus"></i></a>
+                        </div>
+                        {{#each actor.items as |item id|}}
+                        {{#if (eq item.type "talent")}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-controls">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="focus-section">
+                        <div class="focus-title section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.focus.title'}}</div>
+                            <a class="item-control item-create add-item" title="Create item" data-type="focus"><i class="fas fa-plus"></i></a>
+                        </div>
+                        <div class="stat-flex-row">
+                            <div class="stat-text advisory">{{localize 'dishonored.actor.focus.name'}}</div>
+                            <div class="stat-field advisory">{{localize 'dishonored.actor.focus.value'}}</div>
+                        </div>
+                        {{#each actor.items as |item id|}}
+                        {{#if (eq item.type "focus")}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-controls">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="note-section">
+                        <div class="note-title section-title">
+                            {{localize 'dishonored.actor.note.title'}}
+                        </div>
+                        <div class="notes">
+                            {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="power-section">
+                        <div class="power-title section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.power.title'}}</div>
+                            <a class="item-control item-create add-item" title="Create item" data-type="power"><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="belonging-section">
+                        <div class="belonging-title section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.belonging.title'}}</div>
+                        </div>
+                        <div class="sub-section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.belonging.weapon.title'}}</div>
+                            <a class="item-control item-create add-item-sub" title="Create item" data-type="weapon"><i class="fas fa-plus"></i></a>
+                        </div>
+                        {{#each actor.items as |item type id|}}
+                        {{#if (eq item.type "weapon")}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-controls">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                        <div class="sub-section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.belonging.armor.title'}}</div>
+                            <a class="item-control item-create add-item-sub" title="Create item" data-type="armor"><i class="fas fa-plus"></i></a>
+                        </div>
+                        {{#each actor.items as |item type id|}}
+                        {{#if (eq item.type "armor")}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-controls">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                        <div class="sub-section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
+                            <a class="item-control item-create add-item-sub" title="Create item" data-type="bonecharm"><i class="fas fa-plus"></i></a>
+                        </div>
+                        {{#each actor.items as |item type id|}}
+                        {{#if (eq item.type "bonecharm")}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-controls">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                        <div class="sub-section-title item-section">
+                            <div class="title">{{localize 'dishonored.actor.belonging.other.title'}}</div>
+                            <a class="item-control item-create add-item-sub" title="Create item" data-type="item"><i class="fas fa-plus"></i></a>
+                        </div>
+                        {{#each actor.items as |item type id|}}
+                        {{#if (eq item.type "item")}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-controls">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
-

@@ -3,34 +3,18 @@
  * @extends {Actor}
  */
 export class DishonoredActor extends Actor {
+	prepareData() {
+		super.prepareData();
 
-  // /** @override */
-  // getRollData() {
-    // const data = super.getRollData();
-    // // const shorthand = game.settings.get("worldbuilding", "macroShorthand");
+		const actorData = this.data;
+		const data = actorData.data;
+		const flags = actorData.flags;
 
-    // // Re-map all attributes onto the base roll data
-    // // if ( !!shorthand ) {
-      // // for ( let [k, v] of Object.entries(data.attributes) ) {
-        // // if ( !(k in data) ) data[k] = v.value;
-      // // }
-      // // delete data.attributes;
-    // // }
+		if (actorData.type === 'character') this._prepareCharacterData(actorData);
+	}
 
-    // // Map all items data using their slugified names
-    // data.items = this.data.items.reduce((obj, i) => {
-      // let key = i.name.slugify({strict: true});
-      // let itemData = duplicate(i.data);
-      // // if ( !!shorthand ) {
-        // // for ( let [k, v] of Object.entries(itemData.attributes) ) {
-          // // if ( !(k in itemData) ) itemData[k] = v.value;
-        // // }
-        // // delete itemData["attributes"];
-      // // }
-      // obj[key] = itemData;
-      // return obj;
-    // }, {});
-	
-    // return data;
-  // }
+	_prepareCharacterData(actorData) {
+		const data = actorData.data;
+		// console.log(data);
+	}
 }
