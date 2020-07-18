@@ -20,7 +20,7 @@
     "primaryTokenAttribute": "stress",
     "secondaryTokenAttribute": "void",
     "url": "https://github.com/CurtR95/FVTT-Dishonored",
-    "manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/0.1.2/system.json",
-    "download": "https://github.com/CurtR95/FVTT-Dishonored/archive/0.1.2.zip",
+    "manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/master/system.json",
+    "download": "https://github.com/CurtR95/FVTT-Dishonored/archive/master.zip",
     "license": "LICENSE.txt"
 }
