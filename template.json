@@ -87,13 +87,14 @@
             },
             "momentum": {
                 "value": 0
-            },
-            
-            "attributes": {}
+            }
+        },
+        "npc": {
+            "templates": ["common"]
         }
     },
     "Item": {
-        "types": ["item", "rune", "focus", "bonecharm", "weapon", "armor", "talent", "contact", "power"],
+        "types": ["item", "focus", "bonecharm", "weapon", "armor", "talent", "contact", "power"],
         "templates": {
             "common": {
                 "description": ""
@@ -101,17 +102,57 @@
         },
         "item": {
             "templates": ["common"],
-            "quantity": 1,
-            "weight": 0,
-            "attributes": {}
+            "cost": 0,
+            "quantity": 1
+        },
+        "focus": {
+            "templates": ["common"],
+            "rating": 0
+        },
+        "bonecharm": {
+            "templates": ["common"]
+        },
+        "weapon": {
+            "templates": ["common"],
+            "damage": 0,
+            "cost": 0,
+            "qualities": {
+                "armorpierce": false,
+                "awkward": false,
+                "blast": false,
+                "block": false,
+                "burn": false,
+                "concealed": false,
+                "melee": false,
+                "messy": false,
+                "mine": false,
+                "rangeddistant": false,
+                "rangednearby": false
+            }
+        },
+        "armor": {
+            "templates": ["common"],
+            "protection": 0,
+            "cost": 0
         },
         "talent": {
             "templates": ["common"],
             "type": ""
         },
-        "focus": {
+        "contact": {
             "templates": ["common"],
-            "rating": 0
+            "relationship": {
+                "great": false,
+                "fair": false,
+                "neutral": false,
+                "poor": false,
+                "dire": false
+            }
+        },
+        "power": {
+            "templates": ["common"],
+            "manacost": 0,
+            "runecost": 0
         }
     }
 }

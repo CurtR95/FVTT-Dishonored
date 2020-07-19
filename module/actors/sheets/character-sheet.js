@@ -16,7 +16,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             classes: ["dishonored", "sheet", "character"],
             template: "systems/FVTT-Dishonored/templates/actors/character-sheet.html",
             width: 700,
-            height: 740,
+            height: 735,
             dragDrop: [{
                 dragSelector: ".item-list .item",
                 dropSelector: null
@@ -30,9 +30,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
     getData() {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
-        for (let attr of Object.values(data.data.attributes)) {
-            attr.isCheckbox = attr.dtype === "Boolean";
-        }
 
         //Ensure skill and style values don't weigh over the max of 8 and minimum of 4.
         if (data.data.skills.fight.value > 8) data.data.skills.fight.value = 8;

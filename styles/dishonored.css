@@ -195,6 +195,7 @@
 
 .dishonored .notes {
     height: 200px;
+    text-align: left;
 }
 
 .dishonored .notes .editor {
@@ -280,7 +281,19 @@
    font-size: 12pt;
 }
 
+.dishonored .item-header-input-single {
+    width: 100%;
+    font-weight: bold;
+    font-size: 12pt;
+ }
+
 .dishonored .item-header-input-main {
+    width: 80%;
+    font-weight: bold;
+    font-size: 12pt;
+ }
+
+ .dishonored .item-header-input-mini-main {
     width: 80%;
     font-weight: bold;
     font-size: 12pt;
@@ -300,3 +313,6 @@
     height: 100%;
 }
 
+.dishonored .npc-notes {
+    text-align: center;
+}
