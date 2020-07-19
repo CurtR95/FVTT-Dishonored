@@ -2,17 +2,13 @@
     <div class="header-fields">
         <div class="row">
             <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-            <div class="item-header-input-mini-main">
+            <div class="item-header-input-main">
                 <label>Name</label>
                 <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
             </div>
             <div class="item-header-input-sub">
-                <label>Quantity</label>
-                <input type="text" name="data.rating" value="{{data.quantity}}" data-dtype="Number" />
-            </div>
-            <div class="item-header-input-sub">
-                <label>Value</label>
-                <input type="text" name="data.rating" value="{{data.cost}}" data-dtype="Number" />
+                <label>Rating</label>
+                <input type="text" name="data.rating" value="{{data.rating}}" data-dtype="Number" />
             </div>
         </div>
     </div>

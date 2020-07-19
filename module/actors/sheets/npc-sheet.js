@@ -13,15 +13,10 @@ export class DishonoredNPCSheet extends ActorSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "actor"],
-            template: "systems/FVTT-Dishonored/templates/actors/character-sheet.html",
+            classes: ["dishonored", "sheet", "npc"],
+            template: "systems/FVTT-Dishonored/templates/actors/npc-sheet.html",
             width: 700,
-            height: 600,
-            tabs: [{
-                navSelector: ".sheet-tabs",
-                contentSelector: ".sheet-body",
-                initial: "description"
-            }],
+            height: 660,
             dragDrop: [{
                 dragSelector: ".item-list .item",
                 dropSelector: null
@@ -35,9 +30,6 @@ export class DishonoredNPCSheet extends ActorSheet {
     getData() {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
-        for (let attr of Object.values(data.data.attributes)) {
-            attr.isCheckbox = attr.dtype === "Boolean";
-        }
 
         //Ensure skill and style values don't weigh over the max of 8 and minimum of 4.
         if (data.data.skills.fight.value > 8) data.data.skills.fight.value = 8;
@@ -52,7 +44,6 @@ export class DishonoredNPCSheet extends ActorSheet {
         if (data.data.styles.forcefully.value > 8) data.data.styles.forcefully.value = 8;
         if (data.data.styles.quietly.value > 8) data.data.styles.quietly.value = 8;
         if (data.data.styles.swiftly.value > 8) data.data.styles.swiftly.value = 8;
-        if (data.data.void.value > data.data.void.max) data.data.void.value = data.data.void.max;
         if (data.data.skills.fight.value < 4) data.data.skills.fight.value = 4;
         if (data.data.skills.move.value < 4) data.data.skills.move.value = 4;
         if (data.data.skills.study.value < 4) data.data.skills.study.value = 4;
@@ -65,8 +56,6 @@ export class DishonoredNPCSheet extends ActorSheet {
         if (data.data.styles.forcefully.value < 4) data.data.styles.forcefully.value = 4;
         if (data.data.styles.quietly.value < 4) data.data.styles.quietly.value = 4;
         if (data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
-        if (data.data.void.value < 0) data.data.void.value = 0;
-        if (data.data.void.max < 1) data.data.void.value = 1;
 
         return data;
     }
@@ -76,18 +65,6 @@ export class DishonoredNPCSheet extends ActorSheet {
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
-
-        var voidpointsmax = document.getElementById('max-void').value;
-        var i;
-        for (i = 1; i <= voidpointsmax; i++) {
-            var div = document.createElement("DIV");
-            div.className = "voidbox";
-            div.id = "void-" + i;
-            div.innerHTML = i;
-            div.style = "width: calc(100% / " + document.getElementById('max-void').value + ");"
-            document.getElementById('bar-void-renderer').appendChild(div);
-            //   <div class="voidbox" id="void-1">1</div>
-        }
 
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
@@ -129,30 +106,6 @@ export class DishonoredNPCSheet extends ActorSheet {
             li.slideUp(200, () => this.render(false));
         });
 
-        html.find('[id^="mom"]').click(ev => {
-            var newTotalObject = $(ev.currentTarget)[0];
-            var newTotal = newTotalObject.id.substring(4);
-            if (newTotalObject.getAttribute("data-value") == 1) {
-                var nextCheck = 'mom-' + (parseInt(newTotal) + 1);
-                if (!document.getElementById(nextCheck) || document.getElementById(nextCheck).getAttribute("data-value") != 1) {
-                    document.getElementById('total-mom').value = document.getElementById('total-mom').value - 1;
-                    barRenderer();
-                } else {
-                    var total = document.getElementById('total-mom').value;
-                    if (total != newTotal) {
-                        document.getElementById('total-mom').value = newTotal;
-                        barRenderer();
-                    }
-                }
-            } else {
-                var total = document.getElementById('total-mom').value;
-                if (total != newTotal) {
-                    document.getElementById('total-mom').value = newTotal;
-                    barRenderer();
-                }
-            }
-        });
-
         html.find('[id^="stress"]').click(ev => {
             var newTotalObject = $(ev.currentTarget)[0];
             var newTotal = newTotalObject.id.substring(7);
@@ -178,43 +131,6 @@ export class DishonoredNPCSheet extends ActorSheet {
                     this.submit();
                 }
             }
-        });
-
-        html.find('[id^="void"]').click(ev => {
-            var newTotalObject = $(ev.currentTarget)[0];
-            var newTotal = newTotalObject.id.replace(/\D/g, '');
-            if (newTotalObject.getAttribute("data-value") == 1) {
-                var nextCheck = 'void-' + (parseInt(newTotal) + 1);
-                if (!document.getElementById(nextCheck) || document.getElementById(nextCheck).getAttribute("data-value") != 1) {
-                    document.getElementById('total-void').value = document.getElementById('total-void').value - 1;
-                    barRenderer();
-                    this.submit();
-                } else {
-                    var total = document.getElementById('total-void').value;
-                    if (total != newTotal) {
-                        document.getElementById('total-void').value = newTotal;
-                        barRenderer();
-                        this.submit();
-                    }
-                }
-            } else {
-                var total = document.getElementById('total-void').value;
-                if (total != newTotal) {
-                    document.getElementById('total-void').value = newTotal;
-                    barRenderer();
-                    this.submit();
-                }
-            }
-        });
-
-        html.find('[id="decrease-void-max"]').click(ev => {
-            document.getElementById('max-void').value--;
-            this.submit();
-        });
-
-        html.find('[id="increase-void-max"]').click(ev => {
-            document.getElementById('max-void').value++;
-            this.submit();
         });
 
         html.find('.skill-roll-selector').click(ev => {
@@ -257,22 +173,8 @@ export class DishonoredNPCSheet extends ActorSheet {
             this.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle);
         });
 
-
-
         function barRenderer() {
             var i;
-            var voidpointsmax = document.getElementById('max-void').value;
-            for (i = 0; i < 6; i++) {
-                if (i + 1 <= document.getElementById('total-mom').value) {
-                    html.find('[id^="mom"]')[i].setAttribute("data-value", "1");
-                    html.find('[id^="mom"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="mom"]')[i].style.color = "#ffffff";
-                } else {
-                    html.find('[id^="mom"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="mom"]')[i].style.backgroundColor = "";
-                    html.find('[id^="mom"]')[i].style.color = "";
-                }
-            }
             for (i = 0; i < 12; i++) {
                 if (i + 1 <= document.getElementById('total-stress').value) {
                     html.find('[id^="stress"]')[i].setAttribute("data-value", "1");
@@ -282,17 +184,6 @@ export class DishonoredNPCSheet extends ActorSheet {
                     html.find('[id^="stress"]')[i].setAttribute("data-value", "0");
                     html.find('[id^="stress"]')[i].style.backgroundColor = "";
                     html.find('[id^="stress"]')[i].style.color = "";
-                }
-            }
-            for (i = 0; i < voidpointsmax; i++) {
-                if (i + 1 <= document.getElementById('total-void').value) {
-                    html.find('[id^="void"]')[i].setAttribute("data-value", "1");
-                    html.find('[id^="void"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="void"]')[i].style.color = "#ffffff";
-                } else {
-                    html.find('[id^="void"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="void"]')[i].style.backgroundColor = "";
-                    html.find('[id^="void"]')[i].style.color = "";
                 }
             }
 

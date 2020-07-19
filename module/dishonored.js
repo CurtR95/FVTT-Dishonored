@@ -1,8 +1,5 @@
 // Import Modules
 import {
-    DishonoredItemSheet
-} from "./items/item-sheet.js";
-import {
     DishonoredActor
 } from "./actors/actor.js";
 import {
@@ -11,6 +8,30 @@ import {
 import {
     DishonoredNPCSheet
 } from "./actors/sheets/npc-sheet.js";
+import {
+    DishonoredItemSheet
+} from "./items/item-sheet.js";
+import {
+    DishonoredFocusSheet
+} from "./items/focus-sheet.js";
+import {
+    DishonoredBonecharmSheet
+} from "./items/bonecharm-sheet.js";
+import {
+    DishonoredWeaponSheet
+} from "./items/weapon-sheet.js";
+import {
+    DishonoredArmorSheet
+} from "./items/armor-sheet.js";
+import {
+    DishonoredTalentSheet
+} from "./items/talent-sheet.js";
+import {
+    DishonoredContactSheet
+} from "./items/contact-sheet.js";
+import {
+    DishonoredPowerSheet
+} from "./items/power-sheet.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -37,12 +58,34 @@ Hooks.once("init", async function() {
         types: ["character"],
         makeDefault: true
     });
-    // Actors.registerSheet("dishonored", DishonoredNPCSheet, {
-    //     types: ["npc"]
-    // });
+    Actors.registerSheet("dishonored", DishonoredNPCSheet, {
+        types: ["npc"]
+    });
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("dishonored", DishonoredItemSheet, {
+        types: ["item"],
         makeDefault: true
+    });
+    Items.registerSheet("dishonored", DishonoredFocusSheet, {
+        types: ["focus"],
+    });
+    Items.registerSheet("dishonored", DishonoredBonecharmSheet, {
+        types: ["bonecharm"],
+    });
+    Items.registerSheet("dishonored", DishonoredWeaponSheet, {
+        types: ["weapon"],
+    });
+    Items.registerSheet("dishonored", DishonoredArmorSheet, {
+        types: ["armor"],
+    });
+    Items.registerSheet("dishonored", DishonoredTalentSheet, {
+        types: ["talent"],
+    });
+    Items.registerSheet("dishonored", DishonoredContactSheet, {
+        types: ["contact"],
+    });
+    Items.registerSheet("dishonored", DishonoredPowerSheet, {
+        types: ["power"],
     });
 
     // Register system settings
