@@ -11,6 +11,12 @@ import {
 import {
     DishonoredNPCSheet
 } from "./actors/sheets/npc-sheet.js";
+import {
+    DishonoredTalentSheet
+} from "./items/talent-sheet.js";
+import {
+    DishonoredFocusSheet
+} from "./items/focus-sheet.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -42,7 +48,14 @@ Hooks.once("init", async function() {
     // });
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("dishonored", DishonoredItemSheet, {
+        types: ["item"],
         makeDefault: true
+    });
+    Items.registerSheet("dishonored", DishonoredTalentSheet, {
+        types: ["talent"],
+    });
+    Items.registerSheet("dishonored", DishonoredFocusSheet, {
+        types: ["focus"],
     });
 
     // Register system settings

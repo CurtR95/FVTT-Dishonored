@@ -13,10 +13,10 @@ export class DishonoredCharacterSheet extends ActorSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "actor"],
+            classes: ["dishonored", "sheet", "character"],
             template: "systems/FVTT-Dishonored/templates/actors/character-sheet.html",
             width: 700,
-            height: 600,
+            height: 740,
             dragDrop: [{
                 dragSelector: ".item-list .item",
                 dropSelector: null

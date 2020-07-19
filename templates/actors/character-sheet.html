@@ -145,7 +145,7 @@
                         </div>
                         {{#each actor.items as |item id|}}
                         {{#if (eq item.type "contact")}}
-                        <li class="item flexrow" data-item-id="{{item._id}}">
+                        <li class="item item-flex" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                             <h4 class="item-name">{{item.name}}</h4>
                             <div class="item-controls">
@@ -178,7 +178,7 @@
                         </div>
                         {{#each actor.items as |item id|}}
                         {{#if (eq item.type "talent")}}
-                        <li class="item flexrow" data-item-id="{{item._id}}">
+                        <li class="item item-flex" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                             <h4 class="item-name">{{item.name}}</h4>
                             <div class="item-controls">
@@ -197,14 +197,18 @@
                             <a class="item-control item-create add-item" title="Create item" data-type="focus"><i class="fas fa-plus"></i></a>
                         </div>
                         <div class="stat-flex-row">
-                            <div class="stat-text advisory">{{localize 'dishonored.actor.focus.name'}}</div>
-                            <div class="stat-field advisory">{{localize 'dishonored.actor.focus.value'}}</div>
+                            <div class="item-image"></div>
+                            <div class="item-two-section-main advisory">{{localize 'dishonored.actor.focus.name'}}</div>
+                            <div class="item-two-section-sub advisory">{{localize 'dishonored.actor.focus.value'}}</div>
+                            <div class="item-controls"></div>
                         </div>
                         {{#each actor.items as |item id|}}
                         {{#if (eq item.type "focus")}}
-                        <li class="item flexrow" data-item-id="{{item._id}}">
+                        <li class="item item-flex" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
-                            <h4 class="item-name">{{item.name}}</h4>
+                            <h4 class="item-two-section-main">{{item.name}}</h4>
+                            <!-- <input name="item.data.rating" value="{{item.data.rating}}" data-dtype="Number" /> -->
+                            <h4 class="item-two-section-sub">{{item.data.rating}}</h4>
                             <div class="item-controls">
                                 <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                 <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -232,6 +236,18 @@
                             <div class="title">{{localize 'dishonored.actor.power.title'}}</div>
                             <a class="item-control item-create add-item" title="Create item" data-type="power"><i class="fas fa-plus"></i></a>
                         </div>
+                        {{#each actor.items as |item type id|}}
+                        {{#if (eq item.type "power")}}
+                        <li class="item item-flex" data-item-id="{{item._id}}">
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                            <h4 class="item-name">{{item.name}}</h4>
+                            <div class="item-controls">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
                     </div>
                 </div>
                 <div class="column">
@@ -245,7 +261,7 @@
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "weapon")}}
-                        <li class="item flexrow" data-item-id="{{item._id}}">
+                        <li class="item item-flex" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                             <h4 class="item-name">{{item.name}}</h4>
                             <div class="item-controls">
@@ -261,7 +277,7 @@
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "armor")}}
-                        <li class="item flexrow" data-item-id="{{item._id}}">
+                        <li class="item item-flex" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                             <h4 class="item-name">{{item.name}}</h4>
                             <div class="item-controls">
@@ -277,7 +293,7 @@
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "bonecharm")}}
-                        <li class="item flexrow" data-item-id="{{item._id}}">
+                        <li class="item item-flex" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                             <h4 class="item-name">{{item.name}}</h4>
                             <div class="item-controls">
@@ -293,7 +309,7 @@
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "item")}}
-                        <li class="item flexrow" data-item-id="{{item._id}}">
+                        <li class="item item-flex" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
                             <h4 class="item-name">{{item.name}}</h4>
                             <div class="item-controls">

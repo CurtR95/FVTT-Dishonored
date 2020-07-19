@@ -193,8 +193,12 @@
     cursor: pointer;
 }
 
-.dishonored .notes .editor {
+.dishonored .notes {
     height: 200px;
+}
+
+.dishonored .notes .editor {
+    height: 100%;
 }
 
 .dishonored .section-title {
@@ -213,7 +217,7 @@
 }
 
 .dishonored .item-section .title {
-    width: 95%;
+    width: 100%;
     text-align: center;
 }
 
@@ -235,3 +239,64 @@
 .dishonored .advisory {
     font-weight: bold;
 }
+
+.dishonored .item-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.dishonored .item-image {
+    width: 26px;
+}
+
+.dishonored .item-name {
+    width: calc(100% - 58px);
+}
+
+.dishonored .item-controls {
+    width: 32px;
+}
+
+.dishonored .item-two-section-main {
+    width: calc(3*((100% - 58px)/4));
+}
+
+.dishonored .item-two-section-sub {
+    width: calc((100% - 58px)/4);
+}
+
+.dishonored .item-two-section {
+    width: calc((100% - 58px)/2);
+}
+
+
+.dishonored .item-img {
+   width: 50px;
+}
+
+.dishonored .item-header-input {
+   width: 50%;
+   font-weight: bold;
+   font-size: 12pt;
+}
+
+.dishonored .item-header-input-main {
+    width: 80%;
+    font-weight: bold;
+    font-size: 12pt;
+ }
+
+ .dishonored .item-header-input-sub {
+    width: 20%;
+    font-weight: bold;
+    font-size: 12pt;
+ }
+
+.dishonored .description {
+    height: calc(100% - 50px);
+}
+
+.dishonored .description .editor {
+    height: 100%;
+}
+
