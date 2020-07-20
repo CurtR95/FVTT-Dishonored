@@ -9,7 +9,7 @@ export class DishonoredFocusSheet extends ItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["dishonored", "sheet", "focus"],
             template: "systems/FVTT-Dishonored/templates/items/focus-sheet.html",
-            width: 400,
+            width: 500,
             height: 200,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
