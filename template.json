@@ -87,7 +87,9 @@
             },
             "momentum": {
                 "value": 0
-            }
+            },
+            "coins": 0,
+            "runes": 0
         },
         "npc": {
             "templates": ["common"]
