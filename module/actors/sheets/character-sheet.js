@@ -45,6 +45,9 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (data.data.styles.quietly.value > 8) data.data.styles.quietly.value = 8;
         if (data.data.styles.swiftly.value > 8) data.data.styles.swiftly.value = 8;
         if (data.data.void.value > data.data.void.max) data.data.void.value = data.data.void.max;
+        if (data.data.stress.value > data.data.stress.max) data.data.stress.value = data.data.stress.max;
+
+
         if (data.data.skills.fight.value < 4) data.data.skills.fight.value = 4;
         if (data.data.skills.move.value < 4) data.data.skills.move.value = 4;
         if (data.data.skills.study.value < 4) data.data.skills.study.value = 4;
@@ -59,6 +62,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
         if (data.data.void.value < 0) data.data.void.value = 0;
         if (data.data.void.max < 1) data.data.void.value = 1;
+        if (data.data.stress.value < 0) data.data.stress.value = 0;
 
         return data;
     }
@@ -69,16 +73,39 @@ export class DishonoredCharacterSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
-        var voidpointsmax = document.getElementById('max-void').value;
+        var appId = this.appId;
+
+        var voidPointsMax = $("[data-appid="+appId+"]").find('#max-void')[0].value;
         var i;
-        for (i = 1; i <= voidpointsmax; i++) {
+        for (i = 1; i <= voidPointsMax; i++) {
             var div = document.createElement("DIV");
             div.className = "voidbox";
             div.id = "void-" + i;
             div.innerHTML = i;
-            div.style = "width: calc(100% / " + document.getElementById('max-void').value + ");"
-            document.getElementById('bar-void-renderer').appendChild(div);
+            div.style = "width: calc(100% / " + $("[data-appid="+appId+"]").find('#max-void')[0].value + ");"
+            $("[data-appid="+appId+"]").find('#bar-void-renderer')[0].appendChild(div);
             //   <div class="voidbox" id="void-1">1</div>
+        }
+
+        
+        var stressTrackMax = parseInt($("[data-appid="+appId+"]").find('#survive')[0].value);
+        var armor = html.find('[id^="protectval-armor"]');
+        for (i = 0; i < armor.length; i++) {
+            stressTrackMax += parseInt(armor[i].innerHTML);
+        }
+        if ($("[data-appid="+appId+"]").find('#max-stress')[0].value != stressTrackMax)
+        {
+            $("[data-appid="+appId+"]").find('#max-stress')[0].value = stressTrackMax;
+            this.submit();
+        }
+        for (i = 1; i <= stressTrackMax; i++) {
+            var div = document.createElement("DIV");
+            div.className = "stressbox";
+            div.id = "stress-" + i;
+            div.innerHTML = i;
+            div.style = "width: calc(100% / " + $("[data-appid="+appId+"]").find('#max-stress')[0].value + ");"
+            $("[data-appid="+appId+"]").find('#bar-stress-renderer')[0].appendChild(div);
+            //   <div class="stressbox" id="stress-1">1</div>
         }
 
         // Everything below here is only needed if the sheet is editable
@@ -127,19 +154,19 @@ export class DishonoredCharacterSheet extends ActorSheet {
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'mom-' + (parseInt(newTotal) + 1);
                 if (!document.getElementById(nextCheck) || document.getElementById(nextCheck).getAttribute("data-value") != 1) {
-                    document.getElementById('total-mom').value = document.getElementById('total-mom').value - 1;
+                    $("[data-appid="+appId+"]").find('#total-mom')[0].value = $("[data-appid="+appId+"]").find('#total-mom')[0].value - 1;
                     barRenderer();
                 } else {
-                    var total = document.getElementById('total-mom').value;
+                    var total = $("[data-appid="+appId+"]").find('#total-mom')[0].value;
                     if (total != newTotal) {
-                        document.getElementById('total-mom').value = newTotal;
+                        $("[data-appid="+appId+"]").find('#total-mom')[0].value = newTotal;
                         barRenderer();
                     }
                 }
             } else {
-                var total = document.getElementById('total-mom').value;
+                var total = $("[data-appid="+appId+"]").find('#total-mom')[0].value;
                 if (total != newTotal) {
-                    document.getElementById('total-mom').value = newTotal;
+                    $("[data-appid="+appId+"]").find('#total-mom')[0].value = newTotal;
                     barRenderer();
                 }
             }
@@ -151,21 +178,21 @@ export class DishonoredCharacterSheet extends ActorSheet {
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
                 if (!document.getElementById(nextCheck) || document.getElementById(nextCheck).getAttribute("data-value") != 1) {
-                    document.getElementById('total-stress').value = document.getElementById('total-stress').value - 1;
+                    $("[data-appid="+appId+"]").find('#total-stress')[0].value = $("[data-appid="+appId+"]").find('#total-stress')[0].value - 1;
                     barRenderer();
                     this.submit();
                 } else {
-                    var total = document.getElementById('total-stress').value;
+                    var total = $("[data-appid="+appId+"]").find('#total-stress')[0].value;
                     if (total != newTotal) {
-                        document.getElementById('total-stress').value = newTotal;
+                        $("[data-appid="+appId+"]").find('#total-stress')[0].value = newTotal;
                         barRenderer();
                         this.submit();
                     }
                 }
             } else {
-                var total = document.getElementById('total-stress').value;
+                var total = $("[data-appid="+appId+"]").find('#total-stress')[0].value;
                 if (total != newTotal) {
-                    document.getElementById('total-stress').value = newTotal;
+                    $("[data-appid="+appId+"]").find('#total-stress')[0].value = newTotal;
                     barRenderer();
                     this.submit();
                 }
@@ -178,21 +205,21 @@ export class DishonoredCharacterSheet extends ActorSheet {
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'void-' + (parseInt(newTotal) + 1);
                 if (!document.getElementById(nextCheck) || document.getElementById(nextCheck).getAttribute("data-value") != 1) {
-                    document.getElementById('total-void').value = document.getElementById('total-void').value - 1;
+                    $("[data-appid="+appId+"]").find('#total-void')[0].value = $("[data-appid="+appId+"]").find('#total-void')[0].value - 1;
                     barRenderer();
                     this.submit();
                 } else {
-                    var total = document.getElementById('total-void').value;
+                    var total = $("[data-appid="+appId+"]").find('#total-void')[0].value;
                     if (total != newTotal) {
-                        document.getElementById('total-void').value = newTotal;
+                        $("[data-appid="+appId+"]").find('#total-void')[0].value = newTotal;
                         barRenderer();
                         this.submit();
                     }
                 }
             } else {
-                var total = document.getElementById('total-void').value;
+                var total = $("[data-appid="+appId+"]").find('#total-void')[0].value;
                 if (total != newTotal) {
-                    document.getElementById('total-void').value = newTotal;
+                    $("[data-appid="+appId+"]").find('#total-void')[0].value = newTotal;
                     barRenderer();
                     this.submit();
                 }
@@ -200,12 +227,12 @@ export class DishonoredCharacterSheet extends ActorSheet {
         });
 
         html.find('[id="decrease-void-max"]').click(ev => {
-            document.getElementById('max-void').value--;
+            $("[data-appid="+appId+"]").find('#max-void')[0].value--;
             this.submit();
         });
 
         html.find('[id="increase-void-max"]').click(ev => {
-            document.getElementById('max-void').value++;
+            $("[data-appid="+appId+"]").find('#max-void')[0].value++;
             this.submit();
         });
 
@@ -249,9 +276,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         function barRenderer() {
             var i;
-            var voidpointsmax = document.getElementById('max-void').value;
+            var voidPointsMax = $("[data-appid="+appId+"]").find('#max-void')[0].value;
+            var stressTrackMax = parseInt($("[data-appid="+appId+"]").find('#survive')[0].value);
+            var armor = html.find('[id^="protectval-armor"]');
+            for (i = 0; i < armor.length; i++) {
+                stressTrackMax += parseInt(armor[i].innerHTML);
+            }
             for (i = 0; i < 6; i++) {
-                if (i + 1 <= document.getElementById('total-mom').value) {
+                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-mom')[0].value) {
                     html.find('[id^="mom"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="mom"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="mom"]')[i].style.color = "#ffffff";
@@ -261,8 +293,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
                     html.find('[id^="mom"]')[i].style.color = "";
                 }
             }
-            for (i = 0; i < 12; i++) {
-                if (i + 1 <= document.getElementById('total-stress').value) {
+            for (i = 0; i < stressTrackMax; i++) {
+                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-stress')[0].value) {
                     html.find('[id^="stress"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="stress"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="stress"]')[i].style.color = "#ffffff";
@@ -272,8 +304,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
                     html.find('[id^="stress"]')[i].style.color = "";
                 }
             }
-            for (i = 0; i < voidpointsmax; i++) {
-                if (i + 1 <= document.getElementById('total-void').value) {
+            for (i = 0; i < voidPointsMax; i++) {
+                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-void')[0].value) {
                     html.find('[id^="void"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="void"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="void"]')[i].style.color = "#ffffff";

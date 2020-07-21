@@ -100,8 +100,11 @@
     flex-direction: row;
 }
 
+.dishonored .stressbar {
+    width: 100%;
+}
+
 .dishonored .stressbox {
-    width: calc(100% / 12);
     height: 14px;
     border: 1px solid #191919;
     border-collapse: collapse;

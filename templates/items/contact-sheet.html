@@ -8,7 +8,13 @@
             </div>
             <div class="item-header-input-sub">
                 <label>Relation</label>
-                <!-- <input type="text" name="data.rating" value="{{data.rating}}" data-dtype="Number" /> -->
+                <select class="relationship" name="data.relationship"  data-type="String">
+                    {{#select item.data.relationship}}
+                    {{#each item.data.relationships as |relation key|}}
+                    <option value="{{localize relation.label}}">{{localize relation.label}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
             </div>
         </div>
     </div>

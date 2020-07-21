@@ -45,6 +45,11 @@
     "dishonored.actor.belonging.bonecharm.title": "Bonecharms",
     "dishonored.actor.belonging.other.title": "Other Items",
     "dishonored.actor.belonging.other.quantity": "Qty",
+    "dishonored.contact.relation.great": "Great",
+    "dishonored.contact.relation.fair": "Fair",
+    "dishonored.contact.relation.neutral": "Neutral",
+    "dishonored.contact.relation.poor": "Poor",
+    "dishonored.contact.relation.dire": "Dire",
 
     "dishonored.apps.dicepoolwindow": "Dice Pool",
     "dishonored.apps.focus": "Focus Rating",
