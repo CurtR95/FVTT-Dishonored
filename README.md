@@ -1,7 +1,7 @@
 # Foundry VTT Dishonored
 
 > Dishonored Tabletop System in Foundry VTT
-
+> You <b> MUST </b> own the <a href="https://www.modiphius.net/products/dishonored-the-roleplaying-game-core-rulebook-pdf?">Dishonored Tabletop RPG</a> to play this! This system does not attempt to explain the game or include any ready made characters, features or items. The system is designed for those who understand the rules and want to play via Foundry VTT. Modiphius own's the property, as such I will not discuss rules and content with those who have not purchased the system from Modiphius.
 <!-- **Badges will go here**
 
 - build status
@@ -38,6 +38,8 @@
 ---
 
 ## Thanks
+- Atropos, of course, for creating an amazing Virtual Table-top solution. If you are on the fence, get it. No other application exists that makes this possible! <a href="https://foundryvtt.com/" target="_blank">https://foundryvtt.com/</a>.
+- Modiphius & Arkane for creating a very interesting, unique system to creating a player driven story! <a href="https://www.modiphius.net/products/dishonored-the-roleplaying-game-core-rulebook-pdf?">https://www.modiphius.net/</a>.
 - Lorc for <a href="https://game-icons.net/1x1/lorc/walking-boot.html" target="_blank">Move</a>, <a href="https://game-icons.net/1x1/lorc/bookmarklet.html" target="_blank">Study</a>, <a href="https://game-icons.net/1x1/lorc/compass.html" target="_blank">Survive</a>, <a href="https://game-icons.net/1x1/lorc/lips.html" target="_blank">Talk</a>, <a href="https://game-icons.net/1x1/lorc/gears.html" target="_blank">Tinker</a> Icons. Can be found at <a href="https://game-icons.net/" target="_blank">https://game-icons.net/</a>. Personal blog: <a href="https://lorcblog.blogspot.com/" target="_blank">https://lorcblog.blogspot.com/</a>
 - Skoll for <a href="https://game-icons.net/1x1/skoll/fist.html" target="_blank">Fight Icon</a>. Can be found at <a href="https://game-icons.net/" target="_blank">https://game-icons.net/</a>.
 
