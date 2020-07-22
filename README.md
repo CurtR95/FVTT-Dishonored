@@ -40,8 +40,8 @@
 ---
 
 ## Thanks
-- Lorc for Move, Study, Survive, Talk and Tinker Icons. Can be found at <a href="https://game-icons.net/" target="_blank">https://game-icons.net/</a>. Personal blog: <a href="https://lorcblog.blogspot.com/" target="_blank">https://lorcblog.blogspot.com/</a>
-- Skoll for Fight Icon. Can be found at <a href="https://game-icons.net/" target="_blank">https://game-icons.net/</a>.
+- Lorc for <a href="https://game-icons.net/1x1/lorc/walking-boot.html" target="_blank">Move</a>, <a href="https://game-icons.net/1x1/lorc/bookmarklet.html" target="_blank">Study</a>, <a href="https://game-icons.net/1x1/lorc/compass.html" target="_blank">Survive</a>, <a href="https://game-icons.net/1x1/lorc/lips.html" target="_blank">Talk</a>, <a href="https://game-icons.net/" target="_blank">Tinker</a> Icons. Can be found at <a href="https://game-icons.net/" target="_blank">https://game-icons.net/</a>. Personal blog: <a href="https://lorcblog.blogspot.com/" target="_blank">https://lorcblog.blogspot.com/</a>
+- Skoll for <a href="https://game-icons.net/1x1/skoll/fist.html" target="_blank">Fight Icon</a>. Can be found at <a href="https://game-icons.net/" target="_blank">https://game-icons.net/</a>.
 
 ## License
 
