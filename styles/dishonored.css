@@ -359,3 +359,29 @@
     font-size: 16px;
     text-align: center;
 }
+
+.dishonored .cs-item-img {
+    width: 24px;
+}
+
+.dishonored .cs-item-img:hover {
+    content: url("/icons/svg/d20-grey.svg") !important;
+    box-shadow: 0 0 8px red;
+    cursor: pointer;
+}
+
+.dishonored .item-roll-header{
+    display: flex;
+    flex-direction: row;
+    background: none;
+    border: none;
+    box-shadow: none;
+    line-height: normal;
+    cursor: pointer;
+    text-align: left;
+    word-break: normal;
+}
+
+.dishonored .item-roll-img {
+    height: 45px;
+}

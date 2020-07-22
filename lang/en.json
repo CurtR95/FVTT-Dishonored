@@ -1,4 +1,5 @@
 {
+    "dishonored.__comment": "The Dishonored System allows for dynamic location of variables. These are indicated via |#|.",
     "dishonored.actor.character.momentum": "Momentum Track",
     "dishonored.actor.character.name": "Name",
     "dishonored.actor.character.age": "Age",
@@ -60,6 +61,19 @@
     "dishonored.roll.successPlural": " Successes",
     "dishonored.roll.test": " Skill Test",
     "dishonored.roll.complication": "There was a complication!",
-    "dishonored.roll.complicationPlural": "There were |#| complications!"
+    "dishonored.roll.complicationPlural": "There were |#| complications!",
+
+    "dishonored.roll.contact.relation": "<b>|#|</b> Relationship with Contact",
+    "dishonored.roll.focus.rating": "Focus with Rating of <b>|#|</b>",
+    "dishonored.roll.weapon.damage": "<b>|#|</b> Damage",
+    "dishonored.roll.armor.protect": "<b>|#|</b> Protection",
+    "dishonored.roll.talent.type": "<b>|#|</b> Talent",
+    "dishonored.roll.power.rune": "<b>|#|</b> Runes",
+    "dishonored.roll.power.mana": "Costs <b>|#|</b> Mana to use",
+    "dishonored.roll.item.value": "|#| Coins",
+
+
+
+    "dishonored.__eof": "This is an end of file because I'm lazy and keep forgetting commas. This shouldn't be in the final commit (sorry if it is - see previous statement)."
 
 }
