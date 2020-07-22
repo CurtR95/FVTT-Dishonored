@@ -28,7 +28,7 @@
 
 | <a href="https://www.curtisreet.co.uk" target="_blank">**Curtis Reet**</a> |
 | :---: |
-| [![FVCproductions](https://avatars1.githubusercontent.com/u/36826879?s=200)](https://www.curtisreet.co.uk)    |
+| [![FVCproductions](https://avatars1.githubusercontent.com/u/36826879?s=50)](https://www.curtisreet.co.uk)    |
 | <a href="https://github.com/CurtR95" target="_blank">`github.com/CurtR95`</a> |
 
 <!-- ---
