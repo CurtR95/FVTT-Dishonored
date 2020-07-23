@@ -3,15 +3,15 @@
         <div class="row">
             <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
             <div class="item-header-input-mini-main">
-                <label>Name</label>
+                <label>{{localize 'dishonored.actor.genericitem.name'}}</label>
                 <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
             </div>
             <div class="item-header-input-sub">
-                <label>Mana</label>
+                <label>{{localize 'dishonored.actor.power.mana'}}</label>
                 <input type="text" name="data.manacost" value="{{data.manacost}}" data-dtype="Number" />
             </div>
             <div class="item-header-input-sub">
-                <label>Rune</label>
+                <label>{{localize 'dishonored.actor.power.rune'}}</label>
                 <input type="text" name="data.runecost" value="{{data.runecost}}" data-dtype="Number" />
             </div>
         </div>

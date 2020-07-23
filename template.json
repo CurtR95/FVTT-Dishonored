@@ -6,7 +6,11 @@
                 "notes":"",
                 "stress": {
                     "value": 0,
-                    "max": 8
+                    "max": 0
+                },
+                "mana": {
+                    "value": 0,
+                    "max": 0
                 },
                 "truth1": "",
                 "skills": {
@@ -87,7 +91,9 @@
             },
             "momentum": {
                 "value": 0
-            }
+            },
+            "coins": 0,
+            "runes": 0
         },
         "npc": {
             "templates": ["common"]
@@ -141,12 +147,28 @@
         },
         "contact": {
             "templates": ["common"],
-            "relationship": {
-                "great": false,
-                "fair": false,
-                "neutral": false,
-                "poor": false,
-                "dire": false
+            "relationship": "neutral",
+            "relationships": {
+                "great": {
+                    "label": "dishonored.contact.relation.great",
+                    "dtype": "String"
+                },
+                "fair": {
+                    "label": "dishonored.contact.relation.fair",
+                    "dtype": "String"
+                },
+                "neutral": {
+                    "label": "dishonored.contact.relation.neutral",
+                    "dtype": "String"
+                },
+                "poor": {
+                    "label": "dishonored.contact.relation.poor",
+                    "dtype": "String"
+                },
+                "dire": {
+                    "label": "dishonored.contact.relation.dire",
+                    "dtype": "String"
+                }
             }
         },
         "power": {

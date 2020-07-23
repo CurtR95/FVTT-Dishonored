@@ -9,8 +9,8 @@ export class DishonoredArmorSheet extends ItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["dishonored", "sheet", "armor"],
             template: "systems/FVTT-Dishonored/templates/items/armor-sheet.html",
-            width: 400,
-            height: 200,
+            width: 500,
+            height: 250,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
     }

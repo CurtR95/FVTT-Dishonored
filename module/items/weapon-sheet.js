@@ -9,7 +9,7 @@ export class DishonoredWeaponSheet extends ItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["dishonored", "sheet", "weapon"],
             template: "systems/FVTT-Dishonored/templates/items/weapon-sheet.html",
-            width: 400,
+            width: 565,
             height: 400,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
