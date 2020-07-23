@@ -385,3 +385,19 @@
 .dishonored .item-roll-img {
     height: 45px;
 }
+
+.dishonored .tags {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+	flex-wrap: wrap;
+}
+
+.dishonored .tag {
+    width: calc(100%/3);
+    font-size: 12px;
+    flex-grow: 1;
+    border: 0.5px solid black;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255, 0.3);
+}

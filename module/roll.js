@@ -81,7 +81,13 @@ export class DishonoredRoll {
 
     async performItemRoll(item, speaker) {
         console.log(item);
-        var value = game.i18n.format("dishonored.roll.item.value");
+        if (item.data.data.cost > 0) {
+            var costLocalisation = game.i18n.format("dishonored.roll.item.value");
+            var valueTag = "<div class='tag'> "+costLocalisation.replace('|#|', item.data.data.cost)+"</div>";
+        }
+        else {
+            var valueTag = '';
+        }
         let html = `
             <div class='dishonored dice-roll'>
                 <div class="dice-result">
@@ -91,7 +97,7 @@ export class DishonoredRoll {
                     </div>
                     <div class="dice-tooltip" style="display: block;">`+item.data.data.description+`</div>
                     <div class='tags'> 
-                        <div>`+value.replace('|#|', item.data.data.cost)+`</div>
+                        `+valueTag+`
                     </div>
                 <div>
             </div>
@@ -157,7 +163,27 @@ export class DishonoredRoll {
     async performWeaponRoll(item, speaker) {
         console.log(item);
         var variablePrompt = game.i18n.format("dishonored.roll.weapon.damage");
-        var value = game.i18n.format("dishonored.roll.item.value");
+        if (item.data.data.cost > 0) {
+            var costLocalisation = game.i18n.format("dishonored.roll.item.value");
+            var valueTag = "<div class='tag'> "+costLocalisation.replace('|#|', item.data.data.cost)+"</div>";
+        }
+        else {
+            var valueTag = '';
+        }
+        var tags = '';
+        var i;
+        if (item.data.data.qualities.armorpierce) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.armorpierce")+"</div>";
+        if (item.data.data.qualities.awkward) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.awkward")+"</div>";
+        if (item.data.data.qualities.blast) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.blast")+"</div>";
+        if (item.data.data.qualities.block) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.block")+"</div>";
+        if (item.data.data.qualities.burn) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.burn")+"</div>";
+        if (item.data.data.qualities.concealed) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.concealed")+"</div>";
+        if (item.data.data.qualities.melee) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.melee")+"</div>";
+        if (item.data.data.qualities.messy) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.messy")+"</div>";
+        if (item.data.data.qualities.mine) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.mine")+"</div>";
+        if (item.data.data.qualities.rangeddistant) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.distant")+"</div>";
+        if (item.data.data.qualities.rangednearby) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.nearby")+"</div>";
+
         let html = `
             <div class='dishonored dice-roll'>
                 <div class="dice-result">
@@ -168,7 +194,8 @@ export class DishonoredRoll {
                     <div class='dice-formula'> `+variablePrompt.replace('|#|', item.data.data.damage)+`</div>
                     <div class="dice-tooltip" style="display: none;">`+item.data.data.description+`</div>
                     <div class='tags'> 
-                        <div>`+value.replace('|#|', item.data.data.cost)+`</div>
+                        `+valueTag+`
+                        `+tags+`
                     </div>
                 <div>
             </div>
@@ -186,7 +213,15 @@ export class DishonoredRoll {
     async performArmorRoll(item, speaker) {
         console.log(item);
         var variablePrompt = game.i18n.format("dishonored.roll.armor.protect");
+        if (item.data.data.cost > 0) {
+            var costLocalisation = game.i18n.format("dishonored.roll.item.value");
+            var valueTag = "<div class='tag'> "+costLocalisation.replace('|#|', item.data.data.cost)+"</div>";
+        }
+        else {
+            var valueTag = '';
+        }
         var value = game.i18n.format("dishonored.roll.item.value");
+        // <div>`+value.replace('|#|', item.data.data.cost)+`</div>
         let html = `
             <div class='dishonored dice-roll'>
                 <div class="dice-result">
@@ -197,7 +232,7 @@ export class DishonoredRoll {
                     <div class='dice-formula'> `+variablePrompt.replace('|#|', item.data.data.protection)+`</div>
                     <div class="dice-tooltip" style="display: block;">`+item.data.data.description+`</div>
                     <div class='tags'> 
-                        <div>`+value.replace('|#|', item.data.data.cost)+`</div>
+                    `+valueTag+`
                     </div>
                 <div>
             </div>
@@ -264,7 +299,13 @@ export class DishonoredRoll {
 
     async performPowerRoll(item, speaker) {
         console.log(item);
-        var variablePrompt = game.i18n.format("dishonored.roll.power.mana");
+        if (item.data.data.manacost > 0) {
+            var localisedContent = game.i18n.format("dishonored.roll.power.mana");
+            var variablePrompt = "<div class='dice-formula'> "+localisedContent.replace('|#|', item.data.data.manacost)+"</div>";
+        }
+        else {
+            var variablePrompt = '';
+        }
         var runeValue = game.i18n.format("dishonored.roll.power.rune");
         let html = `
             <div class='dishonored dice-roll'>
@@ -273,10 +314,10 @@ export class DishonoredRoll {
                         <img class='item-roll-img' src=`+item.data.img+`></img>
                         <h1>`+item.data.name+`</h1>
                     </div>
-                    <div class='dice-formula'> `+variablePrompt.replace('|#|', item.data.data.manacost)+`</div>
+                    `+variablePrompt+`
                     <div class="dice-tooltip" style="display: block;">`+item.data.data.description+`</div>
                     <div class='tags'> 
-                        <div>`+runeValue.replace('|#|', item.data.data.runecost)+`</div>
+                        <div class = 'tag'>`+runeValue.replace('|#|', item.data.data.runecost)+`</div>
                     </div>
                 <div>
             </div>
@@ -290,8 +331,4 @@ export class DishonoredRoll {
             return msg
         });
     }
-
-
-
-
 }
