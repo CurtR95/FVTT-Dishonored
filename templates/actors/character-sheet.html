@@ -368,8 +368,11 @@
                         {{/if}}
                         {{/each}}
                         <div class="sub-section-title item-section">
-                            <div class="item-image advisory">0/3</div>
-                            <div class="title advisory">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
+                            <div class="item-image">
+                                <!-- 0/3 -->
+                            </div>
+                            <div class="item-two-section-main advisory">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
+                            <div class="item-two-section-sub advisory"></div>
                             <a class="item-controls item-create add-item-sub" title="Create item" data-type="bonecharm"><i class="fas fa-plus"></i></a>
                         </div>
                         {{#each actor.items as |item type id|}}
