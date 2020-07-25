@@ -46,6 +46,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (data.data.styles.swiftly.value > 8) data.data.styles.swiftly.value = 8;
         if (data.data.void.value > data.data.void.max) data.data.void.value = data.data.void.max;
         if (data.data.stress.value > data.data.stress.max) data.data.stress.value = data.data.stress.max;
+        if (data.data.mana.value > data.data.mana.max) data.data.mana.value = data.data.mana.max;
 
 
         if (data.data.skills.fight.value < 4) data.data.skills.fight.value = 4;
@@ -61,8 +62,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (data.data.styles.quietly.value < 4) data.data.styles.quietly.value = 4;
         if (data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
         if (data.data.void.value < 0) data.data.void.value = 0;
-        if (data.data.void.max < 1) data.data.void.value = 1;
+        if (data.data.void.max < 1) data.data.void.max = 1;
         if (data.data.stress.value < 0) data.data.stress.value = 0;
+        if (data.data.experience < 0) data.data.experience = 0;
+        if (data.data.mana.value < 0) data.data.mana.value = 0;
+        if (data.data.mana.max < 2) data.data.mana.max = 2;
+
+        if (data.data.mana.max != 2*data.data.void.max) data.data.mana.max = 2*data.data.void.max;
+        
 
         return data;
     }
@@ -84,7 +91,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
             div.innerHTML = i;
             div.style = "width: calc(100% / " + $("[data-appid="+appId+"]").find('#max-void')[0].value + ");"
             $("[data-appid="+appId+"]").find('#bar-void-renderer')[0].appendChild(div);
-            //   <div class="voidbox" id="void-1">1</div>
         }
 
         
@@ -105,7 +111,17 @@ export class DishonoredCharacterSheet extends ActorSheet {
             div.innerHTML = i;
             div.style = "width: calc(100% / " + $("[data-appid="+appId+"]").find('#max-stress')[0].value + ");"
             $("[data-appid="+appId+"]").find('#bar-stress-renderer')[0].appendChild(div);
-            //   <div class="stressbox" id="stress-1">1</div>
+        }
+
+        var expPointsMax = 30;
+        var i;
+        for (i = 1; i <= expPointsMax; i++) {
+            var div = document.createElement("DIV");
+            div.className = "expbox";
+            div.id = "exp-" + i;
+            div.innerHTML = i;
+            div.style = "width: calc(100% / " + expPointsMax + ");"
+            $("[data-appid="+appId+"]").find('#bar-exp-renderer')[0].appendChild(div);
         }
 
         // Update Inventory Item
@@ -168,6 +184,34 @@ export class DishonoredCharacterSheet extends ActorSheet {
             const li = $(ev.currentTarget).parents(".item");
             this.actor.deleteOwnedItem(li.data("itemId"));
             li.slideUp(200, () => this.render(false));
+        });
+
+
+        html.find('[id^="exp"]').click(ev => {
+            var newTotalObject = $(ev.currentTarget)[0];
+            var newTotal = newTotalObject.id.replace(/\D/g, '');
+            if (newTotalObject.getAttribute("data-value") == 1) {
+                var nextCheck = 'exp-' + (parseInt(newTotal) + 1);
+                if (!$("[data-appid="+appId+"]").find('#'+nextCheck)[0] || $("[data-appid="+appId+"]").find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                    $("[data-appid="+appId+"]").find('#total-exp')[0].value = $("[data-appid="+appId+"]").find('#total-exp')[0].value - 1;
+                    barRenderer();
+                    this.submit();
+                } else {
+                    var total = $("[data-appid="+appId+"]").find('#total-exp')[0].value;
+                    if (total != newTotal) {
+                        $("[data-appid="+appId+"]").find('#total-exp')[0].value = newTotal;
+                        barRenderer();
+                        this.submit();
+                    }
+                }
+            } else {
+                var total = $("[data-appid="+appId+"]").find('#total-exp')[0].value;
+                if (total != newTotal) {
+                    $("[data-appid="+appId+"]").find('#total-exp')[0].value = newTotal;
+                    barRenderer();
+                    this.submit();
+                }
+            }
         });
 
         html.find('[id^="mom"]').click(ev => {
@@ -248,14 +292,19 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 }
             }
         });
+        
 
         html.find('[id="decrease-void-max"]').click(ev => {
             $("[data-appid="+appId+"]").find('#max-void')[0].value--;
+            $("[data-appid="+appId+"]").find('#max-mana')[0].value--;
+            $("[data-appid="+appId+"]").find('#max-mana')[0].value--;
             this.submit();
         });
 
         html.find('[id="increase-void-max"]').click(ev => {
             $("[data-appid="+appId+"]").find('#max-void')[0].value++;
+            $("[data-appid="+appId+"]").find('#max-mana')[0].value++;
+            $("[data-appid="+appId+"]").find('#max-mana')[0].value++;
             this.submit();
         });
 
@@ -332,6 +381,17 @@ export class DishonoredCharacterSheet extends ActorSheet {
                     html.find('[id^="void"]')[i].setAttribute("data-value", "0");
                     html.find('[id^="void"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
                     html.find('[id^="void"]')[i].style.color = "";
+                }
+            }
+            for (i = 0; i < expPointsMax; i++) {
+                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-exp')[0].value) {
+                    html.find('[id^="exp"]')[i].setAttribute("data-value", "1");
+                    html.find('[id^="exp"]')[i].style.backgroundColor = "#191813";
+                    html.find('[id^="exp"]')[i].style.color = "#ffffff";
+                } else {
+                    html.find('[id^="exp"]')[i].setAttribute("data-value", "0");
+                    html.find('[id^="exp"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
+                    html.find('[id^="exp"]')[i].style.color = "";
                 }
             }
 
