@@ -42,8 +42,37 @@ export class DishonoredContactSheet extends ItemSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
-        // Everything below here is only needed if the sheet is editable
-        if (!this.options.editable) return;
+        var appId = this.appId;
 
+        // Everything below here is only needed if the sheet is editable
+        if (!this.options.editable) {
+            for (i = 0; i < html.find('.send2actor-button').length; i++) {
+                html.find('.send2actor-button')[i].style.display = 'none';
+            }
+            return;
+        }
+
+        html.find('.send2actor-button').click(ev => {
+            var name = $("[data-appid="+appId+"]").find('#name')[0].value;
+            var description = $("[data-appid="+appId+"]").find('.editor-content')[0].innerHTML;
+            var img = $("[data-appid="+appId+"]").find('.item-img')[0].getAttribute("src");
+            this.send2Actor(name, description, img);
+        });
+
+    }
+
+    async send2Actor(name, description, img) {
+        let actor = await Actor.create({
+            name: name,
+            type: "npc",
+            img: img,
+            sort: 12000,
+            data: {
+                notes: description
+            },
+            token: {},
+            items: [],
+            flags: {}
+          });
     }
 }

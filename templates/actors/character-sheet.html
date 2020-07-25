@@ -51,6 +51,15 @@
             </div>
         </div>
         <div class="header-fields">
+            <div class="experience-section">
+                <div class="experience-title">
+                    {{localize 'dishonored.actor.character.experience'}}
+                </div>
+                <div class="experience-track">
+                    <input type="hidden" id="total-exp" name="data.experience" value="{{data.experience}}" data-dtype="Number" />
+                    <div id="bar-exp-renderer" class="mainflex expbar"></div>
+                </div>
+            </div>
             <div class="row">
                 <div class="column headings" style="width:40%">
                     {{localize 'dishonored.actor.character.name'}}
@@ -302,8 +311,10 @@
                         </li>
                         {{/if}}
                         {{/each}}
-                        <div class="stat-flex-row sub-section-title">
-                            <div class="mana advisory">6/6</div>
+                        <div class="stat-flex-row sub-section-title item-section mana advisory">
+                            <div class="manabox"><input name="data.mana.value" type="text" value="{{data.mana.value}}" placeholder="0"/></div>
+                            <div class="advisory">/</div>
+                            <div class="manabox manamax"><input id="max-mana" name="data.mana.max" type="text" value="{{data.mana.max}}" readonly/></div>
                         </div>
                     </div>
                 </div>
@@ -357,8 +368,11 @@
                         {{/if}}
                         {{/each}}
                         <div class="sub-section-title item-section">
-                            <div class="item-image advisory">0/3</div>
-                            <div class="title advisory">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
+                            <div class="item-image">
+                                <!-- 0/3 -->
+                            </div>
+                            <div class="item-two-section-main advisory">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
+                            <div class="item-two-section-sub advisory"></div>
                             <a class="item-controls item-create add-item-sub" title="Create item" data-type="bonecharm"><i class="fas fa-plus"></i></a>
                         </div>
                         {{#each actor.items as |item type id|}}
