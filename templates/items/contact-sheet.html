@@ -4,7 +4,7 @@
             <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
             <div class="item-header-input-main">
                 <label>{{localize 'dishonored.actor.genericitem.name'}}</label>
-                <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
+                <input id="name" name="name" type="text" value="{{item.name}}" placeholder="Name" />
             </div>
             <div class="item-header-input-sub">
                 <label>{{localize 'dishonored.actor.contact.relation'}}</label>
@@ -16,6 +16,9 @@
                     {{/select}}
                 </select>
             </div>
+        </div>
+        <div class="row">
+            <div class="send2actor-button">{{localize 'dishonored.item.contact.send2actor'}}</div>
         </div>
     </div>
         <div class="description">

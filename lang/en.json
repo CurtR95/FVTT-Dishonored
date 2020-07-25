@@ -80,6 +80,8 @@
     "dishonored.contact.relation.poor": "Poor",
     "dishonored.contact.relation.dire": "Dire",
 
+    "dishonored.item.contact.send2actor": "Send to Actor",
+
     "dishonored.apps.dicepoolwindow": "Dice Pool",
     "dishonored.apps.focus": "Focus Rating",
     "dishonored.apps.pool": "Number of Dice in Pool",
