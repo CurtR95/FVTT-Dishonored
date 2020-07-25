@@ -364,8 +364,8 @@
     height: 100%;
 }
 
-.dishonored .npc-notes {
-    text-align: center;
+.dishonored .note-npc-section {
+    width:100%;
 }
 
 .dishonored .weapon-cell {

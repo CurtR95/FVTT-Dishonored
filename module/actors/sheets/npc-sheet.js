@@ -16,7 +16,7 @@ export class DishonoredNPCSheet extends ActorSheet {
             classes: ["dishonored", "sheet", "npc"],
             template: "systems/FVTT-Dishonored/templates/actors/npc-sheet.html",
             width: 700,
-            height: 660,
+            height: 735,
             dragDrop: [{
                 dragSelector: ".item-list .item",
                 dropSelector: null
@@ -44,6 +44,9 @@ export class DishonoredNPCSheet extends ActorSheet {
         if (data.data.styles.forcefully.value > 8) data.data.styles.forcefully.value = 8;
         if (data.data.styles.quietly.value > 8) data.data.styles.quietly.value = 8;
         if (data.data.styles.swiftly.value > 8) data.data.styles.swiftly.value = 8;
+        if (data.data.stress.value > data.data.stress.max) data.data.stress.value = data.data.stress.max;
+
+
         if (data.data.skills.fight.value < 4) data.data.skills.fight.value = 4;
         if (data.data.skills.move.value < 4) data.data.skills.move.value = 4;
         if (data.data.skills.study.value < 4) data.data.skills.study.value = 4;
@@ -56,6 +59,9 @@ export class DishonoredNPCSheet extends ActorSheet {
         if (data.data.styles.forcefully.value < 4) data.data.styles.forcefully.value = 4;
         if (data.data.styles.quietly.value < 4) data.data.styles.quietly.value = 4;
         if (data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
+        if (data.data.stress.value < 0) data.data.stress.value = 0;
+        if (data.data.experience < 0) data.data.experience = 0;
+        
 
         return data;
     }
@@ -66,8 +72,55 @@ export class DishonoredNPCSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
+        var appId = this.appId;
+        var i;
+
+        var stressTrackMax = parseInt($("[data-appid="+appId+"]").find('#survive')[0].value);
+        var armor = html.find('[id^="protectval-armor"]');
+        for (i = 0; i < armor.length; i++) {
+            stressTrackMax += parseInt(armor[i].innerHTML);
+        }
+        if ($("[data-appid="+appId+"]").find('#max-stress')[0].value != stressTrackMax)
+        {
+            $("[data-appid="+appId+"]").find('#max-stress')[0].value = stressTrackMax;
+            this.submit();
+        }
+        for (i = 1; i <= stressTrackMax; i++) {
+            var div = document.createElement("DIV");
+            div.className = "stressbox";
+            div.id = "stress-" + i;
+            div.innerHTML = i;
+            div.style = "width: calc(100% / " + $("[data-appid="+appId+"]").find('#max-stress')[0].value + ");"
+            $("[data-appid="+appId+"]").find('#bar-stress-renderer')[0].appendChild(div);
+        }
+
+        // Update Inventory Item
+        html.find('.item-edit').click(ev => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            item.sheet.render(true);
+        });
+
         // Everything below here is only needed if the sheet is editable
-        if (!this.options.editable) return;
+        if (!this.options.editable) {
+            for (i = 0; i < html.find('.check-button').length; i++) {
+                html.find('.check-button')[i].style.display = 'none';
+            }
+            for (i = 0; i < html.find('.add-item').length; i++) {
+                html.find('.add-item')[i].style.display = 'none';
+            }
+            for (i = 0; i < html.find('.item-delete').length; i++) {
+                html.find('.item-delete')[i].style.display = 'none';
+            }
+            barRenderer();
+            return;
+        };
+
+        html.find('.cs-item-img').click(ev =>{
+            var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
+            var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
+            this.rollGenericItem(event, itemType, itemId);
+        })
 
         // Add Inventory Item
         html.find('.item-create').click(ev => {
@@ -92,13 +145,6 @@ export class DishonoredNPCSheet extends ActorSheet {
             return this.actor.createOwnedItem(itemData);
         });
 
-        // Update Inventory Item
-        html.find('.item-edit').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
-            item.sheet.render(true);
-        });
-
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
@@ -111,22 +157,23 @@ export class DishonoredNPCSheet extends ActorSheet {
             var newTotal = newTotalObject.id.substring(7);
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
-                if (!document.getElementById(nextCheck) || document.getElementById(nextCheck).getAttribute("data-value") != 1) {
-                    document.getElementById('total-stress').value = document.getElementById('total-stress').value - 1;
+                console.log($("[data-appid="+appId+"]").find('#'+nextCheck)[0]);
+                if (!$("[data-appid="+appId+"]").find('#'+nextCheck)[0] || $("[data-appid="+appId+"]").find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                    $("[data-appid="+appId+"]").find('#total-stress')[0].value = $("[data-appid="+appId+"]").find('#total-stress')[0].value - 1;
                     barRenderer();
                     this.submit();
                 } else {
-                    var total = document.getElementById('total-stress').value;
+                    var total = $("[data-appid="+appId+"]").find('#total-stress')[0].value;
                     if (total != newTotal) {
-                        document.getElementById('total-stress').value = newTotal;
+                        $("[data-appid="+appId+"]").find('#total-stress')[0].value = newTotal;
                         barRenderer();
                         this.submit();
                     }
                 }
             } else {
-                var total = document.getElementById('total-stress').value;
+                var total = $("[data-appid="+appId+"]").find('#total-stress')[0].value;
                 if (total != newTotal) {
-                    document.getElementById('total-stress').value = newTotal;
+                    $("[data-appid="+appId+"]").find('#total-stress')[0].value = newTotal;
                     barRenderer();
                     this.submit();
                 }
@@ -134,55 +181,54 @@ export class DishonoredNPCSheet extends ActorSheet {
         });
 
         html.find('.skill-roll-selector').click(ev => {
-            var i;
             for (i = 0; i <= 5; i++) {
                 html.find('.skill-roll-selector')[i].checked = false;
-                // html.find('.skill-roll-selector')[i].style.backgroundColor = "";
             }
             $(ev.currentTarget)[0].checked = true;
-            // $(ev.currentTarget)[0].style.backgroundColor = "#191813";
         });
 
         html.find('.style-roll-selector').click(ev => {
-            var i;
             for (i = 0; i <= 5; i++) {
                 html.find('.style-roll-selector')[i].checked = false;
-                // html.find('.style-roll-selector')[i].style.backgroundColor = "";
             }
             $(ev.currentTarget)[0].checked = true;
-            // $(ev.currentTarget)[0].style.backgroundColor = "#191813";
         });
 
         html.find('.check-button').click(ev => {
-            var i;
             for (i = 0; i <= 5; i++) {
                 if (html.find('.skill-roll-selector')[i].checked === true) {
                     var selectedSkill = html.find('.skill-roll-selector')[i].id;
                     var selectedSkill = selectedSkill.slice(0, -9)
-                    var selectedSkillValue = document.getElementById(selectedSkill).value;
+                    var selectedSkillValue = $("[data-appid="+appId+"]").find('#'+selectedSkill)[0].value;
                 }
             }
             for (i = 0; i <= 5; i++) {
                 if (html.find('.style-roll-selector')[i].checked === true) {
                     var selectedStyle = html.find('.style-roll-selector')[i].id;
                     var selectedStyle = selectedStyle.slice(0, -9)
-                    var selectedStyleValue = document.getElementById(selectedStyle).value;
+                    var selectedStyleValue = $("[data-appid="+appId+"]").find('#'+selectedStyle)[0].value;
                 }
             }
             var checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
             this.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle);
         });
 
+
+
         function barRenderer() {
-            var i;
-            for (i = 0; i < 12; i++) {
-                if (i + 1 <= document.getElementById('total-stress').value) {
+            var stressTrackMax = parseInt($("[data-appid="+appId+"]").find('#survive')[0].value);
+            var armor = html.find('[id^="protectval-armor"]');
+            for (i = 0; i < armor.length; i++) {
+                stressTrackMax += parseInt(armor[i].innerHTML);
+            }
+            for (i = 0; i < stressTrackMax; i++) {
+                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-stress')[0].value) {
                     html.find('[id^="stress"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="stress"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="stress"]')[i].style.color = "#ffffff";
                 } else {
                     html.find('[id^="stress"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "";
+                    html.find('[id^="stress"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
                     html.find('[id^="stress"]')[i].style.color = "";
                 }
             }
@@ -204,7 +250,39 @@ export class DishonoredNPCSheet extends ActorSheet {
             let dicePool = rolldialog.get("dicePoolSlider");
             let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
             let dishonoredRoll = new DishonoredRoll();
-            dishonoredRoll.perform(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle);
+            dishonoredRoll.performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, this.actor);
+        }
+    }
+
+    async rollGenericItem(event, type, id) {
+        event.preventDefault();
+        var item = this.actor.items.get(id);
+        let dishonoredRoll = new DishonoredRoll();
+        switch(type) {
+            case "item":
+                dishonoredRoll.performItemRoll(item, this.actor);
+                break;
+            case "focus":
+                dishonoredRoll.performFocusRoll(item, this.actor);
+                break;
+            case "bonecharm":
+                dishonoredRoll.performBonecharmRoll(item, this.actor);
+                break;
+            case "weapon":
+                dishonoredRoll.performWeaponRoll(item, this.actor);
+                break;
+            case "armor":
+                dishonoredRoll.performArmorRoll(item, this.actor);
+                break;
+            case "talent":
+                dishonoredRoll.performTalentRoll(item, this.actor);
+                break;
+            case "contact":
+                dishonoredRoll.performContactRoll(item, this.actor);
+                break;
+            case "power":
+                dishonoredRoll.performPowerRoll(item, this.actor);
+                break;
         }
     }
 
