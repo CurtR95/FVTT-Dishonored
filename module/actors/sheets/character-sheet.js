@@ -80,28 +80,28 @@ export class DishonoredCharacterSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
-        var appId = this.appId;
-
-        var voidPointsMax = $("[data-appid="+appId+"]").find('#max-void')[0].value;
+        // This creates a dynamic Void Point tracker. It polls for the hidden control "max-void" and for the value, creates a new div for each and places it under a child called "bar-void-renderer"
+        var voidPointsMax = html.find('#max-void')[0].value;
         var i;
         for (i = 1; i <= voidPointsMax; i++) {
             var div = document.createElement("DIV");
             div.className = "voidbox";
             div.id = "void-" + i;
             div.innerHTML = i;
-            div.style = "width: calc(100% / " + $("[data-appid="+appId+"]").find('#max-void')[0].value + ");"
-            $("[data-appid="+appId+"]").find('#bar-void-renderer')[0].appendChild(div);
+            div.style = "width: calc(100% / " + html.find('#max-void')[0].value + ");"
+            html.find('#bar-void-renderer')[0].appendChild(div);
         }
 
-        
-        var stressTrackMax = parseInt($("[data-appid="+appId+"]").find('#survive')[0].value);
+        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
+        // It also has a check that if the max-stress hidden field is not equal to this calculated Max Stress value, to make it so and submit the form.
+        var stressTrackMax = parseInt(html.find('#survive')[0].value);
         var armor = html.find('[id^="protectval-armor"]');
         for (i = 0; i < armor.length; i++) {
             stressTrackMax += parseInt(armor[i].innerHTML);
         }
-        if ($("[data-appid="+appId+"]").find('#max-stress')[0].value != stressTrackMax)
+        if (html.find('#max-stress')[0].value != stressTrackMax)
         {
-            $("[data-appid="+appId+"]").find('#max-stress')[0].value = stressTrackMax;
+            html.find('#max-stress')[0].value = stressTrackMax;
             this.submit();
         }
         for (i = 1; i <= stressTrackMax; i++) {
@@ -109,10 +109,11 @@ export class DishonoredCharacterSheet extends ActorSheet {
             div.className = "stressbox";
             div.id = "stress-" + i;
             div.innerHTML = i;
-            div.style = "width: calc(100% / " + $("[data-appid="+appId+"]").find('#max-stress')[0].value + ");"
-            $("[data-appid="+appId+"]").find('#bar-stress-renderer')[0].appendChild(div);
+            div.style = "width: calc(100% / " + html.find('#max-stress')[0].value + ");"
+            html.find('#bar-stress-renderer')[0].appendChild(div);
         }
 
+        // This creates a dynamic Experience tracker. For this it uses a max value of 30. This can be configured here. It creates a new div for each and places it under a child called "bar-void-renderer"
         var expPointsMax = 30;
         var i;
         for (i = 1; i <= expPointsMax; i++) {
@@ -121,17 +122,17 @@ export class DishonoredCharacterSheet extends ActorSheet {
             div.id = "exp-" + i;
             div.innerHTML = i;
             div.style = "width: calc(100% / " + expPointsMax + ");"
-            $("[data-appid="+appId+"]").find('#bar-exp-renderer')[0].appendChild(div);
+            html.find('#bar-exp-renderer')[0].appendChild(div);
         }
 
-        // Update Inventory Item
+        // This allows for each item-edit image to link open an item sheet.
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
 
-        // Everything below here is only needed if the sheet is editable
+        // This if statement checks if the form is editable, if not it hides some controls and, renders the tracks and then aborts any more of the script.
         if (!this.options.editable) {
             for (i = 0; i < html.find('.check-button').length; i++) {
                 html.find('.check-button')[i].style.display = 'none';
@@ -149,37 +150,30 @@ export class DishonoredCharacterSheet extends ActorSheet {
             return;
         };
 
-
+        // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
         html.find('.cs-item-img').click(ev =>{
             var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
             this.rollGenericItem(event, itemType, itemId);
         })
 
-        // Add Inventory Item
+        // Allows item-create images to create an item of a type defined individually by each button.
         html.find('.item-create').click(ev => {
             event.preventDefault();
             const header = event.currentTarget;
-            // Get the type of item to create.
             const type = header.dataset.type;
-            // Grab any data associated with this control.
             const data = duplicate(header.dataset);
-            // Initialize a default name.
             const name = `New ${type.capitalize()}`;
-            // Prepare the item object.
             const itemData = {
                 name: name,
                 type: type,
                 data: data
             };
-            // Remove the type from the dataset since it's in the itemData.type prop.
             delete itemData.data["type"];
-
-            // Finally, create the item!
             return this.actor.createOwnedItem(itemData);
         });
 
-        // Delete Inventory Item
+        // Allows item-delete images to allow deletion of the selected item.
         html.find('.item-delete').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             this.actor.deleteOwnedItem(li.data("itemId"));
@@ -192,22 +186,22 @@ export class DishonoredCharacterSheet extends ActorSheet {
             var newTotal = newTotalObject.id.replace(/\D/g, '');
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'exp-' + (parseInt(newTotal) + 1);
-                if (!$("[data-appid="+appId+"]").find('#'+nextCheck)[0] || $("[data-appid="+appId+"]").find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
-                    $("[data-appid="+appId+"]").find('#total-exp')[0].value = $("[data-appid="+appId+"]").find('#total-exp')[0].value - 1;
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                    html.find('#total-exp')[0].value = html.find('#total-exp')[0].value - 1;
                     barRenderer();
                     this.submit();
                 } else {
-                    var total = $("[data-appid="+appId+"]").find('#total-exp')[0].value;
+                    var total = html.find('#total-exp')[0].value;
                     if (total != newTotal) {
-                        $("[data-appid="+appId+"]").find('#total-exp')[0].value = newTotal;
+                        html.find('#total-exp')[0].value = newTotal;
                         barRenderer();
                         this.submit();
                     }
                 }
             } else {
-                var total = $("[data-appid="+appId+"]").find('#total-exp')[0].value;
+                var total = html.find('#total-exp')[0].value;
                 if (total != newTotal) {
-                    $("[data-appid="+appId+"]").find('#total-exp')[0].value = newTotal;
+                    html.find('#total-exp')[0].value = newTotal;
                     barRenderer();
                     this.submit();
                 }
@@ -219,20 +213,20 @@ export class DishonoredCharacterSheet extends ActorSheet {
             var newTotal = newTotalObject.id.substring(4);
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'mom-' + (parseInt(newTotal) + 1);
-                if (!$("[data-appid="+appId+"]").find('#'+nextCheck)[0] || $("[data-appid="+appId+"]").find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
-                    $("[data-appid="+appId+"]").find('#total-mom')[0].value = $("[data-appid="+appId+"]").find('#total-mom')[0].value - 1;
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                    html.find('#total-mom')[0].value = html.find('#total-mom')[0].value - 1;
                     barRenderer();
                 } else {
-                    var total = $("[data-appid="+appId+"]").find('#total-mom')[0].value;
+                    var total = html.find('#total-mom')[0].value;
                     if (total != newTotal) {
-                        $("[data-appid="+appId+"]").find('#total-mom')[0].value = newTotal;
+                        html.find('#total-mom')[0].value = newTotal;
                         barRenderer();
                     }
                 }
             } else {
-                var total = $("[data-appid="+appId+"]").find('#total-mom')[0].value;
+                var total = html.find('#total-mom')[0].value;
                 if (total != newTotal) {
-                    $("[data-appid="+appId+"]").find('#total-mom')[0].value = newTotal;
+                    html.find('#total-mom')[0].value = newTotal;
                     barRenderer();
                 }
             }
@@ -243,23 +237,23 @@ export class DishonoredCharacterSheet extends ActorSheet {
             var newTotal = newTotalObject.id.substring(7);
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
-                console.log($("[data-appid="+appId+"]").find('#'+nextCheck)[0]);
-                if (!$("[data-appid="+appId+"]").find('#'+nextCheck)[0] || $("[data-appid="+appId+"]").find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
-                    $("[data-appid="+appId+"]").find('#total-stress')[0].value = $("[data-appid="+appId+"]").find('#total-stress')[0].value - 1;
+                console.log(html.find('#'+nextCheck)[0]);
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                    html.find('#total-stress')[0].value = html.find('#total-stress')[0].value - 1;
                     barRenderer();
                     this.submit();
                 } else {
-                    var total = $("[data-appid="+appId+"]").find('#total-stress')[0].value;
+                    var total = html.find('#total-stress')[0].value;
                     if (total != newTotal) {
-                        $("[data-appid="+appId+"]").find('#total-stress')[0].value = newTotal;
+                        html.find('#total-stress')[0].value = newTotal;
                         barRenderer();
                         this.submit();
                     }
                 }
             } else {
-                var total = $("[data-appid="+appId+"]").find('#total-stress')[0].value;
+                var total = html.find('#total-stress')[0].value;
                 if (total != newTotal) {
-                    $("[data-appid="+appId+"]").find('#total-stress')[0].value = newTotal;
+                    html.find('#total-stress')[0].value = newTotal;
                     barRenderer();
                     this.submit();
                 }
@@ -271,22 +265,22 @@ export class DishonoredCharacterSheet extends ActorSheet {
             var newTotal = newTotalObject.id.replace(/\D/g, '');
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'void-' + (parseInt(newTotal) + 1);
-                if (!$("[data-appid="+appId+"]").find('#'+nextCheck)[0] || $("[data-appid="+appId+"]").find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
-                    $("[data-appid="+appId+"]").find('#total-void')[0].value = $("[data-appid="+appId+"]").find('#total-void')[0].value - 1;
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                    html.find('#total-void')[0].value = html.find('#total-void')[0].value - 1;
                     barRenderer();
                     this.submit();
                 } else {
-                    var total = $("[data-appid="+appId+"]").find('#total-void')[0].value;
+                    var total = html.find('#total-void')[0].value;
                     if (total != newTotal) {
-                        $("[data-appid="+appId+"]").find('#total-void')[0].value = newTotal;
+                        html.find('#total-void')[0].value = newTotal;
                         barRenderer();
                         this.submit();
                     }
                 }
             } else {
-                var total = $("[data-appid="+appId+"]").find('#total-void')[0].value;
+                var total = html.find('#total-void')[0].value;
                 if (total != newTotal) {
-                    $("[data-appid="+appId+"]").find('#total-void')[0].value = newTotal;
+                    html.find('#total-void')[0].value = newTotal;
                     barRenderer();
                     this.submit();
                 }
@@ -295,16 +289,16 @@ export class DishonoredCharacterSheet extends ActorSheet {
         
 
         html.find('[id="decrease-void-max"]').click(ev => {
-            $("[data-appid="+appId+"]").find('#max-void')[0].value--;
-            $("[data-appid="+appId+"]").find('#max-mana')[0].value--;
-            $("[data-appid="+appId+"]").find('#max-mana')[0].value--;
+            html.find('#max-void')[0].value--;
+            html.find('#max-mana')[0].value--;
+            html.find('#max-mana')[0].value--;
             this.submit();
         });
 
         html.find('[id="increase-void-max"]').click(ev => {
-            $("[data-appid="+appId+"]").find('#max-void')[0].value++;
-            $("[data-appid="+appId+"]").find('#max-mana')[0].value++;
-            $("[data-appid="+appId+"]").find('#max-mana')[0].value++;
+            html.find('#max-void')[0].value++;
+            html.find('#max-mana')[0].value++;
+            html.find('#max-mana')[0].value++;
             this.submit();
         });
 
@@ -327,14 +321,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 if (html.find('.skill-roll-selector')[i].checked === true) {
                     var selectedSkill = html.find('.skill-roll-selector')[i].id;
                     var selectedSkill = selectedSkill.slice(0, -9)
-                    var selectedSkillValue = $("[data-appid="+appId+"]").find('#'+selectedSkill)[0].value;
+                    var selectedSkillValue = html.find('#'+selectedSkill)[0].value;
                 }
             }
             for (i = 0; i <= 5; i++) {
                 if (html.find('.style-roll-selector')[i].checked === true) {
                     var selectedStyle = html.find('.style-roll-selector')[i].id;
                     var selectedStyle = selectedStyle.slice(0, -9)
-                    var selectedStyleValue = $("[data-appid="+appId+"]").find('#'+selectedStyle)[0].value;
+                    var selectedStyleValue = html.find('#'+selectedStyle)[0].value;
                 }
             }
             var checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
@@ -344,14 +338,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
 
         function barRenderer() {
-            var voidPointsMax = $("[data-appid="+appId+"]").find('#max-void')[0].value;
-            var stressTrackMax = parseInt($("[data-appid="+appId+"]").find('#survive')[0].value);
+            var voidPointsMax = html.find('#max-void')[0].value;
+            var stressTrackMax = parseInt(html.find('#survive')[0].value);
             var armor = html.find('[id^="protectval-armor"]');
             for (i = 0; i < armor.length; i++) {
                 stressTrackMax += parseInt(armor[i].innerHTML);
             }
             for (i = 0; i < 6; i++) {
-                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-mom')[0].value) {
+                if (i + 1 <= html.find('#total-mom')[0].value) {
                     html.find('[id^="mom"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="mom"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="mom"]')[i].style.color = "#ffffff";
@@ -362,7 +356,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 }
             }
             for (i = 0; i < stressTrackMax; i++) {
-                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-stress')[0].value) {
+                if (i + 1 <= html.find('#total-stress')[0].value) {
                     html.find('[id^="stress"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="stress"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="stress"]')[i].style.color = "#ffffff";
@@ -373,7 +367,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 }
             }
             for (i = 0; i < voidPointsMax; i++) {
-                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-void')[0].value) {
+                if (i + 1 <= html.find('#total-void')[0].value) {
                     html.find('[id^="void"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="void"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="void"]')[i].style.color = "#ffffff";
@@ -384,7 +378,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 }
             }
             for (i = 0; i < expPointsMax; i++) {
-                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-exp')[0].value) {
+                if (i + 1 <= html.find('#total-exp')[0].value) {
                     html.find('[id^="exp"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="exp"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="exp"]')[i].style.color = "#ffffff";

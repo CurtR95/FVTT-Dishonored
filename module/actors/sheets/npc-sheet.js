@@ -72,17 +72,16 @@ export class DishonoredNPCSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
-        var appId = this.appId;
         var i;
 
-        var stressTrackMax = parseInt($("[data-appid="+appId+"]").find('#survive')[0].value);
+        var stressTrackMax = parseInt(html.find('#survive')[0].value);
         var armor = html.find('[id^="protectval-armor"]');
         for (i = 0; i < armor.length; i++) {
             stressTrackMax += parseInt(armor[i].innerHTML);
         }
-        if ($("[data-appid="+appId+"]").find('#max-stress')[0].value != stressTrackMax)
+        if (html.find('#max-stress')[0].value != stressTrackMax)
         {
-            $("[data-appid="+appId+"]").find('#max-stress')[0].value = stressTrackMax;
+            html.find('#max-stress')[0].value = stressTrackMax;
             this.submit();
         }
         for (i = 1; i <= stressTrackMax; i++) {
@@ -90,8 +89,8 @@ export class DishonoredNPCSheet extends ActorSheet {
             div.className = "stressbox";
             div.id = "stress-" + i;
             div.innerHTML = i;
-            div.style = "width: calc(100% / " + $("[data-appid="+appId+"]").find('#max-stress')[0].value + ");"
-            $("[data-appid="+appId+"]").find('#bar-stress-renderer')[0].appendChild(div);
+            div.style = "width: calc(100% / " + html.find('#max-stress')[0].value + ");"
+            html.find('#bar-stress-renderer')[0].appendChild(div);
         }
 
         // Update Inventory Item
@@ -157,23 +156,23 @@ export class DishonoredNPCSheet extends ActorSheet {
             var newTotal = newTotalObject.id.substring(7);
             if (newTotalObject.getAttribute("data-value") == 1) {
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
-                console.log($("[data-appid="+appId+"]").find('#'+nextCheck)[0]);
-                if (!$("[data-appid="+appId+"]").find('#'+nextCheck)[0] || $("[data-appid="+appId+"]").find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
-                    $("[data-appid="+appId+"]").find('#total-stress')[0].value = $("[data-appid="+appId+"]").find('#total-stress')[0].value - 1;
+                console.log(html.find('#'+nextCheck)[0]);
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                    html.find('#total-stress')[0].value = html.find('#total-stress')[0].value - 1;
                     barRenderer();
                     this.submit();
                 } else {
-                    var total = $("[data-appid="+appId+"]").find('#total-stress')[0].value;
+                    var total = html.find('#total-stress')[0].value;
                     if (total != newTotal) {
-                        $("[data-appid="+appId+"]").find('#total-stress')[0].value = newTotal;
+                        html.find('#total-stress')[0].value = newTotal;
                         barRenderer();
                         this.submit();
                     }
                 }
             } else {
-                var total = $("[data-appid="+appId+"]").find('#total-stress')[0].value;
+                var total = html.find('#total-stress')[0].value;
                 if (total != newTotal) {
-                    $("[data-appid="+appId+"]").find('#total-stress')[0].value = newTotal;
+                    html.find('#total-stress')[0].value = newTotal;
                     barRenderer();
                     this.submit();
                 }
@@ -199,14 +198,14 @@ export class DishonoredNPCSheet extends ActorSheet {
                 if (html.find('.skill-roll-selector')[i].checked === true) {
                     var selectedSkill = html.find('.skill-roll-selector')[i].id;
                     var selectedSkill = selectedSkill.slice(0, -9)
-                    var selectedSkillValue = $("[data-appid="+appId+"]").find('#'+selectedSkill)[0].value;
+                    var selectedSkillValue = html.find('#'+selectedSkill)[0].value;
                 }
             }
             for (i = 0; i <= 5; i++) {
                 if (html.find('.style-roll-selector')[i].checked === true) {
                     var selectedStyle = html.find('.style-roll-selector')[i].id;
                     var selectedStyle = selectedStyle.slice(0, -9)
-                    var selectedStyleValue = $("[data-appid="+appId+"]").find('#'+selectedStyle)[0].value;
+                    var selectedStyleValue = html.find('#'+selectedStyle)[0].value;
                 }
             }
             var checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
@@ -216,13 +215,13 @@ export class DishonoredNPCSheet extends ActorSheet {
 
 
         function barRenderer() {
-            var stressTrackMax = parseInt($("[data-appid="+appId+"]").find('#survive')[0].value);
+            var stressTrackMax = parseInt(html.find('#survive')[0].value);
             var armor = html.find('[id^="protectval-armor"]');
             for (i = 0; i < armor.length; i++) {
                 stressTrackMax += parseInt(armor[i].innerHTML);
             }
             for (i = 0; i < stressTrackMax; i++) {
-                if (i + 1 <= $("[data-appid="+appId+"]").find('#total-stress')[0].value) {
+                if (i + 1 <= html.find('#total-stress')[0].value) {
                     html.find('[id^="stress"]')[i].setAttribute("data-value", "1");
                     html.find('[id^="stress"]')[i].style.backgroundColor = "#191813";
                     html.find('[id^="stress"]')[i].style.color = "#ffffff";
