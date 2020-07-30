@@ -80,6 +80,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
+        // This creates a dynamic Void Point tracker. It polls for the hidden control "max-void" and for the value, creates a new div for each and places it under a child called "bar-void-renderer"
         var voidPointsMax = html.find('#max-void')[0].value;
         var i;
         for (i = 1; i <= voidPointsMax; i++) {
@@ -91,7 +92,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
             html.find('#bar-void-renderer')[0].appendChild(div);
         }
 
-        
+        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
+        // It also has a check that if the max-stress hidden field is not equal to this calculated Max Stress value, to make it so and submit the form.
         var stressTrackMax = parseInt(html.find('#survive')[0].value);
         var armor = html.find('[id^="protectval-armor"]');
         for (i = 0; i < armor.length; i++) {
@@ -111,6 +113,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             html.find('#bar-stress-renderer')[0].appendChild(div);
         }
 
+        // This creates a dynamic Experience tracker. For this it uses a max value of 30. This can be configured here. It creates a new div for each and places it under a child called "bar-void-renderer"
         var expPointsMax = 30;
         var i;
         for (i = 1; i <= expPointsMax; i++) {
@@ -122,14 +125,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
             html.find('#bar-exp-renderer')[0].appendChild(div);
         }
 
-        // Update Inventory Item
+        // This allows for each item-edit image to link open an item sheet.
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
 
-        // Everything below here is only needed if the sheet is editable
+        // This if statement checks if the form is editable, if not it hides some controls and, renders the tracks and then aborts any more of the script.
         if (!this.options.editable) {
             for (i = 0; i < html.find('.check-button').length; i++) {
                 html.find('.check-button')[i].style.display = 'none';
@@ -147,36 +150,30 @@ export class DishonoredCharacterSheet extends ActorSheet {
             return;
         };
 
+        // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
         html.find('.cs-item-img').click(ev =>{
             var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
             this.rollGenericItem(event, itemType, itemId);
         })
 
-        // Add Inventory Item
+        // Allows item-create images to create an item of a type defined individually by each button.
         html.find('.item-create').click(ev => {
             event.preventDefault();
             const header = event.currentTarget;
-            // Get the type of item to create.
             const type = header.dataset.type;
-            // Grab any data associated with this control.
             const data = duplicate(header.dataset);
-            // Initialize a default name.
             const name = `New ${type.capitalize()}`;
-            // Prepare the item object.
             const itemData = {
                 name: name,
                 type: type,
                 data: data
             };
-            // Remove the type from the dataset since it's in the itemData.type prop.
             delete itemData.data["type"];
-
-            // Finally, create the item!
             return this.actor.createOwnedItem(itemData);
         });
 
-        // Delete Inventory Item
+        // Allows item-delete images to allow deletion of the selected item.
         html.find('.item-delete').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             this.actor.deleteOwnedItem(li.data("itemId"));
