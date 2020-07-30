@@ -1,4 +1,4 @@
-# Foundry VTT Dishonored
+# Foundry VTT Dishonored (Unofficial)
 
 > Dishonored Tabletop System in Foundry VTT
 </br></br>
