@@ -56,7 +56,7 @@ You <b> MUST </b> own the <a href="https://www.modiphius.net/products/dishonored
 *Screenshot* (if possible):
 
 - **I have a question, but don't feel raising an issue is suitable.**
-    - Don't be afraid to raise an issue with a question or support tag! However, if you don't feel comfortable, you can get hold of me on discord! Either tag @KaitoR in Foundry VTT - Other Systems channel or send me a DM. I check Discord daily; however, I live in the UK thus work via GMT.
+    - Don't be afraid to raise an issue with a question or support tag! However, if you don't feel comfortable, you can get hold of me on discord! Either tag @KaitoR in the  Foundry VTT discord server. Support for this system is under the other-game-systems channel or send me a DM. I check Discord daily; however, I live in the UK thus work via GMT.
     
 ---
 
