@@ -41,19 +41,19 @@ You <b> MUST </b> own the <a href="https://www.modiphius.net/products/dishonored
 
 - **There is a typo! Please fix?**
     - Please raise an issue, label this as "visual". When doing so please use the following Minimum Data Set:
-*Location of Typo*:
-*Typo*:
-*What should be used* (if possible):
-*Screenshot* (if possible):
+<br />*Location of Typo*:
+<br />*Typo*:
+<br />*What should be used* (if possible):
+<br />*Screenshot* (if possible):
     
 - **This issue occurs! This is a must fix!**
     - Please raise an issue, label this as "support". All support requests should have the following Minimum Data Set:
-*Browser*:
-*Modules Installed*:
-*Steps for Reproduction*:
-*Expected Behaviour*:
-*Actual Behaviour*:
-*Screenshot* (if possible):
+<br />*Browser*:
+<br />*Modules Installed*:
+<br />*Steps for Reproduction*:
+<br />*Expected Behaviour*:
+<br />*Actual Behaviour*:
+<br />*Screenshot* (if possible):
 
 - **I have a question, but don't feel raising an issue is suitable.**
     - Don't be afraid to raise an issue with a question or support tag! However, if you don't feel comfortable, you can get hold of me on discord! Either tag @KaitoR in the  Foundry VTT discord server. Support for this system is under the other-game-systems channel or send me a DM. I check Discord daily; however, I live in the UK thus work via GMT.
