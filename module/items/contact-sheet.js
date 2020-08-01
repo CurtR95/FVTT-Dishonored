@@ -58,8 +58,7 @@ export class DishonoredContactSheet extends ItemSheet {
                 var name = $("[data-appid="+appId+"]").find('#name')[0].value;
                 var description = $("[data-appid="+appId+"]").find('.editor-content')[0].innerHTML;
                 var img = $("[data-appid="+appId+"]").find('.item-img')[0].getAttribute("src");
-                this.send2Actor(name, description, img);
-                ui.notifications.info("NPC with the name: '"+name+"' has been created!");
+                this.send2Actor(name, description, img).then(created => ui.notifications.info("NPC with the name: '"+name+"' has been created!"));
             });
         }
     }
