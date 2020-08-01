@@ -3,9 +3,10 @@ export class DishonoredRoll {
     async performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, speaker) {
         let i;
         let result = [];
-        for (i = 1; i <= dicePool; i++) {
-            let r = new Roll("d20");
-            result.push(r.roll()._result);
+        let r = new Roll(dicePool+"d20")
+        r.roll();
+        for (i = 0; i < dicePool; i++) {
+            result.push(r.dice[0].rolls[i].roll);
         }
         let numberOfRegularSuccess = result.filter(x => x <= checkTarget && x > focusTarget).length;
         let numberOfComplications = result.filter(x => x == 20).length;
@@ -66,17 +67,38 @@ export class DishonoredRoll {
             `<h4 class="dice-total">` + actualSuccessText + `</h4>
 				</div>
 			</div>
-		`
-        ChatMessage.create({
-            user: game.user._id,
-            isRoll: true,
-            speaker: ChatMessage.getSpeaker({ actor: speaker }),
-            flavor: flavor,
-            content: html,
-            sound: "sounds/dice.wav"
-        }).then(msg => {
-            return msg
-        });
+        `
+
+        if(game.dice3d) {
+            game.dice3d.showForRoll(r).then(displayed => {
+                ChatMessage.create({
+                    user: game.user._id,
+                    isRoll: true,
+                    roll: r,
+                    speaker: ChatMessage.getSpeaker({ actor: speaker }),
+                    flavor: flavor,
+                    content: html,
+                    sound: "sounds/dice.wav"
+                }).then(msg => {
+                    console.log(msg);
+                    return msg
+                });
+            });
+        }
+        else {
+            ChatMessage.create({
+                user: game.user._id,
+                isRoll: true,
+                roll: r,
+                speaker: ChatMessage.getSpeaker({ actor: speaker }),
+                flavor: flavor,
+                content: html,
+                sound: "sounds/dice.wav"
+            }).then(msg => {
+                console.log(msg);
+                return msg
+            });
+        };
     }
 
     async performItemRoll(item, speaker) {
