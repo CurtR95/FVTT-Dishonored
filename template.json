@@ -115,7 +115,7 @@
         },
         "focus": {
             "templates": ["common"],
-            "rating": 0
+            "rating": 2
         },
         "bonecharm": {
             "templates": ["common"]

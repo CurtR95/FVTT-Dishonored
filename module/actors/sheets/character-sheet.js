@@ -1,13 +1,7 @@
 import {
-    DishonoredRollDialog
-} from '../../apps/roll-dialog.js'
-import {
-    DishonoredRoll
-} from '../../roll.js'
-/**
- * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
- */
+    DishonoredSharedActorFunctions
+} from '../actor.js'
+
 export class DishonoredCharacterSheet extends ActorSheet {
 
     /** @override */
@@ -79,10 +73,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
+        
+        let dishonoredActor = new DishonoredSharedActorFunctions()
 
-        // This creates a dynamic Void Point tracker. It polls for the hidden control "max-void" and for the value, creates a new div for each and places it under a child called "bar-void-renderer"
-        var voidPointsMax = html.find('#max-void')[0].value;
         var i;
+
+        // This creates a dynamic Void Point tracker. It polls for the hidden control "max-void" and for the value, 
+        // creates a new div for each and places it under a child called "bar-void-renderer"
+        var voidPointsMax = html.find('#max-void')[0].value;
         for (i = 1; i <= voidPointsMax; i++) {
             var div = document.createElement("DIV");
             div.className = "voidbox";
@@ -92,13 +90,15 @@ export class DishonoredCharacterSheet extends ActorSheet {
             html.find('#bar-void-renderer')[0].appendChild(div);
         }
 
-        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
-        // It also has a check that if the max-stress hidden field is not equal to this calculated Max Stress value, to make it so and submit the form.
+        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. 
+        // With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
+        
         var stressTrackMax = parseInt(html.find('#survive')[0].value);
         var armor = html.find('[id^="protectval-armor"]');
         for (i = 0; i < armor.length; i++) {
             stressTrackMax += parseInt(armor[i].innerHTML);
         }
+        // This checks that the max-stress hidden field is equal to the calculated Max Stress value, if not it makes it so and submits the form.
         if (html.find('#max-stress')[0].value != stressTrackMax)
         {
             html.find('#max-stress')[0].value = stressTrackMax;
@@ -113,7 +113,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
             html.find('#bar-stress-renderer')[0].appendChild(div);
         }
 
-        // This creates a dynamic Experience tracker. For this it uses a max value of 30. This can be configured here. It creates a new div for each and places it under a child called "bar-void-renderer"
+        // This creates a dynamic Experience tracker. For this it uses a max value of 30. This can be configured here. 
+        // It creates a new div for each and places it under a child called "bar-void-renderer"
         var expPointsMax = 30;
         var i;
         for (i = 1; i <= expPointsMax; i++) {
@@ -125,6 +126,22 @@ export class DishonoredCharacterSheet extends ActorSheet {
             html.find('#bar-exp-renderer')[0].appendChild(div);
         }
 
+        // This creates a dynamic Momentum tracker. Dishonored only has 6 momentum, so this should never be changed. But this can be configured here. 
+        // It creates a new div for each and places it under a child called "bar-mom-renderer"
+        var momPointsMax = 6;
+        var i;
+        for (i = 1; i <= momPointsMax; i++) {
+            var div = document.createElement("DIV");
+            div.className = "mombox";
+            div.id = "mom-" + i;
+            div.innerHTML = i;
+            div.style = "width: calc(100% / " + momPointsMax + ");"
+            html.find('#bar-mom-renderer')[0].appendChild(div);
+        }
+
+        // Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
+        dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax, momPointsMax);
+
         // This allows for each item-edit image to link open an item sheet.
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
@@ -132,21 +149,25 @@ export class DishonoredCharacterSheet extends ActorSheet {
             item.sheet.render(true);
         });
 
-        // This if statement checks if the form is editable, if not it hides some controls and, renders the tracks and then aborts any more of the script.
+        // This if statement checks if the form is editable, if not it hides controls used by the owner, it also renders the tracks and then aborts any more of the script.
         if (!this.options.editable) {
+            // This hides the ability to Perform a Skill Test for the character
             for (i = 0; i < html.find('.check-button').length; i++) {
                 html.find('.check-button')[i].style.display = 'none';
             }
+            // This hides the ability to change the amount of Void Points the character has
             for (i = 0; i < html.find('.voidchange').length; i++) {
                 html.find('.voidchange')[i].style.display = 'none';
             }
+            // This hides all add item images
             for (i = 0; i < html.find('.add-item').length; i++) {
                 html.find('.add-item')[i].style.display = 'none';
             }
+            // This hides all remove item images
             for (i = 0; i < html.find('.item-delete').length; i++) {
                 html.find('.item-delete')[i].style.display = 'none';
             }
-            barRenderer();
+            // dishonoredRenderTracks(stressTrackMax, voidPointsMax, expPointsMax);
             return;
         };
 
@@ -154,7 +175,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
         html.find('.cs-item-img').click(ev =>{
             var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
-            this.rollGenericItem(event, itemType, itemId);
+            dishonoredActor.rollGenericItem(event, itemType, itemId, this.actor);
+            // this.rollGenericItem(event, itemType, itemId);
         })
 
         // Allows item-create images to create an item of a type defined individually by each button.
@@ -180,73 +202,80 @@ export class DishonoredCharacterSheet extends ActorSheet {
             li.slideUp(200, () => this.render(false));
         });
 
-
+        // Reads if a experience track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one. 
+        // This check is dependent on various requirements, see comments in code.
         html.find('[id^="exp"]').click(ev => {
             var newTotalObject = $(ev.currentTarget)[0];
             var newTotal = newTotalObject.id.replace(/\D/g, '');
-            if (newTotalObject.getAttribute("data-value") == 1) {
+            // data-selected stores whether the track box is currently activated or not. This checks that the box is activated
+            if (newTotalObject.getAttribute("data-selected") === "true") {
+                // Now we check that the "next" track box is not activated. 
+                // If there isn't one, or it isn't activated, we only want to decrease the value by 1 rather than setting the value.
                 var nextCheck = 'exp-' + (parseInt(newTotal) + 1);
-                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find('#total-exp')[0].value = html.find('#total-exp')[0].value - 1;
-                    barRenderer();
                     this.submit();
-                } else {
+                } 
+                // If it isn't caught by the if, the next box is likely activated. If something happened, its safer to set the value anyway.
+                else {
                     var total = html.find('#total-exp')[0].value;
                     if (total != newTotal) {
                         html.find('#total-exp')[0].value = newTotal;
-                        barRenderer();
                         this.submit();
                     }
                 }
-            } else {
+            } 
+            // If the clicked box wasn't activated, we need to activate it now.
+            else {
                 var total = html.find('#total-exp')[0].value;
                 if (total != newTotal) {
                     html.find('#total-exp')[0].value = newTotal;
-                    barRenderer();
                     this.submit();
                 }
             }
         });
 
+        // Reads if a momentum track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one.
+        // See line 186-220 for a more detailed break down on the context of each scenario. Momentum uses the same logic.
         html.find('[id^="mom"]').click(ev => {
             var newTotalObject = $(ev.currentTarget)[0];
             var newTotal = newTotalObject.id.substring(4);
-            if (newTotalObject.getAttribute("data-value") == 1) {
+            if (newTotalObject.getAttribute("data-selected") === "true") {
                 var nextCheck = 'mom-' + (parseInt(newTotal) + 1);
-                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find('#total-mom')[0].value = html.find('#total-mom')[0].value - 1;
-                    barRenderer();
+                    this.submit();
                 } else {
                     var total = html.find('#total-mom')[0].value;
                     if (total != newTotal) {
                         html.find('#total-mom')[0].value = newTotal;
-                        barRenderer();
+                        this.submit();
                     }
                 }
             } else {
                 var total = html.find('#total-mom')[0].value;
                 if (total != newTotal) {
                     html.find('#total-mom')[0].value = newTotal;
-                    barRenderer();
+                    this.submit();
                 }
             }
         });
 
+        // Reads if a stress track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one.
+        // See line 186-220 for a more detailed break down on the context of each scenario. Stress uses the same logic.
         html.find('[id^="stress"]').click(ev => {
             var newTotalObject = $(ev.currentTarget)[0];
             var newTotal = newTotalObject.id.substring(7);
-            if (newTotalObject.getAttribute("data-value") == 1) {
+            if (newTotalObject.getAttribute("data-selected") === "true") {
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
                 console.log(html.find('#'+nextCheck)[0]);
-                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find('#total-stress')[0].value = html.find('#total-stress')[0].value - 1;
-                    barRenderer();
                     this.submit();
                 } else {
                     var total = html.find('#total-stress')[0].value;
                     if (total != newTotal) {
                         html.find('#total-stress')[0].value = newTotal;
-                        barRenderer();
                         this.submit();
                     }
                 }
@@ -254,26 +283,25 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 var total = html.find('#total-stress')[0].value;
                 if (total != newTotal) {
                     html.find('#total-stress')[0].value = newTotal;
-                    barRenderer();
                     this.submit();
                 }
             }
         });
 
+        // Reads if a void track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one.
+        // See line 186-220 for a more detailed break down on the context of each scenario. Void uses the same logic.
         html.find('[id^="void"]').click(ev => {
             var newTotalObject = $(ev.currentTarget)[0];
             var newTotal = newTotalObject.id.replace(/\D/g, '');
-            if (newTotalObject.getAttribute("data-value") == 1) {
+            if (newTotalObject.getAttribute("data-selected") === "true") {
                 var nextCheck = 'void-' + (parseInt(newTotal) + 1);
-                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find('#total-void')[0].value = html.find('#total-void')[0].value - 1;
-                    barRenderer();
                     this.submit();
                 } else {
                     var total = html.find('#total-void')[0].value;
                     if (total != newTotal) {
                         html.find('#total-void')[0].value = newTotal;
-                        barRenderer();
                         this.submit();
                     }
                 }
@@ -281,13 +309,12 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 var total = html.find('#total-void')[0].value;
                 if (total != newTotal) {
                     html.find('#total-void')[0].value = newTotal;
-                    barRenderer();
                     this.submit();
                 }
             }
         });
         
-
+        // If the decrease-void-max button is clicked it removes a point off the max-void and two points from max-mana.
         html.find('[id="decrease-void-max"]').click(ev => {
             html.find('#max-void')[0].value--;
             html.find('#max-mana')[0].value--;
@@ -295,6 +322,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             this.submit();
         });
 
+        // If the increase-void-max button is clicked it adds a point to the max-void and two points to max-mana.
         html.find('[id="increase-void-max"]').click(ev => {
             html.find('#max-void')[0].value++;
             html.find('#max-mana')[0].value++;
@@ -302,20 +330,27 @@ export class DishonoredCharacterSheet extends ActorSheet {
             this.submit();
         });
 
+        // Turns the Skill checkboxes into essentially a radio button. It removes any other ticks, and then checks the new skill.
+        // Finally a submit is required as data has changed.
         html.find('.skill-roll-selector').click(ev => {
             for (i = 0; i <= 5; i++) {
                 html.find('.skill-roll-selector')[i].checked = false;
             }
             $(ev.currentTarget)[0].checked = true;
+            this.submit();
         });
 
+        // Turns the Style checkboxes into essentially a radio button. It removes any other ticks, and then checks the new style.
+        // Finally a submit is required as data has changed.
         html.find('.style-roll-selector').click(ev => {
             for (i = 0; i <= 5; i++) {
                 html.find('.style-roll-selector')[i].checked = false;
             }
             $(ev.currentTarget)[0].checked = true;
+            this.submit();
         });
 
+        // If the check-button is clicked it grabs the selected skill and the selected style and fires the method rollSkillTest. See below.
         html.find('.check-button').click(ev => {
             for (i = 0; i <= 5; i++) {
                 if (html.find('.skill-roll-selector')[i].checked === true) {
@@ -332,124 +367,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 }
             }
             var checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
-            this.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle);
+            dishonoredActor.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, this.actor);
         });
-
-
-
-        function barRenderer() {
-            var voidPointsMax = html.find('#max-void')[0].value;
-            var stressTrackMax = parseInt(html.find('#survive')[0].value);
-            var armor = html.find('[id^="protectval-armor"]');
-            for (i = 0; i < armor.length; i++) {
-                stressTrackMax += parseInt(armor[i].innerHTML);
-            }
-            for (i = 0; i < 6; i++) {
-                if (i + 1 <= html.find('#total-mom')[0].value) {
-                    html.find('[id^="mom"]')[i].setAttribute("data-value", "1");
-                    html.find('[id^="mom"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="mom"]')[i].style.color = "#ffffff";
-                } else {
-                    html.find('[id^="mom"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="mom"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="mom"]')[i].style.color = "";
-                }
-            }
-            for (i = 0; i < stressTrackMax; i++) {
-                if (i + 1 <= html.find('#total-stress')[0].value) {
-                    html.find('[id^="stress"]')[i].setAttribute("data-value", "1");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="stress"]')[i].style.color = "#ffffff";
-                } else {
-                    html.find('[id^="stress"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="stress"]')[i].style.color = "";
-                }
-            }
-            for (i = 0; i < voidPointsMax; i++) {
-                if (i + 1 <= html.find('#total-void')[0].value) {
-                    html.find('[id^="void"]')[i].setAttribute("data-value", "1");
-                    html.find('[id^="void"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="void"]')[i].style.color = "#ffffff";
-                } else {
-                    html.find('[id^="void"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="void"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="void"]')[i].style.color = "";
-                }
-            }
-            for (i = 0; i < expPointsMax; i++) {
-                if (i + 1 <= html.find('#total-exp')[0].value) {
-                    html.find('[id^="exp"]')[i].setAttribute("data-value", "1");
-                    html.find('[id^="exp"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="exp"]')[i].style.color = "#ffffff";
-                } else {
-                    html.find('[id^="exp"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="exp"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="exp"]')[i].style.color = "";
-                }
-            }
-
-        }
-
-        barRenderer();
-
-    }
-
-    async updateVoidPoint(val) {
-        let updated = await DishonoredCharacter._changeVoidPoint();
-    }
-
-    async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle) {
-        event.preventDefault();
-        let rolldialog = await DishonoredRollDialog.create();
-        if (rolldialog) {
-            let dicePool = rolldialog.get("dicePoolSlider");
-            let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
-            let dishonoredRoll = new DishonoredRoll();
-            dishonoredRoll.performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, this.actor);
-        }
-    }
-
-    async rollGenericItem(event, type, id) {
-        event.preventDefault();
-        var item = this.actor.items.get(id);
-        let dishonoredRoll = new DishonoredRoll();
-        switch(type) {
-            case "item":
-                dishonoredRoll.performItemRoll(item, this.actor);
-                break;
-            case "focus":
-                dishonoredRoll.performFocusRoll(item, this.actor);
-                break;
-            case "bonecharm":
-                dishonoredRoll.performBonecharmRoll(item, this.actor);
-                break;
-            case "weapon":
-                dishonoredRoll.performWeaponRoll(item, this.actor);
-                break;
-            case "armor":
-                dishonoredRoll.performArmorRoll(item, this.actor);
-                break;
-            case "talent":
-                dishonoredRoll.performTalentRoll(item, this.actor);
-                break;
-            case "contact":
-                dishonoredRoll.performContactRoll(item, this.actor);
-                break;
-            case "power":
-                dishonoredRoll.performPowerRoll(item, this.actor);
-                break;
-        }
-    }
-
-    /* -------------------------------------------- */
-
-    /** @override */
-    setPosition(options = {}) {
-        const position = super.setPosition(options);
-        const sheetBody = this.element.find(".sheet-body");
-        const bodyHeight = position.height - 192;
-        sheetBody.css("height", bodyHeight);
-        return position;
     }
 }

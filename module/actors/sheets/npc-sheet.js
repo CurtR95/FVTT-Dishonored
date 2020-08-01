@@ -1,13 +1,7 @@
 import {
-    DishonoredRollDialog
-} from '../../apps/roll-dialog.js'
-import {
-    DishonoredRoll
-} from '../../roll.js'
-/**
- * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
- */
+    DishonoredSharedActorFunctions
+} from '../actor.js'
+
 export class DishonoredNPCSheet extends ActorSheet {
 
     /** @override */
@@ -71,7 +65,11 @@ export class DishonoredNPCSheet extends ActorSheet {
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
+        
+        // Opens the class DishonoredSharedActorFunctions for access at various stages.
+        let dishonoredActor = new DishonoredSharedActorFunctions()
 
+        // We use i alot in for loops. Best to assign it now for use later in multiple places.
         var i;
 
         var stressTrackMax = parseInt(html.find('#survive')[0].value);
@@ -93,6 +91,9 @@ export class DishonoredNPCSheet extends ActorSheet {
             html.find('#bar-stress-renderer')[0].appendChild(div);
         }
 
+        // Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
+        dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
+
         // Update Inventory Item
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
@@ -111,14 +112,13 @@ export class DishonoredNPCSheet extends ActorSheet {
             for (i = 0; i < html.find('.item-delete').length; i++) {
                 html.find('.item-delete')[i].style.display = 'none';
             }
-            barRenderer();
             return;
         };
 
         html.find('.cs-item-img').click(ev =>{
             var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
-            this.rollGenericItem(event, itemType, itemId);
+            dishonoredActor.rollGenericItem(event, itemType, itemId, this.actor);
         })
 
         // Add Inventory Item
@@ -159,13 +159,11 @@ export class DishonoredNPCSheet extends ActorSheet {
                 console.log(html.find('#'+nextCheck)[0]);
                 if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
                     html.find('#total-stress')[0].value = html.find('#total-stress')[0].value - 1;
-                    barRenderer();
                     this.submit();
                 } else {
                     var total = html.find('#total-stress')[0].value;
                     if (total != newTotal) {
                         html.find('#total-stress')[0].value = newTotal;
-                        barRenderer();
                         this.submit();
                     }
                 }
@@ -173,7 +171,6 @@ export class DishonoredNPCSheet extends ActorSheet {
                 var total = html.find('#total-stress')[0].value;
                 if (total != newTotal) {
                     html.find('#total-stress')[0].value = newTotal;
-                    barRenderer();
                     this.submit();
                 }
             }
@@ -209,90 +206,7 @@ export class DishonoredNPCSheet extends ActorSheet {
                 }
             }
             var checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
-            this.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle);
+            dishonoredActor.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, this.actor);
         });
-
-
-
-        function barRenderer() {
-            var stressTrackMax = parseInt(html.find('#survive')[0].value);
-            var armor = html.find('[id^="protectval-armor"]');
-            for (i = 0; i < armor.length; i++) {
-                stressTrackMax += parseInt(armor[i].innerHTML);
-            }
-            for (i = 0; i < stressTrackMax; i++) {
-                if (i + 1 <= html.find('#total-stress')[0].value) {
-                    html.find('[id^="stress"]')[i].setAttribute("data-value", "1");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="stress"]')[i].style.color = "#ffffff";
-                } else {
-                    html.find('[id^="stress"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="stress"]')[i].style.color = "";
-                }
-            }
-
-        }
-
-        barRenderer();
-
-    }
-
-    async updateVoidPoint(val) {
-        let updated = await DishonoredCharacter._changeVoidPoint();
-    }
-
-    async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle) {
-        event.preventDefault();
-        let rolldialog = await DishonoredRollDialog.create();
-        if (rolldialog) {
-            let dicePool = rolldialog.get("dicePoolSlider");
-            let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
-            let dishonoredRoll = new DishonoredRoll();
-            dishonoredRoll.performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, this.actor);
-        }
-    }
-
-    async rollGenericItem(event, type, id) {
-        event.preventDefault();
-        var item = this.actor.items.get(id);
-        let dishonoredRoll = new DishonoredRoll();
-        switch(type) {
-            case "item":
-                dishonoredRoll.performItemRoll(item, this.actor);
-                break;
-            case "focus":
-                dishonoredRoll.performFocusRoll(item, this.actor);
-                break;
-            case "bonecharm":
-                dishonoredRoll.performBonecharmRoll(item, this.actor);
-                break;
-            case "weapon":
-                dishonoredRoll.performWeaponRoll(item, this.actor);
-                break;
-            case "armor":
-                dishonoredRoll.performArmorRoll(item, this.actor);
-                break;
-            case "talent":
-                dishonoredRoll.performTalentRoll(item, this.actor);
-                break;
-            case "contact":
-                dishonoredRoll.performContactRoll(item, this.actor);
-                break;
-            case "power":
-                dishonoredRoll.performPowerRoll(item, this.actor);
-                break;
-        }
-    }
-
-    /* -------------------------------------------- */
-
-    /** @override */
-    setPosition(options = {}) {
-        const position = super.setPosition(options);
-        const sheetBody = this.element.find(".sheet-body");
-        const bodyHeight = position.height - 192;
-        sheetBody.css("height", bodyHeight);
-        return position;
     }
 }
