@@ -8,13 +8,7 @@ import {
 export class DishonoredActor extends Actor {
 	prepareData() {
 		super.prepareData();
-		const actorData = this.data;
-		if (actorData.type === 'character') this._prepareCharacterData(actorData);
-	}
-
-	_prepareCharacterData(actorData) {
-		const data = actorData.data;
-		// console.log(data);
+		// const actorData = this.data;
 	}
 }
 
@@ -23,6 +17,7 @@ export class DishonoredSharedActorFunctions {
 	// This function renders all the tracks. This will be used every time the character sheet is loaded. It is a vital element as such it runs before most other code!
 	dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax, momentumMax) {
 		var i;
+		// Checks if details for the Stress Track was included, this should happen in all cases!
 		if (stressTrackMax) {
 			for (i = 0; i < stressTrackMax; i++) {
 				if (i + 1 <= html.find('#total-stress')[0].value) {
@@ -36,6 +31,7 @@ export class DishonoredSharedActorFunctions {
 				}
 			}
 		}
+		// Checks if details for the Void Track was included, this should happen for all Characters!
 		if (voidPointsMax) {
 			for (i = 0; i < voidPointsMax; i++) {
 				if (i + 1 <= html.find('#total-void')[0].value) {
@@ -49,6 +45,7 @@ export class DishonoredSharedActorFunctions {
 				}
 			}
 		}
+		// Checks if details for the Experience Track was included, this should happen for all Characters!
 		if (expPointsMax) {
 			for (i = 0; i < expPointsMax; i++) {
 				if (i + 1 <= html.find('#total-exp')[0].value) {
@@ -62,6 +59,7 @@ export class DishonoredSharedActorFunctions {
 				}
 			}
 		}
+		// Checks if details for the Momentum Track was included, this should happen for all Characters!
 		if(momentumMax) {
 			for (i = 0; i < 6; i++) {
 				if (i + 1 <= html.find('#total-mom')[0].value) {
@@ -79,11 +77,13 @@ export class DishonoredSharedActorFunctions {
 
     // This handles performing a skill test using the "Perform Check" button.
     async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, speaker) {
-        event.preventDefault();
+		event.preventDefault();
+		// This creates a dialog to gather details regarding the roll and waits for a response
         let rolldialog = await DishonoredRollDialog.create();
         if (rolldialog) {
             let dicePool = rolldialog.get("dicePoolSlider");
-            let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
+			let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
+			// Once the response has been collected it then sends it to be rolled.
             let dishonoredRoll = new DishonoredRoll();
             dishonoredRoll.performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, speaker);
         }

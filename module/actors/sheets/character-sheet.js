@@ -23,9 +23,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
     /** @override */
     getData() {
         const data = super.getData();
-        data.dtypes = ["String", "Number", "Boolean"];
 
-        //Ensure skill and style values don't weigh over the max of 8 and minimum of 4.
+        //Ensure skill and style values don't weigh over the max of 8.
         if (data.data.skills.fight.value > 8) data.data.skills.fight.value = 8;
         if (data.data.skills.move.value > 8) data.data.skills.move.value = 8;
         if (data.data.skills.study.value > 8) data.data.skills.study.value = 8;
@@ -38,11 +37,17 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (data.data.styles.forcefully.value > 8) data.data.styles.forcefully.value = 8;
         if (data.data.styles.quietly.value > 8) data.data.styles.quietly.value = 8;
         if (data.data.styles.swiftly.value > 8) data.data.styles.swiftly.value = 8;
+
+        // Checks if any values are larger than their relevant max, if so, set to max. 
         if (data.data.void.value > data.data.void.max) data.data.void.value = data.data.void.max;
         if (data.data.stress.value > data.data.stress.max) data.data.stress.value = data.data.stress.max;
-        if (data.data.mana.value > data.data.mana.max) data.data.mana.value = data.data.mana.max;
+        // For some reason - this is treated as a string, so this enforce use of integers here.
+        if (parseInt(data.data.mana.value) > parseInt(data.data.mana.max)) data.data.mana.value = data.data.mana.max;
 
+        // Checks if mana max is not equal to double the void max, if it isn't, set it so.
+        if (data.data.mana.max != 2*data.data.void.max) data.data.mana.max = 2*data.data.void.max;
 
+        //Ensure skill and style values aren't lower than 4.
         if (data.data.skills.fight.value < 4) data.data.skills.fight.value = 4;
         if (data.data.skills.move.value < 4) data.data.skills.move.value = 4;
         if (data.data.skills.study.value < 4) data.data.skills.study.value = 4;
@@ -55,16 +60,15 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (data.data.styles.forcefully.value < 4) data.data.styles.forcefully.value = 4;
         if (data.data.styles.quietly.value < 4) data.data.styles.quietly.value = 4;
         if (data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
+
+        // Checks if any values are below their theoretical minimum, if so - set it to the very minimum.
         if (data.data.void.value < 0) data.data.void.value = 0;
         if (data.data.void.max < 1) data.data.void.max = 1;
         if (data.data.stress.value < 0) data.data.stress.value = 0;
         if (data.data.experience < 0) data.data.experience = 0;
         if (data.data.mana.value < 0) data.data.mana.value = 0;
         if (data.data.mana.max < 2) data.data.mana.max = 2;
-
-        if (data.data.mana.max != 2*data.data.void.max) data.data.mana.max = 2*data.data.void.max;
         
-
         return data;
     }
 
@@ -74,8 +78,10 @@ export class DishonoredCharacterSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
         
+        // Opens the class DishonoredSharedActorFunctions for access at various stages.
         let dishonoredActor = new DishonoredSharedActorFunctions()
 
+        // We use i alot in for loops. Best to assign it now for use later in multiple places.
         var i;
 
         // This creates a dynamic Void Point tracker. It polls for the hidden control "max-void" and for the value, 
@@ -92,7 +98,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. 
         // With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
-        
         var stressTrackMax = parseInt(html.find('#survive')[0].value);
         var armor = html.find('[id^="protectval-armor"]');
         for (i = 0; i < armor.length; i++) {
@@ -115,7 +120,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // This creates a dynamic Experience tracker. For this it uses a max value of 30. This can be configured here. 
         // It creates a new div for each and places it under a child called "bar-void-renderer"
-        var expPointsMax = 30;
+        var expPointsMax = game.settings.get("FVTT-Dishonored", "maxNumberOfExperience");
         var i;
         for (i = 1; i <= expPointsMax; i++) {
             var div = document.createElement("DIV");
@@ -142,14 +147,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
         // Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
         dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax, momPointsMax);
 
-        // This allows for each item-edit image to link open an item sheet.
+        // This allows for each item-edit image to link open an item sheet. This uses Simple Worldbuilding System Code.
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
 
-        // This if statement checks if the form is editable, if not it hides controls used by the owner, it also renders the tracks and then aborts any more of the script.
+        // This if statement checks if the form is editable, if not it hides controls used by the owner, then aborts any more of the script.
         if (!this.options.editable) {
             // This hides the ability to Perform a Skill Test for the character
             for (i = 0; i < html.find('.check-button').length; i++) {
@@ -167,7 +172,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
             for (i = 0; i < html.find('.item-delete').length; i++) {
                 html.find('.item-delete')[i].style.display = 'none';
             }
-            // dishonoredRenderTracks(stressTrackMax, voidPointsMax, expPointsMax);
             return;
         };
 
@@ -176,10 +180,9 @@ export class DishonoredCharacterSheet extends ActorSheet {
             var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
             dishonoredActor.rollGenericItem(event, itemType, itemId, this.actor);
-            // this.rollGenericItem(event, itemType, itemId);
         })
 
-        // Allows item-create images to create an item of a type defined individually by each button.
+        // Allows item-create images to create an item of a type defined individually by each button. This uses code found via the Foundry VTT System Tutorial.
         html.find('.item-create').click(ev => {
             event.preventDefault();
             const header = event.currentTarget;
@@ -195,7 +198,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             return this.actor.createOwnedItem(itemData);
         });
 
-        // Allows item-delete images to allow deletion of the selected item.
+        // Allows item-delete images to allow deletion of the selected item. This uses Simple Worldbuilding System Code.
         html.find('.item-delete').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             this.actor.deleteOwnedItem(li.data("itemId"));
@@ -350,7 +353,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             this.submit();
         });
 
-        // If the check-button is clicked it grabs the selected skill and the selected style and fires the method rollSkillTest. See below.
+        // If the check-button is clicked it grabs the selected skill and the selected style and fires the method rollSkillTest. See actor.js for further info.
         html.find('.check-button').click(ev => {
             for (i = 0; i <= 5; i++) {
                 if (html.find('.skill-roll-selector')[i].checked === true) {

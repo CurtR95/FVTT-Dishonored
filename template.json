@@ -8,10 +8,6 @@
                     "value": 0,
                     "max": 4
                 },
-                "mana": {
-                    "value": 0,
-                    "max": 6
-                },
                 "truth1": "",
                 "skills": {
                     "fight": {
@@ -83,6 +79,10 @@
             "experience": 0,
             "templates": ["common"],
             "age": 21,
+            "mana": {
+                "value": 0,
+                "max": 6
+            },
             "truth2": "",
             "archetype": "",
             "outlook": "",

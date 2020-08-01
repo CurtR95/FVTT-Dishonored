@@ -38,12 +38,33 @@ import {
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
+    // Splash Screen
     console.log(`Initializing Dishonored Tabletop Roleplaying Game System`);
+    console.log('                                                        @@')
+    console.log('         @                                            @@')
+    console.log('@         @@                     @      @@         @@@@')
+    console.log('  @@       @@@                 @@@   @@@        @@@@')
+    console.log('    @@@@     @@@@@@@@@@@@@@@@@@@@    @@      @@@@@')
+    console.log('      @@@@    @@@@            @@   @@@     @@@@@')
+    console.log('        @@@@@   @     @@@@@@@@   @@@    @@@@@      @@')
+    console.log('  @@@      @@@@ @@@@@@@       @@@@@  @@@@@@    @@@@')
+    console.log('      @@@@    @@@@              @ @@@@@@   @@@@@')
+    console.log('          @@@@   @              @@@@@@  @@@  @@@')
+    console.log('                    @@@@@@@@@@@@@@@@          @@@')
+    console.log('                  @@@@        @@@@            @@@')
+    console.log('                  @@    @@@@@   @@@  @@@@@     @@')
+    console.log('                        @@@@   @@@   @@@@@     @@')
+    console.log('                    @@@       @@@@            @@@')
+    console.log('        @@@@  @  @@@@@@@@@@@@@@               @@')
+    console.log('        @@ @@  @@@@@                         @@@')
+    console.log('             @@@@                    @@    @@@')
+    console.log('            @@                         @@@@@@')
+    console.log('          @                              @@@@')
+    console.log('                                            @@@')
+    console.log('                                               @@@')
+    console.log('                                                  @@')
 
-    /**
-     * Set an initiative formula for the system
-     * @type {String}
-     */
+    // Define initiative for the system.
     CONFIG.Combat.initiative = {
         formula: "@styles.swiftly.value",
         decimals: 0
@@ -112,5 +133,14 @@ Hooks.once("init", async function() {
           "ASSISTANT": "Assistant Gamemaster",
           "GAMEMASTER": "Gamemasters",
         }
+    });
+
+    game.settings.register("FVTT-Dishonored", "maxNumberOfExperience", {
+        name: 'Maximum amount of Experience:',
+        hint: 'Max number of experience that can be given to a character. 30 is default, anything past 50 becomes almost unreadable.',
+        scope: "world",
+        type: Number,
+        default: 30,
+        config: true
     });
 });
