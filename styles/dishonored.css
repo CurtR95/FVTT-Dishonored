@@ -460,3 +460,10 @@
     box-shadow: 0 0 8px red;
     cursor: pointer;
 }
+
+.dishonored .unset-clickables:hover {
+    box-shadow:unset !important;
+    text-shadow:unset !important;
+    cursor:unset !important;
+    content:unset !important;
+}

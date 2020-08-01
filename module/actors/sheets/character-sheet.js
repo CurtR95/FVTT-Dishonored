@@ -172,6 +172,36 @@ export class DishonoredCharacterSheet extends ActorSheet {
             for (i = 0; i < html.find('.item-delete').length; i++) {
                 html.find('.item-delete')[i].style.display = 'none';
             }
+            // This hides all skill and style check boxes (and titles)
+            for (i = 0; i < html.find('.stat-selector-text').length; i++) {
+                html.find('.stat-selector-text')[i].style.display = 'none';
+            }
+            for (i = 0; i < html.find('.style-roll-selector').length; i++) {
+                html.find('.style-roll-selector')[i].style.display = 'none';
+            }
+            for (i = 0; i < html.find('.skill-roll-selector').length; i++) {
+                html.find('.skill-roll-selector')[i].style.display = 'none';
+            }
+            // Remove hover CSS from clickables that are no longer clickable.
+            for (i = 0; i < html.find('.mombox').length; i++) {
+                html.find('.mombox')[i].classList.add("unset-clickables");
+            }
+            for (i = 0; i < html.find('.expbox').length; i++) {
+                html.find('.expbox')[i].classList.add("unset-clickables");
+            }
+            for (i = 0; i < html.find('.stressbox').length; i++) {
+                html.find('.stressbox')[i].classList.add("unset-clickables");
+            }
+            for (i = 0; i < html.find('.voidbox').length; i++) {
+                html.find('.voidbox')[i].classList.add("unset-clickables");
+            }
+            for (i = 0; i < html.find('.cs-item-img').length; i++) {
+                html.find('.cs-item-img')[i].classList.add("unset-clickables");
+            }
+            for (i = 0; i < html.find('.item-create').length; i++) {
+                html.find('.item-create')[i].classList.add("unset-clickables");
+            }
+
             return;
         };
 
