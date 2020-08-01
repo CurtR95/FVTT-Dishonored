@@ -23,7 +23,7 @@ export class DishonoredFocusSheet extends ItemSheet {
         data.dtypes = ["String", "Number", "Boolean"];
 
         if (data.data.rating > 5) data.data.rating = 5;
-        if (data.data.rating < 0) data.data.rating = 0;
+        if (data.data.rating < 2) data.data.rating = 2;
 
         return data;
     }

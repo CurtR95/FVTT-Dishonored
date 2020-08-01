@@ -1,13 +1,7 @@
 import {
-    DishonoredRollDialog
-} from '../../apps/roll-dialog.js'
-import {
-    DishonoredRoll
-} from '../../roll.js'
-/**
- * Extend the basic ActorSheet with some very simple modifications
- * @extends {ActorSheet}
- */
+    DishonoredSharedActorFunctions
+} from '../actor.js'
+
 export class DishonoredNPCSheet extends ActorSheet {
 
     /** @override */
@@ -31,7 +25,7 @@ export class DishonoredNPCSheet extends ActorSheet {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
 
-        //Ensure skill and style values don't weigh over the max of 8 and minimum of 4.
+        //Ensure skill and style values don't weigh over the max of 8.
         if (data.data.skills.fight.value > 8) data.data.skills.fight.value = 8;
         if (data.data.skills.move.value > 8) data.data.skills.move.value = 8;
         if (data.data.skills.study.value > 8) data.data.skills.study.value = 8;
@@ -44,9 +38,11 @@ export class DishonoredNPCSheet extends ActorSheet {
         if (data.data.styles.forcefully.value > 8) data.data.styles.forcefully.value = 8;
         if (data.data.styles.quietly.value > 8) data.data.styles.quietly.value = 8;
         if (data.data.styles.swiftly.value > 8) data.data.styles.swiftly.value = 8;
+
+        // Checks if stress is larger than its max, if so, set to max. 
         if (data.data.stress.value > data.data.stress.max) data.data.stress.value = data.data.stress.max;
 
-
+        //Ensure skill and style values aren't lower than 4.
         if (data.data.skills.fight.value < 4) data.data.skills.fight.value = 4;
         if (data.data.skills.move.value < 4) data.data.skills.move.value = 4;
         if (data.data.skills.study.value < 4) data.data.skills.study.value = 4;
@@ -59,10 +55,10 @@ export class DishonoredNPCSheet extends ActorSheet {
         if (data.data.styles.forcefully.value < 4) data.data.styles.forcefully.value = 4;
         if (data.data.styles.quietly.value < 4) data.data.styles.quietly.value = 4;
         if (data.data.styles.swiftly.value < 4) data.data.styles.swiftly.value = 4;
-        if (data.data.stress.value < 0) data.data.stress.value = 0;
-        if (data.data.experience < 0) data.data.experience = 0;
-        
 
+        // Checks if stress is below 0, if so - set it to 0.
+        if (data.data.stress.value < 0) data.data.stress.value = 0;
+        
         return data;
     }
 
@@ -71,9 +67,15 @@ export class DishonoredNPCSheet extends ActorSheet {
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
+        
+        // Opens the class DishonoredSharedActorFunctions for access at various stages.
+        let dishonoredActor = new DishonoredSharedActorFunctions()
 
+        // We use i alot in for loops. Best to assign it now for use later in multiple places.
         var i;
 
+        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. 
+        // With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
         var stressTrackMax = parseInt(html.find('#survive')[0].value);
         var armor = html.find('[id^="protectval-armor"]');
         for (i = 0; i < armor.length; i++) {
@@ -93,92 +95,99 @@ export class DishonoredNPCSheet extends ActorSheet {
             html.find('#bar-stress-renderer')[0].appendChild(div);
         }
 
-        // Update Inventory Item
+        // Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
+        dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
+
+        // This allows for each item-edit image to link open an item sheet. This uses Simple Worldbuilding System Code.
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
 
-        // Everything below here is only needed if the sheet is editable
+        // This if statement checks if the form is editable, if not it hides controls used by the owner, then aborts any more of the script.
         if (!this.options.editable) {
+            // This hides the ability to Perform a Skill Test for the character
             for (i = 0; i < html.find('.check-button').length; i++) {
                 html.find('.check-button')[i].style.display = 'none';
             }
+            // This hides all add item images
             for (i = 0; i < html.find('.add-item').length; i++) {
                 html.find('.add-item')[i].style.display = 'none';
             }
+            // This hides all remove item images
             for (i = 0; i < html.find('.item-delete').length; i++) {
                 html.find('.item-delete')[i].style.display = 'none';
             }
-            barRenderer();
             return;
         };
 
+        // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
         html.find('.cs-item-img').click(ev =>{
             var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
-            this.rollGenericItem(event, itemType, itemId);
+            dishonoredActor.rollGenericItem(event, itemType, itemId, this.actor);
         })
 
-        // Add Inventory Item
+        // Allows item-create images to create an item of a type defined individually by each button. This uses code found via the Foundry VTT System Tutorial.
         html.find('.item-create').click(ev => {
             event.preventDefault();
             const header = event.currentTarget;
-            // Get the type of item to create.
             const type = header.dataset.type;
-            // Grab any data associated with this control.
             const data = duplicate(header.dataset);
-            // Initialize a default name.
             const name = `New ${type.capitalize()}`;
-            // Prepare the item object.
             const itemData = {
                 name: name,
                 type: type,
                 data: data
             };
-            // Remove the type from the dataset since it's in the itemData.type prop.
             delete itemData.data["type"];
-
-            // Finally, create the item!
             return this.actor.createOwnedItem(itemData);
         });
 
-        // Delete Inventory Item
+        // Allows item-delete images to allow deletion of the selected item. This uses Simple Worldbuilding System Code.
         html.find('.item-delete').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
             this.actor.deleteOwnedItem(li.data("itemId"));
             li.slideUp(200, () => this.render(false));
         });
 
+        // Reads if a stress track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one.
+        // This check is dependent on various requirements, see comments in code.
         html.find('[id^="stress"]').click(ev => {
             var newTotalObject = $(ev.currentTarget)[0];
             var newTotal = newTotalObject.id.substring(7);
-            if (newTotalObject.getAttribute("data-value") == 1) {
+            // data-selected stores whether the track box is currently activated or not. This checks that the box is activated
+            if (newTotalObject.getAttribute("data-selected") === "true") {
+                // Now we check that the "next" track box is not activated. 
+                // If there isn't one, or it isn't activated, we only want to decrease the value by 1 rather than setting the value.
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
                 console.log(html.find('#'+nextCheck)[0]);
-                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-value") != 1) {
+                if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find('#total-stress')[0].value = html.find('#total-stress')[0].value - 1;
-                    barRenderer();
                     this.submit();
-                } else {
+                } 
+                // If it isn't caught by the if, the next box is likely activated. If something happened, its safer to set the value anyway.
+                else {
                     var total = html.find('#total-stress')[0].value;
                     if (total != newTotal) {
                         html.find('#total-stress')[0].value = newTotal;
-                        barRenderer();
                         this.submit();
                     }
                 }
-            } else {
+            } 
+            // If the clicked box wasn't activated, we need to activate it now.
+            else {
                 var total = html.find('#total-stress')[0].value;
                 if (total != newTotal) {
                     html.find('#total-stress')[0].value = newTotal;
-                    barRenderer();
                     this.submit();
                 }
             }
         });
 
+        // Turns the Skill checkboxes into essentially a radio button. It removes any other ticks, and then checks the new skill.
+        // Finally a submit is required as data has changed.
         html.find('.skill-roll-selector').click(ev => {
             for (i = 0; i <= 5; i++) {
                 html.find('.skill-roll-selector')[i].checked = false;
@@ -186,6 +195,8 @@ export class DishonoredNPCSheet extends ActorSheet {
             $(ev.currentTarget)[0].checked = true;
         });
 
+        // Turns the Style checkboxes into essentially a radio button. It removes any other ticks, and then checks the new style.
+        // Finally a submit is required as data has changed.
         html.find('.style-roll-selector').click(ev => {
             for (i = 0; i <= 5; i++) {
                 html.find('.style-roll-selector')[i].checked = false;
@@ -193,6 +204,7 @@ export class DishonoredNPCSheet extends ActorSheet {
             $(ev.currentTarget)[0].checked = true;
         });
 
+        // If the check-button is clicked it grabs the selected skill and the selected style and fires the method rollSkillTest. See actor.js for further info.
         html.find('.check-button').click(ev => {
             for (i = 0; i <= 5; i++) {
                 if (html.find('.skill-roll-selector')[i].checked === true) {
@@ -209,90 +221,7 @@ export class DishonoredNPCSheet extends ActorSheet {
                 }
             }
             var checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
-            this.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle);
+            dishonoredActor.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, this.actor);
         });
-
-
-
-        function barRenderer() {
-            var stressTrackMax = parseInt(html.find('#survive')[0].value);
-            var armor = html.find('[id^="protectval-armor"]');
-            for (i = 0; i < armor.length; i++) {
-                stressTrackMax += parseInt(armor[i].innerHTML);
-            }
-            for (i = 0; i < stressTrackMax; i++) {
-                if (i + 1 <= html.find('#total-stress')[0].value) {
-                    html.find('[id^="stress"]')[i].setAttribute("data-value", "1");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="stress"]')[i].style.color = "#ffffff";
-                } else {
-                    html.find('[id^="stress"]')[i].setAttribute("data-value", "0");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="stress"]')[i].style.color = "";
-                }
-            }
-
-        }
-
-        barRenderer();
-
-    }
-
-    async updateVoidPoint(val) {
-        let updated = await DishonoredCharacter._changeVoidPoint();
-    }
-
-    async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle) {
-        event.preventDefault();
-        let rolldialog = await DishonoredRollDialog.create();
-        if (rolldialog) {
-            let dicePool = rolldialog.get("dicePoolSlider");
-            let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
-            let dishonoredRoll = new DishonoredRoll();
-            dishonoredRoll.performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, this.actor);
-        }
-    }
-
-    async rollGenericItem(event, type, id) {
-        event.preventDefault();
-        var item = this.actor.items.get(id);
-        let dishonoredRoll = new DishonoredRoll();
-        switch(type) {
-            case "item":
-                dishonoredRoll.performItemRoll(item, this.actor);
-                break;
-            case "focus":
-                dishonoredRoll.performFocusRoll(item, this.actor);
-                break;
-            case "bonecharm":
-                dishonoredRoll.performBonecharmRoll(item, this.actor);
-                break;
-            case "weapon":
-                dishonoredRoll.performWeaponRoll(item, this.actor);
-                break;
-            case "armor":
-                dishonoredRoll.performArmorRoll(item, this.actor);
-                break;
-            case "talent":
-                dishonoredRoll.performTalentRoll(item, this.actor);
-                break;
-            case "contact":
-                dishonoredRoll.performContactRoll(item, this.actor);
-                break;
-            case "power":
-                dishonoredRoll.performPowerRoll(item, this.actor);
-                break;
-        }
-    }
-
-    /* -------------------------------------------- */
-
-    /** @override */
-    setPosition(options = {}) {
-        const position = super.setPosition(options);
-        const sheetBody = this.element.find(".sheet-body");
-        const bodyHeight = position.height - 192;
-        sheetBody.css("height", bodyHeight);
-        return position;
     }
 }

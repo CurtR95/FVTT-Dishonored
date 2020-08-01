@@ -38,12 +38,33 @@ import {
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
+    // Splash Screen
     console.log(`Initializing Dishonored Tabletop Roleplaying Game System`);
+    console.log('                                                        @@')
+    console.log('         @                                            @@')
+    console.log('@         @@                     @      @@         @@@@')
+    console.log('  @@       @@@                 @@@   @@@        @@@@')
+    console.log('    @@@@     @@@@@@@@@@@@@@@@@@@@    @@      @@@@@')
+    console.log('      @@@@    @@@@            @@   @@@     @@@@@')
+    console.log('        @@@@@   @     @@@@@@@@   @@@    @@@@@      @@')
+    console.log('  @@@      @@@@ @@@@@@@       @@@@@  @@@@@@    @@@@')
+    console.log('      @@@@    @@@@              @ @@@@@@   @@@@@')
+    console.log('          @@@@   @              @@@@@@  @@@  @@@')
+    console.log('                    @@@@@@@@@@@@@@@@          @@@')
+    console.log('                  @@@@        @@@@            @@@')
+    console.log('                  @@    @@@@@   @@@  @@@@@     @@')
+    console.log('                        @@@@   @@@   @@@@@     @@')
+    console.log('                    @@@       @@@@            @@@')
+    console.log('        @@@@  @  @@@@@@@@@@@@@@               @@')
+    console.log('        @@ @@  @@@@@                         @@@')
+    console.log('             @@@@                    @@    @@@')
+    console.log('            @@                         @@@@@@')
+    console.log('          @                              @@@@')
+    console.log('                                            @@@')
+    console.log('                                               @@@')
+    console.log('                                                  @@')
 
-    /**
-     * Set an initiative formula for the system
-     * @type {String}
-     */
+    // Define initiative for the system.
     CONFIG.Combat.initiative = {
         formula: "@styles.swiftly.value",
         decimals: 0
@@ -90,11 +111,36 @@ Hooks.once("init", async function() {
 
     // Register system settings
     game.settings.register("FVTT-Dishonored", "multipleComplications", {
-        name: 'Allow Multiple Complications?',
+        name: 'Multiple Complications:',
         hint: 'The rulebook states "Any die which rolled 20 causes a complication". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display "There were x Complications" if multiple 20s are rolled. Disabling will just state a single complication.',
         scope: "world",
         type: Boolean,
         default: true,
+        config: true
+    });
+
+    game.settings.register("FVTT-Dishonored", "send2ActorPermissionLevel", {
+        name: 'Send2Actor User Role:',
+        hint: 'The contact item type has the ability to create an NPC, who should be allowed to see & use this functionality?',
+        scope: "world",
+        type: String,
+        default: "ASSISTANT",
+        config: true,
+        choices: {
+          "NONE": "Switch Off Send2Actor",
+          "PLAYER": "Players",
+          "TRUSTED": "Trusted Players",
+          "ASSISTANT": "Assistant Gamemaster",
+          "GAMEMASTER": "Gamemasters",
+        }
+    });
+
+    game.settings.register("FVTT-Dishonored", "maxNumberOfExperience", {
+        name: 'Maximum amount of Experience:',
+        hint: 'Max number of experience that can be given to a character. 30 is default, anything past 50 becomes almost unreadable.',
+        scope: "world",
+        type: Number,
+        default: 30,
         config: true
     });
 });

@@ -46,19 +46,21 @@ export class DishonoredContactSheet extends ItemSheet {
 
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) {
-            for (i = 0; i < html.find('.send2actor-button').length; i++) {
-                html.find('.send2actor-button')[i].style.display = 'none';
-            }
+            html.find('.send2actor-button')[0].style.display = 'none';
             return;
         }
 
-        html.find('.send2actor-button').click(ev => {
-            var name = $("[data-appid="+appId+"]").find('#name')[0].value;
-            var description = $("[data-appid="+appId+"]").find('.editor-content')[0].innerHTML;
-            var img = $("[data-appid="+appId+"]").find('.item-img')[0].getAttribute("src");
-            this.send2Actor(name, description, img);
-        });
-
+        if (!game.user.hasRole(game.settings.get("FVTT-Dishonored", "send2ActorPermissionLevel"))) {
+            html.find('.send2actor-button')[0].style.display = 'none';
+        }
+        else {
+            html.find('.send2actor-button').click(ev => {
+                var name = $("[data-appid="+appId+"]").find('#name')[0].value;
+                var description = $("[data-appid="+appId+"]").find('.editor-content')[0].innerHTML;
+                var img = $("[data-appid="+appId+"]").find('.item-img')[0].getAttribute("src");
+                this.send2Actor(name, description, img).then(created => ui.notifications.info("NPC with the name: '"+name+"' has been created!"));
+            });
+        }
     }
 
     async send2Actor(name, description, img) {
