@@ -1,13 +1,9 @@
-/**
- * Extend the basic ItemSheet with some very simple modifications
- * @extends {ItemSheet}
- */
 export class DishonoredWeaponSheet extends ItemSheet {
 
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "weapon"],
+            classes: ["dishonored", "sheet", "item", "weapon"],
             template: "systems/FVTT-Dishonored/templates/items/weapon-sheet.html",
             width: 565,
             height: 400,

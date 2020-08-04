@@ -7,8 +7,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "character"],
-            template: "systems/FVTT-Dishonored/templates/actors/character-sheet.html",
+            classes: ["dishonored", "sheet", "actor", "character"],
             width: 700,
             height: 735,
             dragDrop: [{
@@ -17,6 +16,15 @@ export class DishonoredCharacterSheet extends ActorSheet {
             }]
         });
     }
+
+    /* -------------------------------------------- */
+
+    // If the player is not a GM and has limited permissions - send them to the limited sheet, otherwise, continue as usual.
+    /** @override */
+    get template() {
+        if ( !game.user.isGM && this.actor.limited) return "systems/FVTT-Dishonored/templates/actors/limited-sheet.html";
+        return `systems/FVTT-Dishonored/templates/actors/character-sheet.html`;
+      }
 
     /* -------------------------------------------- */
 
@@ -79,7 +87,10 @@ export class DishonoredCharacterSheet extends ActorSheet {
         super.activateListeners(html);
         
         // Opens the class DishonoredSharedActorFunctions for access at various stages.
-        let dishonoredActor = new DishonoredSharedActorFunctions()
+        let dishonoredActor = new DishonoredSharedActorFunctions();
+
+        // If the player has limited access to the actor, there is nothing to see here. Return.
+        if ( !game.user.isGM && this.actor.limited) return;
 
         // We use i alot in for loops. Best to assign it now for use later in multiple places.
         var i;
@@ -89,7 +100,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         var voidPointsMax = html.find('#max-void')[0].value;
         for (i = 1; i <= voidPointsMax; i++) {
             var div = document.createElement("DIV");
-            div.className = "voidbox";
+            div.className = "box";
             div.id = "void-" + i;
             div.innerHTML = i;
             div.style = "width: calc(100% / " + html.find('#max-void')[0].value + ");"
@@ -111,7 +122,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         }
         for (i = 1; i <= stressTrackMax; i++) {
             var div = document.createElement("DIV");
-            div.className = "stressbox";
+            div.className = "box";
             div.id = "stress-" + i;
             div.innerHTML = i;
             div.style = "width: calc(100% / " + html.find('#max-stress')[0].value + ");"
@@ -124,7 +135,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         var i;
         for (i = 1; i <= expPointsMax; i++) {
             var div = document.createElement("DIV");
-            div.className = "expbox";
+            div.className = "box";
             div.id = "exp-" + i;
             div.innerHTML = i;
             div.style = "width: calc(100% / " + expPointsMax + ");"
@@ -137,7 +148,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         var i;
         for (i = 1; i <= momPointsMax; i++) {
             var div = document.createElement("DIV");
-            div.className = "mombox";
+            div.className = "box";
             div.id = "mom-" + i;
             div.innerHTML = i;
             div.style = "width: calc(100% / " + momPointsMax + ");"
@@ -148,42 +159,56 @@ export class DishonoredCharacterSheet extends ActorSheet {
         dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax, momPointsMax);
 
         // This allows for each item-edit image to link open an item sheet. This uses Simple Worldbuilding System Code.
-        html.find('.item-edit').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
+        html.find('.control.edit').click(ev => {
+            const li = $(ev.currentTarget).parents(".entry");
             const item = this.actor.getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
 
-        // This if statement checks if the form is editable, if not it hides controls used by the owner, then aborts any more of the script.
+        // This if statement checks if the form is editable, if not it hides control used by the owner, then aborts any more of the script.
         if (!this.options.editable) {
-            // This hides the ability to Perform a Skill Test for the character
+            // This hides the ability to Perform a Skill Test for the character.
             for (i = 0; i < html.find('.check-button').length; i++) {
                 html.find('.check-button')[i].style.display = 'none';
             }
-            // This hides the ability to change the amount of Void Points the character has
+            // This hides the ability to change the amount of Void Points the character has.
             for (i = 0; i < html.find('.voidchange').length; i++) {
                 html.find('.voidchange')[i].style.display = 'none';
             }
-            // This hides all add item images
-            for (i = 0; i < html.find('.add-item').length; i++) {
-                html.find('.add-item')[i].style.display = 'none';
+            // This hides all add and delete item images.
+            for (i = 0; i < html.find('.control.create').length; i++) {
+                html.find('.control.create')[i].style.display = 'none';
             }
-            // This hides all remove item images
-            for (i = 0; i < html.find('.item-delete').length; i++) {
-                html.find('.item-delete')[i].style.display = 'none';
+            for (i = 0; i < html.find('.control.delete').length; i++) {
+                html.find('.control.delete')[i].style.display = 'none';
             }
+            // This hides all skill and style check boxes (and titles)
+            for (i = 0; i < html.find('.selector').length; i++) {
+                html.find('.selector')[i].style.display = 'none';
+            }
+            for (i = 0; i < html.find('.selector').length; i++) {
+                html.find('.selector')[i].style.display = 'none';
+            }
+            // Remove hover CSS from clickables that are no longer clickable.
+            for (i = 0; i < html.find('.box').length; i++) {
+                html.find('.box')[i].classList.add("unset-clickables");
+            }
+            for (i = 0; i < html.find('.rollable').length; i++) {
+                html.find('.rollable')[i].classList.add("unset-clickables");
+            }
+
             return;
         };
 
         // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
-        html.find('.cs-item-img').click(ev =>{
-            var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
-            var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
+        html.find('.rollable').click(ev =>{
+            var itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
+            var itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
             dishonoredActor.rollGenericItem(event, itemType, itemId, this.actor);
         })
 
         // Allows item-create images to create an item of a type defined individually by each button. This uses code found via the Foundry VTT System Tutorial.
-        html.find('.item-create').click(ev => {
+        html.find('.control.create').click(ev => {
             event.preventDefault();
             const header = event.currentTarget;
             const type = header.dataset.type;
@@ -199,8 +224,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
         });
 
         // Allows item-delete images to allow deletion of the selected item. This uses Simple Worldbuilding System Code.
-        html.find('.item-delete').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
+        html.find('.control.delete').click(ev => {
+            const li = $(ev.currentTarget).parents(".entry");
             this.actor.deleteOwnedItem(li.data("itemId"));
             li.slideUp(200, () => this.render(false));
         });
@@ -335,9 +360,9 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // Turns the Skill checkboxes into essentially a radio button. It removes any other ticks, and then checks the new skill.
         // Finally a submit is required as data has changed.
-        html.find('.skill-roll-selector').click(ev => {
+        html.find('.selector.skill').click(ev => {
             for (i = 0; i <= 5; i++) {
-                html.find('.skill-roll-selector')[i].checked = false;
+                html.find('.selector.skill')[i].checked = false;
             }
             $(ev.currentTarget)[0].checked = true;
             this.submit();
@@ -345,9 +370,9 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // Turns the Style checkboxes into essentially a radio button. It removes any other ticks, and then checks the new style.
         // Finally a submit is required as data has changed.
-        html.find('.style-roll-selector').click(ev => {
+        html.find('.selector.style').click(ev => {
             for (i = 0; i <= 5; i++) {
-                html.find('.style-roll-selector')[i].checked = false;
+                html.find('.selector.style')[i].checked = false;
             }
             $(ev.currentTarget)[0].checked = true;
             this.submit();
@@ -356,15 +381,15 @@ export class DishonoredCharacterSheet extends ActorSheet {
         // If the check-button is clicked it grabs the selected skill and the selected style and fires the method rollSkillTest. See actor.js for further info.
         html.find('.check-button').click(ev => {
             for (i = 0; i <= 5; i++) {
-                if (html.find('.skill-roll-selector')[i].checked === true) {
-                    var selectedSkill = html.find('.skill-roll-selector')[i].id;
+                if (html.find('.selector.skill')[i].checked === true) {
+                    var selectedSkill = html.find('.selector.skill')[i].id;
                     var selectedSkill = selectedSkill.slice(0, -9)
                     var selectedSkillValue = html.find('#'+selectedSkill)[0].value;
                 }
             }
             for (i = 0; i <= 5; i++) {
-                if (html.find('.style-roll-selector')[i].checked === true) {
-                    var selectedStyle = html.find('.style-roll-selector')[i].id;
+                if (html.find('.selector.style')[i].checked === true) {
+                    var selectedStyle = html.find('.selector.style')[i].id;
                     var selectedStyle = selectedStyle.slice(0, -9)
                     var selectedStyleValue = html.find('#'+selectedStyle)[0].value;
                 }

@@ -1,13 +1,9 @@
-/**
- * Extend the basic ItemSheet with some very simple modifications
- * @extends {ItemSheet}
- */
 export class DishonoredBonecharmSheet extends ItemSheet {
 
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "bonecharm"],
+            classes: ["dishonored", "sheet", "item", "bonecharm"],
             template: "systems/FVTT-Dishonored/templates/items/bonecharm-sheet.html",
             width: 500,
             height: 250,

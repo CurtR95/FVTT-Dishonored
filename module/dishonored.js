@@ -39,30 +39,30 @@ import {
 
 Hooks.once("init", async function() {
     // Splash Screen
-    console.log(`Initializing Dishonored Tabletop Roleplaying Game System`);
-    console.log('                                                        @@')
-    console.log('         @                                            @@')
-    console.log('@         @@                     @      @@         @@@@')
-    console.log('  @@       @@@                 @@@   @@@        @@@@')
-    console.log('    @@@@     @@@@@@@@@@@@@@@@@@@@    @@      @@@@@')
-    console.log('      @@@@    @@@@            @@   @@@     @@@@@')
-    console.log('        @@@@@   @     @@@@@@@@   @@@    @@@@@      @@')
-    console.log('  @@@      @@@@ @@@@@@@       @@@@@  @@@@@@    @@@@')
-    console.log('      @@@@    @@@@              @ @@@@@@   @@@@@')
-    console.log('          @@@@   @              @@@@@@  @@@  @@@')
-    console.log('                    @@@@@@@@@@@@@@@@          @@@')
-    console.log('                  @@@@        @@@@            @@@')
-    console.log('                  @@    @@@@@   @@@  @@@@@     @@')
-    console.log('                        @@@@   @@@   @@@@@     @@')
-    console.log('                    @@@       @@@@            @@@')
-    console.log('        @@@@  @  @@@@@@@@@@@@@@               @@')
-    console.log('        @@ @@  @@@@@                         @@@')
-    console.log('             @@@@                    @@    @@@')
-    console.log('            @@                         @@@@@@')
-    console.log('          @                              @@@@')
-    console.log('                                            @@@')
-    console.log('                                               @@@')
-    console.log('                                                  @@')
+    console.log(`Initializing Dishonored Tabletop Roleplaying Game System
+                                                            @@
+             @                                            @@
+    @         @@                     @      @@         @@@@
+      @@       @@@                 @@@   @@@        @@@@
+        @@@@     @@@@@@@@@@@@@@@@@@@@    @@      @@@@@
+          @@@@    @@@@            @@   @@@     @@@@@
+            @@@@@   @     @@@@@@@@   @@@    @@@@@      @@
+      @@@      @@@@ @@@@@@@       @@@@@  @@@@@@    @@@@
+          @@@@    @@@@              @ @@@@@@   @@@@@
+              @@@@   @              @@@@@@  @@@  @@@
+                        @@@@@@@@@@@@@@@@          @@@
+                      @@@@        @@@@            @@@
+                      @@    @@@@@   @@@  @@@@@     @@
+                            @@@@   @@@   @@@@@     @@
+                        @@@       @@@@            @@@
+            @@@@  @  @@@@@@@@@@@@@@               @@
+            @@ @@  @@@@@                         @@@
+                 @@@@                    @@    @@@
+                @@                         @@@@@@
+              @                              @@@@
+                                                @@@
+                                                   @@@
+                                                      @@`)
 
     // Define initiative for the system.
     CONFIG.Combat.initiative = {

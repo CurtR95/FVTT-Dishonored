@@ -3,6 +3,7 @@
         "types": ["character", "npc"],
         "templates": {
             "common": {
+                "age": 21,
                 "notes":"",
                 "stress": {
                     "value": 0,
@@ -78,7 +79,6 @@
         "character": {
             "experience": 0,
             "templates": ["common"],
-            "age": 21,
             "mana": {
                 "value": 0,
                 "max": 6

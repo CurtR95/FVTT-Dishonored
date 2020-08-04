@@ -1,13 +1,9 @@
-/**
- * Extend the basic ItemSheet with some very simple modifications
- * @extends {ItemSheet}
- */
 export class DishonoredPowerSheet extends ItemSheet {
 
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "power"],
+            classes: ["dishonored", "sheet", "item", "power"],
             template: "systems/FVTT-Dishonored/templates/items/power-sheet.html",
             width: 500,
             height: 250,
