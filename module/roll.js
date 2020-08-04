@@ -61,28 +61,30 @@ export class DishonoredRoll {
 
         // Build a dynamic html using the variables from above.
         let html = `
-			<div class="dice-roll">
-				<div class="dice-result">
-					<div class="dice-formula">
-						<table>
-							<tr>
-								<td> ` + dicePool + `d20 </td>
-								<td> Target:` + checkTarget + ` </td>
-								<td> Focus:` + focusTarget + ` </td>
-							</tr>
-						</table>
-					</div>
-					<div class="dice-tooltip" style="display: block;">
-						<section class="tooltip-part">
-							<div class="dice">
-								<ol class="dice-rolls" style="display: flex; justify-content: center;">` + diceString + `</ol>
-							</div>
-						</section>
-					</div>` +
-            complicationText +
-            `<h4 class="dice-total">` + successText + `</h4>
-				</div>
-			</div>
+            <div class="dishonored roll skill">
+                <div class="dice-roll">
+                    <div class="dice-result">
+                        <div class="dice-formula">
+                            <table class="aim">
+                                <tr>
+                                    <td> ` + dicePool + `d20 </td>
+                                    <td> Target:` + checkTarget + ` </td>
+                                    <td> Focus:` + focusTarget + ` </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="dice-tooltip">
+                            <section class="tooltip-part">
+                                <div class="dice">
+                                    <ol class="dice-rolls">` + diceString + `</ol>
+                                </div>
+                            </section>
+                        </div>` +
+                        complicationText +
+                        `<h4 class="dice-total">` + successText + `</h4>
+                    </div>
+                </div>
+            </div>
         `
         // Check if the dice3d module exists (Dice So Nice). If it does, post a roll in that and then send to chat after the roll has finished. If not just send to chat.
         if(game.dice3d) {
@@ -206,18 +208,20 @@ export class DishonoredRoll {
         let varField = variable ? variable : '';
         // Builds a generic HTML template that is used for all items.
         let html = `
-            <div class='dishonored dice-roll'>
-                <div class="dice-result">
-                    <div class='item-roll-header dice-formula'>
-                        <img class='item-roll-img' src=`+img+`></img>
-                        <h1>`+name+`</h1>
-                    </div>
-                    `+varField+`
-                    <div class="dice-tooltip" style="display: block;">`+descField+`</div>
-                    <div class='tags'> 
-                        `+tagField+`
-                    </div>
-                <div>
+            <div class='dishonored roll generic'>
+                <div class='dice-roll'>
+                    <div class="dice-result">
+                        <div class='dice-formula title'>
+                            <img class='img' src=`+img+`></img>
+                            <h1>`+name+`</h1>
+                        </div>
+                        `+varField+`
+                        <div class="dice-tooltip">`+descField+`</div>
+                        <div class='tags'> 
+                            `+tagField+`
+                        </div>
+                    <div>
+                </div>
             </div>
         `;
         // Returns it for the sendToChat to utilise.
