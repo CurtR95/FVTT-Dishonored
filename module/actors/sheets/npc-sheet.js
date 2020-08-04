@@ -18,7 +18,7 @@ export class DishonoredNPCSheet extends ActorSheet {
     }
 
     /* -------------------------------------------- */
-
+    // If the player is not a GM and has limited permissions - send them to the limited sheet, otherwise, continue as usual.
     /** @override */
     get template() {
         if ( !game.user.isGM && this.actor.limited) return "systems/FVTT-Dishonored/templates/actors/limited-sheet.html";

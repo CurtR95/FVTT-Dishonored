@@ -1,7 +1,3 @@
-/**
- * Extend the basic ItemSheet with some very simple modifications
- * @extends {ItemSheet}
- */
 export class DishonoredFocusSheet extends ItemSheet {
 
     /** @override */
@@ -22,6 +18,7 @@ export class DishonoredFocusSheet extends ItemSheet {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
 
+        //Checks if the rating of the focus is above 5 or 2. If it exceeds these bounds it sets it to the closest limit. (i.e. 1 is set to 2)
         if (data.data.rating > 5) data.data.rating = 5;
         if (data.data.rating < 2) data.data.rating = 2;
 
