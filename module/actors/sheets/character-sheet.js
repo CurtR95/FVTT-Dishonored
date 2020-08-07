@@ -101,7 +101,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         var armorCount = 0;
         var helmetCount = 0;
         this.actor.items.forEach((values) => {
-            if (values.type == "bonecharm") bonecharmCount+= 1;
+            if (values.type == "bonecharm" && values.data.data.equipped == true) bonecharmCount+= 1;
         });
         html.find('[name ="data.bonecharmequipped"]')[0].value = bonecharmCount;
         // For ease of access we may as well turn the tooltip for bonecharm counts red.
@@ -189,11 +189,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
             for (i = 0; i < html.find('.voidchange').length; i++) {
                 html.find('.voidchange')[i].style.display = 'none';
             }
-            // This hides all add and delete item images.
+            // This hides all toggle, add and delete item images.
             for (i = 0; i < html.find('.control.create').length; i++) {
                 html.find('.control.create')[i].style.display = 'none';
             }
             for (i = 0; i < html.find('.control.delete').length; i++) {
+                html.find('.control.delete')[i].style.display = 'none';
+            }
+            for (i = 0; i < html.find('.control.toggle').length; i++) {
                 html.find('.control.delete')[i].style.display = 'none';
             }
             // This hides all skill and style check boxes (and titles)
@@ -214,6 +217,23 @@ export class DishonoredCharacterSheet extends ActorSheet {
             return;
         };
 
+        // This toggles whether the item is equipped or not. Equipped items count towards item caps.
+        html.find('.control.toggle').click(ev => {
+            var itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
+            var itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
+            if (this.actor.items.get(itemId).data.data.equipped == true) {
+                this.actor.items.get(itemId).data.data.equipped = false;
+                this.submit();
+            }
+            else if (itemType == "bonecharm" && bonecharmCount >= 3) {
+                ui.notifications.error("The current actor has 3 equipped bonecharms already! Doing Nothing.");
+            }
+            else {
+                this.actor.items.get(itemId).data.data.equipped = true;
+                this.submit();
+            }
+        });
+
         // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
         html.find('.rollable').click(ev =>{
             var itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
@@ -226,9 +246,13 @@ export class DishonoredCharacterSheet extends ActorSheet {
             event.preventDefault();
             const header = event.currentTarget;
             const type = header.dataset.type;
-            if (type == "bonecharm" && bonecharmCount >= 3) ui.notifications.warn("The current actor has 3 equipped bonecharms already.");
             const data = duplicate(header.dataset);
             const name = `New ${type.capitalize()}`;
+            console.log(data);
+            if (type == "bonecharm" && bonecharmCount >= 3) {
+                ui.notifications.info("The current actor has 3 equipped bonecharms already. Adding unequipped.");
+                data.equipped = false;
+            }
             const itemData = {
                 name: name,
                 type: type,

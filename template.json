@@ -119,7 +119,8 @@
             "rating": 2
         },
         "bonecharm": {
-            "templates": ["common"]
+            "templates": ["common"],
+            "equipped": true
         },
         "weapon": {
             "templates": ["common"],
@@ -142,7 +143,9 @@
         "armor": {
             "templates": ["common"],
             "protection": 0,
-            "cost": 0
+            "cost": 0,
+            "helmet": false,
+            "equipped": true
         },
         "talent": {
             "templates": ["common"],
