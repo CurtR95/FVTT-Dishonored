@@ -95,6 +95,21 @@ export class DishonoredCharacterSheet extends ActorSheet {
         // We use i alot in for loops. Best to assign it now for use later in multiple places.
         var i;
 
+        // Here we are checking how many bonecharms, helmets and armors are equipped. 
+        // The player can only have three bonecharms, and one of each armor type. As such, we will use this later.
+        var bonecharmCount = 0;
+        var armorCount = 0;
+        var helmetCount = 0;
+        this.actor.items.forEach((values) => {
+            if (values.type == "bonecharm") bonecharmCount+= 1;
+        });
+        html.find('[name ="data.bonecharmequipped"]')[0].value = bonecharmCount;
+        // For ease of access we may as well turn the tooltip for bonecharm counts red.
+        if(bonecharmCount > 3) {
+            html.find('.bonecharmCount')[0].style.backgroundColor = "#fd0000";
+            html.find('.bonecharmCount')[0].style.color = "#ffffff";
+        }
+
         // This creates a dynamic Void Point tracker. It polls for the hidden control "max-void" and for the value, 
         // creates a new div for each and places it under a child called "bar-void-renderer"
         var voidPointsMax = html.find('#max-void')[0].value;
@@ -114,11 +129,10 @@ export class DishonoredCharacterSheet extends ActorSheet {
         for (i = 0; i < armor.length; i++) {
             stressTrackMax += parseInt(armor[i].innerHTML);
         }
-        // This checks that the max-stress hidden field is equal to the calculated Max Stress value, if not it makes it so and submits the form.
+        // This checks that the max-stress hidden field is equal to the calculated Max Stress value, if not it makes it so.
         if (html.find('#max-stress')[0].value != stressTrackMax)
         {
             html.find('#max-stress')[0].value = stressTrackMax;
-            this.submit();
         }
         for (i = 1; i <= stressTrackMax; i++) {
             var div = document.createElement("DIV");
@@ -212,6 +226,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             event.preventDefault();
             const header = event.currentTarget;
             const type = header.dataset.type;
+            if (type == "bonecharm" && bonecharmCount >= 3) ui.notifications.warn("The current actor has 3 equipped bonecharms already.");
             const data = duplicate(header.dataset);
             const name = `New ${type.capitalize()}`;
             const itemData = {

@@ -95,7 +95,8 @@
                 "max": 6
             },
             "coins": 0,
-            "runes": 0
+            "runes": 0,
+            "bonecharmequipped": 0
         },
         "npc": {
             "templates": ["common"]
