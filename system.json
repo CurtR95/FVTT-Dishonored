@@ -2,7 +2,7 @@
     "name": "FVTT-Dishonored",
     "title": "Dishonored Roleplaying Game Unofficial",
     "description": "An unofficial rendition of the Modiphius tabletop role playing game system.",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "minimumCoreVersion": "0.6.4",
     "compatibleCoreVersion": "0.7.0",
     "templateVersion": 1,
