@@ -152,7 +152,7 @@
                     </div>
                     <div class="separator"></div>
                     <div class="section img">
-                        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="150" />
+                        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
                     </div>
                     <div class="separator"></div>
                     <div class="section void">
@@ -341,7 +341,7 @@
                         </li>
                         {{/if}}
                         {{/each}}
-                        <div class="row item">
+                        <div class="row item equipable">
                             <div class="image"></div>
                             <div class="column-x2-big advisory">{{localize 'dishonored.actor.belonging.armor.title'}}</div>
                             <div class="column-x2-small advisory">{{localize 'dishonored.actor.belonging.armor.protect'}}</div>
@@ -349,31 +349,32 @@
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "armor")}}
-                        <li id="armor-{{item._id}}" class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
+                        <li id="armor-{{item._id}}" class="row entry equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <h4 id="protectval-armor-{{item._id}}" class="column-x2-small">{{item.data.protection}}</h4>
                             <div class="control">
+                                <!-- <a class="control toggle""><i class="fas fa-toggle-{{#if (eq item.data.equipped true)}}on{{else}}off{{/if}}"></i></a> -->
                                 <a class="control edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                             </div>
                         </li>
                         {{/if}}
                         {{/each}}
-                        <div class="row item">
-                            <div class="image">
-                                <!-- 0/3 -->
+                        <div class="row item equipable">
+                            <div class="image bonecharmCount">
+                                <span class="small bonecharm disabled"><input name="data.bonecharmequipped" type="text" value="{{data.bonecharmequipped}}" readonly/></span>/3
                             </div>
-                            <div class="column-x2-big advisory">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
-                            <div class="column-x2-small advisory"></div>
+                            <div class="column-x1">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
                             <a class="control create" title="Create item" data-type="bonecharm"><i class="fas fa-plus"></i></a>
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "bonecharm")}}
-                        <li class="row entry bonecharm" data-item-id="{{item._id}}" data-item-type="{{item.type}}" >
+                        <li class="row entry bonecharm equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}" >
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x1">{{item.name}}</h4>
                             <div class="control">
+                                <a class="control toggle""><i class="fas fa-toggle-{{#if (eq item.data.equipped true)}}on{{else}}off{{/if}}"></i></a>
                                 <a class="control edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                             </div>

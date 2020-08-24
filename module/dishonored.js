@@ -32,12 +32,17 @@ import {
 import {
     DishonoredPowerSheet
 } from "./items/power-sheet.js";
+import { 
+    DishonoredTracker 
+} from "./apps/tracker.js";
+import * as macros 
+from "./macro.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
 
-Hooks.once("init", async function() {
+Hooks.once("init", function() {
     // Splash Screen
     console.log(`Initializing Dishonored Tabletop Roleplaying Game System
                                                             @@
@@ -63,6 +68,28 @@ Hooks.once("init", async function() {
                                                 @@@
                                                    @@@
                                                       @@`)
+
+
+    // Create a namespace within the game global
+    game.dishonored = {
+        applications: {
+            DishonoredCharacterSheet,
+            DishonoredNPCSheet,
+            DishonoredItemSheet,
+            DishonoredFocusSheet,
+            DishonoredBonecharmSheet,
+            DishonoredWeaponSheet,
+            DishonoredArmorSheet,
+            DishonoredTalentSheet,
+            DishonoredContactSheet,
+            DishonoredPowerSheet,
+        },
+        entities: {
+            DishonoredActor,
+        },
+        macros: macros,
+        skillTest: macros.skillTest
+    };
 
     // Define initiative for the system.
     CONFIG.Combat.initiative = {
@@ -135,6 +162,22 @@ Hooks.once("init", async function() {
         }
     });
 
+    game.settings.register("FVTT-Dishonored", "trackerPermissionLevel", {
+        name: 'Tracker User Role:',
+        hint: 'Who should be allowed to amend the tracker?',
+        scope: "world",
+        type: String,
+        default: "ASSISTANT",
+        config: true,
+        choices: {
+          "NONE": "Switch Off Send2Actor",
+          "PLAYER": "Players",
+          "TRUSTED": "Trusted Players",
+          "ASSISTANT": "Assistant Gamemaster",
+          "GAMEMASTER": "Gamemasters",
+        }
+    });
+
     game.settings.register("FVTT-Dishonored", "maxNumberOfExperience", {
         name: 'Maximum amount of Experience:',
         hint: 'Max number of experience that can be given to a character. 30 is default, anything past 50 becomes almost unreadable.',
@@ -142,5 +185,28 @@ Hooks.once("init", async function() {
         type: Number,
         default: 30,
         config: true
+    });
+
+    game.settings.register("FVTT-Dishonored", "trackerRefreshRate", {
+        name: 'Refresh Rate of Chaos Tracker:',
+        hint: 'In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.',
+        scope: "world",
+        type: Number,
+        default: 5,
+        config: true
+    });
+
+    game.settings.register("FVTT-Dishonored", "stat", {
+        scope: "world",
+        type: Number,
+        default: 0,
+        config: false
+    });
+
+    Hooks.on("ready", function() {
+        let t = new DishonoredTracker()
+        renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(html => {
+            t.render(true);
+        });
     });
 });

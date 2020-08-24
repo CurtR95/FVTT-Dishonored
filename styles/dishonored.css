@@ -125,6 +125,13 @@
     overflow-y: auto;
 }
 
+.dishonored.sheet.actor .main .row .column .section .profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 50% 0;
+}
+
 .dishonored.sheet.actor .main .row .column .section .title {
     font-size: 18pt;
     font-weight: bold;
@@ -207,8 +214,10 @@
 }
 
 .dishonored.sheet.actor .main .row .column .section .row .image img {
-    max-height: 24px;
-    max-width: 24px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    object-position: 50% 0;
 }
 
 .dishonored.sheet.actor .main .row .column .section .row .image .rollable:hover {
@@ -253,6 +262,40 @@
 
 
 
+/* Actor - Main Section - Specific - Equipable Specific */
+
+.dishonored.sheet.actor .main .row .column .section .row.equipable .control {
+    width: 56px;
+}
+
+.dishonored.sheet.actor .main .row .column .section .row.equipable .column-x1 {
+    width: calc(100% - 80px);
+}
+
+.dishonored.sheet.actor .main .row .column .section .row.equipable .column-x2 {
+    width: calc((100% - 80px)/2);
+}
+
+.dishonored.sheet.actor .main .row .column .section .row.equipable .column-x2-big {
+    width: calc(3*((100% - 80px)/4));
+}
+
+.dishonored.sheet.actor .main .row .column .section .row .equipable.column-x2-small {
+    width: calc((100% - 80px)/4);
+}
+
+
+
+/* Actor - Main Section - Specific - Bonecharm Specific */
+
+.dishonored.sheet.actor .main .row .column .section.belongings .row .bonecharm input {
+    padding: 0;
+    min-width: 0;
+    width: 10px
+}
+
+
+
 /* Item - Globals */
 
 .dishonored.sheet.item .header-fields {
@@ -262,6 +305,12 @@
 
 .dishonored.sheet.item .header-fields .row .img {
     width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: 50% 0;
+}
+.dishonored.sheet.item .header-fields .row .column-x3-big {
+    width: calc(40% - 50px);
 }
 
 .dishonored.sheet.item .header-fields .row .column-x3-big {
@@ -387,4 +436,46 @@
     border: 0.5px solid black;
     border-radius: 3px;
     background-color: rgb(255, 255, 255, 0.3);
+}
+
+
+
+/* Tracker - Generic */
+
+.dishonored.tracker {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 80px;
+    bottom: 0;
+    right: 304px;
+    margin: 5px;
+    margin-right: 0;
+    border: 1px solid black;
+}
+
+.dishonored.tracker .header {
+    text-align: center;
+    font-size: 1.75em;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+.dishonored.tracker .button-group {
+    display: flex;
+    font-size: 1.5em;
+}
+
+.dishonored.tracker .button-group .button {
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.dishonored.tracker .button-group .button:hover {
+    text-shadow: 0 0 8px red;
+}
+
+.dishonored.tracker .button-group .input {
+    color: white;
+    text-align: center;
 }

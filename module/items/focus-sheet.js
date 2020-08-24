@@ -4,12 +4,23 @@ export class DishonoredFocusSheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["dishonored", "sheet", "item", "focus"],
-            template: "systems/FVTT-Dishonored/templates/items/focus-sheet.html",
             width: 500,
             height: 200,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
     }
+
+    /* -------------------------------------------- */
+
+    // If the player is not a GM and has limited permissions - send them to the limited sheet, otherwise, continue as usual.
+    /** @override */
+    get template() {
+        if ( !game.user.isGM && this.item.limited) {
+	        ui.notifications.warn("You do not have permission to view this item!");
+            return;
+        }
+        return `systems/FVTT-Dishonored/templates/items/focus-sheet.html`;
+      }
 
     /* -------------------------------------------- */
 

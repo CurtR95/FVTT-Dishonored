@@ -79,6 +79,7 @@
     "dishonored.contact.relation.poor": "Poor",
     "dishonored.contact.relation.dire": "Dire",
 
+    "dishonored.item.armor.helmet": "Is Helmet?",
     "dishonored.item.contact.send2actor": "Send to Actor",
 
     "dishonored.apps.dicepoolwindow": "Dice Pool",
@@ -101,6 +102,9 @@
     "dishonored.roll.power.mana": "Costs <b>|#|</b> Mana to use",
     "dishonored.roll.item.value": "|#| Coins",
     "dishonored.roll.item.quantity": "|#|x Items",
+
+
+    "dishonored.tracker.chaos": "Chaos Tracker",
 
 
 
