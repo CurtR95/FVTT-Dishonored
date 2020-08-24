@@ -104,6 +104,9 @@
     "dishonored.roll.item.quantity": "|#|x Items",
 
 
+    "dishonored.tracker.chaos": "Chaos Tracker",
+
+
 
     "dishonored.__eof": "This is an end of file because I'm lazy and keep forgetting commas. This shouldn't be in the final commit (sorry if it is - see previous statement)."
 

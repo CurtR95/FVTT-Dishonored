@@ -437,3 +437,45 @@
     border-radius: 3px;
     background-color: rgb(255, 255, 255, 0.3);
 }
+
+
+
+/* Tracker - Generic */
+
+.dishonored.tracker {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 80px;
+    bottom: 0;
+    right: 304px;
+    margin: 5px;
+    margin-right: 0;
+    border: 1px solid black;
+}
+
+.dishonored.tracker .header {
+    text-align: center;
+    font-size: 1.75em;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+.dishonored.tracker .button-group {
+    display: flex;
+    font-size: 1.5em;
+}
+
+.dishonored.tracker .button-group .button {
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.dishonored.tracker .button-group .button:hover {
+    text-shadow: 0 0 8px red;
+}
+
+.dishonored.tracker .button-group .input {
+    color: white;
+    text-align: center;
+}
