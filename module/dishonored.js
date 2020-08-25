@@ -210,3 +210,13 @@ Hooks.once("init", function() {
         });
     });
 });
+
+
+export function getFoundryVersion() {
+    let version = game.world.coreVersion;
+    let verArray = version.split(".")
+    for(var i=0; i<verArray.length; i++) { 
+        verArray[i] = +verArray[i]; 
+    }
+    return verArray;
+}

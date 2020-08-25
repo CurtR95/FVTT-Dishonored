@@ -1,36 +1,74 @@
+import {
+    getFoundryVersion
+} from './dishonored.js'
+
 export class DishonoredRoll {
 
     async performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, speaker) {
         // Define some variables that we will be using later.
+        let foundryVersion = getFoundryVersion();
+        console.log(foundryVersion);
         let i;
         let result = 0;
         let diceString = "";
         let success = 0;
         let complication = 0;
-        // Define r as our dice roll we want to perform (1d20, 2d20, 3d20, 4d20 or 5d20). We will then roll it.
-        let r = new Roll(dicePool+"d20")
-        r.roll();
-        // Now for each dice in the dice pool we want to check what the individual result was.
-        for (i = 0; i < dicePool; i++) {
-            result = r.dice[0].rolls[i].roll;
-            // If the result is less than or equal to the focus, that counts as 2 successes and we want to show the dice as green.
-            if (result <= focusTarget) {
-                diceString += '<li class="roll die d20 max">' + result + '</li>';
-                success += 2;
-            } 
-            // If the result is less than or equal to the target (the style and skill added together), that counts as 1 success but we want to show the dice as normal.
-            else if (result <= checkTarget) {
-                diceString += '<li class="roll die d20">' + result + '</li>';
-                success += 1;
+        // Check if we are using a Foundry version below 0.7.0, if so use the old code.
+        if (foundryVersion[0] == 0 && foundryVersion[1] < 7) {
+            // Define r as our dice roll we want to perform (1d20, 2d20, 3d20, 4d20 or 5d20). We will then roll it.
+            var r = new Roll(dicePool+"d20")
+            r.roll();
+            // Now for each dice in the dice pool we want to check what the individual result was.
+            for (i = 0; i < dicePool; i++) {
+                result = r.dice[0].rolls[i].roll;
+                // If the result is less than or equal to the focus, that counts as 2 successes and we want to show the dice as green.
+                if (result <= focusTarget) {
+                    diceString += '<li class="roll die d20 max">' + result + '</li>';
+                    success += 2;
+                } 
+                // If the result is less than or equal to the target (the style and skill added together), that counts as 1 success but we want to show the dice as normal.
+                else if (result <= checkTarget) {
+                    diceString += '<li class="roll die d20">' + result + '</li>';
+                    success += 1;
+                }
+                // If the result is 20, than we want to count it as a complication. We also want to show it as red!
+                else if (result == 20) {
+                    diceString += '<li class="roll die d20 min">' + result + '</li>';
+                    complication += 1;
+                }
+                // If none of the above is true, the dice failed to do anything and is treated as normal.
+                else {
+                    diceString += '<li class="roll die d20">' + result + '</li>';
+                }
             }
-            // If the result is 20, than we want to count it as a complication. We also want to show it as red!
-            else if (result == 20) {
-                diceString += '<li class="roll die d20 min">' + result + '</li>';
-                complication += 1;
-            }
-            // If none of the above is true, the dice failed to do anything and is treated as normal.
-            else {
-                diceString += '<li class="roll die d20">' + result + '</li>';
+        }
+        // If not use the shiny new code.
+        else {
+            // Define r as our dice roll we want to perform (1d20, 2d20, 3d20, 4d20 or 5d20). We will then roll it.
+            var r = new Roll(dicePool+"d20")
+            r.roll();
+            // Now for each dice in the dice pool we want to check what the individual result was.
+            for (i = 0; i < dicePool; i++) {
+                result = r.terms[0].results[i].result;
+                // If the result is less than or equal to the focus, that counts as 2 successes and we want to show the dice as green.
+                if (result <= focusTarget) {
+                    diceString += '<li class="roll die d20 max">' + result + '</li>';
+                    success += 2;
+                } 
+                // If the result is less than or equal to the target (the style and skill added together), that counts as 1 success but we want to show the dice as normal.
+                else if (result <= checkTarget) {
+                    diceString += '<li class="roll die d20">' + result + '</li>';
+                    success += 1;
+                }
+                // If the result is 20, than we want to count it as a complication. We also want to show it as red!
+                else if (result == 20) {
+                    diceString += '<li class="roll die d20 min">' + result + '</li>';
+                    complication += 1;
+                }
+                // If none of the above is true, the dice failed to do anything and is treated as normal.
+                else {
+                    diceString += '<li class="roll die d20">' + result + '</li>';
+                }
             }
         }
         // Here we want to check if the success was exactly one (as "1 Successes" doesn't make grammatical sense). We create a string for the Successes.
