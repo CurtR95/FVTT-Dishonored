@@ -2,9 +2,9 @@
     "name": "FVTT-Dishonored",
     "title": "Dishonored Roleplaying Game Unofficial",
     "description": "An unofficial rendition of the Modiphius tabletop role playing game system.",
-    "version": "0.2.5",
+    "version": "0.3.0",
     "minimumCoreVersion": "0.6.4",
-    "compatibleCoreVersion": "0.6.6",
+    "compatibleCoreVersion": "0.7.1",
     "templateVersion": 1,
     "author": "KaitoR95",
     "esmodules": ["module/dishonored.js"],
@@ -20,7 +20,7 @@
     "primaryTokenAttribute": "stress",
     "secondaryTokenAttribute": "void",
     "url": "https://github.com/CurtR95/FVTT-Dishonored",
-    "manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/0.2.5/system.json",
-    "download": "https://github.com/CurtR95/FVTT-Dishonored/archive/0.2.5.zip",
+    "manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/master/system.json",
+    "download": "https://github.com/CurtR95/FVTT-Dishonored/archive/master.zip",
     "license": "LICENSE.txt"
 }
