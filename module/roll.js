@@ -47,9 +47,9 @@ export class DishonoredRoll {
             var r = new Die(20);
             r.roll(dicePool);
             console.log(r.results);
-            console.log(r.countSuccess(focusTarget,'<='));
-            console.log(r.countSuccess(checkTarget,'<='));
-            console.log(r.countSuccess(20,'<='));
+            console.log(r.countSuccess(String(focusTarget),'=<'));
+            console.log(r.countSuccess(String(checkTarget),'=<'));
+            console.log(r.countSuccess("20",'=<'));
         }
         // Here we want to check if the success was exactly one (as "1 Successes" doesn't make grammatical sense). We create a string for the Successes.
         if (success == 1) {
