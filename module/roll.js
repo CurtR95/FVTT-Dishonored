@@ -44,7 +44,7 @@ export class DishonoredRoll {
         }
         // If not use the shiny new code.
         else {
-            var r = new dicePool(20);
+            var r = new Die(20);
             r.roll(dicePool);
             console.log(r.results);
             console.log(r.countSuccess(focusTarget,'<='));
