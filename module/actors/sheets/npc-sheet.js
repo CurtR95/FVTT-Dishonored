@@ -144,8 +144,8 @@ export class DishonoredNPCSheet extends ActorSheet {
 
         // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
         html.find('.rollable').click(ev =>{
-            var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
-            var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
+            var itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
+            var itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
             dishonoredActor.rollGenericItem(event, itemType, itemId, this.actor);
         })
 
