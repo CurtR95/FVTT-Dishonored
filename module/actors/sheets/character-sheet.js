@@ -158,19 +158,20 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // This creates a dynamic Momentum tracker. Dishonored only has 6 momentum, so this should never be changed. But this can be configured here. 
         // It creates a new div for each and places it under a child called "bar-mom-renderer"
-        var momPointsMax = 6;
-        var i;
-        for (i = 1; i <= momPointsMax; i++) {
-            var div = document.createElement("DIV");
-            div.className = "box";
-            div.id = "mom-" + i;
-            div.innerHTML = i;
-            div.style = "width: calc(100% / " + momPointsMax + ");"
-            html.find('#bar-mom-renderer')[0].appendChild(div);
-        }
+        // var momPointsMax = 6;
+        // var i;
+        // for (i = 1; i <= momPointsMax; i++) {
+        //     var div = document.createElement("DIV");
+        //     div.className = "box";
+        //     div.id = "mom-" + i;
+        //     div.innerHTML = i;
+        //     div.style = "width: calc(100% / " + momPointsMax + ");"
+        //     html.find('#bar-mom-renderer')[0].appendChild(div);
+        // }
 
         // Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
-        dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax, momPointsMax);
+        // dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax, momPointsMax);
+        dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax);
 
         // This allows for each item-edit image to link open an item sheet. This uses Simple Worldbuilding System Code.
         html.find('.control.edit').click(ev => {

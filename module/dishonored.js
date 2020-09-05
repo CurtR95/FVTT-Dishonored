@@ -162,15 +162,29 @@ Hooks.once("init", function() {
         }
     });
 
-    game.settings.register("FVTT-Dishonored", "trackerPermissionLevel", {
-        name: 'Tracker User Role:',
-        hint: 'Who should be allowed to amend the tracker?',
+    game.settings.register("FVTT-Dishonored", "chaosPermissionLevel", {
+        name: 'Chaos Tracker User Role:',
+        hint: 'Who should be allowed to amend the chaos tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
         scope: "world",
         type: String,
         default: "ASSISTANT",
         config: true,
         choices: {
-          "NONE": "Switch Off Send2Actor",
+          "PLAYER": "Players",
+          "TRUSTED": "Trusted Players",
+          "ASSISTANT": "Assistant Gamemaster",
+          "GAMEMASTER": "Gamemasters",
+        }
+    });
+
+    game.settings.register("FVTT-Dishonored", "momentumPermissionLevel", {
+        name: 'Momentum Tracker User Role:',
+        hint: 'Who should be allowed to amend the momentum tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
+        scope: "world",
+        type: String,
+        default: "ASSISTANT",
+        config: true,
+        choices: {
           "PLAYER": "Players",
           "TRUSTED": "Trusted Players",
           "ASSISTANT": "Assistant Gamemaster",
@@ -195,6 +209,15 @@ Hooks.once("init", function() {
         default: 5,
         config: true
     });
+
+    // game.settings.register("FVTT-Dishonored", "individualMomentum", {
+    //     name: 'Indvidual Momentum:',
+    //     hint: 'Should the system use individual momentum instead of global momentum. This is homebrew and not recommended.',
+    //     scope: "world",
+    //     type: Boolean,
+    //     default: false,
+    //     config: true
+    // });
 
     game.settings.register("FVTT-Dishonored", "chaos", {
         scope: "world",

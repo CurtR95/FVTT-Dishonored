@@ -445,13 +445,21 @@
 .dishonored.tracker {
     position: absolute;
     display: block;
-    width: 265px;
-    height: 130px;
-    bottom: 0;
-    right: 304px;
+    width: 200px;
+    height: 70px;
     margin: 5px;
     margin-right: 0;
     border: 1px solid black;
+}
+
+.dishonored.tracker.chaos {
+    bottom: 0;
+    right: 304px;
+}
+
+.dishonored.tracker.momentum {
+    bottom: 80px;
+    right: 304px;
 }
 
 .dishonored.tracker .header {

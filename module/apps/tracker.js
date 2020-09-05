@@ -14,14 +14,16 @@ export class DishonoredTracker extends Application {
         renderTracker()
         this.checkUpdates();
 
-        if (!game.user.hasRole(game.settings.get("FVTT-Dishonored", "trackerPermissionLevel"))) {
+        if (!game.user.hasRole(game.settings.get("FVTT-Dishonored", "chaosPermissionLevel"))) {
             html.find('#dishonored-chaos-track-decrease')[0].style.display = 'none';
             html.find('#dishonored-chaos-track-increase')[0].style.display = 'none';
+            html.find('#dishonored-track-chaos')[0].disabled = true;
+        }
+
+        if (!game.user.hasRole(game.settings.get("FVTT-Dishonored", "momentumPermissionLevel"))) {
             html.find('#dishonored-momentum-track-decrease')[0].style.display = 'none';
             html.find('#dishonored-momentum-track-increase')[0].style.display = 'none';
-            html.find('#dishonored-track-chaos')[0].disabled = true;
             html.find('#dishonored-track-momentum')[0].disabled = true;
-            return false;
         }
 
         html.find('#dishonored-momentum-track-decrease').click(ev => {
