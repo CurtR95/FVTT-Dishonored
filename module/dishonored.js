@@ -188,7 +188,7 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "trackerRefreshRate", {
-        name: 'Refresh Rate of Chaos Tracker:',
+        name: 'Refresh Rate of Chaos & Momentum:',
         hint: 'In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.',
         scope: "world",
         type: Number,
@@ -196,7 +196,14 @@ Hooks.once("init", function() {
         config: true
     });
 
-    game.settings.register("FVTT-Dishonored", "stat", {
+    game.settings.register("FVTT-Dishonored", "chaos", {
+        scope: "world",
+        type: Number,
+        default: 0,
+        config: false
+    });
+
+    game.settings.register("FVTT-Dishonored", "momentum", {
         scope: "world",
         type: Number,
         default: 0,
