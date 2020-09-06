@@ -182,7 +182,6 @@ export class DishonoredNPCSheet extends ActorSheet {
                 // Now we check that the "next" track box is not activated. 
                 // If there isn't one, or it isn't activated, we only want to decrease the value by 1 rather than setting the value.
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
-                console.log(html.find('#'+nextCheck)[0]);
                 if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find('#total-stress')[0].value = html.find('#total-stress')[0].value - 1;
                     this.submit();

@@ -97,15 +97,19 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // Here we are checking how many bonecharms, helmets and armors are equipped. 
         // The player can only have three bonecharms, and one of each armor type. As such, we will use this later.
-        var bonecharmCount = 0;
         var armorCount = 0;
         var helmetCount = 0;
-        this.actor.items.forEach((values) => {
-            if (values.type == "bonecharm" && values.data.data.equipped == true) bonecharmCount+= 1;
-        });
-        html.find('[name ="data.bonecharmequipped"]')[0].value = bonecharmCount;
+        var bonecharmNumber = 0;
+        function bonecharmCount(currentActor) {
+            bonecharmNumber = 0;
+            currentActor.actor.items.forEach((values) => {
+                if (values.type == "bonecharm" && values.data.data.equipped == true) bonecharmNumber+= 1;
+            });
+            html.find('[name ="data.bonecharmequipped"]')[0].value = bonecharmNumber;
+        }
+        bonecharmCount(this);
         // For ease of access we may as well turn the tooltip for bonecharm counts red.
-        if(bonecharmCount > 3) {
+        if(bonecharmNumber > 3) {
             html.find('.bonecharmCount')[0].style.backgroundColor = "#fd0000";
             html.find('.bonecharmCount')[0].style.color = "#ffffff";
         }
@@ -224,14 +228,18 @@ export class DishonoredCharacterSheet extends ActorSheet {
             var itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
             if (this.actor.items.get(itemId).data.data.equipped == true) {
                 this.actor.items.get(itemId).data.data.equipped = false;
-                this.submit();
+                $(ev.currentTarget).children()[0].classList.remove("fa-toggle-on");
+                $(ev.currentTarget).children()[0].classList.add("fa-toggle-off");
+                bonecharmCount(this);
             }
-            else if (itemType == "bonecharm" && bonecharmCount >= 3) {
+            else if (itemType == "bonecharm" && bonecharmNumber >= 3) {
                 ui.notifications.error("The current actor has 3 equipped bonecharms already! Doing Nothing.");
             }
             else {
                 this.actor.items.get(itemId).data.data.equipped = true;
-                this.submit();
+                $(ev.currentTarget).children()[0].classList.remove("fa-toggle-off");
+                $(ev.currentTarget).children()[0].classList.add("fa-toggle-on");
+                bonecharmCount(this);
             }
         });
 
@@ -249,8 +257,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             const type = header.dataset.type;
             const data = duplicate(header.dataset);
             const name = `New ${type.capitalize()}`;
-            console.log(data);
-            if (type == "bonecharm" && bonecharmCount >= 3) {
+            if (type == "bonecharm" && bonecharmNumber >= 3) {
                 ui.notifications.info("The current actor has 3 equipped bonecharms already. Adding unequipped.");
                 data.equipped = false;
             }
@@ -336,7 +343,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
             var newTotal = newTotalObject.id.substring(7);
             if (newTotalObject.getAttribute("data-selected") === "true") {
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
-                console.log(html.find('#'+nextCheck)[0]);
                 if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find('#total-stress')[0].value = html.find('#total-stress')[0].value - 1;
                     this.submit();

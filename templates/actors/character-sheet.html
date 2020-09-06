@@ -354,7 +354,7 @@
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <h4 id="protectval-armor-{{item._id}}" class="column-x2-small">{{item.data.protection}}</h4>
                             <div class="control">
-                                <!-- <a class="control toggle""><i class="fas fa-toggle-{{#if (eq item.data.equipped true)}}on{{else}}off{{/if}}"></i></a> -->
+                                <a class="control toggle"><i class="fas fa-toggle-{{#if (eq item.data.equipped true)}}on{{else}}off{{/if}}"></i></a>
                                 <a class="control edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                             </div>
@@ -374,7 +374,7 @@
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x1">{{item.name}}</h4>
                             <div class="control">
-                                <a class="control toggle""><i class="fas fa-toggle-{{#if (eq item.data.equipped true)}}on{{else}}off{{/if}}"></i></a>
+                                <a class="control toggle"><i class="fas fa-toggle-{{#if (eq item.data.equipped true)}}on{{else}}off{{/if}}"></i></a>
                                 <a class="control edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                             </div>

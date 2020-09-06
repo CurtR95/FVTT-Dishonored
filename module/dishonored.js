@@ -182,7 +182,7 @@ Hooks.once("init", function() {
         hint: 'Who should be allowed to amend the momentum tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
         scope: "world",
         type: String,
-        default: "ASSISTANT",
+        default: "PLAYER",
         config: true,
         choices: {
           "PLAYER": "Players",
@@ -234,6 +234,14 @@ Hooks.once("init", function() {
     });
 
     Hooks.on("ready", function() {
+        let i = USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
+        for (i; i <= 4; i++) {
+            if (!game.permissions.SETTINGS_MODIFY.includes(i)) var error = true;
+        }
+        if (error) {
+            console.error("The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.");
+            ui.notifications.error("The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.");
+        }
         let t = new DishonoredTracker()
         renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(html => {
             t.render(true);
