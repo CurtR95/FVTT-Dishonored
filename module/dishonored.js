@@ -35,6 +35,9 @@ import {
 import { 
     DishonoredTracker 
 } from "./apps/tracker.js";
+import { 
+    DishonoredLogo
+} from "./apps/logo.js";
 import * as macros 
 from "./macro.js";
 
@@ -245,6 +248,10 @@ Hooks.once("init", function() {
         let t = new DishonoredTracker()
         renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(html => {
             t.render(true);
+        });
+        let l = new DishonoredLogo()
+        renderTemplate("systems/FVTT-Dishonored/templates/apps/logo.html").then(html => {
+            l.render(true);
         });
     });
 });

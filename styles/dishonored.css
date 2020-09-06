@@ -487,3 +487,30 @@
     color: white;
     text-align: center;
 }
+
+
+/* Logo - Generic */
+
+.dishonored.logo {
+    position: absolute;
+    display: block;
+    margin-right: 0;
+    left: 74px;
+    top: 31px;
+    z-index: 61;
+    color: #000;
+    text-decoration: none;
+}
+
+.dishonored.logo img {
+    width: 30px;
+    border: none;
+}
+
+.dishonored.logo div {
+    font-size: 10px;
+    line-height: 0.1;
+    text-align: center;
+}
+
+
