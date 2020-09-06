@@ -97,9 +97,20 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // Here we are checking how many bonecharms, helmets and armors are equipped. 
         // The player can only have three bonecharms, and one of each armor type. As such, we will use this later.
-        var armorCount = 0;
-        var helmetCount = 0;
+        var armorNumber = 0;
         var bonecharmNumber = 0;
+        var helmetNumber = 0;
+        var stressTrackMax = 0;
+        function armorCount(currentActor) {
+            armorNumber = 0;
+            helmetNumber = 0;
+            currentActor.actor.items.forEach((values) => {
+                if (values.type == "armor") {
+                    if (values.data.data.helmet == true && values.data.data.equipped == true) helmetNumber+= 1;
+                    if (values.data.data.helmet == false && values.data.data.equipped == true) armorNumber+= 1;
+                }
+            });
+        }
         function bonecharmCount(currentActor) {
             bonecharmNumber = 0;
             currentActor.actor.items.forEach((values) => {
@@ -107,6 +118,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             });
             html.find('[name ="data.bonecharmequipped"]')[0].value = bonecharmNumber;
         }
+        armorCount(this);
         bonecharmCount(this);
         // For ease of access we may as well turn the tooltip for bonecharm counts red.
         if(bonecharmNumber > 3) {
@@ -128,24 +140,30 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. 
         // With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
-        var stressTrackMax = parseInt(html.find('#survive')[0].value);
-        var armor = html.find('[id^="protectval-armor"]');
-        for (i = 0; i < armor.length; i++) {
-            stressTrackMax += parseInt(armor[i].innerHTML);
+        function stressTrackUpdate() {
+            stressTrackMax = parseInt(html.find('#survive')[0].value);
+            var armor = html.find('[data-item-type="armor"]');
+            for (i = 0; i < armor.length; i++) {
+                if (armor[i].getAttribute("data-item-equipped") == 'true') {
+                    stressTrackMax += parseInt($(armor[i]).children()[2].innerHTML);
+                }
+            }
+            // This checks that the max-stress hidden field is equal to the calculated Max Stress value, if not it makes it so.
+            if (html.find('#max-stress')[0].value != stressTrackMax)
+            {
+                html.find('#max-stress')[0].value = stressTrackMax;
+            }
+            html.find('#bar-stress-renderer').empty();
+            for (i = 1; i <= stressTrackMax; i++) {
+                var div = document.createElement("DIV");
+                div.className = "box";
+                div.id = "stress-" + i;
+                div.innerHTML = i;
+                div.style = "width: calc(100% / " + html.find('#max-stress')[0].value + ");"
+                html.find('#bar-stress-renderer')[0].appendChild(div);
+            }
         }
-        // This checks that the max-stress hidden field is equal to the calculated Max Stress value, if not it makes it so.
-        if (html.find('#max-stress')[0].value != stressTrackMax)
-        {
-            html.find('#max-stress')[0].value = stressTrackMax;
-        }
-        for (i = 1; i <= stressTrackMax; i++) {
-            var div = document.createElement("DIV");
-            div.className = "box";
-            div.id = "stress-" + i;
-            div.innerHTML = i;
-            div.style = "width: calc(100% / " + html.find('#max-stress')[0].value + ");"
-            html.find('#bar-stress-renderer')[0].appendChild(div);
-        }
+        stressTrackUpdate();
 
         // This creates a dynamic Experience tracker. For this it uses a max value of 30. This can be configured here. 
         // It creates a new div for each and places it under a child called "bar-void-renderer"
@@ -226,20 +244,39 @@ export class DishonoredCharacterSheet extends ActorSheet {
         html.find('.control.toggle').click(ev => {
             var itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
+            if (itemType == "armor") var isHelmet = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-helmet");
             if (this.actor.items.get(itemId).data.data.equipped == true) {
                 this.actor.items.get(itemId).data.data.equipped = false;
                 $(ev.currentTarget).children()[0].classList.remove("fa-toggle-on");
                 $(ev.currentTarget).children()[0].classList.add("fa-toggle-off");
-                bonecharmCount(this);
+                if (itemType == "bonecharm") bonecharmCount(this);
+                else {
+                    $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "false")
+                    armorCount(this);
+                    stressTrackUpdate();
+                    dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
+                }
             }
             else if (itemType == "bonecharm" && bonecharmNumber >= 3) {
                 ui.notifications.error("The current actor has 3 equipped bonecharms already! Doing Nothing.");
+            }
+            else if (itemType == "armor" && isHelmet == 'false' && armorNumber >= 1) {
+                ui.notifications.error("The current actor has an equipped armor already! Doing Nothing.");
+            }
+            else if (itemType == "armor" && isHelmet == 'true' && helmetNumber >= 1) {
+                ui.notifications.error("The current actor has an equipped helmet already! Doing Nothing.");
             }
             else {
                 this.actor.items.get(itemId).data.data.equipped = true;
                 $(ev.currentTarget).children()[0].classList.remove("fa-toggle-off");
                 $(ev.currentTarget).children()[0].classList.add("fa-toggle-on");
-                bonecharmCount(this);
+                if (itemType == "bonecharm") bonecharmCount(this);
+                else {
+                    $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "true")
+                    armorCount(this);
+                    stressTrackUpdate();
+                    dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
+                }
             }
         });
 
@@ -259,6 +296,10 @@ export class DishonoredCharacterSheet extends ActorSheet {
             const name = `New ${type.capitalize()}`;
             if (type == "bonecharm" && bonecharmNumber >= 3) {
                 ui.notifications.info("The current actor has 3 equipped bonecharms already. Adding unequipped.");
+                data.equipped = false;
+            }
+            if (type == "armor" && bonecharmNumber >= 1) {
+                ui.notifications.info("The current actor has an equipped armor already. Adding unequipped.");
                 data.equipped = false;
             }
             const itemData = {

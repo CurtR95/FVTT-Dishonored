@@ -349,7 +349,7 @@
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "armor")}}
-                        <li id="armor-{{item._id}}" class="row entry equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
+                        <li id="armor-{{item._id}}" class="row entry equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}" data-item-helmet="{{item.data.helmet}}" data-item-equipped="{{item.data.equipped}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <h4 id="protectval-armor-{{item._id}}" class="column-x2-small">{{item.data.protection}}</h4>
