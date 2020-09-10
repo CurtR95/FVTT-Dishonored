@@ -2,14 +2,22 @@
     "name": "FVTT-Dishonored",
     "title": "Dishonored Roleplaying Game Unofficial",
     "description": "An unofficial rendition of the Modiphius tabletop role playing game system.",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "minimumCoreVersion": "0.6.4",
     "compatibleCoreVersion": "0.7.1",
     "templateVersion": 1,
     "author": "KaitoR95",
     "esmodules": ["module/dishonored.js"],
     "styles": ["styles/dishonored.css"],
-    "packs": [],
+    "packs": [
+        {
+			"label": "Focuses",
+			"entity": "Item",
+			"name": "focuses",
+			"path": "./packs/focuses.db",
+			"system": "FVTT-Dishonored"
+		}
+    ],
     "languages": [{
         "lang": "en",
         "name": "English",

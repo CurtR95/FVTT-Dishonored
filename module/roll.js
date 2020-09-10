@@ -7,7 +7,6 @@ export class DishonoredRoll {
     async performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, speaker) {
         // Define some variables that we will be using later.
         let foundryVersion = getFoundryVersion();
-        console.log(foundryVersion);
         let i;
         let result = 0;
         let diceString = "";

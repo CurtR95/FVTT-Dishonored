@@ -144,8 +144,8 @@ export class DishonoredNPCSheet extends ActorSheet {
 
         // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
         html.find('.rollable').click(ev =>{
-            var itemType = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-type");
-            var itemId = $(ev.currentTarget).parents(".item")[0].getAttribute("data-item-id");
+            var itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
+            var itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
             dishonoredActor.rollGenericItem(event, itemType, itemId, this.actor);
         })
 
@@ -182,7 +182,6 @@ export class DishonoredNPCSheet extends ActorSheet {
                 // Now we check that the "next" track box is not activated. 
                 // If there isn't one, or it isn't activated, we only want to decrease the value by 1 rather than setting the value.
                 var nextCheck = 'stress-' + (parseInt(newTotal) + 1);
-                console.log(html.find('#'+nextCheck)[0]);
                 if (!html.find('#'+nextCheck)[0] || html.find('#'+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find('#total-stress')[0].value = html.find('#total-stress')[0].value - 1;
                     this.submit();

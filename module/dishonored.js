@@ -35,6 +35,9 @@ import {
 import { 
     DishonoredTracker 
 } from "./apps/tracker.js";
+import { 
+    DishonoredLogo
+} from "./apps/logo.js";
 import * as macros 
 from "./macro.js";
 
@@ -162,15 +165,29 @@ Hooks.once("init", function() {
         }
     });
 
-    game.settings.register("FVTT-Dishonored", "trackerPermissionLevel", {
-        name: 'Tracker User Role:',
-        hint: 'Who should be allowed to amend the tracker?',
+    game.settings.register("FVTT-Dishonored", "chaosPermissionLevel", {
+        name: 'Chaos Tracker User Role:',
+        hint: 'Who should be allowed to amend the chaos tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
         scope: "world",
         type: String,
         default: "ASSISTANT",
         config: true,
         choices: {
-          "NONE": "Switch Off Send2Actor",
+          "PLAYER": "Players",
+          "TRUSTED": "Trusted Players",
+          "ASSISTANT": "Assistant Gamemaster",
+          "GAMEMASTER": "Gamemasters",
+        }
+    });
+
+    game.settings.register("FVTT-Dishonored", "momentumPermissionLevel", {
+        name: 'Momentum Tracker User Role:',
+        hint: 'Who should be allowed to amend the momentum tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
+        scope: "world",
+        type: String,
+        default: "PLAYER",
+        config: true,
+        choices: {
           "PLAYER": "Players",
           "TRUSTED": "Trusted Players",
           "ASSISTANT": "Assistant Gamemaster",
@@ -188,7 +205,7 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "trackerRefreshRate", {
-        name: 'Refresh Rate of Chaos Tracker:',
+        name: 'Refresh Rate of Chaos & Momentum:',
         hint: 'In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.',
         scope: "world",
         type: Number,
@@ -196,7 +213,23 @@ Hooks.once("init", function() {
         config: true
     });
 
-    game.settings.register("FVTT-Dishonored", "stat", {
+    // game.settings.register("FVTT-Dishonored", "individualMomentum", {
+    //     name: 'Indvidual Momentum:',
+    //     hint: 'Should the system use individual momentum instead of global momentum. This is homebrew and not recommended.',
+    //     scope: "world",
+    //     type: Boolean,
+    //     default: false,
+    //     config: true
+    // });
+
+    game.settings.register("FVTT-Dishonored", "chaos", {
+        scope: "world",
+        type: Number,
+        default: 0,
+        config: false
+    });
+
+    game.settings.register("FVTT-Dishonored", "momentum", {
         scope: "world",
         type: Number,
         default: 0,
@@ -204,9 +237,21 @@ Hooks.once("init", function() {
     });
 
     Hooks.on("ready", function() {
+        let i = USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
+        for (i; i <= 4; i++) {
+            if (!game.permissions.SETTINGS_MODIFY.includes(i)) var error = true;
+        }
+        if (error) {
+            console.error("The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.");
+            ui.notifications.error("The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.");
+        }
         let t = new DishonoredTracker()
         renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(html => {
             t.render(true);
+        });
+        let l = new DishonoredLogo()
+        renderTemplate("systems/FVTT-Dishonored/templates/apps/logo.html").then(html => {
+            l.render(true);
         });
     });
 });
