@@ -1,20 +1,14 @@
-import {
-    getFoundryVersion
-} from './dishonored.js'
-
 export class DishonoredRoll {
 
     async performSkillTest(dicePool, checkTarget, focusTarget, selectedSkill, selectedStyle, speaker) {
         // Define some variables that we will be using later.
-        let foundryVersion = getFoundryVersion();
-        console.log(foundryVersion);
         let i;
         let result = 0;
         let diceString = "";
         let success = 0;
         let complication = 0;
         // Check if we are using a Foundry version below 0.7.0, if so use the old code.
-        if (foundryVersion[0] == 0 && foundryVersion[1] < 7) {
+        if (!isNewerVersion(game.world.coreVersion,'0.7.0')) {
             // Define r as our dice roll we want to perform (1d20, 2d20, 3d20, 4d20 or 5d20). We will then roll it.
             var r = new Roll(dicePool+"d20")
             r.roll();
@@ -267,10 +261,12 @@ export class DishonoredRoll {
     }
 
     async sendToChat(speaker, content, roll, flavor) {
+        console.log(speaker);
+        console.log(ChatMessage.getSpeaker({ actor: speaker }));
         // Send's Chat Message to foundry, if items are missing they will appear as false or undefined and this not be rendered.
         ChatMessage.create({
             user: game.user._id,
-            speaker: ChatMessage.getSpeaker({ actor: speaker }),
+            speaker: ChatMessage.getSpeaker({ scene: null, actor: speaker }),
             flavor: flavor,
             content: content,
             roll: roll,
