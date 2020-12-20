@@ -38,6 +38,11 @@
     "dishonored.settings.hints.trackerRefreshRate": "In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.",
 
 
+    "dishonored.titles.createItem": "Create Item",
+    "dishonored.titles.editItem": "Edit Item",
+    "dishonored.titles.deleteItem": "Delete Item",
+
+
     "dishonored.counting.one": "1",
     "dishonored.counting.two": "2",
     "dishonored.counting.three": "3",
