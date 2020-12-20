@@ -83,15 +83,30 @@ export class DishonoredTracker extends Application {
         })
 
         html.find('#dishonored-track-chaos').change(ev => {
-            if (document.getElementById("dishonored-track-chaos").value < 0) {
+            if (isNaN(document.getElementById("dishonored-track-chaos").value) && document.getElementById("dishonored-track-chaos").value.substr(0,1) != "+" && document.getElementById("dishonored-track-chaos").value.substr(0,1) != "-") {
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.NaN'));
                 document.getElementById("dishonored-track-chaos").value = chaos;
-                ui.notifications.warn(game.i18n.localize('dishonored.notifications.ChaosLess'));
-                return false;
             }
-            if (document.getElementById("dishonored-track-chaos").value > 99999999) {
-                document.getElementById("dishonored-track-chaos").value = chaos;
-                ui.notifications.error(game.i18n.localize('dishonored.notifications.ChaosGreaterSet'));
-                return false;
+            else {
+                if (document.getElementById("dishonored-track-chaos").value == '') {
+                    document.getElementById("dishonored-track-chaos").value = 0;
+                }
+                if (document.getElementById("dishonored-track-chaos").value.substr(0,1) == "+") {
+                    document.getElementById("dishonored-track-chaos").value = chaos + parseInt(document.getElementById("dishonored-track-chaos").value.substr(1,document.getElementById("dishonored-track-chaos").value.length - 1));
+                }
+                if (document.getElementById("dishonored-track-chaos").value.substr(0,1) == "-") {
+                    document.getElementById("dishonored-track-chaos").value = chaos - parseInt(document.getElementById("dishonored-track-chaos").value.substr(1,document.getElementById("dishonored-track-chaos").value.length - 1));
+                }
+                if (document.getElementById("dishonored-track-chaos").value < 0) {
+                    document.getElementById("dishonored-track-chaos").value = chaos;
+                    ui.notifications.warn(game.i18n.localize('dishonored.notifications.ChaosLess'));
+                    return false;
+                }
+                if (document.getElementById("dishonored-track-chaos").value > 99999999) {
+                    document.getElementById("dishonored-track-chaos").value = chaos;
+                    ui.notifications.error(game.i18n.localize('dishonored.notifications.ChaosGreaterSet'));
+                    return false;
+                }
             }
             chaos = document.getElementById("dishonored-track-chaos").value;
             game.settings.set("FVTT-Dishonored", "chaos", chaos);
@@ -99,16 +114,31 @@ export class DishonoredTracker extends Application {
         });
 
         html.find('#dishonored-track-momentum').change(ev => {
-            if (document.getElementById("dishonored-track-momentum").value < 0) {
+            if (isNaN(document.getElementById("dishonored-track-momentum").value)) {
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.NaN'));
                 document.getElementById("dishonored-track-momentum").value = momentum;
-                ui.notifications.warn(game.i18n.localize('dishonored.notifications.MomentumLess'));
-                return false;
             }
-            if (document.getElementById("dishonored-track-momentum").value > 6) {
-                document.getElementById("dishonored-track-momentum").value = momentum;
-                ui.notifications.error(game.i18n.localize('dishonored.notifications.MomentumGreaterSet'));
-                
-                return false;
+            else {
+                if (document.getElementById("dishonored-track-momentum").value == '') {
+                    document.getElementById("dishonored-track-momentum").value = 0;
+                }
+                if (document.getElementById("dishonored-track-momentum").value.substr(0,1) == "+") {
+                    document.getElementById("dishonored-track-momentum").value = chaos + parseInt(document.getElementById("dishonored-track-chaos").value.substr(1,document.getElementById("dishonored-track-momentum").value.length - 1));
+                }
+                if (document.getElementById("dishonored-track-momentum").value.substr(0,1) == "-") {
+                    document.getElementById("dishonored-track-momentum").value = chaos - parseInt(document.getElementById("dishonored-track-chaos").value.substr(1,document.getElementById("dishonored-track-momentum").value.length - 1));
+                }
+                if (document.getElementById("dishonored-track-momentum").value < 0) {
+                    document.getElementById("dishonored-track-momentum").value = momentum;
+                    ui.notifications.warn(game.i18n.localize('dishonored.notifications.MomentumLess'));
+                    return false;
+                }
+                if (document.getElementById("dishonored-track-momentum").value > 6) {
+                    document.getElementById("dishonored-track-momentum").value = momentum;
+                    ui.notifications.error(game.i18n.localize('dishonored.notifications.MomentumGreaterSet'));
+                    
+                    return false;
+                }
             }
             momentum = document.getElementById("dishonored-track-momentum").value;
             game.settings.set("FVTT-Dishonored", "momentum", momentum);

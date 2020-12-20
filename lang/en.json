@@ -18,6 +18,7 @@
     "dishonored.notifications.MomentumLess": "You can't set Momentum to a value below 0!",
     "dishonored.notifications.MomentumGreater": "THERE IS TOO MUCH MOMENTUM!",
     "dishonored.notifications.MomentumGreaterSet": "THAT IS TOO MUCH MOMENTUM!",
+    "dishonored.notifications.NaN": "The value is not a number, plus only use numeric values",
     "dishonored.notifications.ChaosLess": "You can't set Chaos to a value below 0!",
     "dishonored.notifications.ChaosGreater": "THERE IS TOO MUCH CHAOS!",
     "dishonored.notifications.ChaosGreaterSet": "THAT IS TOO MUCH CHAOS!",
