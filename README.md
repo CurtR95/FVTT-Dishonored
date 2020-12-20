@@ -17,7 +17,7 @@ You <b> MUST </b> own the <a href="https://www.modiphius.net/products/dishonored
 
 | <a href="https://www.curtisreet.co.uk" target="_blank">**Curtis Reet**</a> | <a href="https://twitter.com/regik" target="_blank">**Regik**</a>
 | :---: | :---: |
-| [![Curtis Reet Creation](https://avatars1.githubusercontent.com/u/36826879?s=50)](https://www.curtisreet.co.uk) | [![Regik Translation](https://pbs.twimg.com/profile_images/1302384433496981505/uaFy0dXs_400x400.png)](https://twitter.com/regik)    |
+| [![Curtis Reet Creation](https://avatars1.githubusercontent.com/u/36826879?s=100)](https://www.curtisreet.co.uk) | [![Regik Translation](https://pbs.twimg.com/profile_images/1302384433496981505/uaFy0dXs_400x400.png | width=100)](https://twitter.com/regik)    |
 | <a href="https://github.com/CurtR95" target="_blank">`github.com/CurtR95`</a> | <a href="https://github.com/Damaskian" target="_blank">`github.com/Damaskian`</a> |
 
 <!-- ---
