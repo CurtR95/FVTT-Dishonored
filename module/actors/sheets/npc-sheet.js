@@ -155,7 +155,7 @@ export class DishonoredNPCSheet extends ActorSheet {
             const header = event.currentTarget;
             const type = header.dataset.type;
             const data = duplicate(header.dataset);
-            const name = `New ${type.capitalize()}`;
+            const name = game.i18n.format("dishonored.actor.item.adjectiveNew") + ' ' + type.charAt(0).toUpperCase() + type.slice(1);
             const itemData = {
                 name: name,
                 type: type,
