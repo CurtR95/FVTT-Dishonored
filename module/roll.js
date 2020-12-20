@@ -100,8 +100,8 @@ export class DishonoredRoll {
                             <table class="aim">
                                 <tr>
                                     <td> ` + dicePool + `d20 </td>
-                                    <td> Target:` + checkTarget + ` </td>
-                                    <td> Focus:` + focusTarget + ` </td>
+                                    <td> ` + game.i18n.format("dishonored.roll.html.target") + `:` + checkTarget + ` </td>
+                                    <td> ` + game.i18n.format("dishonored.roll.html.focus") + `:` + focusTarget + ` </td>
                                 </tr>
                             </table>
                         </div>

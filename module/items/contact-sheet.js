@@ -66,7 +66,8 @@ export class DishonoredContactSheet extends ItemSheet {
                 var name = html.find('#name')[0].value;
                 var description = html.find('.editor-content')[0].innerHTML;
                 var img = html.find('.img')[0].getAttribute("src");
-                this.send2Actor(name, description, img).then(created => ui.notifications.info("NPC with the name: '"+name+"' has been created!"));
+                var localisedText = game.i18n.localize('dishonored.notifications.s2A');
+                this.send2Actor(name, description, img).then(created => ui.notifications.info(localisedText.replace('|#|', name)));
             });
         }
     }

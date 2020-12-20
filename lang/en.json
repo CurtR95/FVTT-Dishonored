@@ -22,6 +22,7 @@
     "dishonored.notifications.ChaosLess": "You can't set Chaos to a value below 0!",
     "dishonored.notifications.ChaosGreater": "THERE IS TOO MUCH CHAOS!",
     "dishonored.notifications.ChaosGreaterSet": "THAT IS TOO MUCH CHAOS!",
+    "dishonored.notifications.s2A": "NPC with the name: |#| has been created!",
 
 
     "dishonored.settings.names.multipleComplications": "Multiple Complications:",
@@ -49,6 +50,8 @@
     "dishonored.counting.four": "4",
     "dishonored.counting.five": "5",
 
+
+    "dishonored.actor.item.adjectiveNew": "New",
 
     "dishonored.actor.character.momentum": "Momentum Track",
     "dishonored.actor.character.experience": "Experience Track",
@@ -153,6 +156,9 @@
     "dishonored.roll.complicationPlural": "There were |#| complications!",
 
 
+    
+    "dishonored.roll.html.target": "Target",
+    "dishonored.roll.html.focus": "Focus",
     "dishonored.roll.contact.relation": "<b>|#|</b> Relationship with Contact",
     "dishonored.roll.focus.rating": "Focus with Rating of <b>|#|</b>",
     "dishonored.roll.weapon.damage": "<b>|#|</b> Damage",

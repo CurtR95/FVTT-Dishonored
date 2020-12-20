@@ -294,7 +294,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             const header = event.currentTarget;
             const type = header.dataset.type;
             const data = duplicate(header.dataset);
-            const name = `New ${type.capitalize()}`;
+            const name = game.i18n.format("dishonored.actor.item.adjectiveNew") + ' ' + type.charAt(0).toUpperCase() + type.slice(1);
             if (type == "bonecharm" && bonecharmNumber >= 3) {
                 ui.notifications.info(game.i18n.localize('dishonored.notifications.tooManyBonecharmsNew'));
                 data.equipped = false;
