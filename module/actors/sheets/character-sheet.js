@@ -258,13 +258,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 }
             }
             else if (itemType == "bonecharm" && bonecharmNumber >= 3) {
-                ui.notifications.error("The current actor has 3 equipped bonecharms already! Doing Nothing.");
+                
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.tooManyBonecharms'));
             }
             else if (itemType == "armor" && isHelmet == 'false' && armorNumber >= 1) {
-                ui.notifications.error("The current actor has an equipped armor already! Doing Nothing.");
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.armorAlreadyEquipped'));
             }
             else if (itemType == "armor" && isHelmet == 'true' && helmetNumber >= 1) {
-                ui.notifications.error("The current actor has an equipped helmet already! Doing Nothing.");
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.helmentAlreadyEquipped'));
             }
             else {
                 this.actor.items.get(itemId).data.data.equipped = true;
@@ -295,11 +296,11 @@ export class DishonoredCharacterSheet extends ActorSheet {
             const data = duplicate(header.dataset);
             const name = `New ${type.capitalize()}`;
             if (type == "bonecharm" && bonecharmNumber >= 3) {
-                ui.notifications.info("The current actor has 3 equipped bonecharms already. Adding unequipped.");
+                ui.notifications.info(game.i18n.localize('dishonored.notifications.tooManyBonecharmsNew'));
                 data.equipped = false;
             }
             if (type == "armor" && bonecharmNumber >= 1) {
-                ui.notifications.info("The current actor has an equipped armor already. Adding unequipped.");
+                ui.notifications.info(game.i18n.localize('dishonored.notifications.armorAlreadyEquippedNew'));
                 data.equipped = false;
             }
             const itemData = {

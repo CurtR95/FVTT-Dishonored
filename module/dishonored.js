@@ -242,8 +242,8 @@ Hooks.once("init", function() {
             if (!game.permissions.SETTINGS_MODIFY.includes(i)) var error = true;
         }
         if (error) {
-            console.error("The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.");
-            ui.notifications.error("The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.");
+            console.error(game.i18n.localize('dishonored.notifications.momentumTrackerPermissions'));
+            ui.notifications.error(game.i18n.localize('dishonored.notifications.momentumTrackerPermissions'));
         }
         let t = new DishonoredTracker()
         renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(html => {

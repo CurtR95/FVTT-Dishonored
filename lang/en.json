@@ -1,11 +1,35 @@
 {
     "dishonored.__comment": "The Dishonored System allows for dynamic location of variables. These are indicated via |#|.",
 
+
+    "dishonored.notifications.momentumTrackerPermissions": "The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.",
+    "dishonored.notifications.lackPermission": "You do not have permission to view this item!",
+    "dishonored.notifications.tooManyBonecharms": "The current actor has 3 equipped bonecharms already! Doing Nothing.",
+    "dishonored.notifications.armorAlreadyEquipped": "The current actor has an equipped armor already! Doing Nothing.",
+    "dishonored.notifications.helmetAlreadyEquipped": "The current actor has an equipped helmet already! Doing Nothing.",
+    "dishonored.notifications.tooManyBonecharmsNew": "The current actor has 3 equipped bonecharms already! Adding as unequipped.",
+    "dishonored.notifications.armorAlreadyEquippedNew": "The current actor has an equipped armor already! Adding as unequipped.",
+    "dishonored.notifications.macroActor": "Please provide an actor to the macro!",
+    "dishonored.notifications.macroSkill": "Please provide an skill to the macro!",
+    "dishonored.notifications.macroStyle": "Please provide an style to the macro!",
+    "dishonored.notifications.macroFocus": "Focus cannot be less than 1!",
+    "dishonored.notifications.macroDiceGreater": "You cannot roll more than 5 die!",
+    "dishonored.notifications.macroDiceLess": "You must roll a dice!",
+    "dishonored.notifications.MomentumLess": "You can't set Momentum to a value below 0!",
+    "dishonored.notifications.MomentumGreater": "THERE IS TOO MUCH MOMENTUM!",
+    "dishonored.notifications.MomentumGreaterSet": "THAT IS TOO MUCH MOMENTUM!",
+    "dishonored.notifications.ChaosLess": "You can't set Chaos to a value below 0!",
+    "dishonored.notifications.ChaosGreater": "THERE IS TOO MUCH CHAOS!",
+    "dishonored.notifications.ChaosGreaterSet": "THAT IS TOO MUCH CHAOS!",
+
+
     "dishonored.counting.one": "1",
     "dishonored.counting.two": "2",
     "dishonored.counting.three": "3",
     "dishonored.counting.four": "4",
     "dishonored.counting.five": "5",
+
+
     "dishonored.actor.character.momentum": "Momentum Track",
     "dishonored.actor.character.experience": "Experience Track",
     "dishonored.actor.character.name": "Name",
@@ -17,8 +41,10 @@
     "dishonored.actor.character.archetype": "Archetype",
     "dishonored.actor.character.outlook": "Outlook",
     "dishonored.actor.character.void": "Void Points Track",
+
     "dishonored.actor.skisty.mod": "Modifier",
     "dishonored.actor.skisty.check": "Perform Check",
+
     "dishonored.actor.skill.title": "Skills",
     "dishonored.actor.skill.name": "Skill Name",
     "dishonored.actor.skill.fight": "Fight",
@@ -27,6 +53,7 @@
     "dishonored.actor.skill.survive": "Survive",
     "dishonored.actor.skill.talk": "Talk",
     "dishonored.actor.skill.tinker": "Tinker",
+
     "dishonored.actor.style.title": "Styles",
     "dishonored.actor.style.name": "Style Name",
     "dishonored.actor.style.boldly": "Boldly",
@@ -35,18 +62,25 @@
     "dishonored.actor.style.forcefully": "Forcefully",
     "dishonored.actor.style.quietly": "Quietly",
     "dishonored.actor.style.swiftly": "Swiftly",
+
     "dishonored.actor.genericitem.name": "Name",
     "dishonored.actor.genericitem.cost": "Value",
+
     "dishonored.actor.contact.title": "Contacts",
     "dishonored.actor.contact.relation": "Relation",
+
     "dishonored.actor.talent.title": "Talents",
     "dishonored.actor.talent.type": "Type",
+
     "dishonored.actor.focus.title": "Focuses",
     "dishonored.actor.focus.rating": "Rating",
+
     "dishonored.actor.note.title": "Notes",
+
     "dishonored.actor.power.title": "Powers",
     "dishonored.actor.power.rune": "Rune",
     "dishonored.actor.power.mana": "Mana",
+
     "dishonored.actor.belonging.title": "Belongings",
     "dishonored.actor.belonging.collectable.coin": "Coins",
     "dishonored.actor.belonging.collectable.rune": "Runes",
@@ -73,25 +107,31 @@
     "dishonored.actor.belonging.other.title": "Other Items",
     "dishonored.actor.belonging.other.qty": "Qty",
     "dishonored.actor.belonging.other.quantity": "Quantity",
+
+
     "dishonored.contact.relation.great": "Great",
     "dishonored.contact.relation.fair": "Fair",
     "dishonored.contact.relation.neutral": "Neutral",
     "dishonored.contact.relation.poor": "Poor",
     "dishonored.contact.relation.dire": "Dire",
 
+
     "dishonored.item.armor.helmet": "Is Helmet?",
     "dishonored.item.contact.send2actor": "Send to Actor",
+
 
     "dishonored.apps.dicepoolwindow": "Dice Pool",
     "dishonored.apps.focus": "Focus Rating",
     "dishonored.apps.pool": "Number of Dice in Pool",
     "dishonored.apps.rolldice": "Roll Dice",
 
+
     "dishonored.roll.success": " Success",
     "dishonored.roll.successPlural": " Successes",
     "dishonored.roll.test": " Skill Test",
     "dishonored.roll.complication": "There was a complication!",
     "dishonored.roll.complicationPlural": "There were |#| complications!",
+
 
     "dishonored.roll.contact.relation": "<b>|#|</b> Relationship with Contact",
     "dishonored.roll.focus.rating": "Focus with Rating of <b>|#|</b>",
@@ -108,7 +148,5 @@
     "dishonored.tracker.momentum": "Momentum",
 
 
-
     "dishonored.__eof": "This is an end of file because I'm lazy and keep forgetting commas. This shouldn't be in the final commit (sorry if it is - see previous statement)."
-
 }

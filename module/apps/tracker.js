@@ -29,7 +29,7 @@ export class DishonoredTracker extends Application {
         html.find('#dishonored-momentum-track-decrease').click(ev => {
             momentum = parseInt(document.getElementById("dishonored-track-momentum").value);
             if (momentum === 0) {
-                ui.notifications.warn("You can't set Momentum to a value below 0!");
+                ui.notifications.warn(game.i18n.localize('dishonored.notifications.MomentumLess'));
                 return false;
             }
             momentum = momentum - 1;
@@ -40,7 +40,7 @@ export class DishonoredTracker extends Application {
         html.find('#dishonored-chaos-track-decrease').click(ev => {
             chaos = parseInt(document.getElementById("dishonored-track-chaos").value);
             if (chaos === 0) {
-                ui.notifications.warn("You can't set Chaos to a value below 0!");
+                ui.notifications.warn(game.i18n.localize('dishonored.notifications.ChaosLess'));
                 return false;
             }
             chaos = chaos - 1;
@@ -50,7 +50,7 @@ export class DishonoredTracker extends Application {
 
         html.find('#dishonored-chaos-track-increase').click(ev => {
             if (chaos === 99999999) {
-                ui.notifications.error("THERE IS TOO MUCH CHAOS!");
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.ChaosGreater'));
                 return false;
             }
             chaos = parseInt(document.getElementById("dishonored-track-chaos").value);
@@ -61,7 +61,7 @@ export class DishonoredTracker extends Application {
 
         html.find('#dishonored-momentum-track-increase').click(ev => {
             if (momentum === 6) {
-                ui.notifications.error("THERE IS TOO MUCH MOMENTUM!");
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.MomentumGreater'));
                 return false;
             }
             momentum = parseInt(document.getElementById("dishonored-track-momentum").value);
@@ -85,12 +85,12 @@ export class DishonoredTracker extends Application {
         html.find('#dishonored-track-chaos').change(ev => {
             if (document.getElementById("dishonored-track-chaos").value < 0) {
                 document.getElementById("dishonored-track-chaos").value = chaos;
-                ui.notifications.warn("You can't set Chaos to a value below 0!");
+                ui.notifications.warn(game.i18n.localize('dishonored.notifications.ChaosLess'));
                 return false;
             }
             if (document.getElementById("dishonored-track-chaos").value > 99999999) {
                 document.getElementById("dishonored-track-chaos").value = chaos;
-                ui.notifications.error("THAT IS TOO MUCH CHAOS!");
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.ChaosGreaterSet'));
                 return false;
             }
             chaos = document.getElementById("dishonored-track-chaos").value;
@@ -101,12 +101,13 @@ export class DishonoredTracker extends Application {
         html.find('#dishonored-track-momentum').change(ev => {
             if (document.getElementById("dishonored-track-momentum").value < 0) {
                 document.getElementById("dishonored-track-momentum").value = momentum;
-                ui.notifications.warn("You can't set Momentum to a value below 0!");
+                ui.notifications.warn(game.i18n.localize('dishonored.notifications.MomentumLess'));
                 return false;
             }
             if (document.getElementById("dishonored-track-momentum").value > 6) {
                 document.getElementById("dishonored-track-momentum").value = momentum;
-                ui.notifications.error("THAT IS TOO MUCH MOMENTUM!");
+                ui.notifications.error(game.i18n.localize('dishonored.notifications.MomentumGreaterSet'));
+                
                 return false;
             }
             momentum = document.getElementById("dishonored-track-momentum").value;
