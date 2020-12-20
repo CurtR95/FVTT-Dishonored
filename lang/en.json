@@ -23,6 +23,20 @@
     "dishonored.notifications.ChaosGreaterSet": "THAT IS TOO MUCH CHAOS!",
 
 
+    "dishonored.settings.names.multipleComplications": "Multiple Complications:",
+    "dishonored.settings.hints.multipleComplications": "The rulebook states \"Any die which rolled 20 causes a complication\". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display \"There were x Complications\" if multiple 20s are rolled. Disabling will just state a single complication.",
+    "dishonored.settings.names.send2ActorPermissionLevel": "Send2Actor User Role:",
+    "dishonored.settings.hints.send2ActorPermissionLevel": "The contact item type has the ability to create an NPC, who should be allowed to see & use this functionality?",
+    "dishonored.settings.names.chaosPermissionLevel": "Chaos Tracker User Role:",
+    "dishonored.settings.hints.chaosPermissionLevel": "Who should be allowed to amend the chaos tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.",
+    "dishonored.settings.names.momentumPermissionLevel": "Momentum Tracker User Role:",
+    "dishonored.settings.hints.momentumPermissionLevel": "Who should be allowed to amend the momentum tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.",
+    "dishonored.settings.names.maxNumberOfExperience": "Maximum amount of Experience:",
+    "dishonored.settings.hints.maxNumberOfExperience": "Max number of experience that can be given to a character. 30 is default, anything past 50 becomes almost unreadable.",
+    "dishonored.settings.names.trackerRefreshRate": "Refresh Rate of Chaos & Momentum:",
+    "dishonored.settings.hints.trackerRefreshRate": "In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.",
+
+
     "dishonored.counting.one": "1",
     "dishonored.counting.two": "2",
     "dishonored.counting.three": "3",

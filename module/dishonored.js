@@ -141,8 +141,8 @@ Hooks.once("init", function() {
 
     // Register system settings
     game.settings.register("FVTT-Dishonored", "multipleComplications", {
-        name: 'Multiple Complications:',
-        hint: 'The rulebook states "Any die which rolled 20 causes a complication". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display "There were x Complications" if multiple 20s are rolled. Disabling will just state a single complication.',
+        name: game.i18n.localize('dishonored.settings.names.multipleComplications'),
+        hint: game.i18n.localize('dishonored.settings.hints.multipleComplications'),
         scope: "world",
         type: Boolean,
         default: true,
@@ -150,8 +150,8 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "send2ActorPermissionLevel", {
-        name: 'Send2Actor User Role:',
-        hint: 'The contact item type has the ability to create an NPC, who should be allowed to see & use this functionality?',
+        name: game.i18n.localize('dishonored.settings.names.send2ActorPermissionLevel'),
+        hint: game.i18n.localize('dishonored.settings.hints.send2ActorPermissionLevel'),
         scope: "world",
         type: String,
         default: "ASSISTANT",
@@ -166,8 +166,8 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "chaosPermissionLevel", {
-        name: 'Chaos Tracker User Role:',
-        hint: 'Who should be allowed to amend the chaos tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
+        name: game.i18n.localize('dishonored.settings.names.chaosPermissionLevel'),
+        hint: game.i18n.localize('dishonored.settings.hints.chaosPermissionLevel'),
         scope: "world",
         type: String,
         default: "ASSISTANT",
@@ -181,8 +181,8 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "momentumPermissionLevel", {
-        name: 'Momentum Tracker User Role:',
-        hint: 'Who should be allowed to amend the momentum tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.',
+        name: game.i18n.localize('dishonored.settings.names.momentumPermissionLevel'),
+        hint: game.i18n.localize('dishonored.settings.hints.momentumPermissionLevel'),
         scope: "world",
         type: String,
         default: "PLAYER",
@@ -196,8 +196,8 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "maxNumberOfExperience", {
-        name: 'Maximum amount of Experience:',
-        hint: 'Max number of experience that can be given to a character. 30 is default, anything past 50 becomes almost unreadable.',
+        name: game.i18n.localize('dishonored.settings.names.maxNumberOfExperience'),
+        hint: game.i18n.localize('dishonored.settings.hints.maxNumberOfExperience'),
         scope: "world",
         type: Number,
         default: 30,
@@ -205,22 +205,13 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "trackerRefreshRate", {
-        name: 'Refresh Rate of Chaos & Momentum:',
-        hint: 'In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.',
+        name: game.i18n.localize('dishonored.settings.names.trackerRefreshRate'),
+        hint: game.i18n.localize('dishonored.settings.hints.trackerRefreshRate'),
         scope: "world",
         type: Number,
         default: 5,
         config: true
     });
-
-    // game.settings.register("FVTT-Dishonored", "individualMomentum", {
-    //     name: 'Indvidual Momentum:',
-    //     hint: 'Should the system use individual momentum instead of global momentum. This is homebrew and not recommended.',
-    //     scope: "world",
-    //     type: Boolean,
-    //     default: false,
-    //     config: true
-    // });
 
     game.settings.register("FVTT-Dishonored", "chaos", {
         scope: "world",
