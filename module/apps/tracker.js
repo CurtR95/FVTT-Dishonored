@@ -27,6 +27,7 @@ export class DishonoredTracker extends Application {
         }
 
         html.find('#dishonored-momentum-track-decrease').click(ev => {
+            chaos = game.settings.get("FVTT-Dishonored", "chaos");
             momentum = parseInt(document.getElementById("dishonored-track-momentum").value);
             if (momentum === 0) {
                 ui.notifications.warn(game.i18n.localize('dishonored.notifications.MomentumLess'));
@@ -38,6 +39,7 @@ export class DishonoredTracker extends Application {
         });
 
         html.find('#dishonored-chaos-track-decrease').click(ev => {
+            momentum = game.settings.get("FVTT-Dishonored", "momentum");
             chaos = parseInt(document.getElementById("dishonored-track-chaos").value);
             if (chaos === 0) {
                 ui.notifications.warn(game.i18n.localize('dishonored.notifications.ChaosLess'));
@@ -49,6 +51,7 @@ export class DishonoredTracker extends Application {
         });
 
         html.find('#dishonored-chaos-track-increase').click(ev => {
+            momentum = game.settings.get("FVTT-Dishonored", "momentum");
             if (chaos === 99999999) {
                 ui.notifications.error(game.i18n.localize('dishonored.notifications.ChaosGreater'));
                 return false;
@@ -60,6 +63,7 @@ export class DishonoredTracker extends Application {
         });
 
         html.find('#dishonored-momentum-track-increase').click(ev => {
+            chaos = game.settings.get("FVTT-Dishonored", "chaos");
             if (momentum === 6) {
                 ui.notifications.error(game.i18n.localize('dishonored.notifications.MomentumGreater'));
                 return false;
@@ -83,6 +87,8 @@ export class DishonoredTracker extends Application {
         })
 
         html.find('#dishonored-track-chaos').change(ev => {
+            momentum = game.settings.get("FVTT-Dishonored", "momentum");
+            chaos = game.settings.get("FVTT-Dishonored", "chaos");
             if (isNaN(document.getElementById("dishonored-track-chaos").value) && document.getElementById("dishonored-track-chaos").value.substr(0,1) != "+" && document.getElementById("dishonored-track-chaos").value.substr(0,1) != "-") {
                 ui.notifications.error(game.i18n.localize('dishonored.notifications.NaN'));
                 document.getElementById("dishonored-track-chaos").value = chaos;
@@ -114,6 +120,8 @@ export class DishonoredTracker extends Application {
         });
 
         html.find('#dishonored-track-momentum').change(ev => {
+            momentum = game.settings.get("FVTT-Dishonored", "momentum");
+            chaos = game.settings.get("FVTT-Dishonored", "chaos");
             if (isNaN(document.getElementById("dishonored-track-momentum").value)) {
                 ui.notifications.error(game.i18n.localize('dishonored.notifications.NaN'));
                 document.getElementById("dishonored-track-momentum").value = momentum;
