@@ -7,6 +7,7 @@ import {
 
 export class DishonoredActor extends Actor {
 	prepareData() {
+		if (!this.data.img) this.data.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
 		super.prepareData();
 		// const actorData = this.data;
 	}

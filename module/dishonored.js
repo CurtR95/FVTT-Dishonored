@@ -3,6 +3,9 @@ import {
     DishonoredActor
 } from "./actors/actor.js";
 import {
+    DishonoredItem
+} from "./items/item.js";
+import {
     DishonoredCharacterSheet
 } from "./actors/sheets/character-sheet.js";
 import {
@@ -102,6 +105,7 @@ Hooks.once("init", function() {
 
     // Define custom Entity classes
     CONFIG.Actor.entityClass = DishonoredActor;
+    CONFIG.Item.entityClass = DishonoredItem;
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
