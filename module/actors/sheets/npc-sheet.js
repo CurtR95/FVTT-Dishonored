@@ -146,13 +146,13 @@ export class DishonoredNPCSheet extends ActorSheet {
         html.find('.rollable').click(ev =>{
             var itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
-            dishonoredActor.rollGenericItem(event, itemType, itemId, this.actor);
+            dishonoredActor.rollGenericItem(ev, itemType, itemId, this.actor);
         })
 
         // Allows item-create images to create an item of a type defined individually by each button. This uses code found via the Foundry VTT System Tutorial.
         html.find('.control.create').click(ev => {
-            event.preventDefault();
-            const header = event.currentTarget;
+            ev.preventDefault();
+            const header = ev.currentTarget;
             const type = header.dataset.type;
             const data = duplicate(header.dataset);
             const name = game.i18n.format("dishonored.actor.item.adjectiveNew") + ' ' + type.charAt(0).toUpperCase() + type.slice(1);
@@ -242,7 +242,7 @@ export class DishonoredNPCSheet extends ActorSheet {
                 }
             }
             var checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
-            dishonoredActor.rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, this.actor);
+            dishonoredActor.rollSkillTest(ev, checkTarget, selectedSkill, selectedStyle, this.actor);
         });
     }
 }
