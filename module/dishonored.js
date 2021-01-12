@@ -143,6 +143,30 @@ Hooks.once("init", function() {
         types: ["power"],
     });
 
+    // Code taken from FFG Star Wars which also flips their health system! (Plus I like the increasing height that it implements)
+    Token.prototype._drawBar = function (number, bar, data) {
+        let val = Number(data.value);
+        if (data.attribute === "stress") {
+          val = Number(data.max - data.value);
+        }
+        const pct = Math.clamped(val, 0, data.max) / data.max;
+        let h = Math.max(canvas.dimensions.size / 12, 8);
+        if (this.data.height >= 2) h *= 1.6; // Enlarge the bar for large tokens
+        // Draw the bar
+        let color = number === 0 ? [1 - pct / 2, pct, 0] : [0.5 * pct, 0.7 * pct, 0.5 + pct / 2];
+        bar
+          .clear()
+          .beginFill(0x000000, 0.5)
+          .lineStyle(2, 0x000000, 0.9)
+          .drawRoundedRect(0, 0, this.w, h, 3)
+          .beginFill(PIXI.utils.rgb2hex(color), 0.8)
+          .lineStyle(1, 0x000000, 0.8)
+          .drawRoundedRect(1, 1, pct * (this.w - 2), h - 2, 2);
+        // Set position
+        let posY = number === 0 ? this.h - h : 0;
+        bar.position.set(0, posY);
+      };
+
     // Register system settings
     game.settings.register("FVTT-Dishonored", "multipleComplications", {
         name: game.i18n.localize('dishonored.settings.names.multipleComplications'),

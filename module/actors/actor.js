@@ -7,7 +7,24 @@ import {
 
 export class DishonoredActor extends Actor {
 	prepareData() {
-		if (!this.data.img) this.data.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
+		this.data.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
+		this.data.token.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
+		this.data.token.bar1.attribute = "stress";
+		if(this.data.type == "character") {
+			this.data.token.bar2.attribute = "void";
+			this.data.token.actorLink = "true";
+			this.data.token.brightSight = 30;
+			this.data.token.dimSight = 60;
+			this.data.token.displayBars = 50;
+			this.data.token.displayName = 50;
+			this.data.token.disposition = 1;
+			this.data.token.vision = true;
+		}
+		else {
+			this.data.token.displayBars = 40;
+			this.data.token.displayName = 40;
+			this.data.token.disposition = -1;
+		}
 		super.prepareData();
 		// const actorData = this.data;
 	}

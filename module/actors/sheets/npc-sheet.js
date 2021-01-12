@@ -66,6 +66,10 @@ export class DishonoredNPCSheet extends ActorSheet {
         // Checks if stress is below 0, if so - set it to 0.
         if (data.data.stress.value < 0) data.data.stress.value = 0;
         
+        $.each(data.items, (key, item) => {
+            if (!item.img) item.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
+        })
+
         return data;
     }
 
