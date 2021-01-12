@@ -236,7 +236,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
             for (i = 0; i < html.find('.rollable').length; i++) {
                 html.find('.rollable')[i].classList.add("unset-clickables");
             }
-
             return;
         };
 
@@ -244,21 +243,16 @@ export class DishonoredCharacterSheet extends ActorSheet {
         html.find('.control.toggle').click(ev => {
             var itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
             var itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
+            var item = this.actor.getOwnedItem(itemId);
+            var itemData = item.data;
             if (itemType == "armor") var isHelmet = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-helmet");
             if (this.actor.items.get(itemId).data.data.equipped == true) {
-                this.actor.items.get(itemId).data.data.equipped = false;
+                itemData.data.equipped = false;
                 $(ev.currentTarget).children()[0].classList.remove("fa-toggle-on");
                 $(ev.currentTarget).children()[0].classList.add("fa-toggle-off");
-                if (itemType == "bonecharm") bonecharmCount(this);
-                else {
-                    $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "false")
-                    armorCount(this);
-                    stressTrackUpdate();
-                    dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
-                }
+                $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "false")
             }
             else if (itemType == "bonecharm" && bonecharmNumber >= 3) {
-                
                 ui.notifications.error(game.i18n.localize('dishonored.notifications.tooManyBonecharms'));
             }
             else if (itemType == "armor" && isHelmet == 'false' && armorNumber >= 1) {
@@ -268,17 +262,15 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 ui.notifications.error(game.i18n.localize('dishonored.notifications.helmentAlreadyEquipped'));
             }
             else {
-                this.actor.items.get(itemId).data.data.equipped = true;
+                itemData.data.equipped = true;
                 $(ev.currentTarget).children()[0].classList.remove("fa-toggle-off");
                 $(ev.currentTarget).children()[0].classList.add("fa-toggle-on");
-                if (itemType == "bonecharm") bonecharmCount(this);
-                else {
-                    $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "true")
-                    armorCount(this);
-                    stressTrackUpdate();
-                    dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
-                }
+                $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "true")
             }
+            item.update(itemData);
+            stressTrackUpdate();
+            dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
+            this.submit();
         });
 
         // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
@@ -299,7 +291,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 ui.notifications.info(game.i18n.localize('dishonored.notifications.tooManyBonecharmsNew'));
                 data.equipped = false;
             }
-            if (type == "armor" && bonecharmNumber >= 1) {
+            if (type == "armor" && armorNumber >= 1) {
                 ui.notifications.info(game.i18n.localize('dishonored.notifications.armorAlreadyEquippedNew'));
                 data.equipped = false;
             }
@@ -309,6 +301,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 data: data
             };
             delete itemData.data["type"];
+            stressTrackUpdate();
             return this.actor.createOwnedItem(itemData);
         });
 
