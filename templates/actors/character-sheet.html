@@ -345,7 +345,11 @@
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <h4 id="protectval-armor-{{item._id}}" class="column-x2-small">{{item.data.protection}}</h4>
                             <div class="control">
-                                <a class="control toggle"><i class="fas fa-toggle-{{#if (eq item.data.equipped true)}}on{{else}}off{{/if}}"></i></a>
+                                {{#if (eq item.data.equipped true)}}
+                                    <a class="control toggle"><i class="fas fa-toggle-on"></i></a>
+                                {{else}}
+                                    <a class="control toggle"><i class="fas fa-toggle-off"></i></a>
+                                {{/if}}
                                 <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
                             </div>
