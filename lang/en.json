@@ -67,7 +67,7 @@
     "dishonored.actor.character.outlook": "Outlook",
     "dishonored.actor.character.void": "Void Points Track",
 
-    "dishonored.actor.skisty.mod": "Modifier",
+    "dishonored.actor.skisty.mod": "Mod",
     "dishonored.actor.skisty.check": "Perform Check",
 
     "dishonored.actor.skill.title": "Skills",
@@ -93,6 +93,8 @@
 
     "dishonored.actor.contact.title": "Contacts",
     "dishonored.actor.contact.relation": "Relation",
+
+    "dishonored.actor.truth.title": "Truths",
 
     "dishonored.actor.talent.title": "Talents",
     "dishonored.actor.talent.type": "Type",

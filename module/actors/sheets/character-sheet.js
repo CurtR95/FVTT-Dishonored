@@ -9,7 +9,12 @@ export class DishonoredCharacterSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["dishonored", "sheet", "actor", "character"],
             width: 700,
-            height: 735,
+            height: 800,
+            tabs: [{
+                navSelector: ".sheet-tabs", 
+                contentSelector: ".sheet-body", 
+                initial: "focuses"}],
+            scrollY: [".focuses", ".abilities", ".belongings", ".biography", ".notes"],
             dragDrop: [{
                 dragSelector: ".item-list .item",
                 dropSelector: null

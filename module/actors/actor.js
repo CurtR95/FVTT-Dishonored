@@ -72,7 +72,7 @@ export class DishonoredSharedActorFunctions {
 					html.find('[id^="exp"]')[i].style.color = "#ffffff";
 				} else {
 					html.find('[id^="exp"]')[i].removeAttribute("data-selected");
-					html.find('[id^="exp"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
+					html.find('[id^="exp"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.8)";
 					html.find('[id^="exp"]')[i].style.color = "";
 				}
 			}
