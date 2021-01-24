@@ -115,8 +115,8 @@
 
 .dishonored .track .bar .box {
     height: 14px;
-    border: 1px solid #191919;
-    border-collapse: collapse;
+    outline: 1px solid #191919;
+    margin-left: 1px;
     padding: 0px;
     display: block;
     font-size: 8pt;
@@ -193,6 +193,7 @@
     font-size: 16pt;
     font-weight: bold;
     margin: 0;
+    border-color: #000000;
 }
 
 
@@ -307,6 +308,7 @@
 .dishonored.sheet.actor .tab .section .entry.row {
     display: flex;
     flex-direction: row;
+    font-size: 12pt;
 }
 
 
@@ -316,6 +318,7 @@
 .dishonored.sheet.actor .tab .section .item.row {
     border: 1px solid #000000;
     background-color: rgb(255, 255, 255, 0.3);
+    font-size: 13pt;
 }
 
 .dishonored.sheet.actor .tab .section .row .image {
@@ -337,6 +340,8 @@
 
 .dishonored.sheet.actor .tab .section .row .control {
     width: 32px;
+    line-height: 17pt;
+    font-size: 14px;
 }
 
 .dishonored.sheet.actor .tab .section .row .column-x1 {
@@ -363,7 +368,7 @@
     width: calc(100% /6);
 }
 
-.dishonored.sheet.actor .tab .section .row .small input {
+.dishonored.sheet.actor .tab .small input {
     height: 17px;
 }
 
@@ -384,6 +389,32 @@
 
 
 
+/* Actor - Tabbed Section - Specific - Abilities Specific */
+
+.dishonored.sheet.actor .tab.abilities.active {
+    display: block;
+}
+
+.dishonored.sheet.actor .tab.abilities .mana {
+    border-bottom: 1px solid #000000;
+    font-size: 13pt;
+    display: flex;
+}
+
+.dishonored.sheet.actor .tab.abilities .mana .column-x6 {
+    width: calc(100% /6);
+    display: flex;
+}
+
+.dishonored.sheet.actor .tab.abilities .main {
+    display: flex;
+    overflow-y: auto;
+    padding: 1% 0;
+    height: calc(100% - 23px);
+}
+
+
+
 /* Actor - Tabbed Section - Specific - Belonging Specific */
 
 .dishonored.sheet.actor .tab .section.belongings {
@@ -392,12 +423,13 @@
 
 .dishonored.sheet.actor .tab .section.belongings .currency {
     border-bottom: 1px solid #000000;
+    font-size: 13pt;
 }
 
 .dishonored.sheet.actor .tab .section.belongings .main {
     overflow-y: auto;
     padding: 1% 5%;
-    height: calc(100% - 20px);
+    height: calc(100% - 23px);
 }
 
 .dishonored.sheet.actor .tab .section.belongings .row.equipable .control {
@@ -420,14 +452,18 @@
     width: calc((100% - 80px)/4);
 }
 
-
-
-/* Actor - Tabbed Section - Specific - Bonecharm Specific */
-
 .dishonored.sheet.actor .tab .section.belongings .row .bonecharm input {
     padding: 0;
     min-width: 0;
     width: 10px
+}
+
+
+
+/* Actor - Tabbed Section - Specific - Biography Specific */
+
+.dishonored.sheet.actor .tab.biography {
+    padding: 1% 0;
 }
 
 

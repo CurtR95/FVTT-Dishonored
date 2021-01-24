@@ -35,6 +35,9 @@ import {
 import {
     DishonoredPowerSheet
 } from "./items/power-sheet.js";
+import {
+    DishonoredTruthSheet
+} from "./items/truth-sheet.js";
 import { 
     DishonoredTracker 
 } from "./apps/tracker.js";
@@ -89,6 +92,7 @@ Hooks.once("init", function() {
             DishonoredTalentSheet,
             DishonoredContactSheet,
             DishonoredPowerSheet,
+            DishonoredTruthSheet,
         },
         entities: {
             DishonoredActor,
@@ -141,6 +145,9 @@ Hooks.once("init", function() {
     });
     Items.registerSheet("dishonored", DishonoredPowerSheet, {
         types: ["power"],
+    });
+    Items.registerSheet("dishonored", DishonoredTruthSheet, {
+        types: ["truth"],
     });
 
     // Code taken from FFG Star Wars which also flips their health system! (Plus I like the increasing height that it implements)

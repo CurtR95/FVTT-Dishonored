@@ -91,18 +91,13 @@
     "dishonored.actor.genericitem.name": "Name",
     "dishonored.actor.genericitem.cost": "Value",
 
-    "dishonored.actor.contact.title": "Contacts",
-    "dishonored.actor.contact.relation": "Relation",
-
-    "dishonored.actor.truth.title": "Truths",
-
-    "dishonored.actor.talent.title": "Talents",
-    "dishonored.actor.talent.type": "Type",
-
     "dishonored.actor.focus.title": "Focuses",
     "dishonored.actor.focus.rating": "Rating",
 
-    "dishonored.actor.note.title": "Notes",
+    "dishonored.actor.abilities.mana": "Mana Points",
+
+    "dishonored.actor.talent.title": "Talents",
+    "dishonored.actor.talent.type": "Type",
 
     "dishonored.actor.power.title": "Powers",
     "dishonored.actor.power.rune": "Rune",
@@ -111,7 +106,8 @@
     "dishonored.actor.belonging.title": "Belongings",
     "dishonored.actor.belonging.collectable.coin": "Coins",
     "dishonored.actor.belonging.collectable.rune": "Runes",
-    "dishonored.actor.belonging.weapon.title": "Weapons",
+    "dishonored.actor.belonging.collectable.bonecharm": "Bonecharms",
+    "dishonored.actor.belonging.weapon.title": "Weapon Name",
     "dishonored.actor.belonging.weapon.dmg": "Dmg",
     "dishonored.actor.belonging.weapon.damage": "Damage",
     "dishonored.actor.belonging.weapon.armorpierce": "Armor Piercing",
@@ -127,13 +123,20 @@
     "dishonored.actor.belonging.weapon.distant": "Distant",
     "dishonored.actor.belonging.weapon.rangednearby": "Ranged (Nearby)",
     "dishonored.actor.belonging.weapon.nearby": "Nearby",
-    "dishonored.actor.belonging.armor.title": "Armor",
+    "dishonored.actor.belonging.armor.title": "Armor Name",
     "dishonored.actor.belonging.armor.protect": "Protect",
     "dishonored.actor.belonging.armor.protection": "Protection",
-    "dishonored.actor.belonging.bonecharm.title": "Bonecharms",
-    "dishonored.actor.belonging.other.title": "Other Items",
+    "dishonored.actor.belonging.bonecharm.title": "Bonecharm Name",
+    "dishonored.actor.belonging.other.title": "Item Name",
     "dishonored.actor.belonging.other.qty": "Qty",
     "dishonored.actor.belonging.other.quantity": "Quantity",
+
+    "dishonored.actor.truth.title": "Truths",
+
+    "dishonored.actor.contact.title": "Contacts",
+    "dishonored.actor.contact.relation": "Relation",
+    
+    "dishonored.actor.note.title": "Notes",
 
 
     "dishonored.contact.relation.great": "Great",
@@ -143,6 +146,9 @@
     "dishonored.contact.relation.dire": "Dire",
 
 
+    "dishonored.item.truth": "Truth",
+
+    
     "dishonored.item.armor.helmet": "Is Helmet?",
     "dishonored.item.contact.send2actor": "Send to Actor",
 
@@ -178,5 +184,5 @@
     "dishonored.tracker.momentum": "Momentum",
 
 
-    "dishonored.__eof": "This is an end of file because I'm lazy and keep forgetting commas. This shouldn't be in the final commit (sorry if it is - see previous statement)."
+    "dishonored.__eof": "This is an end of file because I'm lazy and keep forgetting commas. This shouldn't be in the final commit (sorry if it is - see previous sentence)."
 }

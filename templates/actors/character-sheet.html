@@ -92,7 +92,7 @@
                     d="m 203.5945,217.7661 -13.22916,18.1901 v 1.65365 l -17.19792,23.8125 h -1.32292 l -10.58333,14.55208 v 5.29167 l 1.32292,-3.96875 11.90625,-14.55209 h 2.07067 l 23.8032,-28.81426 a 2.6458332,2.6458332 0 0 1 -1.02216,-2.08514 2.6458332,2.6458332 0 0 1 2.64583,-2.64583 2.6458332,2.6458332 0 0 1 1.74202,0.6568 l 7.8021,-9.4449 v -2.64583 z"
                     id="path4684" />
                     <circle
-                    style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+                    style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
                     id="path4761"
                     cx="158.87053"
                     cy="285.02679"
@@ -261,60 +261,69 @@
                 </div>
             </div>
             <div class="tab abilities" data-group="primary" data-tab="abilities">
-                <div class="section talents">
-                    <div class="title">
-                        {{localize 'dishonored.actor.talent.title'}}
-                    </div>
-                    <div class="row item">
-                        <div class="image"></div>
-                        <div class="column-x1 bold">{{localize 'dishonored.actor.genericitem.name'}}</div>
-                        <a class="control create" title="{{localize 'dishonored.titles.createItem'}}" data-type="talent"><i class="fas fa-plus"></i></a>
-                    </div>
-                    {{#each actor.items as |item id|}}
-                    {{#if (eq item.type "talent")}}
-                    <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
-                        <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
-                        <h4 class="column-x1">{{item.name}}</h4>
-                        <div class="control">
-                            <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
-                            <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    {{/if}}
-                    {{/each}}
-                </div>
-                <div class="section powers">
-                    <div class="title">
-                        {{localize 'dishonored.actor.power.title'}}
-                    </div>
-                    <div class="row item">
-                        <div class="image"></div>
-                        <div class="column-x1 bold">{{localize 'dishonored.actor.genericitem.name'}}</div>
-                        <a class="control create" title="{{localize 'dishonored.titles.createItem'}}" data-type="power"><i class="fas fa-plus"></i></a>
-                    </div>
-                    {{#each actor.items as |item type id|}}
-                    {{#if (eq item.type "power")}}
-                    <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
-                        <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
-                        <h4 class="column-x1">{{item.name}}</h4>
-                        <div class="control">
-                            <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
-                            <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    {{/if}}
-                    {{/each}}
-                    <div class="row item">
+                <div class="mana">
+                    <div class="column-x6 small"></div>
+                    <div class="column-x6 small"></div>
+                    <div class="column-x6 bold">{{localize 'dishonored.actor.abilities.mana'}}</div>
+                    <div class="column-x6 small">
                         <div class="small"><input name="data.mana.value" type="text" value="{{data.mana.value}}" placeholder="0"/></div>
                         <div class="advisory">/</div>
                         <div class="small disabled"><input id="max-mana" name="data.mana.max" type="text" value="{{data.mana.max}}" readonly/></div>
+                    </div>
+                    <div class="column-x6 small"></div>
+                    <div class="column-x6 small"></div>
+                </div>
+                <div class="main">
+                    <div class="section talents">
+                        <div class="title">
+                            {{localize 'dishonored.actor.talent.title'}}
+                        </div>
+                        <div class="row item">
+                            <div class="image"></div>
+                            <div class="column-x1 bold">{{localize 'dishonored.actor.genericitem.name'}}</div>
+                            <a class="control create" title="{{localize 'dishonored.titles.createItem'}}" data-type="talent"><i class="fas fa-plus"></i></a>
+                        </div>
+                        {{#each actor.items as |item id|}}
+                        {{#if (eq item.type "talent")}}
+                        <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
+                            <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
+                            <h4 class="column-x1">{{item.name}}</h4>
+                            <div class="control">
+                                <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
+                                <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                    <div class="section powers">
+                        <div class="title">
+                            {{localize 'dishonored.actor.power.title'}}
+                        </div>
+                        <div class="row item">
+                            <div class="image"></div>
+                            <div class="column-x1 bold">{{localize 'dishonored.actor.genericitem.name'}}</div>
+                            <a class="control create" title="{{localize 'dishonored.titles.createItem'}}" data-type="power"><i class="fas fa-plus"></i></a>
+                        </div>
+                        {{#each actor.items as |item type id|}}
+                        {{#if (eq item.type "power")}}
+                        <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
+                            <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
+                            <h4 class="column-x1">{{item.name}}</h4>
+                            <div class="control">
+                                <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
+                                <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{/each}}
                     </div>
                 </div>
             </div>
             <div class="tab belongings" data-group="primary" data-tab="belongings">
                 <div class="section belongings">
                     <div class="currency row">
-                        <div class="column-x6 bold">Bonecharms</div>
+                        <div class="column-x6 bold">{{localize 'dishonored.actor.belonging.collectable.bonecharm'}}</div>
                         <div class="column-x6 small bonecharmCount">
                             <span class="small bonecharm disabled"><input name="data.bonecharmequipped" type="text" value="{{data.bonecharmequipped}}" readonly/></span>/3
                         </div>
@@ -324,15 +333,15 @@
                         <div class="column-x6 small"><input name="data.coins" type="text" value="{{data.coins}}" placeholder="0"/></div>
                     </div>
                     <div class="main">
-                        <div class="row item">
+                        <div class="row item equipable">
                             <div class="image"></div>
-                            <div class="column-x2-big advisory">{{localize 'dishonored.actor.belonging.weapon.title'}}</div>
-                            <div class="column-x2-small advisory">{{localize 'dishonored.actor.belonging.weapon.dmg'}}</div>
+                            <div class="column-x2-big bold">{{localize 'dishonored.actor.belonging.weapon.title'}}</div>
+                            <div class="column-x2-small bold">{{localize 'dishonored.actor.belonging.weapon.dmg'}}</div>
                             <a class="control create" title="{{localize 'dishonored.titles.createItem'}}" data-type="weapon"><i class="fas fa-plus"></i></a>
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "weapon")}}
-                        <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
+                        <li class="row entry equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <h4 class="column-x2-small">{{item.data.damage}}</h4>
@@ -345,8 +354,8 @@
                         {{/each}}
                         <div class="row item equipable">
                             <div class="image"></div>
-                            <div class="column-x2-big advisory">{{localize 'dishonored.actor.belonging.armor.title'}}</div>
-                            <div class="column-x2-small advisory">{{localize 'dishonored.actor.belonging.armor.protect'}}</div>
+                            <div class="column-x2-big bold">{{localize 'dishonored.actor.belonging.armor.title'}}</div>
+                            <div class="column-x2-small bold">{{localize 'dishonored.actor.belonging.armor.protect'}}</div>
                             <a class="control create" title="{{localize 'dishonored.titles.createItem'}}" data-type="armor"><i class="fas fa-plus"></i></a>
                         </div>
                         {{#each actor.items as |item type id|}}
@@ -369,14 +378,16 @@
                         {{/each}}
                         <div class="row item equipable">
                             <div class="image"></div>
-                            <div class="column-x1">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
+                            <div class="column-x2-big bold">{{localize 'dishonored.actor.belonging.bonecharm.title'}}</div>
+                            <div class="column-x2-small bold"></div>
                             <a class="control create" title="{{localize 'dishonored.titles.createItem'}}" data-type="bonecharm"><i class="fas fa-plus"></i></a>
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "bonecharm")}}
                         <li class="row entry bonecharm equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}" >
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
-                            <h4 class="column-x1">{{item.name}}</h4>
+                            <h4 class="column-x2-big">{{item.name}}</h4>
+                            <div class="column-x2-small"></div>
                             <div class="control">
                                 <a class="control toggle"><i class="fas fa-toggle-{{#if (eq item.data.equipped true)}}on{{else}}off{{/if}}"></i></a>
                                 <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
@@ -385,15 +396,15 @@
                         </li>
                         {{/if}}
                         {{/each}}
-                        <div class="row item">
+                        <div class="row item equipable">
                             <div class="image"></div>
-                            <div class="column-x2-big advisory">{{localize 'dishonored.actor.belonging.other.title'}}</div>
-                            <div class="column-x2-small advisory">{{localize 'dishonored.actor.belonging.other.qty'}}</div>
+                            <div class="column-x2-big bold">{{localize 'dishonored.actor.belonging.other.title'}}</div>
+                            <div class="column-x2-small bold">{{localize 'dishonored.actor.belonging.other.qty'}}</div>
                             <a class="control create" title="{{localize 'dishonored.titles.createItem'}}" data-type="item"><i class="fas fa-plus"></i></a>
                         </div>
                         {{#each actor.items as |item type id|}}
                         {{#if (eq item.type "item")}}
-                        <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
+                        <li class="row entry equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <h4 class="column-x2-small">{{item.data.quantity}}</h4>
@@ -421,7 +432,7 @@
                     {{#if (eq item.type "truth")}}
                     <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                         <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
-                        <h4 class="column-x1">{{item.data.relationship}}</h4>
+                        <h4 class="column-x1">{{item.name}}</h4>
                         <div class="control">
                             <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
                             <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>

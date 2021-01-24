@@ -122,7 +122,7 @@
         }
     },
     "Item": {
-        "types": ["item", "focus", "bonecharm", "weapon", "armor", "talent", "contact", "power"],
+        "types": ["item", "focus", "bonecharm", "weapon", "armor", "talent", "contact", "power", "truth"],
         "templates": {
             "common": {
                 "description": ""
@@ -202,7 +202,6 @@
             "runecost": 0
         },
         "truth": {
-            "templates": ["common"]
         }
     }
 }
