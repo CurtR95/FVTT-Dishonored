@@ -134,7 +134,7 @@
 
 .dishonored.sheet.actor.window-app {
     min-width: 700px;
-    min-height: 650px;
+    min-height: 700px;
 }
 
 
@@ -187,6 +187,7 @@
     height: 150px;
     object-fit: cover;
     object-position: 50% 0;
+    border: none;
 }
 
 .dishonored.sheet.actor .header-fields .tabs {
@@ -316,8 +317,9 @@
 /* Actor - Tabbed Section - Specific - All Items */
 
 .dishonored.sheet.actor .tab .section .item.row {
-    border: 1px solid #000000;
-    background-color: rgb(255, 255, 255, 0.3);
+    /* border: 1px solid #000000; */
+    border-radius: 5px;
+    background-color: rgb(200, 200, 200, 0.3);
     font-size: 13pt;
 }
 
@@ -330,12 +332,14 @@
     height: 24px;
     object-fit: cover;
     object-position: 50% 0;
+    border: none;
 }
 
 .dishonored.sheet.actor .tab .section .row .image .rollable:hover {
-    content: url("/icons/svg/d20-grey.svg");
-    box-shadow: 0 0 8px red;
+    content: url("/icons/svg/d20-black.svg");
+    /* box-shadow: 0 0 8px red; */
     cursor: pointer;
+    filter: drop-shadow(0px 0px 5px red);
 }
 
 .dishonored.sheet.actor .tab .section .row .control {
@@ -384,9 +388,12 @@
 
 .dishonored.sheet.actor .tab .section.focuses {
     width: 100%;
-    padding: 1% 5%;
+    padding: 0 5% 0;
+    top: 13%;
+    position: absolute;
+    overflow-y: auto;
+    height: calc(100% - 35px);
 }
-
 
 
 /* Actor - Tabbed Section - Specific - Abilities Specific */
@@ -395,10 +402,14 @@
     display: block;
 }
 
+
 .dishonored.sheet.actor .tab.abilities .mana {
-    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
     font-size: 13pt;
     display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .dishonored.sheet.actor .tab.abilities .mana .column-x6 {
@@ -409,8 +420,12 @@
 .dishonored.sheet.actor .tab.abilities .main {
     display: flex;
     overflow-y: auto;
-    padding: 1% 0;
-    height: calc(100% - 23px);
+    top: 13%;
+    position: absolute;
+    padding: 0;
+    height: calc(100% - 58px);
+    bottom: 23px;
+    width: 100%;
 }
 
 
@@ -422,14 +437,21 @@
 }
 
 .dishonored.sheet.actor .tab .section.belongings .currency {
-    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
     font-size: 13pt;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .dishonored.sheet.actor .tab .section.belongings .main {
     overflow-y: auto;
-    padding: 1% 5%;
-    height: calc(100% - 23px);
+    padding: 0% 5% 1%;
+    top: 13%;
+    position: absolute;
+    height: calc(100% - 58px);
+    bottom: 23px;
+    width: 100%;
 }
 
 .dishonored.sheet.actor .tab .section.belongings .row.equipable .control {
@@ -462,8 +484,14 @@
 
 /* Actor - Tabbed Section - Specific - Biography Specific */
 
-.dishonored.sheet.actor .tab.biography {
-    padding: 1% 0;
+.dishonored.sheet.actor .tab.biography .content {
+    width: 100%;
+    padding: 0;
+    top: 13%;
+    position: absolute;
+    overflow-y: auto;
+    height: calc(100% - 35px);
+    display: flex;
 }
 
 
@@ -472,16 +500,23 @@
 
 .dishonored.sheet.actor .tab.notes {
     margin: 0;
-    padding: 1% 5%;
+    padding: 6% 5% 0;
 }
 
 .dishonored.sheet.actor .tab .section.notes {
-    height: 100%;
     margin: 0;
+    padding: 0 5%;
+    width: 100%;
+    top: 35px;
+    position: absolute;
+    overflow-y: auto;
+    height: calc(100% - 35px);
+    left: 0;
+    bottom: 0;
 }
 
 .dishonored.sheet.actor .tab .section.notes .notes {
-    height: 100%;
+    height: 95%;
     margin: 0;
 }
 
@@ -672,7 +707,7 @@
 }
 
 .dishonored.tracker.button:hover {
-    text-shadow: 0 0 8px red;
+    text-shadow: 0 0 6px red;
 }
 
 .dishonored.tracker.chaos.number {
@@ -756,7 +791,7 @@
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-.dishonored.tracker.momentum.track.item.background:hover {
+.dishonored.tracker.momentum.track.item.background.svg:hover {
     filter: drop-shadow(0 0 6px red);
 }
 
@@ -783,8 +818,8 @@
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-.dishonored.tracker.momentum.track.item.foreground:hover ~ .dishonored.tracker.momentum.track.item.background {
-    filter: drop-shadow(0 0 8px red);
+.dishonored.tracker.momentum.track.item.foreground:hover ~ .dishonored.tracker.momentum.track.item.background.svg {
+    filter: drop-shadow(0 0 6px red);
 }
 
 .dishonored.tracker.header {

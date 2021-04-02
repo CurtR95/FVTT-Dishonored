@@ -1,6 +1,6 @@
 export class DishonoredItem extends Item {
   prepareData() {
-    this.data.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
-    super.prepareData();
+    if (this.data.img == "icons/svg/item-bag.svg") this.data.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
+    return this.data;
   }
 }
