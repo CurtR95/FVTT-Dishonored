@@ -26,7 +26,7 @@ export class DishonoredItemSheet extends ItemSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
+        const data = this.object.data;
         data.dtypes = ["String", "Number", "Boolean"];
 
         return data;

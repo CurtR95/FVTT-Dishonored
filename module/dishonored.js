@@ -263,7 +263,13 @@ Hooks.once("init", function() {
     });
 
     Hooks.on("ready", function() {
-        let i = USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
+        var i;
+        if (isNewerVersion(game.world.data.coreVersion,'0.8.-1')) {
+            i = foundry.CONST.USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
+        }
+        else {
+            i = USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
+        }
         for (i; i <= 4; i++) {
             if (!game.permissions.SETTINGS_MODIFY.includes(i)) var error = true;
         }
@@ -272,11 +278,11 @@ Hooks.once("init", function() {
             ui.notifications.error(game.i18n.localize('dishonored.notifications.momentumTrackerPermissions'));
         }
         let t = new DishonoredTracker()
-        renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(html => {
+        renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(function() {
             t.render(true);
         });
         let l = new DishonoredLogo()
-        renderTemplate("systems/FVTT-Dishonored/templates/apps/logo.html").then(html => {
+        renderTemplate("systems/FVTT-Dishonored/templates/apps/logo.html").then(function() {
             l.render(true);
         });
     });

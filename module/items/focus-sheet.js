@@ -26,7 +26,7 @@ export class DishonoredFocusSheet extends ItemSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
+        const data = this.object.data;
         data.dtypes = ["String", "Number", "Boolean"];
 
         //Checks if the rating of the focus is above 5 or 2. If it exceeds these bounds it sets it to the closest limit. (i.e. 1 is set to 2)

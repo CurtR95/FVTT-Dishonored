@@ -26,7 +26,7 @@ export class DishonoredContactSheet extends ItemSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
+        const data = this.object.data;
         data.dtypes = ["String", "Number", "Boolean"];
 
         return data;
@@ -63,18 +63,18 @@ export class DishonoredContactSheet extends ItemSheet {
         else {
             html.find('.send2actor').click(ev => {
                 // Grab the value of the name field, the editor content and the img src and send this to the send2Actor method.
-                var name = html.find('#name')[0].value;
-                var description = html.find('.editor-content')[0].innerHTML;
-                var img = html.find('.img')[0].getAttribute("src");
-                var localisedText = game.i18n.localize('dishonored.notifications.s2A');
-                this.send2Actor(name, description, img).then(created => ui.notifications.info(localisedText.replace('|#|', name)));
+                let name = html.find('#name')[0].value;
+                let description = html.find('.editor-content')[0].innerHTML;
+                let img = html.find('.img')[0].getAttribute("src");
+                let localisedText = game.i18n.localize('dishonored.notifications.s2A');
+                this.send2Actor(name, description, img).then(ui.notifications.info(localisedText.replace('|#|', name)));
             });
         }
     }
 
     // Create an actor with the name, img and notes set from the contact - the actor is hardcoded as NPC here.
     async send2Actor(name, description, img) {
-        let actor = await Actor.create({
+        await Actor.create({
             name: name,
             type: "npc",
             img: img,
