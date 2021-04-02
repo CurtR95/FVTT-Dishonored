@@ -178,6 +178,14 @@
     height: 30px;
 }
 
+.dishonored.sheet.actor .header-fields select {
+    text-align: center;
+    text-align-last: center;
+    font-family: "EB Garamond";
+    font-size: 16pt;
+    height: 30px;
+}
+
 .dishonored.sheet.actor .header-fields .section {
     padding: 0 4%;
 }
@@ -287,6 +295,14 @@
     overflow-y: auto;
 }
 
+.dishonored.sheet.actor.character .tab {
+    height: calc(100% - 528px);
+}
+
+.dishonored.sheet.actor.npc .tab {
+    height: calc(100% - 424px);
+}
+
 .dishonored.sheet.actor .tab[data-tab].active {
     display: flex;
 }
@@ -389,10 +405,10 @@
 .dishonored.sheet.actor .tab .section.focuses {
     width: 100%;
     padding: 0 5% 0;
-    top: 13%;
+    top: 20%;
     position: absolute;
     overflow-y: auto;
-    height: calc(100% - 35px);
+    height: 80%;
 }
 
 
@@ -420,12 +436,19 @@
 .dishonored.sheet.actor .tab.abilities .main {
     display: flex;
     overflow-y: auto;
-    top: 13%;
+    top: 20%;
     position: absolute;
     padding: 0;
-    height: calc(100% - 58px);
     bottom: 23px;
     width: 100%;
+}
+
+.dishonored.sheet.actor.character .tab.abilities .main {
+    height: calc(80% - 23px);
+}
+
+.dishonored.sheet.actor.npc .tab.abilities .main {
+    height: 80%;
 }
 
 
@@ -447,11 +470,16 @@
 .dishonored.sheet.actor .tab .section.belongings .main {
     overflow-y: auto;
     padding: 0% 5% 1%;
-    top: 13%;
+    top: 20%;
     position: absolute;
-    height: calc(100% - 58px);
     bottom: 23px;
     width: 100%;
+}
+.dishonored.sheet.actor.character .tab .section.belongings .main {
+    height: calc(80% - 23px);
+}
+.dishonored.sheet.actor.npc .tab .section.belongings .main {
+    height: 80%;
 }
 
 .dishonored.sheet.actor .tab .section.belongings .row.equipable .control {
@@ -487,10 +515,10 @@
 .dishonored.sheet.actor .tab.biography .content {
     width: 100%;
     padding: 0;
-    top: 13%;
+    top: 20%;
     position: absolute;
     overflow-y: auto;
-    height: calc(100% - 35px);
+    height: 80%;
     display: flex;
 }
 
@@ -507,10 +535,10 @@
     margin: 0;
     padding: 0 5%;
     width: 100%;
-    top: 35px;
+    top: 20%;
     position: absolute;
     overflow-y: auto;
-    height: calc(100% - 35px);
+    height: 80%;
     left: 0;
     bottom: 0;
 }

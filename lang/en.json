@@ -55,6 +55,12 @@
 
     "dishonored.actor.item.adjectiveNew": "New",
 
+    "dishonored.actor.npc.types": "NPC Type",
+    "dishonored.actor.npc.incidental": "Incidental",
+    "dishonored.actor.npc.notable": "Notable",
+    "dishonored.actor.npc.minor": "Minor",
+    "dishonored.actor.npc.major": "Major",
+
     "dishonored.actor.character.momentum": "Momentum Track",
     "dishonored.actor.character.experience": "Experience Track",
     "dishonored.actor.character.name": "Name",
