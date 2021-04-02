@@ -189,7 +189,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
         }
 
         // Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
-        // dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax, momPointsMax);
         dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax);
 
         // This allows for each item-edit image to link open an item sheet. This uses Simple Worldbuilding System Code.
@@ -339,33 +338,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 total = html.find("#total-exp")[0].value;
                 if (total != newTotal) {
                     html.find("#total-exp")[0].value = newTotal;
-                    this.submit();
-                }
-            }
-        });
-
-        // Reads if a momentum track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one.
-        // See line 186-220 for a more detailed break down on the context of each scenario. Momentum uses the same logic.
-        html.find("[id^=\"mom\"]").click(ev => {
-            let newTotalObject = $(ev.currentTarget)[0];
-            let newTotal = newTotalObject.id.substring(4);
-            let total;
-            if (newTotalObject.getAttribute("data-selected") === "true") {
-                let nextCheck = "mom-" + (parseInt(newTotal) + 1);
-                if (!html.find("#"+nextCheck)[0] || html.find("#"+nextCheck)[0].getAttribute("data-selected") != "true") {
-                    html.find("#total-mom")[0].value = html.find("#total-mom")[0].value - 1;
-                    this.submit();
-                } else {
-                    total = html.find("#total-mom")[0].value;
-                    if (total != newTotal) {
-                        html.find("#total-mom")[0].value = newTotal;
-                        this.submit();
-                    }
-                }
-            } else {
-                total = html.find("#total-mom")[0].value;
-                if (total != newTotal) {
-                    html.find("#total-mom")[0].value = newTotal;
                     this.submit();
                 }
             }

@@ -45,7 +45,7 @@ import {
     DishonoredLogo
 } from "./apps/logo.js";
 import * as macros 
-from "./macro.js";
+    from "./macro.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -76,7 +76,7 @@ Hooks.once("init", function() {
               @                              @@@@
                                                 @@@
                                                    @@@
-                                                      @@`)
+                                                      @@`);
 
 
     // Create a namespace within the game global
@@ -108,8 +108,8 @@ Hooks.once("init", function() {
     };
 
     // Define custom Entity classes
-    CONFIG.Actor.entityClass = DishonoredActor;
-    CONFIG.Item.entityClass = DishonoredItem;
+    CONFIG.Actor.documentClass = DishonoredActor;
+    CONFIG.Item.documentClass = DishonoredItem;
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
@@ -154,7 +154,7 @@ Hooks.once("init", function() {
     Token.prototype._drawBar = function (number, bar, data) {
         let val = Number(data.value);
         if (data.attribute === "stress") {
-          val = Number(data.max - data.value);
+            val = Number(data.max - data.value);
         }
         const pct = Math.clamped(val, 0, data.max) / data.max;
         let h = Math.max(canvas.dimensions.size / 12, 8);
@@ -162,22 +162,22 @@ Hooks.once("init", function() {
         // Draw the bar
         let color = number === 0 ? [1 - pct / 2, pct, 0] : [0.5 * pct, 0.7 * pct, 0.5 + pct / 2];
         bar
-          .clear()
-          .beginFill(0x000000, 0.5)
-          .lineStyle(2, 0x000000, 0.9)
-          .drawRoundedRect(0, 0, this.w, h, 3)
-          .beginFill(PIXI.utils.rgb2hex(color), 0.8)
-          .lineStyle(1, 0x000000, 0.8)
-          .drawRoundedRect(1, 1, pct * (this.w - 2), h - 2, 2);
+            .clear()
+            .beginFill(0x000000, 0.5)
+            .lineStyle(2, 0x000000, 0.9)
+            .drawRoundedRect(0, 0, this.w, h, 3)
+            .beginFill(PIXI.utils.rgb2hex(color), 0.8)
+            .lineStyle(1, 0x000000, 0.8)
+            .drawRoundedRect(1, 1, pct * (this.w - 2), h - 2, 2);
         // Set position
         let posY = number === 0 ? this.h - h : 0;
         bar.position.set(0, posY);
-      };
+    };
 
     // Register system settings
     game.settings.register("FVTT-Dishonored", "multipleComplications", {
-        name: game.i18n.localize('dishonored.settings.names.multipleComplications'),
-        hint: game.i18n.localize('dishonored.settings.hints.multipleComplications'),
+        name: game.i18n.localize("dishonored.settings.names.multipleComplications"),
+        hint: game.i18n.localize("dishonored.settings.hints.multipleComplications"),
         scope: "world",
         type: Boolean,
         default: true,
@@ -185,54 +185,54 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "send2ActorPermissionLevel", {
-        name: game.i18n.localize('dishonored.settings.names.send2ActorPermissionLevel'),
-        hint: game.i18n.localize('dishonored.settings.hints.send2ActorPermissionLevel'),
+        name: game.i18n.localize("dishonored.settings.names.send2ActorPermissionLevel"),
+        hint: game.i18n.localize("dishonored.settings.hints.send2ActorPermissionLevel"),
         scope: "world",
         type: String,
         default: "ASSISTANT",
         config: true,
         choices: {
-          "NONE": "Switch Off Send2Actor",
-          "PLAYER": "Players",
-          "TRUSTED": "Trusted Players",
-          "ASSISTANT": "Assistant Gamemaster",
-          "GAMEMASTER": "Gamemasters",
+            "NONE": "Switch Off Send2Actor",
+            "PLAYER": "Players",
+            "TRUSTED": "Trusted Players",
+            "ASSISTANT": "Assistant Gamemaster",
+            "GAMEMASTER": "Gamemasters",
         }
     });
 
     game.settings.register("FVTT-Dishonored", "chaosPermissionLevel", {
-        name: game.i18n.localize('dishonored.settings.names.chaosPermissionLevel'),
-        hint: game.i18n.localize('dishonored.settings.hints.chaosPermissionLevel'),
+        name: game.i18n.localize("dishonored.settings.names.chaosPermissionLevel"),
+        hint: game.i18n.localize("dishonored.settings.hints.chaosPermissionLevel"),
         scope: "world",
         type: String,
         default: "ASSISTANT",
         config: true,
         choices: {
-          "PLAYER": "Players",
-          "TRUSTED": "Trusted Players",
-          "ASSISTANT": "Assistant Gamemaster",
-          "GAMEMASTER": "Gamemasters",
+            "PLAYER": "Players",
+            "TRUSTED": "Trusted Players",
+            "ASSISTANT": "Assistant Gamemaster",
+            "GAMEMASTER": "Gamemasters",
         }
     });
 
     game.settings.register("FVTT-Dishonored", "momentumPermissionLevel", {
-        name: game.i18n.localize('dishonored.settings.names.momentumPermissionLevel'),
-        hint: game.i18n.localize('dishonored.settings.hints.momentumPermissionLevel'),
+        name: game.i18n.localize("dishonored.settings.names.momentumPermissionLevel"),
+        hint: game.i18n.localize("dishonored.settings.hints.momentumPermissionLevel"),
         scope: "world",
         type: String,
         default: "PLAYER",
         config: true,
         choices: {
-          "PLAYER": "Players",
-          "TRUSTED": "Trusted Players",
-          "ASSISTANT": "Assistant Gamemaster",
-          "GAMEMASTER": "Gamemasters",
+            "PLAYER": "Players",
+            "TRUSTED": "Trusted Players",
+            "ASSISTANT": "Assistant Gamemaster",
+            "GAMEMASTER": "Gamemasters",
         }
     });
 
     game.settings.register("FVTT-Dishonored", "maxNumberOfExperience", {
-        name: game.i18n.localize('dishonored.settings.names.maxNumberOfExperience'),
-        hint: game.i18n.localize('dishonored.settings.hints.maxNumberOfExperience'),
+        name: game.i18n.localize("dishonored.settings.names.maxNumberOfExperience"),
+        hint: game.i18n.localize("dishonored.settings.hints.maxNumberOfExperience"),
         scope: "world",
         type: Number,
         default: 30,
@@ -240,8 +240,8 @@ Hooks.once("init", function() {
     });
 
     game.settings.register("FVTT-Dishonored", "trackerRefreshRate", {
-        name: game.i18n.localize('dishonored.settings.names.trackerRefreshRate'),
-        hint: game.i18n.localize('dishonored.settings.hints.trackerRefreshRate'),
+        name: game.i18n.localize("dishonored.settings.names.trackerRefreshRate"),
+        hint: game.i18n.localize("dishonored.settings.hints.trackerRefreshRate"),
         scope: "world",
         type: Number,
         default: 5,
@@ -264,7 +264,7 @@ Hooks.once("init", function() {
 
     Hooks.on("ready", function() {
         var i;
-        if (isNewerVersion(game.world.data.coreVersion,'0.8.-1')) {
+        if (isNewerVersion(game.world.data.coreVersion,"0.8.-1")) {
             i = foundry.CONST.USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
         }
         else {
@@ -274,14 +274,14 @@ Hooks.once("init", function() {
             if (!game.permissions.SETTINGS_MODIFY.includes(i)) var error = true;
         }
         if (error) {
-            console.error(game.i18n.localize('dishonored.notifications.momentumTrackerPermissions'));
-            ui.notifications.error(game.i18n.localize('dishonored.notifications.momentumTrackerPermissions'));
+            console.error(game.i18n.localize("dishonored.notifications.momentumTrackerPermissions"));
+            ui.notifications.error(game.i18n.localize("dishonored.notifications.momentumTrackerPermissions"));
         }
-        let t = new DishonoredTracker()
+        let t = new DishonoredTracker();
         renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(function() {
             t.render(true);
         });
-        let l = new DishonoredLogo()
+        let l = new DishonoredLogo();
         renderTemplate("systems/FVTT-Dishonored/templates/apps/logo.html").then(function() {
             l.render(true);
         });
