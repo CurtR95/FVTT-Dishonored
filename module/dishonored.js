@@ -52,6 +52,9 @@ import * as macros
 /* -------------------------------------------- */
 
 Hooks.once("init", function() {
+    let versionInfo;
+    if (game.world.data) versionInfo = game.world.data.coreVersion;
+    else game.world.coreVersion;
     // Splash Screen
     console.log(`Initializing Dishonored Tabletop Roleplaying Game System
                                                             @@
@@ -77,7 +80,6 @@ Hooks.once("init", function() {
                                                 @@@
                                                    @@@
                                                       @@`);
-
 
     // Create a namespace within the game global
     game.dishonored = {
@@ -108,8 +110,14 @@ Hooks.once("init", function() {
     };
 
     // Define custom Entity classes
-    CONFIG.Actor.documentClass = DishonoredActor;
-    CONFIG.Item.documentClass = DishonoredItem;
+    if (isNewerVersion(versionInfo,"0.8.-1")) {
+        CONFIG.Actor.documentClass = DishonoredActor;
+        CONFIG.Item.documentClass = DishonoredItem;
+    }
+    else {
+        CONFIG.Actor.entityClass = DishonoredActor;
+        CONFIG.Item.entityClass = DishonoredItem;
+    }
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
@@ -263,8 +271,8 @@ Hooks.once("init", function() {
     });
 
     Hooks.on("ready", function() {
-        var i;
-        if (isNewerVersion(game.world.data.coreVersion,"0.8.-1")) {
+        let i;
+        if (isNewerVersion(versionInfo,"0.8.-1")) {
             i = foundry.CONST.USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
         }
         else {

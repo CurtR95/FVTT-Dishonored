@@ -10,8 +10,11 @@ export class DishonoredRoll {
         let diceString = "";
         let success = 0;
         let complication = 0;
+        let versionInfo;
+        if (game.world.data) versionInfo = game.world.data.coreVersion;
+        else game.world.coreVersion;
         // Check if we are using a Foundry version above 0.7.0, use new code.
-        if (isNewerVersion(game.world.data.coreVersion,"0.8.-1")) {
+        if (isNewerVersion(versionInfo,"0.8.-1")) {
             // Define r as our dice roll we want to perform (1d20, 2d20, 3d20, 4d20 or 5d20). We will then roll it.
             r = new Roll(dicePool+"d20");
             let rollPromise = r.evaluate({async: true});
