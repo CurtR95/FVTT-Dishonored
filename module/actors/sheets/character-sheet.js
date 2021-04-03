@@ -35,6 +35,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
     /** @override */
     getData() {
+        console.log(this);
         const sheetData = this.object;
         //Ensure skill and style values don't weigh over the max of 8.
         if (sheetData.data.data.skills.fight.value > 8) sheetData.data.data.skills.fight.value = 8;
@@ -80,9 +81,9 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (sheetData.data.data.experience < 0) sheetData.data.data.experience = 0;
         if (sheetData.data.data.mana.value < 0) sheetData.data.data.mana.value = 0;
         if (sheetData.data.data.mana.max < 2) sheetData.data.data.mana.max = 2;
-        
         $.each(sheetData.data.items, (key, item) => {
-            if (!item.img) item.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
+            if (item.img == "icons/svg/item-bag.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
+            if (item.img == "icons/svg/mystery-man.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
         });
 
         return sheetData.data;

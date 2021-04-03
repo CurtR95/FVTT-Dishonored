@@ -110,14 +110,8 @@ Hooks.once("init", function() {
     };
 
     // Define custom Entity classes
-    if (isNewerVersion(versionInfo,"0.8.-1")) {
-        CONFIG.Actor.documentClass = DishonoredActor;
-        CONFIG.Item.documentClass = DishonoredItem;
-    }
-    else {
-        CONFIG.Actor.entityClass = DishonoredActor;
-        CONFIG.Item.entityClass = DishonoredItem;
-    }
+    CONFIG.Actor.documentClass = DishonoredActor;
+    CONFIG.Item.documentClass = DishonoredItem;
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);

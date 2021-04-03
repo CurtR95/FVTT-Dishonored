@@ -83,6 +83,11 @@ export class DishonoredNPCSheet extends ActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
         
+        // Sets up a declaration to be able to check the version easily.
+        let versionInfo;
+        if (game.world.data) versionInfo = game.world.data.coreVersion;
+        else game.world.coreVersion;
+        
         // Opens the class DishonoredSharedActorFunctions for access at various stages.
         let dishonoredActor = new DishonoredSharedActorFunctions();
 
@@ -249,14 +254,18 @@ export class DishonoredNPCSheet extends ActorSheet {
             };
             delete itemData.data["type"];
             stressTrackUpdate();
-            return this.actor.createEmbeddedDocuments("Item",[(itemData)]);
+            // Check if we are using a Foundry version above 0.8.0, use new code.
+            if (isNewerVersion(versionInfo,"0.8.-1")) return this.actor.createEmbeddedDocuments("Item",[(itemData)]);
+            else return this.actor.createOwnedItem(itemData);
         });
 
         // Allows item-delete images to allow deletion of the selected item. This uses Simple Worldbuilding System Code.
         html.find(".control.delete").click(ev => {
             const li = $(ev.currentTarget).parents(".entry");
             console.log(this.actor);
-            this.actor.deleteEmbeddedDocuments("Item",[li.data("itemId")]);
+            // Check if we are using a Foundry version above 0.8.0, use new code.
+            if (isNewerVersion(versionInfo,"0.8.-1")) this.actor.deleteEmbeddedDocuments("Item",[li.data("itemId")]);
+            else this.actor.deleteOwnedItem(li.data("itemId"));
             li.slideUp(200, () => this.render(false));
         });
 

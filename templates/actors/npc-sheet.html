@@ -212,7 +212,7 @@
                     </div>
                     {{#each items as |item id|}}
                     {{#if (eq item.type "focus")}}
-                    <li class="row entry" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
+                    <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                         <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                         <h4 class="column-x2-big">{{item.name}}</h4>
                         <h4 class="column-x2-small">{{item.data.rating}}</h4>
@@ -243,7 +243,7 @@
                         </div>
                         {{#each items as |item id|}}
                         {{#if (eq item.type "talent")}}
-                        <li class="row entry" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
+                        <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x1">{{item.name}}</h4>
                             <div class="control">
@@ -265,7 +265,7 @@
                         </div>
                         {{#each items as |item type id|}}
                         {{#if (eq item.type "power")}}
-                        <li class="row entry" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
+                        <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x1">{{item.name}}</h4>
                             <div class="control">
@@ -289,7 +289,7 @@
                         </div>
                         {{#each items as |item type id|}}
                         {{#if (eq item.type "weapon")}}
-                        <li class="row entry equipable" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
+                        <li class="row entry equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <h4 class="column-x2-small">{{item.data.damage}}</h4>
@@ -308,10 +308,10 @@
                         </div>
                         {{#each items as |item type id|}}
                         {{#if (eq item.type "armor")}}
-                        <li id="armor-{{item.id}}" class="row entry equipable" data-item-id="{{item.id}}" data-item-type="{{item.type}}" data-item-helmet="{{item.data.helmet}}" data-item-equipped="{{item.data.equipped}}">
+                        <li id="armor-{{item._id}}" class="row entry equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}" data-item-helmet="{{item.data.helmet}}" data-item-equipped="{{item.data.equipped}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
-                            <h4 id="protectval-armor-{{item.id}}" class="column-x2-small">{{item.data.protection}}</h4>
+                            <h4 id="protectval-armor-{{item._id}}" class="column-x2-small">{{item.data.protection}}</h4>
                             <div class="control">
                                 {{#if (eq item.data.equipped true)}}
                                     <a class="control toggle"><i class="fas fa-toggle-on"></i></a>
@@ -332,7 +332,7 @@
                         </div>
                         {{#each items as |item type id|}}
                         {{#if (eq item.type "bonecharm")}}
-                        <li class="row entry bonecharm equipable" data-item-id="{{item.id}}" data-item-type="{{item.type}}" >
+                        <li class="row entry bonecharm equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}" >
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <div class="column-x2-small"></div>
@@ -352,7 +352,7 @@
                         </div>
                         {{#each items as |item type id|}}
                         {{#if (eq item.type "item")}}
-                        <li class="row entry equipable" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
+                        <li class="row entry equipable" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <h4 class="column-x2-small">{{item.data.quantity}}</h4>
@@ -384,7 +384,7 @@
                         </div>
                         {{#each items as |item id|}}
                         {{#if (eq item.type "truth")}}
-                        <li class="row entry" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
+                        <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x1">{{item.name}}</h4>
                             <div class="control">
@@ -407,7 +407,7 @@
                         </div>
                         {{#each items as |item id|}}
                         {{#if (eq item.type "contact")}}
-                        <li class="row entry" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
+                        <li class="row entry" data-item-id="{{item._id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2">{{item.name}}</h4>
                             <h4 class="column-x2">{{item.data.relationship}}</h4>
