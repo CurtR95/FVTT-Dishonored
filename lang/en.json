@@ -2,7 +2,13 @@
     "dishonored.__comment": "The Dishonored System allows for dynamic location of variables. These are indicated via |#|.",
 
 
-    "dishonored.notifications.momentumTrackerPermissions": "The Momentum Tracker User Role does not have permissions to Modify Configuration Settings. Please change one of these in Permission Configuration or System Settings.",
+    "dishonored.notifications.momentum.trackerPermissions1": "The <b>Momentum Tracker User Role</b> does not have permissions to <b>Modify Configuration Settings</b>. Please either change ",
+    "dishonored.notifications.chaos.trackerPermissions1": "The <b>Chaos Tracker User Role</b> does not have permissions to <b>Modify Configuration Settings</b>. Please either change ",
+    "dishonored.notifications.trackerPermissions2": " so that User Role: ",
+    "dishonored.notifications.momentum.trackerPermissions3": " has permission to <b>Modify Configuration Settings</b> or, increase the User Role requirement for <b>Momentum Tracker User Role</b> in ",
+    "dishonored.notifications.chaos.trackerPermissions3": " has permission to <b>Modify Configuration Settings</b> or, increase the User Role requirement for <b>Chaos Tracker User Role</b> in ",
+    "dishonored.notifications.trackerPermissions4": ".",
+    "dishonored.notifications.trackerPermissionsClickHere": "To ignore this message until next update Click Here.",
     "dishonored.notifications.lackPermission": "You do not have permission to view this item!",
     "dishonored.notifications.tooManyBonecharms": "The current actor has 3 equipped bonecharms already! Doing Nothing.",
     "dishonored.notifications.armorAlreadyEquipped": "The current actor has an equipped armor already! Doing Nothing.",

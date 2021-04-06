@@ -195,10 +195,10 @@ Hooks.once("init", function() {
         config: true,
         choices: {
             "NONE": "Switch Off Send2Actor",
-            "PLAYER": "Players",
-            "TRUSTED": "Trusted Players",
-            "ASSISTANT": "Assistant Gamemaster",
-            "GAMEMASTER": "Gamemasters",
+            "PLAYER": game.i18n.localize("USER.RolePlayer"),
+            "TRUSTED": game.i18n.localize("USER.RoleTrusted"),
+            "ASSISTANT": game.i18n.localize("USER.RoleAssistant"),
+            "GAMEMASTER": game.i18n.localize("USER.RoleGamemaster"),
         }
     });
 
@@ -210,10 +210,10 @@ Hooks.once("init", function() {
         default: "ASSISTANT",
         config: true,
         choices: {
-            "PLAYER": "Players",
-            "TRUSTED": "Trusted Players",
-            "ASSISTANT": "Assistant Gamemaster",
-            "GAMEMASTER": "Gamemasters",
+            "PLAYER": game.i18n.localize("USER.RolePlayer"),
+            "TRUSTED": game.i18n.localize("USER.RoleTrusted"),
+            "ASSISTANT": game.i18n.localize("USER.RoleAssistant"),
+            "GAMEMASTER": game.i18n.localize("USER.RoleGamemaster"),
         }
     });
 
@@ -225,10 +225,10 @@ Hooks.once("init", function() {
         default: "PLAYER",
         config: true,
         choices: {
-            "PLAYER": "Players",
-            "TRUSTED": "Trusted Players",
-            "ASSISTANT": "Assistant Gamemaster",
-            "GAMEMASTER": "Gamemasters",
+            "PLAYER": game.i18n.localize("USER.RolePlayer"),
+            "TRUSTED": game.i18n.localize("USER.RoleTrusted"),
+            "ASSISTANT": game.i18n.localize("USER.RoleAssistant"),
+            "GAMEMASTER": game.i18n.localize("USER.RoleGamemaster"),
         }
     });
 
@@ -250,6 +250,13 @@ Hooks.once("init", function() {
         config: true
     });
 
+    game.settings.register("FVTT-Dishonored", "ignoreTrackerPermissionsAlert", {
+        scope: "world",
+        type: Boolean,
+        default: false,
+        config: true
+    });
+
     game.settings.register("FVTT-Dishonored", "chaos", {
         scope: "world",
         type: Number,
@@ -266,6 +273,7 @@ Hooks.once("init", function() {
 
     Hooks.on("ready", function() {
         let i;
+        let error;
         if (isNewerVersion(versionInfo,"0.8.-1")) {
             i = foundry.CONST.USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
         }
@@ -273,11 +281,42 @@ Hooks.once("init", function() {
             i = USER_ROLES[game.settings.get("FVTT-Dishonored", "momentumPermissionLevel")];
         }
         for (i; i <= 4; i++) {
-            if (!game.permissions.SETTINGS_MODIFY.includes(i)) var error = true;
+            if (!game.permissions.SETTINGS_MODIFY.includes(i)) {
+                error = "momentum";
+            }
+        }
+        if (isNewerVersion(versionInfo,"0.8.-1")) {
+            i = foundry.CONST.USER_ROLES[game.settings.get("FVTT-Dishonored", "chaosPermissionLevel")];
+        }
+        else {
+            i = USER_ROLES[game.settings.get("FVTT-Dishonored", "chaosPermissionLevel")];
+        }
+        for (i; i <= 4; i++) {
+            if (!game.permissions.SETTINGS_MODIFY.includes(i)) {
+                error = "chaos";
+            }
         }
         if (error) {
-            console.error(game.i18n.localize("dishonored.notifications.momentumTrackerPermissions"));
-            ui.notifications.error(game.i18n.localize("dishonored.notifications.momentumTrackerPermissions"));
+            let string = "";
+            string += "<span style=\"text-align: center\">";
+            string += game.i18n.localize("dishonored.notifications."+error+".trackerPermissions1");
+            string += "<span style=\"font-weight: bold; color: #ffaaaa; text-decoration: underline; cursor: pointer;\"  onclick=\"a = new PermissionConfig(); a.render(true)\">";
+            string += game.i18n.localize("PERMISSION.Title");
+            string += "</span>";
+            string += game.i18n.localize("dishonored.notifications.trackerPermissions2");
+            string += error == "momentum" ? game.settings.get("FVTT-Dishonored", "momentumPermissionLevel") : game.settings.get("FVTT-Dishonored", "chaosPermissionLevel");
+            string += game.i18n.localize("dishonored.notifications."+error+".trackerPermissions3");
+            string += "<span style=\"font-weight: bold; color: #ffaaaa; text-decoration: underline; cursor: pointer;\" onclick=\"a = new SettingsConfig(); a._tabs[0].active = 'system'; a.render(true);\">"+game.i18n.localize("SETTINGS.TabSystem")+"</span>";
+            string += game.i18n.localize("dishonored.notifications.trackerPermissions4");
+            let tmp = document.createElement("DIV");
+            tmp.innerHTML = string;
+            console.error(tmp.textContent);
+            if (game.settings.get("FVTT-Dishonored", "ignoreTrackerPermissionsAlert") == false && game.user.isGM ) {
+                string +="</br><span style=\"font-weight: bold; color: #ffaaaa; text-decoration: underline; cursor: pointer;\" onclick=\"game.settings.set('FVTT-Dishonored', 'ignoreTrackerPermissionsAlert', 'true');\"> ";
+                string += game.i18n.localize("dishonored.notifications.trackerPermissionsClickHere");
+                string += "</span></span>";
+                ui.notifications.error(string,{"permanent":true});
+            }
         }
         let t = new DishonoredTracker();
         renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(function() {
