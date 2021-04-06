@@ -27,8 +27,12 @@ export class DishonoredCharacterSheet extends ActorSheet {
     // If the player is not a GM and has limited permissions - send them to the limited sheet, otherwise, continue as usual.
     /** @override */
     get template () {
+        let versionInfo;
+        if (game.world.data) versionInfo = game.world.data.coreVersion;
+        else game.world.coreVersion;
         if (!game.user.isGM && this.actor.limited) return "systems/FVTT-Dishonored/templates/actors/limited-sheet.html";
-        return "systems/FVTT-Dishonored/templates/actors/character-sheet.html";
+        if (isNewerVersion(versionInfo,"0.8.-1")) return "systems/FVTT-Dishonored/templates/actors/character-sheet.html";
+        else return "systems/FVTT-Dishonored/templates/actors/character-sheet-0.7.9.html";
     }
 
     /* -------------------------------------------- */
@@ -84,8 +88,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
             if (item.img == "icons/svg/item-bag.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
             if (item.img == "icons/svg/mystery-man.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
         });
-
         return sheetData.data;
+        
     }
 
     /* -------------------------------------------- */
