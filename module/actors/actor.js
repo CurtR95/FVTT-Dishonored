@@ -1,14 +1,14 @@
 import {
     DishonoredRollDialog
-} from '../apps/roll-dialog.js'
+} from "../apps/roll-dialog.js";
 import {
     DishonoredRoll
-} from '../roll.js'
+} from "../roll.js";
 
 export class DishonoredActor extends Actor {
     prepareData() {
-        if (this.data.img == "icons/svg/mystery-man.svg") this.data.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
-        if (this.data.token.img == "icons/svg/mystery-man.svg") this.data.token.img = '/systems/FVTT-Dishonored/icons/dishonoredlogo.webp';
+        if (this.data.img == "icons/svg/mystery-man.svg") this.data.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
+        if (this.data.token.img == "icons/svg/mystery-man.svg") this.data.token.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
         return this.data;
     }
 }
@@ -21,56 +21,56 @@ export class DishonoredSharedActorFunctions {
         // Checks if details for the Stress Track was included, this should happen in all cases!
         if (stressTrackMax) {
             for (i = 0; i < stressTrackMax; i++) {
-                if (i + 1 <= html.find('#total-stress')[0].value) {
-                    html.find('[id^="stress"]')[i].setAttribute("data-selected", "true");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="stress"]')[i].style.color = "#ffffff";
+                if (i + 1 <= html.find("#total-stress")[0].value) {
+                    html.find("[id^=\"stress\"]")[i].setAttribute("data-selected", "true");
+                    html.find("[id^=\"stress\"]")[i].style.backgroundColor = "#191813";
+                    html.find("[id^=\"stress\"]")[i].style.color = "#ffffff";
                 } else {
-                    html.find('[id^="stress"]')[i].removeAttribute("data-selected");
-                    html.find('[id^="stress"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="stress"]')[i].style.color = "";
+                    html.find("[id^=\"stress\"]")[i].removeAttribute("data-selected");
+                    html.find("[id^=\"stress\"]")[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
+                    html.find("[id^=\"stress\"]")[i].style.color = "";
                 }
             }
         }
         // Checks if details for the Void Track was included, this should happen for all Characters!
         if (voidPointsMax) {
             for (i = 0; i < voidPointsMax; i++) {
-                if (i + 1 <= html.find('#total-void')[0].value) {
-                    html.find('[id^="void"]')[i].setAttribute("data-selected", "true");
-                    html.find('[id^="void"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="void"]')[i].style.color = "#ffffff";
+                if (i + 1 <= html.find("#total-void")[0].value) {
+                    html.find("[id^=\"void\"]")[i].setAttribute("data-selected", "true");
+                    html.find("[id^=\"void\"]")[i].style.backgroundColor = "#191813";
+                    html.find("[id^=\"void\"]")[i].style.color = "#ffffff";
                 } else {
-                    html.find('[id^="void"]')[i].removeAttribute("data-selected");
-                    html.find('[id^="void"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="void"]')[i].style.color = "";
+                    html.find("[id^=\"void\"]")[i].removeAttribute("data-selected");
+                    html.find("[id^=\"void\"]")[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
+                    html.find("[id^=\"void\"]")[i].style.color = "";
                 }
             }
         }
         // Checks if details for the Experience Track was included, this should happen for all Characters!
         if (expPointsMax) {
             for (i = 0; i < expPointsMax; i++) {
-                if (i + 1 <= html.find('#total-exp')[0].value) {
-                    html.find('[id^="exp"]')[i].setAttribute("data-selected", "true");
-                    html.find('[id^="exp"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="exp"]')[i].style.color = "#ffffff";
+                if (i + 1 <= html.find("#total-exp")[0].value) {
+                    html.find("[id^=\"exp\"]")[i].setAttribute("data-selected", "true");
+                    html.find("[id^=\"exp\"]")[i].style.backgroundColor = "#191813";
+                    html.find("[id^=\"exp\"]")[i].style.color = "#ffffff";
                 } else {
-                    html.find('[id^="exp"]')[i].removeAttribute("data-selected");
-                    html.find('[id^="exp"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.8)";
-                    html.find('[id^="exp"]')[i].style.color = "";
+                    html.find("[id^=\"exp\"]")[i].removeAttribute("data-selected");
+                    html.find("[id^=\"exp\"]")[i].style.backgroundColor = "rgb(255, 255, 255, 0.8)";
+                    html.find("[id^=\"exp\"]")[i].style.color = "";
                 }
             }
         }
         // Checks if details for the Momentum Track was included, this should happen for all Characters!
         if(momentumMax) {
             for (i = 0; i < 6; i++) {
-                if (i + 1 <= html.find('#total-mom')[0].value) {
-                    html.find('[id^="mom"]')[i].setAttribute("data-selected", "true");
-                    html.find('[id^="mom"]')[i].style.backgroundColor = "#191813";
-                    html.find('[id^="mom"]')[i].style.color = "#ffffff";
+                if (i + 1 <= html.find("#total-mom")[0].value) {
+                    html.find("[id^=\"mom\"]")[i].setAttribute("data-selected", "true");
+                    html.find("[id^=\"mom\"]")[i].style.backgroundColor = "#191813";
+                    html.find("[id^=\"mom\"]")[i].style.color = "#ffffff";
                 } else {
-                    html.find('[id^="mom"]')[i].removeAttribute("data-selected");
-                    html.find('[id^="mom"]')[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-                    html.find('[id^="mom"]')[i].style.color = "";
+                    html.find("[id^=\"mom\"]")[i].removeAttribute("data-selected");
+                    html.find("[id^=\"mom\"]")[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
+                    html.find("[id^=\"mom\"]")[i].style.color = "";
                 }
             }
         }
@@ -97,30 +97,30 @@ export class DishonoredSharedActorFunctions {
         let dishonoredRoll = new DishonoredRoll();
         // It will send it to a different method depending what item type was sent to it.
         switch(type) {
-            case "item":
-                dishonoredRoll.performItemRoll(item, speaker);
-                break;
-            case "focus":
-                dishonoredRoll.performFocusRoll(item, speaker);
-                break;
-            case "bonecharm":
-                dishonoredRoll.performBonecharmRoll(item, speaker);
-                break;
-            case "weapon":
-                dishonoredRoll.performWeaponRoll(item, speaker);
-                break;
-            case "armor":
-                dishonoredRoll.performArmorRoll(item, speaker);
-                break;
-            case "talent":
-                dishonoredRoll.performTalentRoll(item, speaker);
-                break;
-            case "contact":
-                dishonoredRoll.performContactRoll(item, speaker);
-                break;
-            case "power":
-                dishonoredRoll.performPowerRoll(item, speaker);
-                break;
+        case "item":
+            dishonoredRoll.performItemRoll(item, speaker);
+            break;
+        case "focus":
+            dishonoredRoll.performFocusRoll(item, speaker);
+            break;
+        case "bonecharm":
+            dishonoredRoll.performBonecharmRoll(item, speaker);
+            break;
+        case "weapon":
+            dishonoredRoll.performWeaponRoll(item, speaker);
+            break;
+        case "armor":
+            dishonoredRoll.performArmorRoll(item, speaker);
+            break;
+        case "talent":
+            dishonoredRoll.performTalentRoll(item, speaker);
+            break;
+        case "contact":
+            dishonoredRoll.performContactRoll(item, speaker);
+            break;
+        case "power":
+            dishonoredRoll.performPowerRoll(item, speaker);
+            break;
         }
     }
 }

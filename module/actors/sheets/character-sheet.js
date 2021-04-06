@@ -35,7 +35,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
     /** @override */
     getData() {
-        console.log(this);
         const sheetData = this.object;
         //Ensure skill and style values don't weigh over the max of 8.
         if (sheetData.data.data.skills.fight.value > 8) sheetData.data.data.skills.fight.value = 8;
@@ -118,25 +117,18 @@ export class DishonoredCharacterSheet extends ActorSheet {
         let bonecharmNumber = 0;
         let helmetNumber = 0;
         let stressTrackMax = 0;
-        function armorCount(currentActor) {
-            armorNumber = 0;
-            helmetNumber = 0;
-            currentActor.actor.items.forEach((values) => {
-                if (values.type == "armor") {
-                    if (values.data.data.helmet == true && values.data.data.equipped == true) helmetNumber+= 1;
-                    if (values.data.data.helmet == false && values.data.data.equipped == true) armorNumber+= 1;
-                }
-            });
-        }
-        function bonecharmCount(currentActor) {
-            bonecharmNumber = 0;
-            currentActor.actor.items.forEach((values) => {
-                if (values.type == "bonecharm" && values.data.data.equipped == true) bonecharmNumber+= 1;
-            });
-            html.find("[name =\"data.bonecharmequipped\"]")[0].value = bonecharmNumber;
-        }
-        armorCount(this);
-        bonecharmCount(this);
+        armorNumber = 0;
+        bonecharmNumber = 0;
+        helmetNumber = 0;
+        this.actor.items.forEach((values) => {
+            if (values.type == "armor") {
+                if (values.data.data.helmet == true && values.data.data.equipped == true) helmetNumber+= 1;
+                if (values.data.data.helmet == false && values.data.data.equipped == true) armorNumber+= 1;
+            }
+            else if (values.type == "bonecharm" && values.data.data.equipped == true) bonecharmNumber+= 1;
+        });
+        html.find("[name =\"data.bonecharmequipped\"]")[0].value = bonecharmNumber;
+
         // For ease of access we may as well turn the tooltip for bonecharm counts red.
         if(bonecharmNumber > 3) {
             html.find(".bonecharmCount")[0].style.backgroundColor = "#fd0000";
@@ -200,9 +192,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         // This allows for each item-edit image to link open an item sheet. This uses Simple Worldbuilding System Code.
         html.find(".control.edit").click(ev => {
             const li = $(ev.currentTarget).parents(".entry");
-            console.log(li);
             const item = this.actor.items.get(li.data("itemId"));
-            console.log(item);
             item.sheet.render(true);
         });
 
@@ -245,36 +235,25 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
         // This toggles whether the item is equipped or not. Equipped items count towards item caps.
         html.find(".control.toggle").click(ev => {
-            let itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
-            let itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
+            let itemId = ev.currentTarget.closest(".entry").dataset.itemId;
             let item = this.actor.items.get(itemId);
-            let itemData = item.data;
+            let itemType = ev.currentTarget.closest(".entry").dataset.itemType;
             if (itemType == "armor") var isHelmet = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-helmet");
-            if (this.actor.items.get(itemId).data.data.equipped == true) {
-                itemData.data.equipped = false;
-                $(ev.currentTarget).children()[0].classList.remove("fa-toggle-on");
-                $(ev.currentTarget).children()[0].classList.add("fa-toggle-off");
-                $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "false");
+            if (item.data.data.equipped === false) {
+                if (itemType == "bonecharm" && bonecharmNumber >= 3) {
+                    ui.notifications.error(game.i18n.localize("dishonored.notifications.tooManyBonecharms"));
+                    return false;
+                }
+                else if (itemType == "armor" && isHelmet == "false" && armorNumber >= 1) {
+                    ui.notifications.error(game.i18n.localize("dishonored.notifications.armorAlreadyEquipped"));
+                    return false;
+                }
+                else if (itemType == "armor" && isHelmet == "true" && helmetNumber >= 1) {
+                    ui.notifications.error(game.i18n.localize("dishonored.notifications.helmetAlreadyEquipped"));
+                    return false;
+                }
             }
-            else if (itemType == "bonecharm" && bonecharmNumber >= 3) {
-                ui.notifications.error(game.i18n.localize("dishonored.notifications.tooManyBonecharms"));
-            }
-            else if (itemType == "armor" && isHelmet == "false" && armorNumber >= 1) {
-                ui.notifications.error(game.i18n.localize("dishonored.notifications.armorAlreadyEquipped"));
-            }
-            else if (itemType == "armor" && isHelmet == "true" && helmetNumber >= 1) {
-                ui.notifications.error(game.i18n.localize("dishonored.notifications.helmentAlreadyEquipped"));
-            }
-            else {
-                itemData.data.equipped = true;
-                $(ev.currentTarget).children()[0].classList.remove("fa-toggle-off");
-                $(ev.currentTarget).children()[0].classList.add("fa-toggle-on");
-                $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "true");
-            }
-            item.update(itemData);
-            stressTrackUpdate();
-            dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
-            this.submit();
+            return this.actor.items.get(itemId).update({["data.equipped"]: !getProperty(item.data, "data.equipped")});
         });
 
         // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
@@ -314,11 +293,10 @@ export class DishonoredCharacterSheet extends ActorSheet {
         // Allows item-delete images to allow deletion of the selected item. This uses Simple Worldbuilding System Code.
         html.find(".control.delete").click(ev => {
             const li = $(ev.currentTarget).parents(".entry");
-            console.log(this.actor);
             // Check if we are using a Foundry version above 0.8.0, use new code.
             if (isNewerVersion(versionInfo,"0.8.-1")) this.actor.deleteEmbeddedDocuments("Item",[li.data("itemId")]);
             else this.actor.deleteOwnedItem(li.data("itemId"));
-            li.slideUp(200, () => this.render(false));
+            return li.slideUp(200, () => this.render(false));
         });
 
         // Reads if a experience track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one. 
