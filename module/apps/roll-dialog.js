@@ -8,11 +8,11 @@ export class DishonoredRollDialog {
             let formData = null;
             // Create a new dialog.
             const dlg = new Dialog({
-                title: game.i18n.localize('dishonored.apps.dicepoolwindow'),
+                title: game.i18n.localize("dishonored.apps.dicepoolwindow"),
                 content: html,
                 buttons: {
                     roll: {
-                        label: game.i18n.localize('dishonored.apps.rolldice'),
+                        label: game.i18n.localize("dishonored.apps.rolldice"),
                         callback: html => {
                             formData = new FormData(html[0].querySelector("#dice-pool-form"));
                             return resolve(formData);

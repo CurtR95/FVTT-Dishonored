@@ -16,11 +16,11 @@ export class DishonoredWeaponSheet extends ItemSheet {
     /** @override */
     get template() {
         if ( !game.user.isGM && this.item.limited) {
-            ui.notifications.warn(game.i18n.localize('dishonored.notifications.lackPermission'));
+            ui.notifications.warn(game.i18n.localize("dishonored.notifications.lackPermission"));
             return;
         }
-        return `systems/FVTT-Dishonored/templates/items/weapon-sheet.html`;
-      }
+        return "systems/FVTT-Dishonored/templates/items/weapon-sheet.html";
+    }
 
     /* -------------------------------------------- */
 
