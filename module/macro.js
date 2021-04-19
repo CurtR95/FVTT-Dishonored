@@ -1,31 +1,31 @@
 import {
     DishonoredRoll
-} from './roll.js'
+} from "./roll.js";
 
 export function skillTest(actor, skillName, styleName, focusRating, numberOfDice) {
     let fail = false;  
     if (actor === undefined) {
-        ui.notifications.warn(game.i18n.localize('dishonored.notifications.macroActor'));
+        ui.notifications.warn(game.i18n.localize("dishonored.notifications.macroActor"));
         fail = true;
     }
     if (skillName === undefined) {
-        ui.notifications.warn(game.i18n.localize('dishonored.notifications.macroSkill'));
+        ui.notifications.warn(game.i18n.localize("dishonored.notifications.macroSkill"));
         fail = true;
     }
     if (styleName === undefined) {
-        ui.notifications.warn(game.i18n.localize('dishonored.notifications.macroStyle'));
+        ui.notifications.warn(game.i18n.localize("dishonored.notifications.macroStyle"));
         fail = true;
     }
     if (focusRating < 1) {
-        ui.notifications.warn(game.i18n.localize('dishonored.notifications.macroFocus'));
+        ui.notifications.warn(game.i18n.localize("dishonored.notifications.macroFocus"));
         fail = true;
     }
     if (numberOfDice > 5) {
-        ui.notifications.warn(game.i18n.localize('dishonored.notifications.macroDiceGreater'));
+        ui.notifications.warn(game.i18n.localize("dishonored.notifications.macroDiceGreater"));
         fail = true;
     }
     else if (numberOfDice < 1) {
-        ui.notifications.warn(game.i18n.localize('dishonored.notifications.macroDiceLess'));
+        ui.notifications.warn(game.i18n.localize("dishonored.notifications.macroDiceLess"));
         fail = true;
     }
     if (fail === true) {
