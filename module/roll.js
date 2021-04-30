@@ -100,8 +100,7 @@ export class DishonoredRoll {
         let flavor = game.i18n.format("dishonored.actor.skill." + selectedSkill) + " " + game.i18n.format("dishonored.actor.style." + selectedStyle) + game.i18n.format("dishonored.roll.test");
 
         // Build a dynamic html using the variables from above.
-        let html = `
-            <div class="dishonored roll skill">
+        let html = `<div class="dishonored roll skill">
                 <div class="dice-roll">
                     <div class="dice-result">
                         <div class="dice-formula">
@@ -124,17 +123,8 @@ export class DishonoredRoll {
                         "<h4 class=\"dice-total\">" + successText + `</h4>
                     </div>
                 </div>
-            </div>
-        `;
-        // Check if the dice3d module exists (Dice So Nice). If it does, post a roll in that and then send to chat after the roll has finished. If not just send to chat.
-        if(game.dice3d) {
-            game.dice3d.showForRoll(r).then(function() {
-                this.sendToChat(speaker, html, r, flavor);
-            });
-        }
-        else {
-            this.sendToChat(speaker, html, r, flavor);
-        }
+            </div>`;
+        this.sendToChat(CHAT_MESSAGE_TYPES.ROLL, speaker, html, r, flavor);
     }
 
     async performItemRoll(item, speaker) {
@@ -151,7 +141,7 @@ export class DishonoredRoll {
             valueTag = "";
         }
         // Send the divs to populate a HTML template and sends to chat.
-        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable, valueTag).then(html=>this.sendToChat(speaker, html));
+        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable, valueTag).then(html=>this.sendToChat(CHAT_MESSAGE_TYPES.OTHER, speaker, html));
     }
 
     async performFocusRoll(item, speaker) {
@@ -159,12 +149,12 @@ export class DishonoredRoll {
         let variablePrompt = game.i18n.format("dishonored.roll.focus.rating");
         let variable = "<div class='dice-formula'> "+variablePrompt.replace("|#|", item.data.data.rating)+"</div>";
         // Send the divs to populate a HTML template and sends to chat.
-        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable).then(html=>this.sendToChat(speaker, html));
+        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable).then(html=>this.sendToChat(CHAT_MESSAGE_TYPES.OTHER, speaker, html));
     }
 
     async performBonecharmRoll(item, speaker) {
         // Populate a HTML template and sends to chat.
-        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description).then(html=>this.sendToChat(speaker, html));
+        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description).then(html=>this.sendToChat(CHAT_MESSAGE_TYPES.OTHER, speaker, html));
     }
 
     async performWeaponRoll(item, speaker) {
@@ -192,7 +182,7 @@ export class DishonoredRoll {
         if (item.data.data.qualities.rangeddistant) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.distant")+"</div>";
         if (item.data.data.qualities.rangednearby) tags += "<div class='tag'> "+game.i18n.format("dishonored.actor.belonging.weapon.nearby")+"</div>";
         // Send the divs to populate a HTML template and sends to chat.
-        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable, tags).then(html=>this.sendToChat(speaker, html));
+        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable, tags).then(html=>this.sendToChat(CHAT_MESSAGE_TYPES.OTHER, speaker, html));
     }
 
     async performArmorRoll(item, speaker) {
@@ -209,7 +199,7 @@ export class DishonoredRoll {
             valueTag = "";
         }
         // Send the divs to populate a HTML template and sends to chat.
-        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable, valueTag).then(html=>this.sendToChat(speaker, html));
+        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable, valueTag).then(html=>this.sendToChat(CHAT_MESSAGE_TYPES.OTHER, speaker, html));
     }
 
     async performTalentRoll(item, speaker) {
@@ -217,7 +207,7 @@ export class DishonoredRoll {
         var variablePrompt = game.i18n.format("dishonored.roll.talent.type");
         var variable = "<div class='dice-formula'> "+variablePrompt.replace("|#|", item.data.data.type)+"</div>";
         // Send the divs to populate a HTML template and sends to chat.
-        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable).then(html=>this.sendToChat(speaker, html));
+        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable).then(html=>this.sendToChat(CHAT_MESSAGE_TYPES.OTHER, speaker, html));
     }
 
     async performContactRoll(item, speaker) {
@@ -225,7 +215,7 @@ export class DishonoredRoll {
         var variablePrompt = game.i18n.format("dishonored.roll.contact.relation");
         var variable = "<div class='dice-formula'> "+variablePrompt.replace("|#|", item.data.data.relationship)+"</div>";
         // Send the divs to populate a HTML template and sends to chat.
-        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable).then(html=>this.sendToChat(speaker, html));
+        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variable).then(html=>this.sendToChat(CHAT_MESSAGE_TYPES.OTHER, speaker, html));
     }
 
     async performPowerRoll(item, speaker) {
@@ -242,7 +232,7 @@ export class DishonoredRoll {
         // Create dynamic tags div and populate it with localisation to use in the HTML.
         var tags = "<div class = 'tag'>"+runeValue.replace("|#|", item.data.data.runecost)+"</div>";
         // Send the divs to populate a HTML template and sends to chat.
-        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variablePrompt, tags).then(html=>this.sendToChat(speaker, html));
+        this.genericItemTemplate(item.data.img, item.data.name, item.data.data.description, variablePrompt, tags).then(html=>this.sendToChat(CHAT_MESSAGE_TYPES.OTHER, speaker, html));
     }
 
     async genericItemTemplate(img, name, description, variable, tags) {
@@ -272,17 +262,20 @@ export class DishonoredRoll {
         return html;
     }
 
-    async sendToChat(speaker, content, roll, flavor) {
+    async sendToChat(type, speaker, content, roll, flavor) {
         // Send's Chat Message to foundry, if items are missing they will appear as false or undefined and this not be rendered.
-        ChatMessage.create({
+        console.log(ChatMessage.create({
             user: game.user.id,
+            type: type,
             speaker: ChatMessage.getSpeaker({ scene: null, actor: speaker }),
             flavor: flavor,
+            roll: roll, 
+            rollMode: game.settings.get("core", "rollMode"),
             content: content,
-            roll: roll,
             sound: "sounds/dice.wav"
         }).then(msg => {
             return msg;
-        });
+        }
+        ));
     }
 }
