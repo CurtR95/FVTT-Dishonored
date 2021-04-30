@@ -271,7 +271,20 @@ Hooks.once("init", function() {
         config: false
     });
 
+    game.settings.register("FVTT-Dishonored", "currentMigrationVersion", {
+        scope: "world",
+        type: String,
+        default: 0,
+        config: false
+    });
+
     Hooks.on("ready", function() {
+        var currentMigVer = game.settings.get("FVTT-Dishonored", "currentMigrationVersion") == 0 ? "0.4.1": game.settings.get("FVTT-Dishonored", "currentMigrationVersion");
+        if (isNewerVersion(game.system.data.version, currentMigVer ?? "0.4.1")) {
+            ui.notifications.notify("Current Migration Version does not match Current Version, running Migration Script.");
+            console.log("Current Migration Version does not match Current Version, running Migration Script.");
+            game.dishonored.migration(currentMigVer);
+        }
         let i;
         let error;
         if (isNewerVersion(versionInfo,"0.8.-1")) {
@@ -327,4 +340,28 @@ Hooks.once("init", function() {
             l.render(true);
         });
     });
+
+    game.dishonored.migration = function(currentMigVer) {
+        var recheck = false;
+        switch (currentMigVer) {
+        case "0.4.1":
+            ui.notifications.notify("Migrating from 0.4.1 to 0.5.0");
+            console.log("Migrating from 0.4.1 to 0.5.0");
+            game.actors.forEach(function(actor) {
+                if (actor.data.type == "character") {
+                    if (actor.data.data.truth1) actor.createOwnedItem({name:actor.data.data.truth1, type: "truth", img:"systems/FVTT-Dishonored/icons/dishonoredlogo.webp"});
+                    if (actor.data.data.truth2) actor.createOwnedItem({name:actor.data.data.truth2, type: "truth", img:"systems/FVTT-Dishonored/icons/dishonoredlogo.webp"});
+                }
+            });
+            game.settings.set("FVTT-Dishonored", "currentMigrationVersion", "0.5.0");
+            currentMigVer = "0.5.0";
+            recheck = true;
+            break;
+        default:
+            recheck = false;
+            break;
+        }
+        if (recheck == true) {game.dishonored.migration(currentMigVer);}
+    };
 });
+
