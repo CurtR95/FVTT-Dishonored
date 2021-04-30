@@ -16,17 +16,17 @@ export class DishonoredFocusSheet extends ItemSheet {
     /** @override */
     get template() {
         if ( !game.user.isGM && this.item.limited) {
-            ui.notifications.warn(game.i18n.localize('dishonored.notifications.lackPermission'));
+            ui.notifications.warn(game.i18n.localize("dishonored.notifications.lackPermission"));
             return;
         }
-        return `systems/FVTT-Dishonored/templates/items/focus-sheet.html`;
-      }
+        return "systems/FVTT-Dishonored/templates/items/focus-sheet.html";
+    }
 
     /* -------------------------------------------- */
 
     /** @override */
     getData() {
-        const data = super.getData();
+        const data = this.object.data;
         data.dtypes = ["String", "Number", "Boolean"];
 
         //Checks if the rating of the focus is above 5 or 2. If it exceeds these bounds it sets it to the closest limit. (i.e. 1 is set to 2)

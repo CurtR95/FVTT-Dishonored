@@ -9,7 +9,6 @@
                     "value": 0,
                     "max": 4
                 },
-                "truth1": "",
                 "skills": {
                     "fight": {
                         "label": "dishonored.actor.skill.fight",
@@ -83,7 +82,6 @@
                 "value": 0,
                 "max": 6
             },
-            "truth2": "",
             "archetype": "",
             "outlook": "",
             "void": {
@@ -99,11 +97,30 @@
             "bonecharmequipped": 0
         },
         "npc": {
-            "templates": ["common"]
+            "templates": ["common"],
+            "type": "Incidental",
+            "types": {
+                "incidental": {
+                    "label": "dishonored.actor.npc.incidental",
+                    "dtype": "String"
+                },
+                "notable": {
+                    "label": "dishonored.actor.npc.notable",
+                    "dtype": "String"
+                },
+                "minor": {
+                    "label": "dishonored.actor.npc.minor",
+                    "dtype": "String"
+                },
+                "major": {
+                    "label": "dishonored.actor.npc.major",
+                    "dtype": "String"
+                }
+            }
         }
     },
     "Item": {
-        "types": ["item", "focus", "bonecharm", "weapon", "armor", "talent", "contact", "power"],
+        "types": ["item", "focus", "bonecharm", "weapon", "armor", "talent", "contact", "power", "truth"],
         "templates": {
             "common": {
                 "description": ""
@@ -153,7 +170,7 @@
         },
         "contact": {
             "templates": ["common"],
-            "relationship": "neutral",
+            "relationship": "Neutral",
             "relationships": {
                 "great": {
                     "label": "dishonored.contact.relation.great",
@@ -181,6 +198,8 @@
             "templates": ["common"],
             "manacost": 0,
             "runecost": 0
+        },
+        "truth": {
         }
     }
 }

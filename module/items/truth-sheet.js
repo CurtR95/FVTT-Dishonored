@@ -1,11 +1,11 @@
-export class DishonoredTalentSheet extends ItemSheet {
+export class DishonoredTruthSheet extends ItemSheet {
 
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "item", "talent"],
+            classes: ["dishonored", "sheet", "item", "truth"],
             width: 500,
-            height: 250,
+            height: 100,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });
     }
@@ -19,7 +19,7 @@ export class DishonoredTalentSheet extends ItemSheet {
             ui.notifications.warn(game.i18n.localize("dishonored.notifications.lackPermission"));
             return;
         }
-        return "systems/FVTT-Dishonored/templates/items/talent-sheet.html";
+        return "systems/FVTT-Dishonored/templates/items/truth-sheet.html";
     }
 
     /* -------------------------------------------- */

@@ -1,32 +1,82 @@
-<div id="dishonored-chaos-tracker" class="dishonored tracker app chaos">
-    <div class="button-group">
-        <div id="dishonored-chaos-track-decrease" class="button dishonored-impermitable">
-            <i class="fas fa-minus"></i>
-        </div>
-        <div>
-            <input type="text" class="input" id="dishonored-track-chaos" data-dtype="Number" />
-        </div>
-        <div id="dishonored-chaos-track-increase" class="button dishonored-impermitable">
-            <i class="fas fa-plus"></i>
-        </div>
-    </div>
-    <div class="header">
+<div id="dishonored-tracker-test" class="dishonored tracker panel">
+    <div class="dishonored tracker chaos header">
         {{localize 'dishonored.tracker.chaos'}}
     </div>
-</div>
-<div id="dishonored-momentum-tracker" class="dishonored tracker app momentum">
-    <div class="button-group">
-        <div id="dishonored-momentum-track-decrease" class="button dishonored-impermitable">
-            <i class="fas fa-minus"></i>
-        </div>
-        <div>
-            <input type="text" class="input" id="dishonored-track-momentum" data-dtype="Number" />
-        </div>
-        <div id="dishonored-momentum-track-increase" class="button dishonored-impermitable">
-            <i class="fas fa-plus"></i>
-        </div>
+    <input type="text" class="dishonored input tracker chaos number" id="dishonored-track-chaos" data-dtype="Number" />
+    <div id="dishonored-chaos-track-decrease" class="dishonored tracker button chaos decrease dishonored-impermitable">
+        <i class="fas fa-minus"></i>
     </div>
-    <div class="header">
+    <div id="dishonored-chaos-track-increase" class="dishonored tracker button chaos increase dishonored-impermitable" >
+        <i class="fas fa-plus"></i>
+    </div>
+    <div class="dishonored tracker momentum header">
         {{localize 'dishonored.tracker.momentum'}}
+    </div>
+    <!-- <input type="text" class="input" id="dishonored-track-momentum" data-dtype="Number" /> -->
+    <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 460 100" width="690" height="150" id="svg326">
+        <path d="M 399.38086 6.8300781 C 382.13086 6.8300781 368.13086 20.699063 368.13086 37.789062 C 368.13086 54.879063 382.13086 68.75 399.38086 68.75 C 416.62086 68.75 430.61914 54.879063 430.61914 37.789062 C 430.61914 20.699062 416.62086 6.8300781 399.38086 6.8300781 z M 399.2168 14.570312 C 412.1468 14.570312 422.64648 24.971562 422.64648 37.789062 C 422.64648 50.606563 412.1468 61.009766 399.2168 61.009766 C 386.2793 61.009766 375.7793 50.606562 375.7793 37.789062 C 375.7793 24.971562 386.2793 14.570313 399.2168 14.570312 z " id="aHMuxnQlc" />
+        <path d="M 417.83203 6.2324219 C 417.66258 6.2254663 417.49859 6.231875 417.33984 6.25 L 417.99023 6.25 C 417.93824 6.2456315 417.88305 6.2345162 417.83203 6.2324219 z M 417.99023 6.25 C 420.52838 6.4632563 424.21968 9.3788292 429.07031 15.019531 C 433.47031 20.139531 436.7093 29.29 437.0293 37.5 C 437.3493 45.71 433.86945 58.330703 427.18945 64.220703 C 421.60945 69.140703 413.86086 75.520781 399.88086 75.800781 C 388.00086 76.040781 376.10992 71.13 369.41992 62.5 C 364.56992 56.25 361.95055 47.92 361.56055 37.5 L 361.56055 18.75 L 341.88086 18.75 C 344.44086 59.8 311.84055 80.64 244.06055 81.25 C 202.72055 81.62 178.13977 81.469219 162.00977 79.949219 C 151.24977 78.939219 146.52055 75.759922 147.81055 70.419922 L 131.88086 70.419922 C 123.40086 69.799922 119.03 66.75 118.75 61.25 C 118.47 55.75 118.47 52 118.75 50 L 10.470703 100 L 460 100 L 460 6.25 L 417.99023 6.25 z M 445.31055 12.5 C 449.45055 12.5 452.81055 15.86 452.81055 20 C 452.81055 24.14 449.45055 27.5 445.31055 27.5 C 441.17055 27.5 437.81055 24.14 437.81055 20 C 437.81055 15.86 441.17055 12.5 445.31055 12.5 z M 345 21.880859 L 359.38086 21.880859 L 359.38086 96.880859 L 28.75 96.880859 L 115 56.25 C 107.03 74.29 122.91039 83.660859 162.65039 84.380859 C 222.26039 85.440859 189.10984 85.240859 234.08984 84.380859 C 254.25984 83.990859 270.56953 83.920156 285.51953 80.660156 C 297.79953 77.990156 308.93969 74.689531 317.92969 69.769531 C 326.06969 65.309531 332.20055 59.760859 336.31055 53.130859 C 339.56055 48.420859 341.95047 43.21 343.48047 37.5 C 345.01047 31.79 345.52 26.580859 345 21.880859 z M 448.2793 34.380859 C 451.7293 34.380859 454.5293 37.180859 454.5293 40.630859 C 454.5293 44.070859 451.7293 46.880859 448.2793 46.880859 C 444.8293 46.880859 442.0293 44.070859 442.0293 40.630859 C 442.0293 37.180859 444.8293 34.380859 448.2793 34.380859 z M 443.43945 53.130859 C 446.19945 53.130859 448.43945 55.370859 448.43945 58.130859 C 448.43945 60.880859 446.19945 63.130859 443.43945 63.130859 C 440.67945 63.130859 438.43945 60.880859 438.43945 58.130859 C 438.43945 55.370859 440.67945 53.130859 443.43945 53.130859 z M 434.68945 65.630859 C 436.75945 65.630859 438.43945 67.310859 438.43945 69.380859 C 438.43945 71.440859 436.75945 73.130859 434.68945 73.130859 C 432.61945 73.130859 430.93945 71.440859 430.93945 69.380859 C 430.93945 67.310859 432.61945 65.630859 434.68945 65.630859 z M 130.4707 71.880859 C 131.8507 71.880859 132.9707 73.000859 132.9707 74.380859 C 132.9707 75.750859 131.8507 76.880859 130.4707 76.880859 C 129.0907 76.880859 127.9707 75.750859 127.9707 74.380859 C 127.9707 73.000859 129.0907 71.880859 130.4707 71.880859 z M 141.2793 71.880859 C 143.3493 71.880859 145.0293 73.560859 145.0293 75.630859 C 145.0293 77.690859 143.3493 79.380859 141.2793 79.380859 C 139.2093 79.380859 137.5293 77.690859 137.5293 75.630859 C 137.5293 73.560859 139.2093 71.880859 141.2793 71.880859 z M 424.06055 75 C 425.44055 75 426.56055 76.12 426.56055 77.5 C 426.56055 78.88 425.44055 80 424.06055 80 C 422.68055 80 421.56055 78.88 421.56055 77.5 C 421.56055 76.12 422.68055 75 424.06055 75 z " id="c5gxGpb0t" />
+    </svg>
+    <div class="dishonored tracker momentum track">
+        <div class="dishonored tracker momentum track item track-1">
+            <div id="dishonored-momentum-tracker-1-fg" class="dishonored tracker momentum track item foreground">1</div>
+            <svg class="dishonored tracker momentum track item background svg" width="83" height="114" viewBox="0 0 14.58 19.850002" version="1.1" id="svg5664">
+                <metadata id="metadata5661">
+                </metadata>
+                <g id="layer1" transform="translate(0,-277.15)">
+                    <path class="dishonored tracker momentum track item background slot track-1" d="M 55,49.115234 0.00195313,75.023438 H 55 Z" transform="matrix(0.26458333,0,0,0.26458333,0,277.15)" id="dishonored-momentum-tracker-1-bg" />
+                </g>
+            </svg>
+        </div>
+        <div class="dishonored tracker momentum track item track-2">
+            <div id="dishonored-momentum-tracker-2-fg" class="dishonored tracker momentum track item foreground">2</div>
+            <svg class="dishonored tracker momentum track item background svg" width="83" height="114" viewBox="0 0 14.58 19.850002" version="1.1" id="svg5664">
+                <metadata id="metadata5661">
+                </metadata>
+                <g id="layer1" transform="translate(-14.58,-277.15)">
+                    <path class="dishonored tracker momentum track item background slot track-2" d="M 86.251953,34.392578 55,49.115234 v 25.908204 h 55 V 60.599609 C 88.067595,56.951912 80.14148,48.223546 86.251953,34.392578 Z" transform="matrix(0.26458333,0,0,0.26458333,0,277.15)" id="dishonored-momentum-tracker-2-bg"/>
+                </g>
+            </svg>
+        </div>
+        <div class="dishonored tracker momentum track item track-3">
+            <div id="dishonored-momentum-tracker-3-fg" class="dishonored tracker momentum track item foreground">3</div>
+            <svg class="dishonored tracker momentum track item background svg" width="83" height="114" viewBox="0 0 14.58 19.850002" version="1.1" id="svg5664">
+                <metadata id="metadata5661">
+                </metadata>
+                <g id="layer1" transform="translate(-29.16,-277.15)">
+                    <path class="dishonored tracker momentum track item background slot track-3" d="m 110,60.599609 v 14.423829 h 55 v -11.91211 c -5.93383,-0.1143 -15.00246,-0.30168 -31.09766,-0.58789 C 124.63036,62.35545 116.67444,61.709671 110,60.599609 Z" transform="matrix(0.26458333,0,0,0.26458333,0,277.15)" id="dishonored-momentum-tracker-3-bg" />
+                </g>
+            </svg>
+        </div>
+        <div class="dishonored tracker momentum track item track-4">
+            <div id="dishonored-momentum-tracker-4-fg" class="dishonored tracker momentum track item foreground">4</div>
+            <svg class="dishonored tracker momentum track item background svg" width="83" height="114" viewBox="0 0 14.58 19.850002" version="1.1" id="svg5664">
+                <metadata id="metadata5661">
+                </metadata>
+                <g id="layer1" transform="translate(-43.74,-277.15)">
+                    <path class="dishonored tracker momentum track item background slot track-4" d="m 220,62.230469 c -4.66567,0.115337 -9.53548,0.193915 -14.6582,0.292969 -32.83503,0.627788 -24.29914,0.896911 -40.3418,0.58789 v 11.91211 h 55 z" transform="matrix(0.26458333,0,0,0.26458333,0,277.15)" id="dishonored-momentum-tracker-4-bg">
+                </g>
+            </svg>
+        </div>
+        <div class="dishonored tracker momentum track item track-5">
+            <div id="dishonored-momentum-tracker-5-fg" class="dishonored tracker momentum track item foreground">5</div>
+            <svg class="dishonored tracker momentum track item background svg" width="83" height="114" viewBox="0 0 14.58 19.850002" version="1.1" id="svg5664">
+                <metadata id="metadata5661">
+                </metadata>
+                <g id="layer1" transform="translate(-58.32,-277.15)">
+                    <path class="dishonored tracker momentum track item background slot track-5" d="m 275,53.927734 c -5.6692,1.890723 -11.78594,3.474208 -18.22852,4.875 C 245.61844,61.234764 233.70477,61.89168 220,62.230469 v 12.792969 h 55 z" transform="matrix(0.26458333,0,0,0.26458333,0,277.15)" id="dishonored-momentum-tracker-5-bg"/>
+                </g>
+            </svg>
+        </div>
+        <div class="dishonored tracker momentum track item track-6">
+            <div id="dishonored-momentum-tracker-6-fg" class="dishonored tracker momentum track item foreground">6</div>
+            <svg class="dishonored tracker momentum track item background svg" width="83" height="114" viewBox="0 0 14.58 19.850002" version="1.1" id="svg5664">
+                <metadata id="metadata5661">
+                </metadata>
+                <g id="layer1" transform="translate(-72.9,-277.15)">
+                    <path class="dishonored tracker momentum track item background slot track-6" d="m 316.2793,0.35546875 c 0.4612,4.61396835 -0.0524,9.70972625 -1.54688,15.28710925 -1.52999,5.709997 -3.91994,10.920888 -7.16992,15.63086 -4.11001,6.630009 -10.24086,12.178678 -18.38086,16.638671 -4.27349,2.338775 -9.04494,4.302496 -14.18164,6.015625 v 21.095704 h 55 V 0.35546875 Z" transform="matrix(0.26458333,0,0,0.26458333,0,277.15)" id="dishonored-momentum-tracker-6-bg" />
+                </g>
+            </svg>
+        </div>
     </div>
 </div>
