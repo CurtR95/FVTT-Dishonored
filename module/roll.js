@@ -264,7 +264,7 @@ export class DishonoredRoll {
 
     async sendToChat(type, speaker, content, roll, flavor) {
         // Send's Chat Message to foundry, if items are missing they will appear as false or undefined and this not be rendered.
-        console.log(ChatMessage.create({
+        ChatMessage.create({
             user: game.user.id,
             type: type,
             speaker: ChatMessage.getSpeaker({ scene: null, actor: speaker }),
@@ -275,7 +275,6 @@ export class DishonoredRoll {
             sound: "sounds/dice.wav"
         }).then(msg => {
             return msg;
-        }
-        ));
+        });
     }
 }

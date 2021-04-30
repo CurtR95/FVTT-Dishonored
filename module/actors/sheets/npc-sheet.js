@@ -262,7 +262,6 @@ export class DishonoredNPCSheet extends ActorSheet {
         // Allows item-delete images to allow deletion of the selected item. This uses Simple Worldbuilding System Code.
         html.find(".control.delete").click(ev => {
             const li = $(ev.currentTarget).parents(".entry");
-            console.log(this.actor);
             // Check if we are using a Foundry version above 0.8.0, use new code.
             if (isNewerVersion(versionInfo,"0.8.-1")) this.actor.deleteEmbeddedDocuments("Item",[li.data("itemId")]);
             else this.actor.deleteOwnedItem(li.data("itemId"));
