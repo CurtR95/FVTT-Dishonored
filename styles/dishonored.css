@@ -621,6 +621,10 @@
     height: 100%;
 }
 
+.dishonored.sheet.item .description .editor .tox {
+    height: 100% !important;
+}
+
 
 
 /* Item - Contact Specific */
@@ -696,6 +700,7 @@
     background: none;
     border: none;
     text-align: left;
+    font-size: 1.2em;
 }
 
 .dishonored.roll.generic .dice-roll .dice-result .dice-formula .img {
