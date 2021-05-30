@@ -85,8 +85,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (sheetData.data.data.mana.value < 0) sheetData.data.data.mana.value = 0;
         if (sheetData.data.data.mana.max < 2) sheetData.data.data.mana.max = 2;
         $.each(sheetData.data.items, (key, item) => {
-            if (item.img == "icons/svg/item-bag.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
-            if (item.img == "icons/svg/mystery-man.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
+            if (item.img == "icons/svg/item-bag.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredLogo.webp";
+            if (item.img == "icons/svg/mystery-man.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredLogo.webp";
         });
         return sheetData.data;
         
@@ -109,14 +109,14 @@ export class DishonoredCharacterSheet extends ActorSheet {
         // If the player has limited access to the actor, there is nothing to see here. Return.
         if ( !game.user.isGM && this.actor.limited) return;
 
-        // We use i alot in for loops. Best to assign it now for use later in multiple places.
+        // We use i a lot in for loops. Best to assign it now for use later in multiple places.
         let i;
 
-        // We use div alot to define text blocks. Define here.
+        // We use div a lot to define text blocks. Define here.
         let div;
 
-        // Here we are checking how many bonecharms, helmets and armors are equipped. 
-        // The player can only have three bonecharms, and one of each armor type. As such, we will use this later.
+        // Here we are checking how many bonecharms, helmets and armours are equipped. 
+        // The player can only have three bonecharms, and one of each armour type. As such, we will use this later.
         let armorNumber = 0;
         let bonecharmNumber = 0;
         let helmetNumber = 0;
@@ -178,7 +178,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         }
         stressTrackUpdate();
 
-        // This creates a dynamic Experience tracker. For this it uses a max value of 30. This can be configured here. 
+        // This creates a dynamic Experience tracker.
         // It creates a new div for each and places it under a child called "bar-void-renderer"
         let expPointsMax = game.settings.get("FVTT-Dishonored", "maxNumberOfExperience");
         for (i = 1; i <= expPointsMax; i++) {
@@ -193,7 +193,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         // Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
         dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax);
 
-        // This allows for each item-edit image to link open an item sheet. This uses Simple Worldbuilding System Code.
+        // This allows for each item-edit image to link open an item sheet. This uses Simple WorldBuilding System Code.
         html.find(".control.edit").click(ev => {
             const li = $(ev.currentTarget).parents(".entry");
             const item = this.actor.items.get(li.data("itemId"));
@@ -294,7 +294,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             else return this.actor.createOwnedItem(itemData);
         });
 
-        // Allows item-delete images to allow deletion of the selected item. This uses Simple Worldbuilding System Code.
+        // Allows item-delete images to allow deletion of the selected item. This uses Simple WorldBuilding System Code.
         html.find(".control.delete").click(ev => {
             const li = $(ev.currentTarget).parents(".entry");
             // Check if we are using a Foundry version above 0.8.0, use new code.

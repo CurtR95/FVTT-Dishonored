@@ -349,8 +349,8 @@ Hooks.once("init", function() {
             console.log("Migrating from 0.4.1 to 0.5.0");
             game.actors.forEach(function(actor) {
                 if (actor.data.type == "character") {
-                    if (actor.data.data.truth1) actor.createOwnedItem({name:actor.data.data.truth1, type: "truth", img:"systems/FVTT-Dishonored/icons/dishonoredlogo.webp"});
-                    if (actor.data.data.truth2) actor.createOwnedItem({name:actor.data.data.truth2, type: "truth", img:"systems/FVTT-Dishonored/icons/dishonoredlogo.webp"});
+                    if (actor.data.data.truth1) actor.createOwnedItem({name:actor.data.data.truth1, type: "truth", img:"systems/FVTT-Dishonored/icons/dishonoredLogo.webp"});
+                    if (actor.data.data.truth2) actor.createOwnedItem({name:actor.data.data.truth2, type: "truth", img:"systems/FVTT-Dishonored/icons/dishonoredLogo.webp"});
                 }
             });
             game.settings.set("FVTT-Dishonored", "currentMigrationVersion", "0.5.0");
