@@ -7,8 +7,8 @@ import {
 
 export class DishonoredActor extends Actor {
     prepareData() {
-        if (this.data.img == "icons/svg/mystery-man.svg") this.data.img = "/systems/FVTT-Dishonored/icons/dishonoredLogo.webp";
-        if (this.data.token.img == "icons/svg/mystery-man.svg") this.data.token.img = "/systems/FVTT-Dishonored/icons/dishonoredLogo.webp";
+        if (this.data.img == "icons/svg/mystery-man.svg") this.data.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
+        if (this.data.token.img == "icons/svg/mystery-man.svg") this.data.token.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
         return this.data;
     }
 }

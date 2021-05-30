@@ -85,8 +85,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (sheetData.data.data.mana.value < 0) sheetData.data.data.mana.value = 0;
         if (sheetData.data.data.mana.max < 2) sheetData.data.data.mana.max = 2;
         $.each(sheetData.data.items, (key, item) => {
-            if (item.img == "icons/svg/item-bag.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredLogo.webp";
-            if (item.img == "icons/svg/mystery-man.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredLogo.webp";
+            if (item.img == "icons/svg/item-bag.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
+            if (item.img == "icons/svg/mystery-man.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
         });
         return sheetData.data;
         
