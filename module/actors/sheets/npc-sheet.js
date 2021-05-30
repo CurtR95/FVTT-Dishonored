@@ -27,8 +27,12 @@ export class DishonoredNPCSheet extends ActorSheet {
     // If the player is not a GM and has limited permissions - send them to the limited sheet, otherwise, continue as usual.
     /** @override */
     get template () {
+        let versionInfo;
+        if (game.world.data) versionInfo = game.world.data.coreVersion;
+        else game.world.coreVersion;
         if (!game.user.isGM && this.actor.limited) return "systems/FVTT-Dishonored/templates/actors/limited-sheet.html";
-        return "systems/FVTT-Dishonored/templates/actors/npc-sheet.html";
+        if (isNewerVersion(versionInfo,"0.8.-1")) return "systems/FVTT-Dishonored/templates/actors/npc-sheet.html";
+        else return "systems/FVTT-Dishonored/templates/actors/npc-sheet-0.7.9.html";
     }
 
     /* -------------------------------------------- */
@@ -71,7 +75,7 @@ export class DishonoredNPCSheet extends ActorSheet {
         if (sheetData.data.data.stress.value < 0) sheetData.data.data.stress.value = 0;
         
         $.each(sheetData.data.items, (key, item) => {
-            if (!item.img) item.img = "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp";
+            if (!item.img) item.img = "/systems/FVTT-Dishonored/icons/dishonoredLogo.webp";
         });
 
         return sheetData.data;
