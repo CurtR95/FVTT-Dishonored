@@ -357,6 +357,13 @@ Hooks.once("init", function() {
             currentMigVer = "0.5.0";
             recheck = true;
             break;
+        case "0.5.0":
+            ui.notifications.notify("No Migration required from 0.5.0 to 0.5.1");
+            console.log("No Migration required from 0.4.1 to 0.5.0");
+            game.settings.set("FVTT-Dishonored", "currentMigrationVersion", "0.5.1");
+            currentMigVer = "0.5.1";
+            recheck = true;
+            break;
         default:
             recheck = false;
             break;
