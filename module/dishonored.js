@@ -38,13 +38,13 @@ import {
 import {
     DishonoredTruthSheet
 } from "./items/truth-sheet.js";
-import { 
-    DishonoredTracker 
+import {
+    DishonoredTracker
 } from "./apps/tracker.js";
-import { 
+import {
     DishonoredLogo
 } from "./apps/logo.js";
-import * as macros 
+import * as macros
     from "./macro.js";
 
 /* -------------------------------------------- */
@@ -56,7 +56,7 @@ Hooks.once("init", function() {
     if (game.world.data) versionInfo = game.world.data.coreVersion;
     else game.world.coreVersion;
     // Splash Screen
-    console.log(`Initializing Dishonored Tabletop Roleplaying Game System
+    console.info(`Initializing Dishonored Tabletop Roleplaying Game System
                                                             @@
              @                                            @@
     @         @@                     @      @@         @@@@
@@ -152,7 +152,8 @@ Hooks.once("init", function() {
         types: ["truth"],
     });
 
-    // Code taken from FFG Star Wars which also flips their health system! (Plus I like the increasing height that it implements)
+    // Code taken from FFG Star Wars which also flips their health system! (Plus
+    // I like the increasing height that it implements)
     Token.prototype._drawBar = function (number, bar, data) {
         let val = Number(data.value);
         if (data.attribute === "stress") {
@@ -162,7 +163,15 @@ Hooks.once("init", function() {
         let h = Math.max(canvas.dimensions.size / 12, 8);
         if (this.data.height >= 2) h *= 1.6; // Enlarge the bar for large tokens
         // Draw the bar
-        let color = number === 0 ? [1 - pct / 2, pct, 0] : [0.5 * pct, 0.7 * pct, 0.5 + pct / 2];
+        let color = number === 0 ? [
+            1 - pct / 2,
+            pct,
+            0
+        ] : [
+            0.5 * pct,
+            0.7 * pct,
+            0.5 + pct / 2
+        ];
         bar
             .clear()
             .beginFill(0x000000, 0.5)
@@ -282,7 +291,7 @@ Hooks.once("init", function() {
         var currentMigVer = game.settings.get("FVTT-Dishonored", "currentMigrationVersion") == 0 ? "0.4.1": game.settings.get("FVTT-Dishonored", "currentMigrationVersion");
         if (isNewerVersion(game.system.data.version, currentMigVer ?? "0.4.1")) {
             ui.notifications.notify("Current Migration Version does not match Current Version, running Migration Script.");
-            console.log("Current Migration Version does not match Current Version, running Migration Script.");
+            console.info("Current Migration Version does not match Current Version, running Migration Script.");
             game.dishonored.migration(currentMigVer);
         }
         let i;
@@ -346,7 +355,7 @@ Hooks.once("init", function() {
         switch (currentMigVer) {
         case "0.4.1":
             ui.notifications.notify("Migrating from 0.4.1 to 0.5.0");
-            console.log("Migrating from 0.4.1 to 0.5.0");
+            console.info("Migrating from 0.4.1 to 0.5.0");
             game.actors.forEach(function(actor) {
                 if (actor.data.type == "character") {
                     if (actor.data.data.truth1) actor.createOwnedItem({name:actor.data.data.truth1, type: "truth", img:"systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp"});
@@ -359,7 +368,7 @@ Hooks.once("init", function() {
             break;
         case "0.5.0":
             ui.notifications.notify("No Migration required from 0.5.0 to 0.5.1");
-            console.log("No Migration required from 0.4.1 to 0.5.0");
+            console.info("No Migration required from 0.4.1 to 0.5.0");
             game.settings.set("FVTT-Dishonored", "currentMigrationVersion", "0.5.1");
             currentMigVer = "0.5.1";
             recheck = true;
@@ -371,4 +380,3 @@ Hooks.once("init", function() {
         if (recheck == true) {game.dishonored.migration(currentMigVer);}
     };
 });
-
