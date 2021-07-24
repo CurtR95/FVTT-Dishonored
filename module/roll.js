@@ -35,7 +35,7 @@ export class DishonoredRoll {
                     if (result <= focusTarget) {
                         diceString += "<li class=\"roll die d20 max\">" + result + "</li>";
                         success += 2;
-                    } 
+                    }
                     // If the result is less than or equal to the target (the style and skill added together), that counts as 1 success but we want to show the dice as normal.
                     else if (result <= checkTarget) {
                         diceString += "<li class=\"roll die d20\">" + result + "</li>";
@@ -65,7 +65,7 @@ export class DishonoredRoll {
                 if (result <= focusTarget) {
                     diceString += "<li class=\"roll die d20 max\">" + result + "</li>";
                     success += 2;
-                } 
+                }
                 // If the result is less than or equal to the target (the style and skill added together), that counts as 1 success but we want to show the dice as normal.
                 else if (result <= checkTarget) {
                     diceString += "<li class=\"roll die d20\">" + result + "</li>";
@@ -85,7 +85,8 @@ export class DishonoredRoll {
         // Here we want to check if the success was exactly one (as "1 Successes" doesn't make grammatical sense). We create a string for the Successes.
         if (success == 1) {
             successText = success + game.i18n.format("dishonored.roll.success");
-        } else {
+        }
+        else {
             successText = success + game.i18n.format("dishonored.roll.successPlural");
         }
 
@@ -98,10 +99,12 @@ export class DishonoredRoll {
             if (complication > 1 && multipleComplicationsAllowed === true) {
                 var localisedPluralisation = game.i18n.format("dishonored.roll.complicationPlural");
                 complicationText = "<h4 class=\"dice-total failure\"> " + localisedPluralisation.replace("|#|", complication) + "</h4>";
-            } else {
+            }
+            else {
                 complicationText = "<h4 class=\"dice-total failure\"> " + game.i18n.format("dishonored.roll.complication") + "</h4>";
             }
-        } else {
+        }
+        else {
             complicationText = "";
         }
 
@@ -278,7 +281,7 @@ export class DishonoredRoll {
             type: type,
             speaker: ChatMessage.getSpeaker({ scene: null, actor: speaker }),
             flavor: flavour,
-            roll: roll, 
+            roll: roll,
             rollMode: game.settings.get("core", "rollMode"),
             content: content,
             sound: "sounds/dice.wav"
@@ -292,10 +295,10 @@ export class DishonoredRoll {
  * Checks the appropriate versioning and applies the correct constant.
  * @returns {Object} Definition of all possible message types, with id.
  */
-function chatMessageTypeVersioning() {
+var chatMessageTypeVersioning = function() {
     let versionInfo;
     if (game.world.data) versionInfo = game.world.data.coreVersion;
     else game.world.coreVersion;
     if (isNewerVersion(versionInfo,"0.8.-1")) return CONST.CHAT_MESSAGE_TYPES;
     else return CHAT_MESSAGE_TYPES;
-}
+};

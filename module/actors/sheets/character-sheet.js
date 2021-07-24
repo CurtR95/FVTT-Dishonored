@@ -6,7 +6,12 @@ export class DishonoredCharacterSheet extends ActorSheet {
     /** @override */
     static get defaultOptions () {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "actor", "character"],
+            classes: [
+                "dishonored",
+                "sheet",
+                "actor",
+                "character"
+            ],
             width: 700,
             height: 800,
             tabs: [{
@@ -14,7 +19,13 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 contentSelector: ".sheet-body",
                 initial: "focuses"
             }],
-            scrollY: [".focuses", ".abilities", ".belongings", ".biography", ".notes"],
+            scrollY: [
+                ".focuses",
+                ".abilities",
+                ".belongings",
+                ".biography",
+                ".notes"
+            ],
             dragDrop: [{
                 dragSelector: ".item-list .item",
                 dropSelector: null
@@ -40,7 +51,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
     /** @override */
     getData() {
         const sheetData = this.object;
-        //Ensure skill and style values don't weigh over the max of 8.
+        // Ensure skill and style values don't weigh over the max of 8.
         if (sheetData.data.data.skills.fight.value > 8) sheetData.data.data.skills.fight.value = 8;
         if (sheetData.data.data.skills.move.value > 8) sheetData.data.data.skills.move.value = 8;
         if (sheetData.data.data.skills.study.value > 8) sheetData.data.data.skills.study.value = 8;
@@ -54,16 +65,23 @@ export class DishonoredCharacterSheet extends ActorSheet {
         if (sheetData.data.data.styles.quietly.value > 8) sheetData.data.data.styles.quietly.value = 8;
         if (sheetData.data.data.styles.swiftly.value > 8) sheetData.data.data.styles.swiftly.value = 8;
 
-        // Checks if any values are larger than their relevant max, if so, set to max. 
-        if (sheetData.data.data.void.value > sheetData.data.data.void.max) sheetData.data.data.void.value = sheetData.data.data.void.max;
-        if (sheetData.data.data.stress.value > sheetData.data.data.stress.max) sheetData.data.data.stress.value = sheetData.data.data.stress.max;
+        // Checks if any values are larger than their relevant max, if so, set to max.
+        if (sheetData.data.data.void.value > sheetData.data.data.void.max) {
+            sheetData.data.data.void.value = sheetData.data.data.void.max;
+        }
+        if (sheetData.data.data.stress.value > sheetData.data.data.stress.max) {
+            sheetData.data.data.stress.value = sheetData.data.data.stress.max;
+        }
         // For some reason - this is treated as a string, so this enforce use of integers here.
-        if (parseInt(sheetData.data.data.mana.value) > parseInt(sheetData.data.data.mana.max)) sheetData.data.data.mana.value = sheetData.data.data.mana.max;
-
+        if (parseInt(sheetData.data.data.mana.value, 10) > parseInt(sheetData.data.data.mana.max, 10)) {
+            sheetData.data.data.mana.value = sheetData.data.data.mana.max;
+        }
         // Checks if mana max is not equal to double the void max, if it isn't, set it so.
-        if (sheetData.data.data.mana.max != 2*sheetData.data.data.void.max) sheetData.data.data.mana.max = 2*sheetData.data.data.void.max;
+        if (sheetData.data.data.mana.max != 2*sheetData.data.data.void.max) {
+            sheetData.data.data.mana.max = 2*sheetData.data.data.void.max;
+        }
 
-        //Ensure skill and style values aren't lower than 4.
+        // Ensure skill and style values aren't lower than 4.
         if (sheetData.data.data.skills.fight.value < 4) sheetData.data.data.skills.fight.value = 4;
         if (sheetData.data.data.skills.move.value < 4) sheetData.data.data.skills.move.value = 4;
         if (sheetData.data.data.skills.study.value < 4) sheetData.data.data.skills.study.value = 4;
@@ -115,7 +133,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         // We use div a lot to define text blocks. Define here.
         let div;
 
-        // Here we are checking how many bonecharms, helmets and armours are equipped. 
+        // Here we are checking how many bonecharms, helmets and armours are equipped.
         // The player can only have three bonecharms, and one of each armour type. As such, we will use this later.
         let armorNumber = 0;
         let bonecharmNumber = 0;
@@ -139,7 +157,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             html.find(".bonecharmCount")[0].style.color = "#ffffff";
         }
 
-        // This creates a dynamic Void Point tracker. It polls for the hidden control "max-void" and for the value, 
+        // This creates a dynamic Void Point tracker. It polls for the hidden control "max-void" and for the value,
         // creates a new div for each and places it under a child called "bar-void-renderer"
         let voidPointsMax = html.find("#max-void")[0].value;
         for (i = 1; i <= voidPointsMax; i++) {
@@ -151,19 +169,18 @@ export class DishonoredCharacterSheet extends ActorSheet {
             html.find("#bar-void-renderer")[0].appendChild(div);
         }
 
-        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. 
+        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor.
         // With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
-        function stressTrackUpdate() {
-            stressTrackMax = parseInt(html.find("#survive")[0].value);
+        var stressTrackUpdate = function() {
+            stressTrackMax = parseInt(html.find("#survive")[0].value, 10);
             let armor = html.find("[data-item-type=\"armor\"]");
             for (i = 0; i < armor.length; i++) {
                 if (armor[i].getAttribute("data-item-equipped") == "true") {
-                    stressTrackMax += parseInt($(armor[i]).children()[2].innerHTML);
+                    stressTrackMax += parseInt($(armor[i]).children()[2].innerHTML, 10);
                 }
             }
             // This checks that the max-stress hidden field is equal to the calculated Max Stress value, if not it makes it so.
-            if (html.find("#max-stress")[0].value != stressTrackMax)
-            {
+            if (html.find("#max-stress")[0].value != stressTrackMax) {
                 html.find("#max-stress")[0].value = stressTrackMax;
             }
             html.find("#bar-stress-renderer").empty();
@@ -175,7 +192,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 div.style = "width: calc(100% / " + html.find("#max-stress")[0].value + ");";
                 html.find("#bar-stress-renderer")[0].appendChild(div);
             }
-        }
+        };
         stressTrackUpdate();
 
         // This creates a dynamic Experience tracker.
@@ -303,21 +320,21 @@ export class DishonoredCharacterSheet extends ActorSheet {
             return li.slideUp(200, () => this.render(false));
         });
 
-        // Reads if a experience track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one. 
+        // Reads if a experience track box has been clicked, and if it has will either: set the value to the clicked box, or reduce the value by one.
         // This check is dependent on various requirements, see comments in code.
         html.find("[id^=\"exp\"]").click(ev => {
             let newTotalObject = $(ev.currentTarget)[0];
             let newTotal = newTotalObject.id.replace(/\D/g, "");
             let total;
-            // data-selected stores whether the track box is currently activated or not. This checks that the box is activated
+            // Data-selected stores whether the track box is currently activated or not. This checks that the box is activated
             if (newTotalObject.getAttribute("data-selected") === "true") {
-                // Now we check that the "next" track box is not activated. 
+                // Now we check that the "next" track box is not activated.
                 // If there isn't one, or it isn't activated, we only want to decrease the value by 1 rather than setting the value.
-                let nextCheck = "exp-" + (parseInt(newTotal) + 1);
+                let nextCheck = "exp-" + (parseInt(newTotal, 10) + 1);
                 if (!html.find("#"+nextCheck)[0] || html.find("#"+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find("#total-exp")[0].value = html.find("#total-exp")[0].value - 1;
                     this.submit();
-                } 
+                }
                 // If it isn't caught by the if, the next box is likely activated. If something happened, its safer to set the value anyway.
                 else {
                     total = html.find("#total-exp")[0].value;
@@ -326,7 +343,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                         this.submit();
                     }
                 }
-            } 
+            }
             // If the clicked box wasn't activated, we need to activate it now.
             else {
                 total = html.find("#total-exp")[0].value;
@@ -344,18 +361,20 @@ export class DishonoredCharacterSheet extends ActorSheet {
             let newTotal = newTotalObject.id.substring(7);
             let total;
             if (newTotalObject.getAttribute("data-selected") === "true") {
-                let nextCheck = "stress-" + (parseInt(newTotal) + 1);
+                let nextCheck = "stress-" + (parseInt(newTotal, 10) + 1);
                 if (!html.find("#"+nextCheck)[0] || html.find("#"+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find("#total-stress")[0].value = html.find("#total-stress")[0].value - 1;
                     this.submit();
-                } else {
+                }
+                else {
                     total = html.find("#total-stress")[0].value;
                     if (total != newTotal) {
                         html.find("#total-stress")[0].value = newTotal;
                         this.submit();
                     }
                 }
-            } else {
+            }
+            else {
                 total = html.find("#total-stress")[0].value;
                 if (total != newTotal) {
                     html.find("#total-stress")[0].value = newTotal;
@@ -371,18 +390,20 @@ export class DishonoredCharacterSheet extends ActorSheet {
             let newTotal = newTotalObject.id.replace(/\D/g, "");
             let total;
             if (newTotalObject.getAttribute("data-selected") === "true") {
-                let nextCheck = "void-" + (parseInt(newTotal) + 1);
+                let nextCheck = "void-" + (parseInt(newTotal, 10) + 1);
                 if (!html.find("#"+nextCheck)[0] || html.find("#"+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find("#total-void")[0].value = html.find("#total-void")[0].value - 1;
                     this.submit();
-                } else {
+                }
+                else {
                     total = html.find("#total-void")[0].value;
                     if (total != newTotal) {
                         html.find("#total-void")[0].value = newTotal;
                         this.submit();
                     }
                 }
-            } else {
+            }
+            else {
                 total = html.find("#total-void")[0].value;
                 if (total != newTotal) {
                     html.find("#total-void")[0].value = newTotal;
@@ -392,7 +413,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         });
         
         // If the decrease-void-max button is clicked it removes a point off the max-void and two points from max-mana.
-        html.find("[id=\"decrease-void-max\"]").click(ev => {
+        html.find("[id=\"decrease-void-max\"]").click(() => {
             html.find("#max-void")[0].value--;
             html.find("#max-mana")[0].value--;
             html.find("#max-mana")[0].value--;
@@ -400,7 +421,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
         });
 
         // If the increase-void-max button is clicked it adds a point to the max-void and two points to max-mana.
-        html.find("[id=\"increase-void-max\"]").click(ev => {
+        html.find("[id=\"increase-void-max\"]").click(() => {
             html.find("#max-void")[0].value++;
             html.find("#max-mana")[0].value++;
             html.find("#max-mana")[0].value++;
@@ -447,7 +468,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                     selectedStyleValue = html.find("#"+selectedStyle)[0].value;
                 }
             }
-            let checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
+            let checkTarget = parseInt(selectedSkillValue, 10) + parseInt(selectedStyleValue, 10);
 
             dishonoredActor.rollSkillTest(ev, checkTarget, selectedSkill, selectedStyle, this.actor);
         });
