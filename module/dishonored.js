@@ -368,9 +368,26 @@ Hooks.once("init", function() {
             break;
         case "0.5.0":
             ui.notifications.notify("No Migration required from 0.5.0 to 0.5.1");
-            console.info("No Migration required from 0.4.1 to 0.5.0");
+            console.info("No Migration required from 0.5.0 to 0.5.1");
             game.settings.set("FVTT-Dishonored", "currentMigrationVersion", "0.5.1");
             currentMigVer = "0.5.1";
+            recheck = true;
+            break;
+        case "0.5.1":
+            ui.notifications.notify("Migrating from 0.5.1 to 0.5.2");
+            console.info("Migrating from 0.5.1 to 0.5.2");
+            game.actors.forEach(function(actor) {
+                if (actor.img == "icons/svg/mystery-man.svg" || actor.img == "systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp" ) {
+                    actor.update({"img": "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp"});
+                }
+                actor.data.items.forEach(function(item) {
+                    if (item.img == "icons/svg/mystery-man.svg" || item.img == "icons/svg/item-bag.svg" || item.img == "/systems/FVTT-Dishonored/icons/dishonoredlogo.webp" ) {
+                        item.update({"img": "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp"});
+                    }
+                });
+            });
+            game.settings.set("FVTT-Dishonored", "currentMigrationVersion", "0.5.2");
+            currentMigVer = "0.5.2";
             recheck = true;
             break;
         default:
