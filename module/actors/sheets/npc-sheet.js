@@ -6,7 +6,12 @@ export class DishonoredNPCSheet extends ActorSheet {
     /** @override */
     static get defaultOptions () {
         return mergeObject(super.defaultOptions, {
-            classes: ["dishonored", "sheet", "actor", "npc"],
+            classes: [
+                "dishonored",
+                "sheet",
+                "actor",
+                "npc"
+            ],
             width: 700,
             height: 700,
             tabs: [{
@@ -14,7 +19,13 @@ export class DishonoredNPCSheet extends ActorSheet {
                 contentSelector: ".sheet-body",
                 initial: "focuses"
             }],
-            scrollY: [".focuses", ".abilities", ".belongings", ".biography", ".notes"],
+            scrollY: [
+                ".focuses",
+                ".abilities",
+                ".belongings",
+                ".biography",
+                ".notes"
+            ],
             dragDrop: [{
                 dragSelector: ".item-list .item",
                 dropSelector: null
@@ -40,7 +51,7 @@ export class DishonoredNPCSheet extends ActorSheet {
     /** @override */
     getData() {
         const sheetData = this.object;
-        //Ensure skill and style values don't weigh over the max of 8.
+        // Ensure skill and style values don't weigh over the max of 8.
         if (sheetData.data.data.skills.fight.value > 8) sheetData.data.data.skills.fight.value = 8;
         if (sheetData.data.data.skills.move.value > 8) sheetData.data.data.skills.move.value = 8;
         if (sheetData.data.data.skills.study.value > 8) sheetData.data.data.skills.study.value = 8;
@@ -54,10 +65,12 @@ export class DishonoredNPCSheet extends ActorSheet {
         if (sheetData.data.data.styles.quietly.value > 8) sheetData.data.data.styles.quietly.value = 8;
         if (sheetData.data.data.styles.swiftly.value > 8) sheetData.data.data.styles.swiftly.value = 8;
 
-        // Checks if any values are larger than their relevant max, if so, set to max. 
-        if (sheetData.data.data.stress.value > sheetData.data.data.stress.max) sheetData.data.data.stress.value = sheetData.data.data.stress.max;
+        // Checks if any values are larger than their relevant max, if so, set to max.
+        if (sheetData.data.data.stress.value > sheetData.data.data.stress.max) {
+            sheetData.data.data.stress.value = sheetData.data.data.stress.max;
+        }
 
-        //Ensure skill and style values aren't lower than 4.
+        // Ensure skill and style values aren't lower than 4.
         if (sheetData.data.data.skills.fight.value < 4) sheetData.data.data.skills.fight.value = 4;
         if (sheetData.data.data.skills.move.value < 4) sheetData.data.data.skills.move.value = 4;
         if (sheetData.data.data.skills.study.value < 4) sheetData.data.data.skills.study.value = 4;
@@ -104,13 +117,13 @@ export class DishonoredNPCSheet extends ActorSheet {
         // We use div alot to define text blocks. Define here.
         let div;
 
-        // Here we are checking how many bonecharms, helmets and armors are equipped. 
+        // Here we are checking how many bonecharms, helmets and armors are equipped.
         // The player can only have three bonecharms, and one of each armor type. As such, we will use this later.
         let armorNumber = 0;
         let bonecharmNumber = 0;
         let helmetNumber = 0;
         let stressTrackMax = 0;
-        function armorCount(currentActor) {
+        var armorCount = function(currentActor) {
             armorNumber = 0;
             helmetNumber = 0;
             currentActor.actor.items.forEach((values) => {
@@ -119,21 +132,20 @@ export class DishonoredNPCSheet extends ActorSheet {
                     if (values.data.data.helmet == false && values.data.data.equipped == true) armorNumber+= 1;
                 }
             });
-        }
+        };
         armorCount(this);
-        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor. 
+        // This creates a dynamic Stress tracker. It polls for the value of the survive skill, adds any protection from armor.
         // With the total value, creates a new div for each and places it under a child called "bar-stress-renderer".
-        function stressTrackUpdate() {
-            stressTrackMax = parseInt(html.find("#survive")[0].value);
+        var stressTrackUpdate = function() {
+            stressTrackMax = parseInt(html.find("#survive")[0].value, 10);
             let armor = html.find("[data-item-type=\"armor\"]");
             for (i = 0; i < armor.length; i++) {
                 if (armor[i].getAttribute("data-item-equipped") == "true") {
-                    stressTrackMax += parseInt($(armor[i]).children()[2].innerHTML);
+                    stressTrackMax += parseInt($(armor[i]).children()[2].innerHTML, 10);
                 }
             }
             // This checks that the max-stress hidden field is equal to the calculated Max Stress value, if not it makes it so.
-            if (html.find("#max-stress")[0].value != stressTrackMax)
-            {
+            if (html.find("#max-stress")[0].value != stressTrackMax) {
                 html.find("#max-stress")[0].value = stressTrackMax;
             }
             html.find("#bar-stress-renderer").empty();
@@ -145,7 +157,7 @@ export class DishonoredNPCSheet extends ActorSheet {
                 div.style = "width: calc(100% / " + html.find("#max-stress")[0].value + ");";
                 html.find("#bar-stress-renderer")[0].appendChild(div);
             }
-        }
+        };
         stressTrackUpdate();
 
         // Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
@@ -197,36 +209,25 @@ export class DishonoredNPCSheet extends ActorSheet {
 
         // This toggles whether the item is equipped or not. Equipped items count towards item caps.
         html.find(".control.toggle").click(ev => {
-            let itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
-            let itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
+            let itemId = ev.currentTarget.closest(".entry").dataset.itemId;
             let item = this.actor.items.get(itemId);
-            let itemData = item.data;
+            let itemType = ev.currentTarget.closest(".entry").dataset.itemType;
             if (itemType == "armor") var isHelmet = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-helmet");
-            if (this.actor.items.get(itemId).data.data.equipped == true) {
-                itemData.data.equipped = false;
-                $(ev.currentTarget).children()[0].classList.remove("fa-toggle-on");
-                $(ev.currentTarget).children()[0].classList.add("fa-toggle-off");
-                $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "false");
+            if (item.data.data.equipped === false) {
+                if (itemType == "bonecharm" && bonecharmNumber >= 3) {
+                    ui.notifications.error(game.i18n.localize("dishonored.notifications.tooManyBonecharms"));
+                    return false;
+                }
+                else if (itemType == "armor" && isHelmet == "false" && armorNumber >= 1) {
+                    ui.notifications.error(game.i18n.localize("dishonored.notifications.armorAlreadyEquipped"));
+                    return false;
+                }
+                else if (itemType == "armor" && isHelmet == "true" && helmetNumber >= 1) {
+                    ui.notifications.error(game.i18n.localize("dishonored.notifications.helmetAlreadyEquipped"));
+                    return false;
+                }
             }
-            else if (itemType == "bonecharm" && bonecharmNumber >= 3) {
-                ui.notifications.error(game.i18n.localize("dishonored.notifications.tooManyBonecharms"));
-            }
-            else if (itemType == "armor" && isHelmet == "false" && armorNumber >= 1) {
-                ui.notifications.error(game.i18n.localize("dishonored.notifications.armorAlreadyEquipped"));
-            }
-            else if (itemType == "armor" && isHelmet == "true" && helmetNumber >= 1) {
-                ui.notifications.error(game.i18n.localize("dishonored.notifications.helmentAlreadyEquipped"));
-            }
-            else {
-                itemData.data.equipped = true;
-                $(ev.currentTarget).children()[0].classList.remove("fa-toggle-off");
-                $(ev.currentTarget).children()[0].classList.add("fa-toggle-on");
-                $(ev.currentTarget).parents(".entry")[0].setAttribute("data-item-equipped", "true");
-            }
-            item.update(itemData);
-            stressTrackUpdate();
-            dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
-            this.submit();
+            return this.actor.items.get(itemId).update({["data.equipped"]: !getProperty(item.data, "data.equipped")});
         });
 
         // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
@@ -279,18 +280,20 @@ export class DishonoredNPCSheet extends ActorSheet {
             let newTotal = newTotalObject.id.substring(7);
             let total;
             if (newTotalObject.getAttribute("data-selected") === "true") {
-                let nextCheck = "stress-" + (parseInt(newTotal) + 1);
+                let nextCheck = "stress-" + (parseInt(newTotal, 10) + 1);
                 if (!html.find("#"+nextCheck)[0] || html.find("#"+nextCheck)[0].getAttribute("data-selected") != "true") {
                     html.find("#total-stress")[0].value = html.find("#total-stress")[0].value - 1;
                     this.submit();
-                } else {
+                }
+                else {
                     total = html.find("#total-stress")[0].value;
                     if (total != newTotal) {
                         html.find("#total-stress")[0].value = newTotal;
                         this.submit();
                     }
                 }
-            } else {
+            }
+            else {
                 total = html.find("#total-stress")[0].value;
                 if (total != newTotal) {
                     html.find("#total-stress")[0].value = newTotal;
@@ -340,7 +343,7 @@ export class DishonoredNPCSheet extends ActorSheet {
                     selectedStyleValue = html.find("#"+selectedStyle)[0].value;
                 }
             }
-            let checkTarget = parseInt(selectedSkillValue) + parseInt(selectedStyleValue);
+            let checkTarget = parseInt(selectedSkillValue, 10) + parseInt(selectedStyleValue, 10);
 
             dishonoredActor.rollSkillTest(ev, checkTarget, selectedSkill, selectedStyle, this.actor);
         });
