@@ -345,7 +345,9 @@ export class DishonoredNPCSheet extends ActorSheet {
             }
             let checkTarget = parseInt(selectedSkillValue, 10) + parseInt(selectedStyleValue, 10);
 
-            dishonoredActor.rollSkillTest(ev, checkTarget, selectedSkill, selectedStyle, this.actor);
+            //dishonoredActor.rollSkillTest(ev, checkTarget, selectedSkill, selectedStyle, this.actor);
+            let focusList = this.actor.data.items.filter(function (item) { return item.type == "focus"});
+            dishonoredActor.rollSkillTest(ev, checkTarget, selectedSkill, selectedStyle, focusList, this.actor);
         });
     }
 }

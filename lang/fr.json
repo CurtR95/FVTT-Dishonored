@@ -1,0 +1,204 @@
+{
+    "dishonored.__comment": "The Dishonored System allows for dynamic location of variables. These are indicated via |#|.",
+
+
+    "dishonored.notifications.momentum.trackerPermissions1": "Le <b>rôle de la Jauge d'Impulsion</b> ne possède pas la permission de <b>Modifier les paramètres de configuration</b>. Veuillez changer la ",
+    "dishonored.notifications.chaos.trackerPermissions1": "Le <b>rôle de la Jauge de Chaos</b> ne possède pas la permission de <b>Modifier les paramètres de configuration</b>. Veuillez changer la ",
+    "dishonored.notifications.trackerPermissions2": " afin que ce rôle : ",
+    "dishonored.notifications.momentum.trackerPermissions3": " acquiert la permission de <b>Modifier les paramètres de configuration</b> ou, augmentez le niveau du rôle associé au <b>rôle de la Jauge d'Impulsion</b> dans ",
+    "dishonored.notifications.chaos.trackerPermissions3": " acquiert la permission de <b>Modifier les paramètres de configuration</b> ou, augmentez le niveau du rôle associé au <b>rôle de la Jauge de Chaos</b> dans ",
+    "dishonored.notifications.trackerPermissions4": ".",
+    "dishonored.notifications.trackerPermissionsClickHere": "Pour ignorer ce message jusqu'à la prochaine mise à jour Cliquer Ici.",
+    "dishonored.notifications.lackPermission": "Vous n'avez pas la permission d'afficher cet élément !",
+    "dishonored.notifications.tooManyBonecharms": "Ce personnage est déjà équipé de 3 charmes d'os! Item non ajouté.",
+    "dishonored.notifications.armorAlreadyEquipped": "Ce personnage est déjà équipé d'une armure! Item non ajouté.",
+    "dishonored.notifications.helmetAlreadyEquipped": "Ce personnage est déjà équipé d'un casque! Item non ajouté.",
+    "dishonored.notifications.tooManyBonecharmsNew": "Ce personnage est déjà équipé de 3 charmes d'os! Item ajouté non équipé.",
+    "dishonored.notifications.armorAlreadyEquippedNew": "Ce personnage est déjà équipé d'une armure! Item ajouté non équipé.",
+    "dishonored.notifications.macroActor": "Veuillez attribuer un personnage à cette macro!",
+    "dishonored.notifications.macroSkill": "Veuillez attribuer une compétence à cette macro!",
+    "dishonored.notifications.macroStyle": "Veuillez attribuer un style à cette macro!",
+    "dishonored.notifications.macroFocus": "Une spécialité ne peut pas être inférieure à 1!",
+    "dishonored.notifications.macroDiceGreater": "Vous ne pouvez pas lancer plus de 5 dés!",
+    "dishonored.notifications.macroDiceLess": "Vous devez lancer un dé!",
+    "dishonored.notifications.momentumLess": "La valeur de la jauge d'Impulsion ne peut pas être inférieure à 0!",
+    "dishonored.notifications.momentumGreater": "IL Y A TROP D'IMPULSION!",
+    "dishonored.notifications.momentumGreaterSet": "CELA REPRESENTE TROP D'IMPULSION!",
+    "dishonored.notifications.momentumButtonInvalidPermissions": "Vous ne possédez pas les droits suffisants pour modifier la jauge d'Impulsion.",
+    "dishonored.notifications.NaN": "Cette valeur n'est pas un nombre, plus utilise uniquement des valeurs numériques",
+    "dishonored.notifications.chaosLess": "La valeur de la jauge de Chaos ne peut pas être inférieure à 0!",
+    "dishonored.notifications.chaosGreater": "IL Y A TROP DE CHAOS!",
+    "dishonored.notifications.chaosGreaterSet": "CELA REPRESENTE TROP DE CHAOS!",
+    "dishonored.notifications.chaosButtonInvalidPermissions": "Vous ne possédez pas les droits suffisants pour modifier la jauge de Chaos.",
+    "dishonored.notifications.s2A": "Un PNJ avec le nom: |#| vient d'être créé!",
+
+
+    "dishonored.settings.names.multipleComplications": "Complications multiples:",
+    "dishonored.settings.hints.multipleComplications": "The rulebook states \"Any die which rolled 20 causes a complication\". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display \"There were x Complications\" if multiple 20s are rolled. Disabling will just state a single complication.",
+    "dishonored.settings.names.send2ActorPermissionLevel": "Rôle de la fonction 'Créer en PNJ':",
+    "dishonored.settings.hints.send2ActorPermissionLevel": "Les items de type Contact dispose d'une fonction de création de PNJ. Qui doit être autorisé à voir et à utiliser cette fonction?",
+    "dishonored.settings.names.chaosPermissionLevel": "Rôle de la Jauge de Chaos:",
+    "dishonored.settings.hints.chaosPermissionLevel": "Qui doit être autorisé à modifier la jauge de Chaos? A noter, le niveau de droit sélectionné DOIT posséder la permission de Modifier les paramètres de configuration.",
+    "dishonored.settings.names.momentumPermissionLevel": "Rôle de la Jauge d'Impulsion:",
+    "dishonored.settings.hints.momentumPermissionLevel": "Qui doit être autorisé à modifier la jauge d'Impulsion? A noter, le niveau de droit sélectionné DOIT posséder la permission de Modifier les paramètres de configuration.",
+    "dishonored.settings.names.maxNumberOfExperience": "Quantité maximum d'expérience:",
+    "dishonored.settings.hints.maxNumberOfExperience": "Nombre maximum de points d'expérience que l'on peut attribuer à un personnage. La valeur par défaut est de 30, toute valeur au dessus de 50 devient pratiquement illisible.",
+    "dishonored.settings.names.trackerRefreshRate": "Rafraîchissement Chaos & Impulsion:",
+    "dishonored.settings.hints.trackerRefreshRate": "Fréquence de rafraîchissement des jauges (en secondes). Il est déconseillé d'utiliser une valeur trop basse. Augmentez la si cela semble causer des problèmes d'optimisation.",
+
+
+    "dishonored.titles.createItem": "Créer",
+    "dishonored.titles.editItem": "Editer",
+    "dishonored.titles.deleteItem": "Supprimer",
+
+
+    "dishonored.counting.one": "1",
+    "dishonored.counting.two": "2",
+    "dishonored.counting.three": "3",
+    "dishonored.counting.four": "4",
+    "dishonored.counting.five": "5",
+
+
+    "dishonored.actor.item.adjectiveNew": "Nouveau",
+
+    "dishonored.actor.npc.types": "Type PNJ",
+    "dishonored.actor.npc.incidental": "Anecdotique",
+    "dishonored.actor.npc.notable": "Notable",
+    "dishonored.actor.npc.minor": "Mineur",
+    "dishonored.actor.npc.major": "Majeur",
+
+    "dishonored.actor.character.momentum": "Impulsion",
+    "dishonored.actor.character.experience": "Expérience",
+    "dishonored.actor.character.name": "Nom",
+    "dishonored.actor.character.age": "Age",
+    "dishonored.actor.character.stress": "Stress",
+    "dishonored.actor.character.truth": "Vérités",
+    "dishonored.actor.character.firstTruth": "Première Vérité",
+    "dishonored.actor.character.secondTruth": "Seconde Vérité",
+    "dishonored.actor.character.archetype": "Archétype",
+    "dishonored.actor.character.outlook": "Tempérament",
+    "dishonored.actor.character.void": "Points de Vide",
+
+    "dishonored.actor.skisty.mod": "Mod",
+    "dishonored.actor.skisty.check": "Effectuer un test",
+
+    "dishonored.actor.skill.title": "Compétences",
+    "dishonored.actor.skill.name": "Nom",
+    "dishonored.actor.skill.fight": "Combat",
+    "dishonored.actor.skill.move": "Déplacement",
+    "dishonored.actor.skill.study": "Analyse",
+    "dishonored.actor.skill.survive": "Survie",
+    "dishonored.actor.skill.talk": "Conversation",
+    "dishonored.actor.skill.tinker": "Bricolage",
+
+    "dishonored.actor.style.title": "Styles",
+    "dishonored.actor.style.name": "Nom",
+    "dishonored.actor.style.boldly": "Audacieux",
+    "dishonored.actor.style.carefully": "Prudent",
+    "dishonored.actor.style.cleverly": "Astucieux",
+    "dishonored.actor.style.forcefully": "Brutal",
+    "dishonored.actor.style.quietly": "Discret",
+    "dishonored.actor.style.swiftly": "Vif",
+
+    "dishonored.actor.genericitem.name": "Nom",
+    "dishonored.actor.genericitem.cost": "Valeur",
+
+    "dishonored.actor.focus.title": "Spécialités",
+    "dishonored.actor.focus.rating": "Niveau",
+
+    "dishonored.actor.abilities.title": "Capacités",
+    "dishonored.actor.abilities.mana": "Points de Mana",
+
+    "dishonored.actor.talent.title": "Talents",
+    "dishonored.actor.talent.type": "Type",
+
+    "dishonored.actor.power.title": "Pouvoirs",
+    "dishonored.actor.power.rune": "Rune",
+    "dishonored.actor.power.mana": "Mana",
+
+    "dishonored.actor.biography.title": "Biographie",
+
+    "dishonored.actor.belonging.title": "Possessions",
+    "dishonored.actor.belonging.collectable.coin": "Pièces",
+    "dishonored.actor.belonging.collectable.rune": "Runes",
+    "dishonored.actor.belonging.collectable.bonecharm": "Charmes d'os",
+    "dishonored.actor.belonging.weapon.title": "Nom de l'arme",
+    "dishonored.actor.belonging.weapon.dmg": "Dom",
+    "dishonored.actor.belonging.weapon.damage": "Dommages",
+    "dishonored.actor.belonging.weapon.armorpierce": "Perforante",
+    "dishonored.actor.belonging.weapon.awkward": "Peu maniable",
+    "dishonored.actor.belonging.weapon.blast": "Rayon d'effet",
+    "dishonored.actor.belonging.weapon.block": "Parade",
+    "dishonored.actor.belonging.weapon.burn": "Incendiaire",
+    "dishonored.actor.belonging.weapon.concealed": "Dissimulation",
+    "dishonored.actor.belonging.weapon.melee": "Corps à corps",
+    "dishonored.actor.belonging.weapon.messy": "Chaotique",
+    "dishonored.actor.belonging.weapon.mine": "Mine",
+    "dishonored.actor.belonging.weapon.rangeddistant": "Longue portée",
+    "dishonored.actor.belonging.weapon.distant": "Longue",
+    "dishonored.actor.belonging.weapon.rangednearby": "Courte portée",
+    "dishonored.actor.belonging.weapon.nearby": "Courte",
+    "dishonored.actor.belonging.armor.title": "Nom de l'armure",
+    "dishonored.actor.belonging.armor.protect": "Prot",
+    "dishonored.actor.belonging.armor.protection": "Protection",
+    "dishonored.actor.belonging.bonecharm.title": "Nom du charme d'os",
+    "dishonored.actor.belonging.other.title": "Nom de l'équipement",
+    "dishonored.actor.belonging.other.qty": "Qté",
+    "dishonored.actor.belonging.other.quantity": "Quantité",
+
+    "dishonored.actor.truth.title": "Vérités",
+    "dishonored.actor.truth.content": "Vérité",
+
+    "dishonored.actor.contact.title": "Contacts",
+    "dishonored.actor.contact.relation": "Relation",
+    
+    "dishonored.actor.note.title": "Notes",
+
+
+    "dishonored.contact.relation.great": "Harmonieuse",
+    "dishonored.contact.relation.fair": "Bonne",
+    "dishonored.contact.relation.neutral": "Neutre",
+    "dishonored.contact.relation.poor": "Tendue",
+    "dishonored.contact.relation.dire": "Houleuse",
+
+
+    "dishonored.item.truth": "Vérité",
+
+    
+    "dishonored.item.armor.helmet": "Casque ?",
+    "dishonored.item.contact.send2actor": "Créer en PNJ",
+
+
+    "dishonored.apps.dicepoolwindow": "Réserve de dés",
+    "dishonored.apps.focus": "Spécialité",
+    "dishonored.apps.pool": "Nb. de dés de la réserve",
+    "dishonored.apps.rolldice": "Jet de dés",
+
+
+    "dishonored.roll.success": " Succès",
+    "dishonored.roll.successPlural": " Succès",
+    "dishonored.roll.test": " Test de compétence",
+    "dishonored.roll.complication": "Une complication survient !",
+    "dishonored.roll.complicationPlural": "|#| complications surviennent !",
+
+
+    
+    "dishonored.roll.html.target": "Cible",
+    "dishonored.roll.html.focus": "Spécialité",
+    "dishonored.roll.contact.relation": "<b>|#|</b> Relationship with Contact",
+    "dishonored.roll.focus.rating": "Spécialité de niveau <b>|#|</b>",
+    "dishonored.roll.weapon.damage": "<b>|#|</b> de Dommages",
+    "dishonored.roll.armor.protect": "<b>|#|</b> de Protection",
+    "dishonored.roll.talent.type": "<b>|#|</b> Talent",
+    "dishonored.roll.power.rune": "<b>|#|</b> Runes",
+    "dishonored.roll.power.mana": "Coûte <b>|#|</b> Mana pour l'utiliser",
+    "dishonored.roll.item.value": "|#| Pièces",
+    "dishonored.roll.item.quantity": "|#|x Elements",
+
+
+    "dishonored.tracker.chaos": "Chaos",
+    "dishonored.tracker.momentum": "Impulsion",
+
+
+    "dishonored.__eof": "This is an end of file because I'm lazy and keep forgetting commas. This shouldn't be in the final commit (sorry if it is - see previous sentence)."
+}
