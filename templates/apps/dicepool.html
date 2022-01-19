@@ -2,9 +2,8 @@
     <div class="flexcol">
 		<div class="flexrow">
             <label>{{localize 'dishonored.apps.focus'}}</label>
-            <!-- <input type="text" name="dicePoolFocus" min="1" max="5" value="1" id="dicePoolFocus"> -->
             <select name="dicePoolFocus">
-                <option value="1" selected>Aucune (1)</option>    
+                <option value="1" selected>{{localize 'dishonored.apps.focusNone'}} (1)</option>    
             {{#select dicePoolFocus}}
                 {{#each focuses as |focus|}}
                 <option value="{{focus.data.data.rating}}">{{focus.name}} ({{focus.data.data.rating}})</option>
