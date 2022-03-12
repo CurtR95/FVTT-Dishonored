@@ -38,6 +38,6 @@
     "secondaryTokenAttribute": "void",
     "url": "https://github.com/Dellatosa/FVTT-Dishonored",
     "manifest": "https://raw.githubusercontent.com/Dellatosa/FVTT-Dishonored/fr1/system.json",
-    "download": "https://github.com/Dellatosa/FVTT-Dishonored/archive/fr1.zip",
+    "download": "https://codeload.github.com/Dellatosa/FVTT-Dishonored/zip/fr1",
     "license": "LICENSE.txt"
 }
