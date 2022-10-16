@@ -141,6 +141,16 @@ export class DishonoredTracker extends Application {
                 return false;
             }
         });
+        
+        $(".collapse").click(() => {
+            if ($(".dishonored.tracker.panel.tracker-collapsed")[0]) {
+                console.log($(".dishonored.tracker.panel:not(.tracker-collapsed)")[0])
+                $(".dishonored.tracker.panel").removeClass("tracker-collapsed")
+            } else {
+                console.log($(".dishonored.tracker.panel:not(.tracker-collapsed)")[0])
+                $(".dishonored.tracker.panel").addClass("tracker-collapsed")
+            }
+        });
 
         html.find("[id^=\"dishonored-momentum-tracker\"]").click(ev => {
             momentum = game.settings.get("FVTT-Dishonored", "momentum");
