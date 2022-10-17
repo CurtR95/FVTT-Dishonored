@@ -732,13 +732,23 @@
 }
 
 .dishonored.tracker.panel {
-    right:0;
+    right:304px;
     bottom: 5px;
+    -webkit-transition: right 0.5s linear;
+      -moz-transition: right 0.5s linear;
+        -ms-transition: right 0.5s linear;
+          -o-transition: right 0.5s linear;
+            transition: right 0.5s linear;
 }
 
-#sidebar:not(.collapsed) ~ .dishonored.tracker.panel{
-    right: 304px;
-}
+.dishonored.tracker.panel.tracker-collapsed {
+    right:0px;
+    -webkit-transition: right 0.5s linear;
+      -moz-transition: right 0.5s linear;
+        -ms-transition: right 0.5s linear;
+          -o-transition: right 0.5s linear;
+            transition: right 0.5s linear;
+  }
 
 .dishonored.tracker.button {
     cursor: pointer;
