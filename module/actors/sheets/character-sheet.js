@@ -35,15 +35,15 @@ export class DishonoredCharacterSheet extends ActorSheet {
 
     /* -------------------------------------------- */
 
-    // If the player is not a GM and has limited permissions - send them to the limited sheet, otherwise, continue as usual.
     /** @override */
     get template () {
-        let versionInfo;
-        if (game.world.data) versionInfo = game.world.data.coreVersion;
-        else game.world.coreVersion;
-        if (!game.user.isGM && this.actor.limited) return "systems/FVTT-Dishonored/templates/actors/limited-sheet.html";
-        if (isNewerVersion(versionInfo,"0.8.-1")) return "systems/FVTT-Dishonored/templates/actors/character-sheet.html";
-        else return "systems/FVTT-Dishonored/templates/actors/character-sheet-0.7.9.html";
+        // If the player is not a GM and has limited permissions - send them to
+        // the limited sheet, otherwise, continue as usual.
+        const template = !game.user.isGM && this.actor.limited
+            ? "systems/FVTT-Dishonored/templates/actors/limited-sheet.html"
+            : "systems/FVTT-Dishonored/templates/actors/character-sheet.html";
+
+        return template;
     }
 
     /* -------------------------------------------- */
@@ -52,62 +52,63 @@ export class DishonoredCharacterSheet extends ActorSheet {
     getData() {
         const sheetData = this.object;
         // Ensure skill and style values don't weigh over the max of 8.
-        if (sheetData.data.data.skills.fight.value > 8) sheetData.data.data.skills.fight.value = 8;
-        if (sheetData.data.data.skills.move.value > 8) sheetData.data.data.skills.move.value = 8;
-        if (sheetData.data.data.skills.study.value > 8) sheetData.data.data.skills.study.value = 8;
-        if (sheetData.data.data.skills.survive.value > 8) sheetData.data.data.skills.survive.value = 8;
-        if (sheetData.data.data.skills.talk.value > 8) sheetData.data.data.skills.talk.value = 8;
-        if (sheetData.data.data.skills.tinker.value > 8) sheetData.data.data.skills.tinker.value = 8;
-        if (sheetData.data.data.styles.boldly.value > 8) sheetData.data.data.styles.boldly.value = 8;
-        if (sheetData.data.data.styles.carefully.value > 8) sheetData.data.data.styles.carefully.value = 8;
-        if (sheetData.data.data.styles.cleverly.value > 8) sheetData.data.data.styles.cleverly.value = 8;
-        if (sheetData.data.data.styles.forcefully.value > 8) sheetData.data.data.styles.forcefully.value = 8;
-        if (sheetData.data.data.styles.quietly.value > 8) sheetData.data.data.styles.quietly.value = 8;
-        if (sheetData.data.data.styles.swiftly.value > 8) sheetData.data.data.styles.swiftly.value = 8;
+        if (sheetData.system.skills.fight.value > 8) sheetData.system.skills.fight.value = 8;
+        if (sheetData.system.skills.move.value > 8) sheetData.system.skills.move.value = 8;
+        if (sheetData.system.skills.study.value > 8) sheetData.system.skills.study.value = 8;
+        if (sheetData.system.skills.survive.value > 8) sheetData.system.skills.survive.value = 8;
+        if (sheetData.system.skills.talk.value > 8) sheetData.system.skills.talk.value = 8;
+        if (sheetData.system.skills.tinker.value > 8) sheetData.system.skills.tinker.value = 8;
+        if (sheetData.system.styles.boldly.value > 8) sheetData.system.styles.boldly.value = 8;
+        if (sheetData.system.styles.carefully.value > 8) sheetData.system.styles.carefully.value = 8;
+        if (sheetData.system.styles.cleverly.value > 8) sheetData.system.styles.cleverly.value = 8;
+        if (sheetData.system.styles.forcefully.value > 8) sheetData.system.styles.forcefully.value = 8;
+        if (sheetData.system.styles.quietly.value > 8) sheetData.system.styles.quietly.value = 8;
+        if (sheetData.system.styles.swiftly.value > 8) sheetData.system.styles.swiftly.value = 8;
 
         // Checks if any values are larger than their relevant max, if so, set to max.
-        if (sheetData.data.data.void.value > sheetData.data.data.void.max) {
-            sheetData.data.data.void.value = sheetData.data.data.void.max;
+        if (sheetData.system.void.value > sheetData.system.void.max) {
+            sheetData.system.void.value = sheetData.system.void.max;
         }
-        if (sheetData.data.data.stress.value > sheetData.data.data.stress.max) {
-            sheetData.data.data.stress.value = sheetData.data.data.stress.max;
+        if (sheetData.system.stress.value > sheetData.system.stress.max) {
+            sheetData.system.stress.value = sheetData.system.stress.max;
         }
         // For some reason - this is treated as a string, so this enforce use of integers here.
-        if (parseInt(sheetData.data.data.mana.value, 10) > parseInt(sheetData.data.data.mana.max, 10)) {
-            sheetData.data.data.mana.value = sheetData.data.data.mana.max;
+        if (parseInt(sheetData.system.mana.value, 10) > parseInt(sheetData.system.mana.max, 10)) {
+            sheetData.system.mana.value = sheetData.system.mana.max;
         }
         // Checks if mana max is not equal to double the void max, if it isn't, set it so.
-        if (sheetData.data.data.mana.max != 2*sheetData.data.data.void.max) {
-            sheetData.data.data.mana.max = 2*sheetData.data.data.void.max;
+        if (sheetData.system.mana.max !== 2 * sheetData.system.void.max) {
+            sheetData.system.mana.max = 2 * sheetData.system.void.max;
         }
 
         // Ensure skill and style values aren't lower than 4.
-        if (sheetData.data.data.skills.fight.value < 4) sheetData.data.data.skills.fight.value = 4;
-        if (sheetData.data.data.skills.move.value < 4) sheetData.data.data.skills.move.value = 4;
-        if (sheetData.data.data.skills.study.value < 4) sheetData.data.data.skills.study.value = 4;
-        if (sheetData.data.data.skills.survive.value < 4) sheetData.data.data.skills.survive.value = 4;
-        if (sheetData.data.data.skills.talk.value < 4) sheetData.data.data.skills.talk.value = 4;
-        if (sheetData.data.data.skills.tinker.value < 4) sheetData.data.data.skills.tinker.value = 4;
-        if (sheetData.data.data.styles.boldly.value < 4) sheetData.data.data.styles.boldly.value = 4;
-        if (sheetData.data.data.styles.carefully.value < 4) sheetData.data.data.styles.carefully.value = 4;
-        if (sheetData.data.data.styles.cleverly.value < 4) sheetData.data.data.styles.cleverly.value = 4;
-        if (sheetData.data.data.styles.forcefully.value < 4) sheetData.data.data.styles.forcefully.value = 4;
-        if (sheetData.data.data.styles.quietly.value < 4) sheetData.data.data.styles.quietly.value = 4;
-        if (sheetData.data.data.styles.swiftly.value < 4) sheetData.data.data.styles.swiftly.value = 4;
+        if (sheetData.system.skills.fight.value < 4) sheetData.system.skills.fight.value = 4;
+        if (sheetData.system.skills.move.value < 4) sheetData.system.skills.move.value = 4;
+        if (sheetData.system.skills.study.value < 4) sheetData.system.skills.study.value = 4;
+        if (sheetData.system.skills.survive.value < 4) sheetData.system.skills.survive.value = 4;
+        if (sheetData.system.skills.talk.value < 4) sheetData.system.skills.talk.value = 4;
+        if (sheetData.system.skills.tinker.value < 4) sheetData.system.skills.tinker.value = 4;
+        if (sheetData.system.styles.boldly.value < 4) sheetData.system.styles.boldly.value = 4;
+        if (sheetData.system.styles.carefully.value < 4) sheetData.system.styles.carefully.value = 4;
+        if (sheetData.system.styles.cleverly.value < 4) sheetData.system.styles.cleverly.value = 4;
+        if (sheetData.system.styles.forcefully.value < 4) sheetData.system.styles.forcefully.value = 4;
+        if (sheetData.system.styles.quietly.value < 4) sheetData.system.styles.quietly.value = 4;
+        if (sheetData.system.styles.swiftly.value < 4) sheetData.system.styles.swiftly.value = 4;
 
         // Checks if any values are below their theoretical minimum, if so set it to the very minimum.
-        if (sheetData.data.data.void.value < 0) sheetData.data.data.void.value = 0;
-        if (sheetData.data.data.void.max < 1) sheetData.data.data.void.max = 1;
-        if (sheetData.data.data.stress.value < 0) sheetData.data.data.stress.value = 0;
-        if (sheetData.data.data.experience < 0) sheetData.data.data.experience = 0;
-        if (sheetData.data.data.mana.value < 0) sheetData.data.data.mana.value = 0;
-        if (sheetData.data.data.mana.max < 2) sheetData.data.data.mana.max = 2;
-        $.each(sheetData.data.items, (key, item) => {
+        if (sheetData.system.void.value < 0) sheetData.system.void.value = 0;
+        if (sheetData.system.void.max < 1) sheetData.system.void.max = 1;
+        if (sheetData.system.stress.value < 0) sheetData.system.stress.value = 0;
+        if (sheetData.system.experience < 0) sheetData.system.experience = 0;
+        if (sheetData.system.mana.value < 0) sheetData.system.mana.value = 0;
+        if (sheetData.system.mana.max < 2) sheetData.system.mana.max = 2;
+
+        $.each(sheetData.items, (key, item) => {
             if (item.img == "icons/svg/item-bag.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
             if (item.img == "icons/svg/mystery-man.svg") item.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
         });
-        return sheetData.data;
-        
+
+        return sheetData;
     }
 
     /* -------------------------------------------- */
@@ -115,11 +116,6 @@ export class DishonoredCharacterSheet extends ActorSheet {
     /** @override */
     activateListeners(html) {
         super.activateListeners(html);
-        
-        // Sets up a declaration to be able to check the version easily.
-        let versionInfo;
-        if (game.world.data) versionInfo = game.world.data.coreVersion;
-        else game.world.coreVersion;
 
         // Opens the class DishonoredSharedActorFunctions for access at various stages.
         let dishonoredActor = new DishonoredSharedActorFunctions();
@@ -144,12 +140,12 @@ export class DishonoredCharacterSheet extends ActorSheet {
         helmetNumber = 0;
         this.actor.items.forEach((values) => {
             if (values.type == "armor") {
-                if (values.data.data.helmet == true && values.data.data.equipped == true) helmetNumber+= 1;
-                if (values.data.data.helmet == false && values.data.data.equipped == true) armorNumber+= 1;
+                if (values.system.helmet == true && values.system.equipped == true) helmetNumber+= 1;
+                if (values.system.helmet == false && values.system.equipped == true) armorNumber+= 1;
             }
-            else if (values.type == "bonecharm" && values.data.data.equipped == true) bonecharmNumber+= 1;
+            else if (values.type == "bonecharm" && values.system.equipped == true) bonecharmNumber+= 1;
         });
-        html.find("[name =\"data.bonecharmequipped\"]")[0].value = bonecharmNumber;
+        html.find("[name =\"system.bonecharmequipped\"]")[0].value = bonecharmNumber;
 
         // For ease of access we may as well turn the tooltip for bonecharm counts red.
         if(bonecharmNumber > 3) {
@@ -260,7 +256,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
             let item = this.actor.items.get(itemId);
             let itemType = ev.currentTarget.closest(".entry").dataset.itemType;
             if (itemType == "armor") var isHelmet = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-helmet");
-            if (item.data.data.equipped === false) {
+            if (item.system.equipped === false) {
                 if (itemType == "bonecharm" && bonecharmNumber >= 3) {
                     ui.notifications.error(game.i18n.localize("dishonored.notifications.tooManyBonecharms"));
                     return false;
@@ -274,7 +270,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                     return false;
                 }
             }
-            return this.actor.items.get(itemId).update({["data.equipped"]: !getProperty(item.data, "data.equipped")});
+            return this.actor.items.get(itemId).update({["system.equipped"]: !getProperty(item, "system.equipped")});
         });
 
         // This allows for all items to be rolled, it gets the current targets type and id and sends it to the rollGenericItem function.
@@ -306,17 +302,15 @@ export class DishonoredCharacterSheet extends ActorSheet {
             };
             delete itemData.data["type"];
             stressTrackUpdate();
-            // Check if we are using a Foundry version above 0.8.0, use new code.
-            if (isNewerVersion(versionInfo,"0.8.-1")) return this.actor.createEmbeddedDocuments("Item",[(itemData)]);
-            else return this.actor.createOwnedItem(itemData);
+
+            return this.actor.createEmbeddedDocuments("Item",[(itemData)]);
         });
 
         // Allows item-delete images to allow deletion of the selected item. This uses Simple WorldBuilding System Code.
         html.find(".control.delete").click(ev => {
             const li = $(ev.currentTarget).parents(".entry");
-            // Check if we are using a Foundry version above 0.8.0, use new code.
-            if (isNewerVersion(versionInfo,"0.8.-1")) this.actor.deleteEmbeddedDocuments("Item",[li.data("itemId")]);
-            else this.actor.deleteOwnedItem(li.data("itemId"));
+            this.actor.deleteEmbeddedDocuments("Item",[li.data("itemId")]);
+
             return li.slideUp(200, () => this.render(false));
         });
 
@@ -411,7 +405,7 @@ export class DishonoredCharacterSheet extends ActorSheet {
                 }
             }
         });
-        
+
         // If the decrease-void-max button is clicked it removes a point off the max-void and two points from max-mana.
         html.find("[id=\"decrease-void-max\"]").click(() => {
             html.find("#max-void")[0].value--;

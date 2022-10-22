@@ -3,7 +3,7 @@ import {
 } from "./roll.js";
 
 export function skillTest(actor, skillName, styleName, focusRating, numberOfDice) {
-    let fail = false;  
+    let fail = false;
     if (actor === undefined) {
         ui.notifications.warn(game.i18n.localize("dishonored.notifications.macroActor"));
         fail = true;
@@ -37,9 +37,8 @@ export function skillTest(actor, skillName, styleName, focusRating, numberOfDice
     if (focusRating === undefined) {
         focusRating = 1;
     }
-    let skillValue = parseInt(actor.data.data.skills[skillName].value);
-    let styleValue = parseInt(actor.data.data.styles[styleName].value);
+    let skillValue = parseInt(actor.system.skills[skillName].value);
+    let styleValue = parseInt(actor.system.styles[styleName].value);
     let dishonoredRoll = new DishonoredRoll();
     dishonoredRoll.performSkillTest(numberOfDice, skillValue+styleValue, focusRating, skillName, styleName, actor);
 }
-  

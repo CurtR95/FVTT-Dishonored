@@ -52,9 +52,7 @@ import * as macros
 /* -------------------------------------------- */
 
 Hooks.once("init", function() {
-    let versionInfo;
-    if (game.world.data) versionInfo = game.world.data.coreVersion;
-    else game.world.coreVersion;
+    const versionInfo = game.world.coreVersion;
     // Splash Screen
     console.info(`Initializing Dishonored Tabletop Roleplaying Game System
                                                             @@
@@ -289,7 +287,8 @@ Hooks.once("init", function() {
 
     Hooks.on("ready", function() {
         var currentMigVer = game.settings.get("FVTT-Dishonored", "currentMigrationVersion") == 0 ? "0.4.1": game.settings.get("FVTT-Dishonored", "currentMigrationVersion");
-        if (isNewerVersion(game.system.data.version, currentMigVer ?? "0.4.1")) {
+
+        if (isNewerVersion(game.system.version, currentMigVer ?? "0.4.1")) {
             ui.notifications.notify("Current Migration Version does not match Current Version, running Migration Script.");
             console.info("Current Migration Version does not match Current Version, running Migration Script.");
             game.dishonored.migration(currentMigVer);
@@ -390,6 +389,10 @@ Hooks.once("init", function() {
             currentMigVer = "0.5.2";
             recheck = true;
             break;
+        case "0.5.2":
+            currentMigVer = "0.6.0";
+            game.settings.set("FVTT-Dishonored", "currentMigrationVersion", "0.6.0");
+            recheck = true;
         default:
             recheck = false;
             break;
