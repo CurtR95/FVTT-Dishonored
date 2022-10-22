@@ -251,17 +251,17 @@ export class DishonoredRoll {
         // as false or undefined and this not be rendered.
         const chatData = {
             content: content,
-            flavor: flavour,
-            roll: roll,
-            rollMode: game.settings.get("core", "rollMode"),
             speaker: ChatMessage.getSpeaker({ scene: null, actor: speaker }),
-            type: type,
-            user: game.user.id,
+            type:    type,
+            user:    game.user.id,
         };
 
         // Only play the dice sound if there are actually dice being rolled
         if (type === CONST.CHAT_MESSAGE_TYPES.ROLL) {
-            chatData.sound = "sounds/dice.wav";
+            chatData.flavor   = flavour;
+            chatData.roll     = roll;
+            chatData.rollMode = game.settings.get("core", "rollMode");
+            chatData.sound    = "sounds/dice.wav";
         }
 
         ChatMessage.create(chatData).then(msg => {
