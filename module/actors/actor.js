@@ -77,10 +77,10 @@ export class DishonoredSharedActorFunctions {
     }
 
     // This handles performing a skill test using the "Perform Check" button.
-    async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, focusList, speaker) {
+    async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, speaker) {
         event.preventDefault();
         // This creates a dialog to gather details regarding the roll and waits for a response
-        let rolldialog = await DishonoredRollDialog.create(focusList);
+        let rolldialog = await DishonoredRollDialog.create();
         if (rolldialog) {
             let dicePool = rolldialog.get("dicePoolSlider");
             let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
