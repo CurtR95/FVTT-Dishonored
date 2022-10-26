@@ -7,9 +7,9 @@ import {
 
 export class DishonoredActor extends Actor {
     prepareData() {
-        if (this.data.img == "icons/svg/mystery-man.svg") this.data.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
-        if (this.data.token.img == "icons/svg/mystery-man.svg") this.data.token.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
-        return this.data;
+        if (this.img == "icons/svg/mystery-man.svg") this.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
+        if (this.prototypeToken.img == "icons/svg/mystery-man.svg") this.prototypeToken.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
+        return this;
     }
 }
 
@@ -114,6 +114,9 @@ export class DishonoredSharedActorFunctions {
             break;
         case "talent":
             dishonoredRoll.performTalentRoll(item, speaker);
+            break;
+        case "truth":
+            dishonoredRoll.performTruthRoll(item, speaker);
             break;
         case "contact":
             dishonoredRoll.performContactRoll(item, speaker);

@@ -85,7 +85,7 @@
                         <input name="name" type="text" value="{{name}}" placeholder="Name" />
                     </div>
                     <div class="column" style="width:15%">
-                        <input name="data.age" type="text" value="{{data.age}}" placeholder="21" />
+                        <input name="system.age" type="text" value="{{system.age}}" placeholder="21" />
                     </div>
                 </div>
                 <div class="row">
@@ -95,7 +95,7 @@
                 </div>
                 <div class="row">
                     <div class="column" style="width:100%">
-                        <input name="data.outlook" type="text" value="{{data.outlook}}" />
+                        <input name="system.outlook" type="text" value="{{system.outlook}}" />
                     </div>
                 </div>
                 <div class="row">
@@ -105,7 +105,7 @@
                 </div>
                 <div class="row">
                     <div class="column" style="width:100%">
-                        <input name="data.archetype" type="text" value="{{data.archetype}}" />
+                        <input name="system.archetype" type="text" value="{{system.archetype}}" />
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                     {{localize 'dishonored.actor.character.experience'}}
                 </div>
                 <div class="track">
-                    <input type="hidden" id="total-exp" name="data.experience" value="{{data.experience}}" data-dtype="Number" />
+                    <input type="hidden" id="total-exp" name="system.experience" value="{{system.experience}}" data-dtype="Number" />
                     <div id="bar-exp-renderer" class=" bar"></div>
                 </div>
             </div>
@@ -129,18 +129,11 @@
                             <div class="text bold head-text">{{localize 'dishonored.actor.skill.name'}}</div>
                             <div class="field bold head-text">{{localize 'dishonored.actor.skisty.mod'}}</div>
                         </div>
-                        {{#each data.data.skills as |skill key|}}
+                        {{#each system.skills as |skill key|}}
                         <div class="stat row">
-                            <input class="selector skill" id="{{key}}.selector" type="checkbox" name="data.skills.{{key}}.selected" data-dtype="Boolean" {{checked skill.selected}}>
+                            <input class="selector skill" id="{{key}}.selector" type="checkbox" name="system.skills.{{key}}.selected" data-dtype="Boolean" {{checked skill.selected}}>
                             <div class="text"> {{localize skill.label}} </div>
-                            <input class="field" id="{{key}}" name="data.skills.{{key}}.value" type="text" value="{{skill.value}}" />
-                        </div>
-                        {{/each}}
-                        {{#each data.skills as |skill key|}}
-                        <div class="stat row">
-                            <input class="selector skill" id="{{key}}.selector" type="checkbox" name="data.skills.{{key}}.selected" data-dtype="Boolean" {{checked skill.selected}}>
-                            <div class="text"> {{localize skill.label}} </div>
-                            <input class="field" id="{{key}}" name="data.skills.{{key}}.value" type="text" value="{{skill.value}}" />
+                            <input class="field" id="{{key}}" name="system.skills.{{key}}.value" type="text" value="{{skill.value}}" />
                         </div>
                         {{/each}}
                         <div class="separator"></div>
@@ -154,8 +147,8 @@
                             {{localize 'dishonored.actor.character.stress'}}
                         </div>
                         <div class="track">
-                            <input type="hidden" id="total-stress" name="data.stress.value" value="{{data.stress.value}}" data-dtype="Number" />
-                            <input type="hidden" id="max-stress" name="data.stress.max" value="{{data.stress.max}}" data-dtype="Number" />
+                            <input type="hidden" id="total-stress" name="system.stress.value" value="{{system.stress.value}}" data-dtype="Number" />
+                            <input type="hidden" id="max-stress" name="system.stress.max" value="{{system.stress.max}}" data-dtype="Number" />
                             <div id="bar-stress-renderer" class=" bar"></div>
                         </div>
                     </div>
@@ -169,14 +162,14 @@
                             {{localize 'dishonored.actor.character.void'}}
                         </div>
                         <div class="track">
-                            <input type="hidden" id="total-void" name="data.void.value" value="{{data.void.value}}" data-dtype="Number" />
-                            <input type="hidden" id="max-void" name="data.void.max" value="{{data.void.max}}" data-dtype="Number" />
+                            <input type="hidden" id="total-void" name="system.void.value" value="{{system.void.value}}" data-dtype="Number" />
+                            <input type="hidden" id="max-void" name="system.void.max" value="{{system.void.max}}" data-dtype="Number" />
                             <div class="bar">
                                 <div class="voidchange box" id="decrease-void-max"><i class="fas fa-minus"></i></div>
                                 <div id="bar-void-renderer" class="bar"></div>
                                 <div class="voidchange box" id="increase-void-max"><i class="fas fa-plus"></i></div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -190,18 +183,11 @@
                             <div class="text bold head-text">{{localize 'dishonored.actor.style.name'}}</div>
                             <div class="selector-space"></div>
                         </div>
-                        {{#each data.data.styles as |style key|}}
+                        {{#each system.styles as |style key|}}
                         <div class="stat row">
-                            <input class="field" id="{{key}}" name="data.styles.{{key}}.value" type="text" value="{{style.value}}" placeholder="Name" />
+                            <input class="field" id="{{key}}" name="system.styles.{{key}}.value" type="text" value="{{style.value}}" placeholder="Name" />
                             <div class="text"> {{localize style.label}} </div>
-                            <input class="selector style" id="{{key}}.selector" type="checkbox" name="data.styles.{{key}}.selected" data-dtype="Boolean" {{checked style.selected}}>
-                        </div>
-                        {{/each}}
-                        {{#each data.styles as |style key|}}
-                        <div class="stat row">
-                            <input class="field" id="{{key}}" name="data.styles.{{key}}.value" type="text" value="{{style.value}}" placeholder="Name" />
-                            <div class="text"> {{localize style.label}} </div>
-                            <input class="selector style" id="{{key}}.selector" type="checkbox" name="data.styles.{{key}}.selected" data-dtype="Boolean" {{checked style.selected}}>
+                            <input class="selector style" id="{{key}}.selector" type="checkbox" name="system.styles.{{key}}.selected" data-dtype="Boolean" {{checked style.selected}}>
                         </div>
                         {{/each}}
                         <div class="separator"></div>
@@ -243,7 +229,7 @@
                     <li class="row entry" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
                         <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                         <h4 class="column-x2-big">{{item.name}}</h4>
-                        <h4 class="column-x2-small">{{item.data.data.rating}}</h4>
+                        <h4 class="column-x2-small">{{item.system.rating}}</h4>
                         <div class="control">
                             <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
                             <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
@@ -264,9 +250,9 @@
                     <div class="column-x6 small"></div>
                     <div class="column-x6 bold">{{localize 'dishonored.actor.abilities.mana'}}</div>
                     <div class="column-x6 small">
-                        <div class="small"><input name="data.mana.value" type="text" value="{{data.mana.value}}" placeholder="0"/></div>
+                        <div class="small"><input name="system.mana.value" type="text" value="{{system.mana.value}}" placeholder="0"/></div>
                         <div class="advisory">/</div>
-                        <div class="small disabled"><input id="max-mana" name="data.mana.max" type="text" value="{{data.mana.max}}" readonly/></div>
+                        <div class="small disabled"><input id="max-mana" name="system.mana.max" type="text" value="{{system.mana.max}}" readonly/></div>
                     </div>
                     <div class="column-x6 small"></div>
                     <div class="column-x6 small"></div>
@@ -323,12 +309,12 @@
                     <div class="currency row">
                         <div class="column-x6 bold">{{localize 'dishonored.actor.belonging.collectable.bonecharm'}}</div>
                         <div class="column-x6 small bonecharmCount">
-                            <span class="small bonecharm disabled"><input name="data.bonecharmequipped" type="text" value="{{data.bonecharmequipped}}" readonly/></span>/3
+                            <span class="small bonecharm disabled"><input name="system.bonecharmequipped" type="text" value="{{system.bonecharmequipped}}" readonly/></span>/3
                         </div>
                         <div class="column-x6 bold">{{localize 'dishonored.actor.belonging.collectable.rune'}}</div>
-                        <div class="column-x6 small"><input name="data.runes" type="text" value="{{data.runes}}" placeholder="0"/></div>
+                        <div class="column-x6 small"><input name="system.runes" type="text" value="{{system.runes}}" placeholder="0"/></div>
                         <div class="column-x6 bold">{{localize 'dishonored.actor.belonging.collectable.coin'}}</div>
-                        <div class="column-x6 small"><input name="data.coins" type="text" value="{{data.coins}}" placeholder="0"/></div>
+                        <div class="column-x6 small"><input name="system.coins" type="text" value="{{system.coins}}" placeholder="0"/></div>
                     </div>
                     <div class="main">
                         <div class="row item equipable">
@@ -342,7 +328,7 @@
                         <li class="row entry equipable" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
-                            <h4 class="column-x2-small">{{item.data.data.damage}}</h4>
+                            <h4 class="column-x2-small">{{item.system.damage}}</h4>
                             <div class="control">
                                 <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
@@ -358,12 +344,12 @@
                         </div>
                         {{#each items as |item type id|}}
                         {{#if (eq item.type "armor")}}
-                        <li id="armor-{{item.id}}" class="row entry equipable" data-item-id="{{item.id}}" data-item-type="{{item.type}}" data-item-helmet="{{item.data.data.helmet}}" data-item-equipped="{{item.data.data.equipped}}">
+                        <li id="armor-{{item.id}}" class="row entry equipable" data-item-id="{{item.id}}" data-item-type="{{item.type}}" data-item-helmet="{{item.system.helmet}}" data-item-equipped="{{item.system.equipped}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
-                            <h4 id="protectval-armor-{{item.id}}" class="column-x2-small">{{item.data.data.protection}}</h4>
+                            <h4 id="protectval-armor-{{item.id}}" class="column-x2-small">{{item.system.protection}}</h4>
                             <div class="control">
-                                {{#if (eq item.data.data.equipped true)}}
+                                {{#if (eq item.system.equipped true)}}
                                     <a class="control toggle"><i class="fas fa-toggle-on"></i></a>
                                 {{else}}
                                     <a class="control toggle"><i class="fas fa-toggle-off"></i></a>
@@ -387,7 +373,7 @@
                             <h4 class="column-x2-big">{{item.name}}</h4>
                             <div class="column-x2-small"></div>
                             <div class="control">
-                                <a class="control toggle"><i class="fas fa-toggle-{{#if (eq item.data.data.equipped true)}}on{{else}}off{{/if}}"></i></a>
+                                <a class="control toggle"><i class="fas fa-toggle-{{#if (eq item.system.equipped true)}}on{{else}}off{{/if}}"></i></a>
                                 <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
                             </div>
@@ -405,7 +391,7 @@
                         <li class="row entry equipable" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2-big">{{item.name}}</h4>
-                            <h4 class="column-x2-small">{{item.data.data.quantity}}</h4>
+                            <h4 class="column-x2-small">{{item.system.quantity}}</h4>
                             <div class="control">
                                 <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
@@ -460,7 +446,7 @@
                         <li class="row entry" data-item-id="{{item.id}}" data-item-type="{{item.type}}">
                             <div class="image"><img class="rollable" src="{{item.img}}" title="{{item.name}}"/></div>
                             <h4 class="column-x2">{{item.name}}</h4>
-                            <h4 class="column-x2">{{item.data.data.relationship}}</h4>
+                            <h4 class="column-x2">{{item.system.relationship}}</h4>
                             <div class="control">
                                 <a class="control edit" title="{{localize 'dishonored.titles.editItem'}}"><i class="fas fa-edit"></i></a>
                                 <a class="control delete" title="{{localize 'dishonored.titles.deleteItem'}}"><i class="fas fa-trash"></i></a>
@@ -474,7 +460,7 @@
             <div class="tab notes" data-group="primary" data-tab="notes">
                 <div class="section notes">
                     <div class="notes">
-                        {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+                        {{editor system.notes target="system.notes" button=true owner=owner editable=editable}}
                     </div>
                 </div>
             </div>

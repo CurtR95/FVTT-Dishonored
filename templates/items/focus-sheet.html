@@ -8,11 +8,11 @@
             </div>
             <div class="column-x2-x3-small">
                 <label>{{localize 'dishonored.actor.focus.rating'}}</label>
-                <input type="text" name="data.rating" value="{{data.rating}}" data-dtype="Number" />
+                <input type="text" name="system.rating" value="{{system.rating}}" data-dtype="Number" />
             </div>
         </div>
     </div>
     <div class="description">
-        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        {{editor system.description target="system.description" button=true owner=owner editable=editable}}
     </div>
 </form>

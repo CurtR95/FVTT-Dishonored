@@ -9,8 +9,8 @@ export class DishonoredLogo extends Application {
     }
 
     activateListeners(html) {
-        html[0].href += game.system.data.version;
-        html.find("#dishonored-logo-verID")[0].innerHTML = game.system.data.version;
+        html[0].href += game.system.version;
+        html.find("#dishonored-logo-verID")[0].innerHTML = game.system.version;
     }
 }
 

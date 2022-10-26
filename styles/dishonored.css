@@ -5,8 +5,6 @@
     padding: 0;
 }
 
-
-
 /* Globals */
 
 @font-face {
@@ -679,7 +677,7 @@
 }
 
 .dishonored.roll.skill .dice-roll .dice-result .dice-tooltip .dice .dice-rolls {
-    display: flex; 
+    display: flex;
     justify-content: center;
 }
 
@@ -833,7 +831,7 @@
 }
 
 .dishonored.tracker.momentum.track.item.background {
-    position: absolute; 
+    position: absolute;
     bottom: 8px;
     pointer-events: none;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
@@ -845,8 +843,8 @@
 
 .dishonored.tracker.momentum.track.item.background.slot {
     pointer-events: auto;
-    stroke:white; 
-    stroke-width:2px; 
+    stroke:white;
+    stroke-width:2px;
     fill: transparent;
     z-index: 5;
     cursor: pointer;

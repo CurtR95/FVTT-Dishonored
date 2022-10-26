@@ -141,13 +141,13 @@ export class DishonoredTracker extends Application {
                 return false;
             }
         });
-        
+
         $(".collapse").click(() => {
             if ($(".dishonored.tracker.panel.tracker-collapsed")[0]) {
-                console.log($(".dishonored.tracker.panel:not(.tracker-collapsed)")[0])
+                // console.log($(".dishonored.tracker.panel:not(.tracker-collapsed)")[0])
                 $(".dishonored.tracker.panel").removeClass("tracker-collapsed")
             } else {
-                console.log($(".dishonored.tracker.panel:not(.tracker-collapsed)")[0])
+                // console.log($(".dishonored.tracker.panel:not(.tracker-collapsed)")[0])
                 $(".dishonored.tracker.panel").addClass("tracker-collapsed")
             }
         });
@@ -160,14 +160,14 @@ export class DishonoredTracker extends Application {
             let newTotal = captureObject.id.replace(/\D/g, "");
             // data-selected stores whether the track box is currently activated or not. This checks that the box is activated
             if (newTotalObjectBG.getAttribute("data-selected") === "true") {
-                // Now we check that the "next" track box is not activated. 
+                // Now we check that the "next" track box is not activated.
                 // If there isn't one, or it isn't activated, we only want to decrease the value by 1 rather than setting the value.
                 let nextCheck = "dishonored-momentum-tracker-" + (parseInt(newTotal) + 1 + "-bg");
                 if (!html.find("#"+nextCheck)[0] || html.find("#"+nextCheck)[0].getAttribute("data-selected") != "true") {
                     momentum = momentum - 1;
                     game.settings.set("FVTT-Dishonored", "momentum", momentum);
                     renderTracker();
-                } 
+                }
                 // If it isn't caught by the if, the next box is likely activated. If something happened, its safer to set the value anyway.
                 else {
                     // let total = html.find('#total-exp')[0].value;
@@ -177,7 +177,7 @@ export class DishonoredTracker extends Application {
                         renderTracker();
                     }
                 }
-            } 
+            }
             // If the clicked box wasn't activated, we need to activate it now.
             else {
                 if (momentum != newTotal) {
@@ -225,7 +225,7 @@ export class DishonoredTracker extends Application {
             }
             let storedChaos = game.settings.get("FVTT-Dishonored", "chaos");
             let storedMomentum = game.settings.get("FVTT-Dishonored", "momentum");
-            // Get out clause that checks if the chaos or momentum is below 0 and if so, change it to 0. 
+            // Get out clause that checks if the chaos or momentum is below 0 and if so, change it to 0.
             if (storedChaos < 0) {
                 game.settings.set("FVTT-Dishonored", "chaos", 0);
             }
@@ -255,7 +255,7 @@ export class DishonoredTracker extends Application {
                         document.getElementById("dishonored-momentum-tracker-"+i+"-fg").style.textShadow = "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black";
                     }
                 }
-            }  
+            }
         }, refreshRate);
     }
 }

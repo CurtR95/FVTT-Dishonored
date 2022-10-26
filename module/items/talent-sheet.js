@@ -6,19 +6,28 @@ export class DishonoredTalentSheet extends ItemSheet {
             classes: ["dishonored", "sheet", "item", "talent"],
             width: 500,
             height: 250,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+            tabs: [{
+                navSelector: ".sheet-tabs",
+                contentSelector: ".sheet-body",
+                initial: "description",
+            }]
         });
     }
 
     /* -------------------------------------------- */
 
-    // If the player is not a GM and has limited permissions - send them to the limited sheet, otherwise, continue as usual.
     /** @override */
     get template() {
+        // If the player is not a GM and has limited permissions - send them to
+        // the limited sheet, otherwise, continue as usual.
         if ( !game.user.isGM && this.item.limited) {
-            ui.notifications.warn(game.i18n.localize("dishonored.notifications.lackPermission"));
+            ui.notifications.warn(
+                game.i18n.localize("dishonored.notifications.lackPermission")
+            );
+
             return;
         }
+
         return "systems/FVTT-Dishonored/templates/items/talent-sheet.html";
     }
 
@@ -26,7 +35,7 @@ export class DishonoredTalentSheet extends ItemSheet {
 
     /** @override */
     getData() {
-        const data = this.object.data;
+        const data = this.object;
         data.dtypes = ["String", "Number", "Boolean"];
 
         return data;
@@ -39,7 +48,9 @@ export class DishonoredTalentSheet extends ItemSheet {
         const position = super.setPosition(options);
         const sheetBody = this.element.find(".sheet-body");
         const bodyHeight = position.height - 192;
+
         sheetBody.css("height", bodyHeight);
+
         return position;
     }
 
@@ -51,6 +62,6 @@ export class DishonoredTalentSheet extends ItemSheet {
 
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
-
     }
+
 }
