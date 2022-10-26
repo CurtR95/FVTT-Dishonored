@@ -106,6 +106,7 @@
     "dishonored.actor.focus.title": "Focuses",
     "dishonored.actor.focus.rating": "Rating",
 
+    "dishonored.actor.abilities.title": "Abilities",
     "dishonored.actor.abilities.mana": "Mana Points",
 
     "dishonored.actor.talent.title": "Talents",
@@ -114,6 +115,8 @@
     "dishonored.actor.power.title": "Powers",
     "dishonored.actor.power.rune": "Rune",
     "dishonored.actor.power.mana": "Mana",
+
+    "dishonored.actor.biography.title": "Biography",
 
     "dishonored.actor.belonging.title": "Belongings",
     "dishonored.actor.belonging.collectable.coin": "Coins",
@@ -167,7 +170,8 @@
 
 
     "dishonored.apps.dicepoolwindow": "Dice Pool",
-    "dishonored.apps.focus": "Focus Rating",
+    "dishonored.apps.focus": "Focus",
+    "dishonored.apps.focusNone": "None",
     "dishonored.apps.pool": "Number of Dice in Pool",
     "dishonored.apps.rolldice": "Roll Dice",
 
