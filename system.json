@@ -10,15 +10,16 @@
     },
     "authors": [
       {
-        "name": "KaitoR95",
-        "email": "curtisreet95@gmail.com",
-        "discord": "KaitoR (カーティス)#2355",
-        "url": "https://github.com/CurtR95"
+        "name": "Paul Maskelyne, ",
+        "discord": "Muttley#3296",
+        "email": "mu77ley@gmail.com",
+        "url": "https://github.com/Muttley"
       },
       {
-        "name": "Paul Maskelyne",
-        "discord": "Muttley#3296",
-        "email": "mu77ley@gmail.com"
+        "name": "KaitoR95",
+        "discord": "KaitoR (カーティス)#2355",
+        "email": "curtisreet95@gmail.com",
+        "url": "https://github.com/CurtR95"
       }
     ],
     "esmodules": ["module/dishonored.js"],
