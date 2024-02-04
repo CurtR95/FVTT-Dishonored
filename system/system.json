@@ -21,7 +21,7 @@
         "url": "https://github.com/CurtR95"
       }
     ],
-    "esmodules": ["module/dishonored.js"],
+    "esmodules": ["dishonored.js"],
     "styles": ["styles/dishonored.css"],
     "packs": [{
       "label": "Focuses",
