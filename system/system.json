@@ -1,12 +1,11 @@
 {
     "id": "FVTT-Dishonored",
-    "title": "Dishonored Roleplaying Game Unofficial",
+    "title": "Dishonored: The Roleplaying Game",
     "description": "An unofficial rendition of the Modiphius tabletop role playing game system.",
     "version": "0.6.0",
     "compatibility": {
       "minimum": "10",
-      "verified": "10",
-      "maximum": "11"
+      "verified": "11"
     },
     "authors": [
       {

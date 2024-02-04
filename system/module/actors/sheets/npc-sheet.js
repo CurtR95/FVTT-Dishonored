@@ -87,9 +87,12 @@ export class DishonoredNPCSheet extends ActorSheet {
         // Checks if any values are below their theoretical minimum, if so set it to the very minimum.
         if (sheetData.system.stress.value < 0) sheetData.system.stress.value = 0;
 
-        $.each(sheetData.items, (key, item) => {
+        for (const item of sheetData.items) {
             if (!item.img) item.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
-        });
+        }
+        // $.each(sheetData.items, (key, item) => {
+        //     if (!item.img) item.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
+        // });
 
         return sheetData;
     }
