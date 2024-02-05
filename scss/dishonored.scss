@@ -1,0 +1,803 @@
+.dishonored {
+	font-family: "EB Garamond";
+	.window-content {
+		background: #ffffff !important;
+		padding: 0;
+	}
+	.bold {
+		font-weight: bold;
+	}
+	.title {
+		text-align: center;
+		font-size: 18pt;
+		line-height: 24px;
+	}
+	.row {
+		display: flex;
+		flex-direction: row;
+		text-align: center;
+		.column {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+	.btn {
+		background-color: #000000;
+		color: #ffffff;
+		border-radius: 4px;
+		border: 1px solid #ffffff;
+		&:hover {
+			box-shadow: 0 0 8px red;
+			cursor: pointer;
+		}
+	}
+	.unset-clickables {
+		&:hover {
+			box-shadow: unset !important;
+			text-shadow: unset !important;
+			cursor: unset !important;
+			content: unset !important;
+		}
+	}
+	.track {
+		display: flex;
+		flex-direction: row;
+		.bar {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			.box {
+				height: 14px;
+				outline: 1px solid #191919;
+				margin-left: 1px;
+				padding: 0px;
+				display: block;
+				font-size: 8pt;
+				text-align: center;
+				&:hover {
+					box-shadow: 0 0 8px red;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	&.sheet {
+		&.actor {
+			&.window-app {
+				min-width: 700px;
+				min-height: 700px;
+			}
+			.header-fields {
+				flex: 1;
+				top: 0;
+				position: sticky;
+				background-color: #ffffff;
+				.background {
+					position: absolute;
+					&.left {
+						left: -1px;
+					}
+					&.right {
+						right: 0px;
+					}
+				}
+				.slot {
+					position: relative;
+					width: 44%;
+					left: 28%;
+				}
+				.row {
+					.column {
+						display: flex;
+						width: 100%;
+						padding-top: 2px;
+						.section {
+							.profile-img {
+								width: 150px;
+								height: 150px;
+								object-fit: cover;
+								object-position: 50% 0;
+								border: none;
+							}
+							.stat {
+								&.row {
+									.field {
+										width: 15%;
+										font-size: 14pt;
+										height: 24px;
+										font-weight: bold;
+									}
+									.text {
+										width: calc(85% - 30px);
+										font-size: 12pt;
+										font-weight: bold;
+									}
+									.head-text {
+										font-size: 10pt;
+										font-weight: bold;
+									}
+									.selector-space {
+										width: 30px;
+									}
+									.selector {
+										border: 1px solid;
+										border-collapse: collapse;
+										padding: 0px;
+										display: block;
+										height: 20px;
+										&:hover {
+											box-shadow: 0 0 8px red;
+											cursor: pointer;
+										}
+									}
+								}
+							}
+							.check-button {
+								width: 75%;
+								height: 30px;
+								line-height: 30px;
+								margin: 5px 12.5%;
+								font-size: 14pt;
+							}
+						}
+					}
+				}
+				input {
+					font-size: 16pt;
+					height: 30px;
+				}
+				select {
+					text-align: center;
+					text-align-last: center;
+					font-family: "EB Garamond";
+					font-size: 16pt;
+					height: 30px;
+				}
+				.section {
+					padding: 0 4%;
+					&.experience {
+						padding: 0;
+						position: relative;
+						.title {
+							font-size: 14pt;
+							padding-top: 8px;
+						}
+					}
+					.track {
+						.bar {
+							.voidchange {
+								width: 10%;
+							}
+						}
+					}
+					&.stress {
+						padding: 0;
+						position: relative;
+					}
+				}
+				.tabs {
+					font-size: 16pt;
+					font-weight: bold;
+					margin: 0;
+					border-color: #000000;
+					border-bottom: 0;
+				}
+			}
+			.stress {
+				.track {
+					.bar {
+						.box {
+							height: 20px;
+							font-size: 10pt;
+						}
+					}
+				}
+			}
+			.tab {
+				position: absolute;
+				width: 100%;
+				height: calc(100% - 528px);
+				overflow-y: auto;
+				.section {
+					width: 45%;
+					margin: 0 auto;
+					.title {
+						font-size: 18pt;
+						font-weight: bold;
+					}
+					.row {
+						display: flex;
+						flex-direction: row;
+						.image {
+							width: 26px;
+							img {
+								width: 24px;
+								height: 24px;
+								object-fit: cover;
+								object-position: 50% 0;
+								border: none;
+							}
+							.rollable {
+								&:hover {
+									content: url("/icons/svg/d20-black.svg");
+									cursor: pointer;
+									filter: drop-shadow(0px 0px 5px red);
+								}
+							}
+						}
+						.control {
+							width: 32px;
+							line-height: 17pt;
+							font-size: 14px;
+						}
+						.column-x1 {
+							width: calc(100% - 58px);
+						}
+						.column-x2 {
+							width: calc((100% - 58px)/2);
+						}
+						.column-x2-big {
+							width: calc(3*((100% - 58px)/4));
+						}
+						.column-x2-small {
+							width: calc((100% - 58px)/4);
+						}
+						.column-x4 {
+							width: calc(100% /4);
+						}
+						.column-x6 {
+							width: calc(100% /6);
+						}
+						.small {
+							&.disabled {
+								input {
+									box-shadow: none;
+									cursor: default;
+									color: grey;
+								}
+							}
+						}
+					}
+					.entry {
+						&.row {
+							display: flex;
+							flex-direction: row;
+							font-size: 12pt;
+						}
+					}
+					.item {
+						&.row {
+							border-radius: 5px;
+							background-color: rgb(200, 200, 200, 0.3);
+							font-size: 13pt;
+						}
+					}
+					&.focuses {
+						width: 100%;
+						padding: 0 5% 0;
+						top: 20%;
+						position: absolute;
+						overflow-y: auto;
+						height: 80%;
+					}
+					&.belongings {
+						width: 100%;
+						.currency {
+							border-top: 1px solid #000000;
+							font-size: 13pt;
+							position: absolute;
+							bottom: 0;
+							width: 100%;
+						}
+						.main {
+							overflow-y: auto;
+							padding: 0% 5% 1%;
+							top: 20%;
+							position: absolute;
+							bottom: 23px;
+							width: 100%;
+						}
+						.row {
+							&.equipable {
+								.control {
+									width: 56px;
+								}
+								.column-x1 {
+									width: calc(100% - 80px);
+								}
+								.column-x2 {
+									width: calc((100% - 80px)/2);
+								}
+								.column-x2-big {
+									width: calc(3*((100% - 80px)/4));
+								}
+							}
+							.equipable {
+								&.column-x2-small {
+									width: calc((100% - 80px)/4);
+								}
+							}
+							.bonecharm {
+								input {
+									padding: 0;
+									min-width: 0;
+									width: 10px;
+								}
+							}
+						}
+					}
+					&.notes {
+						margin: 0;
+						padding: 0 5%;
+						width: 100%;
+						top: 20%;
+						position: absolute;
+						overflow-y: auto;
+						height: 80%;
+						left: 0;
+						bottom: 0;
+						.notes {
+							height: 95%;
+							margin: 0;
+							.editor {
+								height: 100%;
+								margin: 0;
+								overflow: unset;
+								.tox {
+									height: 100% !important;
+									margin: 0;
+								}
+							}
+						}
+					}
+					.notes {
+						.editor {
+							.editor-content {
+								font-size: 16px;
+								overflow-y: unset;
+							}
+						}
+					}
+				}
+				.small {
+					input {
+						height: 17px;
+					}
+				}
+				&.abilities {
+					&.active {
+						display: block;
+					}
+					.mana {
+						border-top: 1px solid #000000;
+						font-size: 13pt;
+						display: flex;
+						position: absolute;
+						bottom: 0;
+						width: 100%;
+						.column-x6 {
+							width: calc(100% /6);
+							display: flex;
+						}
+					}
+					.main {
+						display: flex;
+						overflow-y: auto;
+						top: 20%;
+						position: absolute;
+						padding: 0;
+						bottom: 23px;
+						width: 100%;
+					}
+				}
+				&.biography {
+					.content {
+						width: 100%;
+						padding: 0;
+						top: 20%;
+						position: absolute;
+						overflow-y: auto;
+						height: 80%;
+						display: flex;
+					}
+				}
+				&.notes {
+					margin: 0;
+					padding: 6% 5% 0;
+				}
+			}
+			&.character {
+				.tab {
+					height: calc(100% - 528px);
+					&.abilities {
+						.main {
+							height: calc(80% - 23px);
+						}
+					}
+					.section {
+						&.belongings {
+							.main {
+								height: calc(80% - 23px);
+							}
+						}
+					}
+				}
+			}
+			&.npc {
+				.tab {
+					height: calc(100% - 424px);
+					&.abilities {
+						.main {
+							height: 80%;
+						}
+					}
+					.section {
+						&.belongings {
+							.main {
+								height: 80%;
+							}
+						}
+					}
+				}
+			}
+			.tab[data-tab].active {
+				display: flex;
+			}
+		}
+		&.item {
+			.header-fields {
+				font-weight: bold;
+				font-size: 12pt;
+				.row {
+					.img {
+						width: 50px;
+						height: 50px;
+						object-fit: cover;
+						object-position: 50% 0;
+					}
+					.column-x3-big {
+						width: calc(40% - 50px);
+						width: calc(60% - 50px);
+					}
+					.column-x2 {
+						width: calc(50% - 25px);
+					}
+					.column-x2-big {
+						width: calc(80% - 50px);
+					}
+					.column-x1 {
+						width: calc(100% - 50px);
+					}
+					.column-x2-x3-small {
+						width: 20%;
+					}
+				}
+			}
+			.description {
+				height: calc(100% - 50px);
+				.editor {
+					height: 100%;
+					.tox {
+						height: 100% !important;
+					}
+				}
+			}
+			&.contact {
+				.header-fields {
+					.row {
+						.send2actor {
+							width: 100%;
+							height: 20px;
+							line-height: 20px;
+							font-size: 14pt;
+						}
+					}
+				}
+				.description {
+					height: calc(100% - 70px);
+				}
+			}
+			&.weapon {
+				.header-fields {
+					.row {
+						.column-x4 {
+							width: 25%;
+							display: flex;
+							flex-direction: row;
+							text-align: left;
+							.label {
+								font-size: 14px;
+								line-height: 26px;
+							}
+						}
+					}
+				}
+				.description {
+					height: calc(100% - 128px);
+				}
+			}
+		}
+	}
+	&.roll {
+		.dice-roll {
+			.dice-result {
+				.dice-tooltip {
+					display: block;
+				}
+			}
+		}
+		&.skill {
+			.dice-roll {
+				.dice-result {
+					.dice-formula {
+						.aim {
+							margin: 0;
+							background: unset;
+							border: 0;
+						}
+					}
+					.dice-tooltip {
+						.dice {
+							.dice-rolls {
+								display: flex;
+								justify-content: center;
+							}
+						}
+					}
+				}
+			}
+		}
+		&.generic {
+			.dice-roll {
+				.dice-result {
+					.dice-formula {
+						box-shadow: none;
+						line-height: normal;
+						cursor: pointer;
+						word-break: normal;
+						&.title {
+							display: flex;
+							flex-direction: row;
+							background: none;
+							border: none;
+							text-align: left;
+							font-size: 1.2em;
+						}
+						.img {
+							height: 45px;
+						}
+					}
+					.tags {
+						display: flex;
+						flex-direction: row;
+						text-align: center;
+						flex-wrap: wrap;
+						.tag {
+							width: calc(100%/3);
+							font-size: 12px;
+							flex-grow: 1;
+							border: 0.5px solid black;
+							border-radius: 3px;
+							background-color: rgb(255, 255, 255, 0.3);
+						}
+					}
+				}
+			}
+		}
+	}
+	&.tracker {
+		position: absolute;
+		&.panel {
+			right: 304px;
+			bottom: 5px;
+			-webkit-transition: right 0.5s linear;
+			-moz-transition: right 0.5s linear;
+			-ms-transition: right 0.5s linear;
+			-o-transition: right 0.5s linear;
+			transition: right 0.5s linear;
+			&.tracker-collapsed {
+				right: 0px;
+				-webkit-transition: right 0.5s linear;
+				-moz-transition: right 0.5s linear;
+				-ms-transition: right 0.5s linear;
+				-o-transition: right 0.5s linear;
+				transition: right 0.5s linear;
+			}
+		}
+		&.button {
+			cursor: pointer;
+			&:hover {
+				text-shadow: 0 0 6px red;
+			}
+		}
+		&.chaos {
+			&.number {
+				border-radius: 70px;
+				width: 70px;
+				height: 69px;
+				bottom: 63px;
+				text-align: center;
+				right: 56px;
+				font-size: 45px;
+				z-index: 1;
+				border: none;
+				color: black;
+				font-family: "EB Garamond";
+				font-weight: bold;
+				text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+			}
+			&.increase {
+				bottom: 108px;
+				right: 11.5px;
+				font-size: 24px;
+				z-index: 1;
+				text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+			}
+			&.decrease {
+				bottom: 79px;
+				right: 9px;
+				font-size: 20px;
+				z-index: 1;
+				text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+			}
+			&.header {
+				right: 25px;
+				bottom: 0px;
+				color: #ffffff;
+				z-index: 1;
+			}
+		}
+		&.momentum {
+			&.header {
+				bottom: 25px;
+				right: 280px;
+				z-index: 1;
+				text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+			}
+			&.track {
+				position: relative;
+				&.item {
+					&.track-1 {
+						left: 42px;
+					}
+					&.track-2 {
+						left: calc(42px + 83px);
+					}
+					&.track-3 {
+						left: calc(42px + 83px + 83px);
+					}
+					&.track-4 {
+						left: calc(42px + 83px + 83px + 83px);
+					}
+					&.track-5 {
+						left: calc(42px + 83px + 83px + 83px + 83px);
+					}
+					&.track-6 {
+						left: calc(42px + 83px + 83px + 83px + 83px + 83px);
+					}
+					&.background {
+						position: absolute;
+						bottom: 8px;
+						pointer-events: none;
+						text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+						&.svg {
+							&:hover {
+								filter: drop-shadow(0 0 6px red);
+							}
+						}
+						&.slot {
+							pointer-events: auto;
+							stroke: white;
+							stroke-width: 2px;
+							fill: transparent;
+							z-index: 5;
+							cursor: pointer;
+						}
+					}
+					&.foreground {
+						position: absolute;
+						width: 83px;
+						display: inline;
+						text-align: center;
+						bottom: 8px;
+						z-index: 1;
+						font-size: 20px;
+						line-height: 20px;
+						font-weight: bold;
+						cursor: pointer;
+						text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+						&:hover {
+							& ~ .dishonored {
+								&.tracker {
+									&.momentum {
+										&.track {
+											&.item {
+												&.background {
+													&.svg {
+														filter: drop-shadow(0 0 6px red);
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&.header {
+			font-weight: bold;
+			text-align: center;
+			font-size: 2em;
+			text-transform: uppercase;
+		}
+	}
+	&.logo {
+		position: absolute;
+		display: block;
+		margin-right: 0;
+		left: 74px;
+		top: 31px;
+		z-index: 61;
+		color: #000;
+		text-decoration: none;
+		img {
+			width: 30px;
+			border: none;
+		}
+		div {
+			font-size: 10px;
+			line-height: 0.1;
+			text-align: center;
+		}
+	}
+}
+@font-face {
+	font-family: 'EB Garamond';
+	font-style: normal;
+	font-weight: 400;
+	src: local(''),
+       url('../fonts/eb-garamond-v14-latin-ext_latin-regular.woff2') format('woff2'),
+       url('../fonts/eb-garamond-v14-latin-ext_latin-regular.woff') format('woff');
+	font-family: 'EB Garamond';
+	font-style: normal;
+	font-weight: 700;
+	src: local(''),
+       url('../fonts/eb-garamond-v14-latin-ext_latin-700.woff2') format('woff2'),
+       url('../fonts/eb-garamond-v14-latin-ext_latin-700.woff') format('woff');
+	font-family: 'EB Garamond';
+	font-style: italic;
+	font-weight: 400;
+	src: local(''),
+       url('../fonts/eb-garamond-v14-latin-ext_latin-italic.woff2') format('woff2'),
+       url('../fonts/eb-garamond-v14-latin-ext_latin-italic.woff') format('woff');
+	font-family: 'EB Garamond';
+	font-style: italic;
+	font-weight: 700;
+	src: local(''),
+       url('../fonts/eb-garamond-v14-latin-ext_latin-700italic.woff2') format('woff2'),
+       url('../fonts/eb-garamond-v14-latin-ext_latin-700italic.woff') format('woff');
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 0px;
+	background: #ffffff;
+	border: 1px solid #000000;
+}
+::-webkit-scrollbar-track {
+	box-shadow: 0 0 1px #000 inset;
+	border-radius: 0px;
+	background: black;
+}
+.notification {
+	&.error {
+		&.permanent {
+			text-align: center;
+		}
+	}
+}
+.dishonored.sheet.actor .tab .section .notes .editor .editor-content h1, h2 {
+	line-height: 1.2em;
+	border-color: #4b4a44;
+}
