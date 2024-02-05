@@ -1,0 +1,17 @@
+{
+	"_id": "LME1Tg6UrKYjCcti",
+	"_key": "!items!LME1Tg6UrKYjCcti",
+	"data": {
+		"description": "<p>A study of fighting using various forms of sword, including fencing and other styles.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Fencing.svg",
+	"name": "Fencing",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

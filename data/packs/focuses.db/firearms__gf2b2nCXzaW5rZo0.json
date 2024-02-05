@@ -1,0 +1,17 @@
+{
+	"_id": "gf2b2nCXzaW5rZo0",
+	"_key": "!items!gf2b2nCXzaW5rZo0",
+	"data": {
+		"description": "<p>A study of the use and maintenance of pistols, rifles, and other guns.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Firearms.svg",
+	"name": "Firearms",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

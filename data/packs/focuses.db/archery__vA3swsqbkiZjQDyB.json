@@ -1,0 +1,17 @@
+{
+	"_id": "vA3swsqbkiZjQDyB",
+	"_key": "!items!vA3swsqbkiZjQDyB",
+	"data": {
+		"description": "<p>A study of the use and upkeep of bows, crossbows, and similar projectile throwers. </p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Archery.svg",
+	"name": "Archery",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

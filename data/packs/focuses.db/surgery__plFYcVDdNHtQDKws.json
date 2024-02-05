@@ -1,0 +1,17 @@
+{
+	"_id": "plFYcVDdNHtQDKws",
+	"_key": "!items!plFYcVDdNHtQDKws",
+	"data": {
+		"description": "<p>The study of physical injury and the methods required to treat or cure them.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Surgery.svg",
+	"name": "Surgery",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

@@ -1,0 +1,17 @@
+{
+	"_id": "7odk9GzOOKudbUqY",
+	"_key": "!items!7odk9GzOOKudbUqY",
+	"data": {
+		"description": "<p>A study of machinery, the use of electricity, and the means of designing, constructing, and inventing new technologies.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Engineering.svg",
+	"name": "Engineering",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

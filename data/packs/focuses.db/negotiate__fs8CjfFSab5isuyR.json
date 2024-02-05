@@ -1,0 +1,17 @@
+{
+	"_id": "fs8CjfFSab5isuyR",
+	"_key": "!items!fs8CjfFSab5isuyR",
+	"data": {
+		"description": "<p>The ability to bargain and haggle with others effectively.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Negotiate.svg",
+	"name": "Negotiate",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

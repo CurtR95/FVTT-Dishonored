@@ -1,0 +1,17 @@
+{
+	"_id": "AlKdcuNlpkzXFOEH",
+	"_key": "!items!AlKdcuNlpkzXFOEH",
+	"data": {
+		"description": "<p>The practice of traveling on a beast of burden, and techniques for controlling a mount.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Ride.svg",
+	"name": "Ride",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

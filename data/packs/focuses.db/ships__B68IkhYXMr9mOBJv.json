@@ -1,0 +1,17 @@
+{
+	"_id": "B68IkhYXMr9mOBJv",
+	"_key": "!items!B68IkhYXMr9mOBJv",
+	"data": {
+		"description": "<p>Operation, crew management, and maintenance of large watercraft which require crews to operate.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Ships.svg",
+	"name": "Ships",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

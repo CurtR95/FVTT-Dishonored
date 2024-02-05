@@ -1,0 +1,17 @@
+{
+	"_id": "EWlg0nLVnZgILezg",
+	"_key": "!items!EWlg0nLVnZgILezg",
+	"data": {
+		"description": "<p>The ability to survive in a rural or natural environment, knowledge of dangerous animals and plants.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Wilderness.svg",
+	"name": "Wilderness",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

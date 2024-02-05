@@ -1,0 +1,17 @@
+{
+	"_id": "kbWcvLJo5YLtU4yq",
+	"_key": "!items!kbWcvLJo5YLtU4yq",
+	"data": {
+		"description": "<p>An understanding of various locking mechanisms, and how to disable them. </p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Locks.svg",
+	"name": "Locks",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

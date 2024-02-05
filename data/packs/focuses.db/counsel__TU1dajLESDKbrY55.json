@@ -1,0 +1,17 @@
+{
+	"_id": "TU1dajLESDKbrY55",
+	"_key": "!items!TU1dajLESDKbrY55",
+	"data": {
+		"description": "<p>The ability to provide reasoned and useful advice to others, especially during times of hardship </p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Counsel.svg",
+	"name": "Counsel",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

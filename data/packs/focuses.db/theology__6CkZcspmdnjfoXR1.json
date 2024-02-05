@@ -1,0 +1,17 @@
+{
+	"_id": "6CkZcspmdnjfoXR1",
+	"_key": "!items!6CkZcspmdnjfoXR1",
+	"data": {
+		"description": "<p>The study of cults and religions, with particular focus on the Abbey of the Everyman. </p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Theology.svg",
+	"name": "Theology",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

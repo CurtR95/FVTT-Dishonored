@@ -1,0 +1,17 @@
+{
+	"_id": "YzUG2RO6VjL35org",
+	"_key": "!items!YzUG2RO6VjL35org",
+	"data": {
+		"description": "<p>Operation and maintenance of vehicles which travel across the ground or on powered rails.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Carriages.svg",
+	"name": "Carriages",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

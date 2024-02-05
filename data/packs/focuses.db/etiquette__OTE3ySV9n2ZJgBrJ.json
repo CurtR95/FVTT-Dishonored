@@ -1,0 +1,17 @@
+{
+	"_id": "OTE3ySV9n2ZJgBrJ",
+	"_key": "!items!OTE3ySV9n2ZJgBrJ",
+	"data": {
+		"description": "<p>The knowledge of the customs, social mores, and taboos of society </p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Etiquette.svg",
+	"name": "Etiquette",
+	"permission": {
+		"RMvhGR1rVVK7SwVT": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

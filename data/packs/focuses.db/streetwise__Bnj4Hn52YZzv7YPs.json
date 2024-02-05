@@ -1,0 +1,17 @@
+{
+	"_id": "Bnj4Hn52YZzv7YPs",
+	"_key": "!items!Bnj4Hn52YZzv7YPs",
+	"data": {
+		"description": "<p>The ability to survive without comforts or shelter in an urban environment, knowledge of the seedier side of urban life.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Streetwise.svg",
+	"name": "Streetwise",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

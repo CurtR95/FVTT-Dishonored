@@ -1,0 +1,17 @@
+{
+	"_id": "5xOIVj8icf47x3kZ",
+	"_key": "!items!5xOIVj8icf47x3kZ",
+	"data": {
+		"description": "<p>A discipline of motion involving feats of balance, agility, and fine motor control.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Acrobatics.svg",
+	"name": "Acrobatics",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

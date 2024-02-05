@@ -1,0 +1,17 @@
+{
+	"_id": "TRaailV0dM7lD9VX",
+	"_key": "!items!TRaailV0dM7lD9VX",
+	"data": {
+		"description": "<p>The ability to convince others of things which are untrue.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Deceive.svg",
+	"name": "Deceive",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

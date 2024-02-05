@@ -1,0 +1,17 @@
+{
+	"_id": "ea7H3Eb48JADU7pV",
+	"_key": "!items!ea7H3Eb48JADU7pV",
+	"data": {
+		"description": "<p>The ability to locate and follow the trails left by the passage of other creatures.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Tracking.svg",
+	"name": "Tracking",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

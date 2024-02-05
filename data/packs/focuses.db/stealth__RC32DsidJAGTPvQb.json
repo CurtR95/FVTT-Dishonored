@@ -1,0 +1,17 @@
+{
+	"_id": "RC32DsidJAGTPvQb",
+	"_key": "!items!RC32DsidJAGTPvQb",
+	"data": {
+		"description": "<p>Techniques for moving unseen and unheard, or otherwise avoiding attention.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Stealth.svg",
+	"name": "Stealth",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

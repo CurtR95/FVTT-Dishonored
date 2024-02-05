@@ -1,0 +1,17 @@
+{
+	"_id": "hLluXn31ozjxEHWY",
+	"_key": "!items!hLluXn31ozjxEHWY",
+	"data": {
+		"description": "<p>A discipline of motion involving moving through the water.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Swimming.svg",
+	"name": "Swimming",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

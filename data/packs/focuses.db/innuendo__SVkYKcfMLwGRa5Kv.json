@@ -1,0 +1,17 @@
+{
+	"_id": "SVkYKcfMLwGRa5Kv",
+	"_key": "!items!SVkYKcfMLwGRa5Kv",
+	"data": {
+		"description": "<p>The ability to convey information using implication and inference rather than direct statements.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Innuendo.svg",
+	"name": "Innuendo",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

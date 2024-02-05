@@ -1,0 +1,17 @@
+{
+	"_id": "a5Eqi92KLE61RQfj",
+	"_key": "!items!a5Eqi92KLE61RQfj",
+	"data": {
+		"description": "<p>A study of flammable and explosive substances, and the best ways to use or disarm explosive devices.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Explosives.svg",
+	"name": "Explosives",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

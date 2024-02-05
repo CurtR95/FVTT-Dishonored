@@ -1,0 +1,17 @@
+{
+	"_id": "sS0m2nNiRw34XJB0",
+	"_key": "!items!sS0m2nNiRw34XJB0",
+	"data": {
+		"description": "<p>The ability to withstand mental hardships, including fear, doubt, torture, interrogation, and similar problems.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Resolve.svg",
+	"name": "Resolve",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

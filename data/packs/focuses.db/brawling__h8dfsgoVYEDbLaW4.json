@@ -1,0 +1,17 @@
+{
+	"_id": "h8dfsgoVYEDbLaW4",
+	"_key": "!items!h8dfsgoVYEDbLaW4",
+	"data": {
+		"description": "<p>A study of fighting with the fists and improvised weapons.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Brawling.svg",
+	"name": "Brawling",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

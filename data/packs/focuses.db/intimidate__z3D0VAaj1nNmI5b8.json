@@ -1,0 +1,17 @@
+{
+	"_id": "z3D0VAaj1nNmI5b8",
+	"_key": "!items!z3D0VAaj1nNmI5b8",
+	"data": {
+		"description": "<p>The ability to coerce others using threats.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Intimidate.svg",
+	"name": "Intimidate",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

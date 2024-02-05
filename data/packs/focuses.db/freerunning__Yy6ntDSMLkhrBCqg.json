@@ -1,0 +1,17 @@
+{
+	"_id": "Yy6ntDSMLkhrBCqg",
+	"_key": "!items!Yy6ntDSMLkhrBCqg",
+	"data": {
+		"description": "<p>A discipline of motion which involves traversing obstacles and complex environments as quickly and efficiently as possible.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Freerunning.svg",
+	"name": "Freerunning",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

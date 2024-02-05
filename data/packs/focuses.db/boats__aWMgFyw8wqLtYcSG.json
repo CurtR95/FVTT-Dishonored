@@ -1,0 +1,17 @@
+{
+	"_id": "aWMgFyw8wqLtYcSG",
+	"_key": "!items!aWMgFyw8wqLtYcSG",
+	"data": {
+		"description": "<p>Operation and maintenance of small watercraft that can be operated by one person. </p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Boats.svg",
+	"name": "Boats",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

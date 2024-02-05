@@ -1,0 +1,17 @@
+{
+	"_id": "A1gaBlzJfcdwCxjz",
+	"_key": "!items!A1gaBlzJfcdwCxjz",
+	"data": {
+		"description": "<p>The study of the formless infinite realm that is said to exist alongside reality, and the deific entity known as the Outsider who dwells within.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Void%20Lore.webp",
+	"name": "Void Lore",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

@@ -1,0 +1,17 @@
+{
+	"_id": "XDEb95yEkGLXbgAM",
+	"_key": "!items!XDEb95yEkGLXbgAM",
+	"data": {
+		"description": "<p>The ability to focus one’s attention and efforts on a single object or activity.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Concentrate.svg",
+	"name": "Concentrate",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

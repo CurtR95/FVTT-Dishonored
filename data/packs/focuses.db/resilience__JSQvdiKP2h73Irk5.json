@@ -1,0 +1,17 @@
+{
+	"_id": "JSQvdiKP2h73Irk5",
+	"_key": "!items!JSQvdiKP2h73Irk5",
+	"data": {
+		"description": "<p>The ability to withstand physical hardships, including the effects of disease, poison, and other lingering ailments.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Resilience.svg",
+	"name": "Resilience",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

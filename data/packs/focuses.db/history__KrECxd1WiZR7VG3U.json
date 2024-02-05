@@ -1,0 +1,17 @@
+{
+	"_id": "KrECxd1WiZR7VG3U",
+	"_key": "!items!KrECxd1WiZR7VG3U",
+	"data": {
+		"description": "<p>A study of the past, its intricacies, and its implications on the present and future.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/History.svg",
+	"name": "History",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

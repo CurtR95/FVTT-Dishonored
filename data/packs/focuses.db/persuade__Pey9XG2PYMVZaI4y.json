@@ -1,0 +1,17 @@
+{
+	"_id": "Pey9XG2PYMVZaI4y",
+	"_key": "!items!Pey9XG2PYMVZaI4y",
+	"data": {
+		"description": "<p>The ability to convince others to do things for you or on your behalf.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Persuade.svg",
+	"name": "Persuade",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

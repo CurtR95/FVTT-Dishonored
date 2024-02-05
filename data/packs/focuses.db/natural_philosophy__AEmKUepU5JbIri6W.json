@@ -1,0 +1,17 @@
+{
+	"_id": "AEmKUepU5JbIri6W",
+	"_key": "!items!AEmKUepU5JbIri6W",
+	"data": {
+		"description": "<p>The philosophical study of nature and the physical universe.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Natural%20Philosophy.svg",
+	"name": "Natural Philosophy",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

@@ -1,0 +1,17 @@
+{
+	"_id": "wlPA8irB9PNWV4fw",
+	"_key": "!items!wlPA8irB9PNWV4fw",
+	"data": {
+		"description": "<p>The study of and practical experience with dangerous poisons, their origins, and their effects. </p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Poison.svg",
+	"name": "Poison",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}

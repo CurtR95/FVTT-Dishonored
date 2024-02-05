@@ -1,0 +1,17 @@
+{
+	"_id": "uBDayEisI2GqYOGu",
+	"_key": "!items!uBDayEisI2GqYOGu",
+	"data": {
+		"description": "<p>Knowledge of, and the ability to navigate, the wealthier sides of urban life.</p>",
+		"rating": 2
+	},
+	"effects": [
+	],
+	"img": "systems/FVTT-Dishonored/icons/focuses/Society.svg",
+	"name": "Society",
+	"permission": {
+		"dc4QqxAz0An6vOWl": 3,
+		"default": 0
+	},
+	"type": "focus"
+}
