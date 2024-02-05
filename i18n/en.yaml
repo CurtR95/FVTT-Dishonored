@@ -1,0 +1,151 @@
+dishonored.actor.abilities.mana: Mana Points
+dishonored.actor.belonging.armor.protect: Protect
+dishonored.actor.belonging.armor.protection: Protection
+dishonored.actor.belonging.armor.title: Armor Name
+dishonored.actor.belonging.bonecharm.title: Bonecharm Name
+dishonored.actor.belonging.collectable.bonecharm: Bonecharms
+dishonored.actor.belonging.collectable.coin: Coins
+dishonored.actor.belonging.collectable.rune: Runes
+dishonored.actor.belonging.other.qty: Qty
+dishonored.actor.belonging.other.quantity: Quantity
+dishonored.actor.belonging.other.title: Item Name
+dishonored.actor.belonging.title: Belongings
+dishonored.actor.belonging.weapon.armorpierce: Armor Piercing
+dishonored.actor.belonging.weapon.awkward: Awkward
+dishonored.actor.belonging.weapon.blast: Blast
+dishonored.actor.belonging.weapon.block: Block
+dishonored.actor.belonging.weapon.burn: Burn
+dishonored.actor.belonging.weapon.concealed: Concealed
+dishonored.actor.belonging.weapon.damage: Damage
+dishonored.actor.belonging.weapon.distant: Distant
+dishonored.actor.belonging.weapon.dmg: Dmg
+dishonored.actor.belonging.weapon.melee: Melee
+dishonored.actor.belonging.weapon.messy: Messy
+dishonored.actor.belonging.weapon.mine: Mine
+dishonored.actor.belonging.weapon.nearby: Nearby
+dishonored.actor.belonging.weapon.rangeddistant: Ranged (Distant)
+dishonored.actor.belonging.weapon.rangednearby: Ranged (Nearby)
+dishonored.actor.belonging.weapon.title: Weapon Name
+dishonored.actor.character.age: Age
+dishonored.actor.character.archetype: Archetype
+dishonored.actor.character.experience: Experience Track
+dishonored.actor.character.firstTruth: First Truth
+dishonored.actor.character.momentum: Momentum Track
+dishonored.actor.character.name: Name
+dishonored.actor.character.outlook: Outlook
+dishonored.actor.character.secondTruth: Second Truth
+dishonored.actor.character.stress: Stress Track
+dishonored.actor.character.truth: Truth
+dishonored.actor.character.void: Void Points Track
+dishonored.actor.contact.relation: Relation
+dishonored.actor.contact.title: Contacts
+dishonored.actor.focus.rating: Rating
+dishonored.actor.focus.title: Focuses
+dishonored.actor.genericitem.cost: Value
+dishonored.actor.genericitem.name: Name
+dishonored.actor.item.adjectiveNew: New
+dishonored.actor.note.title: Notes
+dishonored.actor.npc.incidental: Incidental
+dishonored.actor.npc.major: Major
+dishonored.actor.npc.minor: Minor
+dishonored.actor.npc.notable: Notable
+dishonored.actor.npc.types: NPC Type
+dishonored.actor.power.mana: Mana
+dishonored.actor.power.rune: Rune
+dishonored.actor.power.title: Powers
+dishonored.actor.skill.fight: Fight
+dishonored.actor.skill.move: Move
+dishonored.actor.skill.name: Skill Name
+dishonored.actor.skill.study: Study
+dishonored.actor.skill.survive: Survive
+dishonored.actor.skill.talk: Talk
+dishonored.actor.skill.tinker: Tinker
+dishonored.actor.skill.title: Skills
+dishonored.actor.skisty.check: Perform Check
+dishonored.actor.skisty.mod: Mod
+dishonored.actor.style.boldly: Boldly
+dishonored.actor.style.carefully: Carefully
+dishonored.actor.style.cleverly: Cleverly
+dishonored.actor.style.forcefully: Forcefully
+dishonored.actor.style.name: Style Name
+dishonored.actor.style.quietly: Quietly
+dishonored.actor.style.swiftly: Swiftly
+dishonored.actor.style.title: Styles
+dishonored.actor.talent.title: Talents
+dishonored.actor.talent.type: Type
+dishonored.actor.truth.content: Content of Truth
+dishonored.actor.truth.title: Truths
+dishonored.apps.dicepoolwindow: Dice Pool
+dishonored.apps.focus: Focus Rating
+dishonored.apps.pool: Number of Dice in Pool
+dishonored.apps.rolldice: Roll Dice
+dishonored.contact.relation.dire: Dire
+dishonored.contact.relation.fair: Fair
+dishonored.contact.relation.great: Great
+dishonored.contact.relation.neutral: Neutral
+dishonored.contact.relation.poor: Poor
+dishonored.item.armor.helmet: Is Helmet?
+dishonored.item.contact.send2actor: Send to Actor
+dishonored.item.truth: Truth
+dishonored.notifications.armorAlreadyEquipped: The current actor has an equipped armor already! Doing Nothing.
+dishonored.notifications.armorAlreadyEquippedNew: The current actor has an equipped armor already! Adding as unequipped.
+dishonored.notifications.chaos.trackerPermissions1: The <b>Chaos Tracker User Role</b> does not have permissions to <b>Modify Configuration Settings</b>. Please either change
+dishonored.notifications.chaos.trackerPermissions3:  has permission to <b>Modify Configuration Settings</b> or, increase the User Role requirement for <b>Chaos Tracker User Role</b> in
+dishonored.notifications.chaosButtonInvalidPermissions: You do not have sufficient permissions to change the Chaos tracker.
+dishonored.notifications.chaosGreater: THERE IS TOO MUCH CHAOS!
+dishonored.notifications.chaosGreaterSet: THAT IS TOO MUCH CHAOS!
+dishonored.notifications.chaosLess: You can't set Chaos to a value below 0!
+dishonored.notifications.helmetAlreadyEquipped: The current actor has an equipped helmet already! Doing Nothing.
+dishonored.notifications.lackPermission: You do not have permission to view this item!
+dishonored.notifications.macroActor: Please provide an actor to the macro!
+dishonored.notifications.macroDiceGreater: You cannot roll more than 5 die!
+dishonored.notifications.macroDiceLess: You must roll a dice!
+dishonored.notifications.macroFocus: Focus cannot be less than 1!
+dishonored.notifications.macroSkill: Please provide an skill to the macro!
+dishonored.notifications.macroStyle: Please provide an style to the macro!
+dishonored.notifications.momentum.trackerPermissions1: The <b>Momentum Tracker User Role</b> does not have permissions to <b>Modify Configuration Settings</b>. Please either change
+dishonored.notifications.momentum.trackerPermissions3:  has permission to <b>Modify Configuration Settings</b> or, increase the User Role requirement for <b>Momentum Tracker User Role</b> in
+dishonored.notifications.momentumButtonInvalidPermissions: You do not have sufficient permissions to change the Momentum tracker.
+dishonored.notifications.momentumGreater: THERE IS TOO MUCH MOMENTUM!
+dishonored.notifications.momentumGreaterSet: THAT IS TOO MUCH MOMENTUM!
+dishonored.notifications.momentumLess: You can't set Momentum to a value below 0!
+dishonored.notifications.NaN: The value is not a number, plus only use numeric values
+dishonored.notifications.s2A: "NPC with the name: |#| has been created!"
+dishonored.notifications.tooManyBonecharms: The current actor has 3 equipped bonecharms already! Doing Nothing.
+dishonored.notifications.tooManyBonecharmsNew: The current actor has 3 equipped bonecharms already! Adding as unequipped.
+dishonored.notifications.trackerPermissions2:  "so that User Role:"
+dishonored.notifications.trackerPermissions4: .
+dishonored.notifications.trackerPermissionsClickHere: To ignore this message until next update Click Here.
+dishonored.roll.armor.protect: <b>|#|</b> Protection
+dishonored.roll.complication: There was a complication!
+dishonored.roll.complicationPlural: There were |#| complications!
+dishonored.roll.contact.relation: <b>|#|</b> Relationship with Contact
+dishonored.roll.focus.rating: Focus with Rating of <b>|#|</b>
+dishonored.roll.html.focus: Focus
+dishonored.roll.html.target: Target
+dishonored.roll.item.quantity: "|#|x Items"
+dishonored.roll.item.value: "|#| Coins"
+dishonored.roll.power.mana: Costs <b>|#|</b> Mana to use
+dishonored.roll.power.rune: <b>|#|</b> Runes
+dishonored.roll.success:  Success
+dishonored.roll.successPlural:  Successes
+dishonored.roll.talent.type: <b>|#|</b> Talent
+dishonored.roll.test:  Skill Test
+dishonored.roll.weapon.damage: <b>|#|</b> Damage
+dishonored.settings.hints.chaosPermissionLevel: Who should be allowed to amend the chaos tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.
+dishonored.settings.hints.maxNumberOfExperience: Max number of experience that can be given to a character. 30 is default, anything past 50 becomes almost unreadable.
+dishonored.settings.hints.momentumPermissionLevel: Who should be allowed to amend the momentum tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.
+dishonored.settings.hints.multipleComplications: The rulebook states \"Any die which rolled 20 causes a complication\". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display \"There were x Complications\" if multiple 20s are rolled. Disabling will just state a single complication.
+dishonored.settings.hints.send2ActorPermissionLevel: The contact item type has the ability to create an NPC, who should be allowed to see & use this functionality?
+dishonored.settings.hints.trackerRefreshRate: In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.
+dishonored.settings.names.chaosPermissionLevel: "Chaos Tracker User Role:"
+dishonored.settings.names.maxNumberOfExperience: "Maximum amount of Experience:"
+dishonored.settings.names.momentumPermissionLevel: "Momentum Tracker User Role:"
+dishonored.settings.names.multipleComplications: "Multiple Complications:"
+dishonored.settings.names.send2ActorPermissionLevel: "Send2Actor User Role:"
+dishonored.settings.names.trackerRefreshRate: "Refresh Rate of Chaos & Momentum:"
+dishonored.titles.createItem: Create Item
+dishonored.titles.deleteItem: Delete Item
+dishonored.titles.editItem: Edit Item
+dishonored.tracker.chaos: Chaos
+dishonored.tracker.momentum: Momentum
