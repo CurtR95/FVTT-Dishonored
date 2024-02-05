@@ -1,26 +1,32 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="header-fields">
         <div class="row">
-            <img class="img" src="{{img}}" data-edit="img" title="{{name}}" />
+            <img class="img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
             <div class="column-x4-big">
                 <label>{{localize 'dishonored.actor.genericitem.name'}}</label>
-                <input name="name" type="text" value="{{name}}" placeholder="Name" />
+                <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
             </div>
             <div class="column-x2-x3-small">
                 <label>{{localize 'dishonored.item.armor.helmet'}}</label>
-                <input class="" type="checkbox" name="system.helmet" data-dtype="Boolean" {{checked system.helmet}}>
+                <input class="" type="checkbox" name="system.helmet" data-dtype="Boolean" {{checked item.system.helmet}}>
             </div>
             <div class="column-x2-x3-small">
                 <label>{{localize 'dishonored.actor.belonging.armor.protection'}}</label>
-                <input type="text" name="system.protection" value="{{system.protection}}" data-dtype="Number" />
+                <input type="text" name="system.protection" value="{{item.system.protection}}" data-dtype="Number" />
             </div>
             <div class="column-x2-x3-small">
                 <label>{{localize 'dishonored.actor.genericitem.cost'}}</label>
-                <input type="text" name="system.cost" value="{{system.cost}}" data-dtype="Number" />
+                <input type="text" name="system.cost" value="{{item.system.cost}}" data-dtype="Number" />
             </div>
         </div>
     </div>
     <div class="description">
-        {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+        {{editor
+			descriptionHTML
+			target="system.description"
+			button=true
+			owner=owner
+			editable=editable
+		}}
     </div>
 </form>

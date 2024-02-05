@@ -1,22 +1,28 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="header-fields">
         <div class="row">
-            <img class="img" src="{{img}}" data-edit="img" title="{{name}}" />
+            <img class="img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
             <div class="column-x3-big">
                 <label>{{localize 'dishonored.actor.genericitem.name'}}</label>
-                <input name="name" type="text" value="{{name}}" placeholder="Name" />
+                <input name="name" type="text" value="{{item.name}}" placeholder="Name" />
             </div>
             <div class="column-x2-x3-small">
                 <label>{{localize 'dishonored.actor.power.mana'}}</label>
-                <input type="text" name="system.manacost" value="{{system.manacost}}" data-dtype="Number" />
+                <input type="text" name="system.manacost" value="{{item.system.manacost}}" data-dtype="Number" />
             </div>
             <div class="column-x2-x3-small">
                 <label>{{localize 'dishonored.actor.power.rune'}}</label>
-                <input type="text" name="system.runecost" value="{{system.runecost}}" data-dtype="Number" />
+                <input type="text" name="system.runecost" value="{{item.system.runecost}}" data-dtype="Number" />
             </div>
         </div>
     </div>
     <div class="description">
-        {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+        {{editor
+			descriptionHTML
+			target="system.description"
+			button=true
+			owner=owner
+			editable=editable
+		}}
     </div>
 </form>
