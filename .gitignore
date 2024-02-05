@@ -1,8 +1,9 @@
-.idea/
-.vs/
 .vscode/
 node_modules/
-.eslintrc.js
-package.json
-package-lock.json
-local.pass
+scratch/
+system/css/
+system/i18n/
+system/packs/
+
+*.code-workspace
+dishonored-compiled*
