@@ -16,7 +16,7 @@ export class DishonoredBaseItemSheet extends ItemSheet {
 
 	/** @override */
 	get template() {
-		return `systems/FVTT-Dishonored/templates/items/${this.item.type}-sheet.html`;
+		return `systems/FVTT-Dishonored/templates/items/${this.item.type}-sheet.hbs`;
 	}
 
 	/** @override */

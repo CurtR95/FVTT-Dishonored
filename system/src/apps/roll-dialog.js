@@ -2,7 +2,7 @@ export class DishonoredRollDialog {
 
 	static async create() {
 		// Grab the RollDialog HTML file/
-		const html = await renderTemplate("systems/FVTT-Dishonored/templates/apps/dicepool.html");
+		const html = await renderTemplate("systems/FVTT-Dishonored/templates/apps/dicepool.hbs");
 		// Create a new promise for the HTML above.
 		return new Promise(resolve => {
 			let formData = null;

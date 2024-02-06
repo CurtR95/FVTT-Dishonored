@@ -2,7 +2,7 @@ export class DishonoredLogo extends Application {
 
 	static get defaultOptions() {
 		const options = super.defaultOptions;
-		options.template = "systems/FVTT-Dishonored/templates/apps/logo.html";
+		options.template = "systems/FVTT-Dishonored/templates/apps/logo.hbs";
 		options.popOut = false;
 		options.resizable = false;
 		return options;

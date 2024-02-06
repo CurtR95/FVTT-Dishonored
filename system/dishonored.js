@@ -310,11 +310,11 @@ Hooks.once("init", function() {
 			}
 		}
 		let t = new DishonoredTracker();
-		renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.html").then(function() {
+		renderTemplate("systems/FVTT-Dishonored/templates/apps/tracker.hbs").then(function() {
 			t.render(true);
 		});
 		let l = new DishonoredLogo();
-		renderTemplate("systems/FVTT-Dishonored/templates/apps/logo.html").then(function() {
+		renderTemplate("systems/FVTT-Dishonored/templates/apps/logo.hbs").then(function() {
 			l.render(true);
 		});
 	});

@@ -40,8 +40,8 @@ export class DishonoredCharacterSheet extends ActorSheet {
 		// If the player is not a GM and has limited permissions - send them to
 		// the limited sheet, otherwise, continue as usual.
 		const template = !game.user.isGM && this.actor.limited
-			? "systems/FVTT-Dishonored/templates/actors/limited-sheet.html"
-			: "systems/FVTT-Dishonored/templates/actors/character-sheet.html";
+			? "systems/FVTT-Dishonored/templates/actors/limited-sheet.hbs"
+			: "systems/FVTT-Dishonored/templates/actors/character-sheet.hbs";
 
 		return template;
 	}
@@ -49,10 +49,19 @@ export class DishonoredCharacterSheet extends ActorSheet {
 	/* -------------------------------------------- */
 
 	// /** @override */
-	getData() {
-		const sheetData = this.object;
+	async getData() {
+		const context = await super.getData();
 
-		return sheetData;
+		context.system = duplicate(context.data.system);
+
+		context.notesHTML = await TextEditor.enrichHTML(
+			this.actor.system.notes,
+			{
+				async: true,
+			}
+		);
+
+		return context;
 	}
 
 	/* -------------------------------------------- */

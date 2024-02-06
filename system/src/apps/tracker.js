@@ -2,7 +2,7 @@ export class DishonoredTracker extends Application {
 
 	static get defaultOptions() {
 		const options = super.defaultOptions;
-		options.template = "systems/FVTT-Dishonored/templates/apps/tracker.html";
+		options.template = "systems/FVTT-Dishonored/templates/apps/tracker.hbs";
 		options.popOut = false;
 		options.resizable = false;
 		return options;
