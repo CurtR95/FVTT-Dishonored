@@ -1,55 +1,5 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="main-content">
-        <div style="display:none">
-            <div>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/fight-boldly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/fight-carefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/fight-cleverly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/fight-forcefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/fight-quietly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/fight-swiftly.svg"></img>
-            </div>
-            <div>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/move-boldly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/move-carefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/move-cleverly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/move-forcefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/move-quietly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/move-swiftly.svg"></img>
-            </div>
-            <div>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/study-boldly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/study-carefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/study-cleverly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/study-forcefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/study-quietly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/study-swiftly.svg"></img>
-            </div>
-            <div>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/survive-boldly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/survive-carefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/survive-cleverly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/survive-forcefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/survive-quietly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/survive-swiftly.svg"></img>
-            </div>
-            <div>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/talk-boldly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/talk-carefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/talk-cleverly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/talk-forcefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/talk-quietly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/talk-swiftly.svg"></img>
-            </div>
-            <div>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/tinker-boldly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/tinker-carefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/tinker-cleverly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/tinker-forcefully.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/tinker-quietly.svg"></img>
-                <img style="width: 50px" src="/systems/FVTT-Dishonored/icons/tinker-swiftly.svg"></img>
-            </div>
-        </div>
         <div class="header-fields">
             <svg width="701" height="263" viewBox="0 0 211.66663 79.375012" id="svg8" class="background left">
                 <metadata id="metadata5" />
@@ -250,9 +200,9 @@
                     <div class="column-x6 small"></div>
                     <div class="column-x6 bold">{{localize 'dishonored.actor.abilities.mana'}}</div>
                     <div class="column-x6 small">
-                        <div class="small"><input name="system.mana.value" type="text" value="{{system.mana.value}}" placeholder="0"/></div>
+                        <div class="small"><input name="system.mana.value" type="number" value="{{system.mana.value}}" placeholder="0" data-dtype="Number" /></div>
                         <div class="advisory">/</div>
-                        <div class="small disabled"><input id="max-mana" name="system.mana.max" type="text" value="{{system.mana.max}}" readonly/></div>
+                        <div class="small disabled"><input id="max-mana" name="system.mana.max" type="number" value="{{system.mana.max}}" data-dtype="Number"  readonly/></div>
                     </div>
                     <div class="column-x6 small"></div>
                     <div class="column-x6 small"></div>

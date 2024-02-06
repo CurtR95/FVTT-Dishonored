@@ -1,50 +1,58 @@
 {
-    "id": "FVTT-Dishonored",
-    "title": "Dishonored: The Roleplaying Game",
-    "description": "An unofficial rendition of the Modiphius tabletop role playing game system.",
-    "version": "0.6.0",
-    "compatibility": {
-      "minimum": "10",
-      "verified": "11"
-    },
-    "authors": [
-      {
-        "name": "Paul Maskelyne, ",
-        "discord": "Muttley#3296",
-        "email": "mu77ley@gmail.com",
-        "url": "https://github.com/Muttley"
-      },
-      {
-        "name": "KaitoR95",
-        "discord": "KaitoR (カーティス)#2355",
-        "email": "curtisreet95@gmail.com",
-        "url": "https://github.com/CurtR95"
-      }
-    ],
-    "esmodules": ["dishonored.js"],
-    "styles": ["styles/dishonored.css"],
-    "packs": [{
-      "label": "Focuses",
-      "type": "Item",
-      "name": "focuses",
-      "path": "./packs/focuses.db"
-    }],
-    "languages": [{
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    },
-    {
-      "lang": "es",
-      "name": "Spanish",
-      "path": "lang/es.json"
-    }],
-    "gridDistance": 5,
-    "gridUnits": "ft",
-    "primaryTokenAttribute": "stress",
-    "secondaryTokenAttribute": "void",
-    "url": "https://github.com/CurtR95/FVTT-Dishonored",
-    "manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/master/system.json",
-    "download": "https://github.com/CurtR95/FVTT-Dishonored/archive/master.zip",
-    "license": "LICENSE.txt"
+	"id": "FVTT-Dishonored",
+	"title": "Dishonored: The Roleplaying Game",
+	"description": "An unofficial rendition of the Modiphius tabletop role playing game system.",
+	"version": "0.6.0",
+	"compatibility": {
+		"minimum": "10",
+		"verified": "11"
+	},
+	"authors": [
+		{
+			"name": "Paul Maskelyne",
+			"discord": "muttley",
+			"email": "mu77ley@gmail.com",
+			"url": "https://github.com/Muttley"
+		},
+		{
+			"name": "KaitoR95",
+			"discord": "KaitoR (カーティス)#2355",
+			"email": "curtisreet95@gmail.com",
+			"url": "https://github.com/CurtR95"
+		}
+	],
+	"esmodules": [
+		"dishonored-compiled.js"
+	],
+	"styles": [
+		"css/dishonored.css"
+	],
+	"packs": [
+		{
+			"label": "Focuses",
+			"type": "Item",
+			"name": "focuses",
+			"path": "./packs/focuses.db"
+		}
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "i18n/en.json"
+		},
+		{
+			"lang": "es",
+			"name": "Spanish",
+			"path": "i18n/es.json"
+		}
+	],
+	"gridDistance": 5,
+	"gridUnits": "ft",
+	"primaryTokenAttribute": "stress",
+	"secondaryTokenAttribute": "void",
+	"url": "https://github.com/CurtR95/FVTT-Dishonored",
+	"manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/master/system.json",
+	"download": "https://github.com/CurtR95/FVTT-Dishonored/archive/master.zip",
+	"license": "LICENSE.txt"
 }
