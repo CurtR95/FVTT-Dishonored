@@ -1,7 +1,7 @@
 {
 	"id": "FVTT-Dishonored",
 	"title": "Dishonored: The Roleplaying Game",
-	"description": "An unofficial rendition of the Modiphius tabletop role playing game system.",
+	"description": "The Unofficial Dishonored 2d20 System for FoundryVTT",
 	"version": "0.6.0",
 	"compatibility": {
 		"minimum": "10",
@@ -29,10 +29,31 @@
 	],
 	"packs": [
 		{
+			"name": "focuses",
 			"label": "Focuses",
 			"type": "Item",
-			"name": "focuses",
-			"path": "./packs/focuses.db"
+			"path": "./packs/focuses",
+			"private": false,
+			"flags": {}
+		},
+		{
+			"name": "system-documentation",
+			"label": "System Documentation",
+			"path": "packs/system-documentation",
+			"type": "JournalEntry",
+			"private": false,
+			"flags": {}
+		}
+	],
+	"packFolders": [
+		{
+			"name": "Dishonored RPG",
+			"sorting": "a",
+			"color": "#2e3830",
+			"packs": [
+				"focuses",
+				"system-documentation"
+			]
 		}
 	],
 	"languages": [
