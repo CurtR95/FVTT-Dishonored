@@ -5,7 +5,7 @@ import {
 	DishonoredRoll,
 } from "../roll.mjs";
 
-export class DishonoredActor extends Actor {
+export default class DishonoredActor extends Actor {
 
 	async _preCreate(data, options, user) {
 		await super._preCreate(data, options, user);

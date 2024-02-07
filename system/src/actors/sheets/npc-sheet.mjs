@@ -1,6 +1,6 @@
 import {
 	DishonoredSharedActorFunctions,
-} from "../actor.mjs";
+} from "../../documents/DishonoredActor.mjs";
 
 export class DishonoredNPCSheet extends ActorSheet {
 
