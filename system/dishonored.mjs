@@ -1,21 +1,21 @@
 // Import Modules
-import { DishonoredActor } from "./src/actors/actor.js";
-import { DishonoredArmorSheet } from "./src/items/armor-sheet.js";
-import { DishonoredBonecharmSheet } from "./src/items/bonecharm-sheet.js";
-import { DishonoredCharacterSheet } from "./src/actors/sheets/character-sheet.js";
-import { DishonoredContactSheet } from "./src/items/contact-sheet.js";
-import { DishonoredFocusSheet } from "./src/items/focus-sheet.js";
-import { DishonoredItem } from "./src/items/item.js";
-import { DishonoredItemSheet } from "./src/items/item-sheet.js";
-import { DishonoredLogo } from "./src/apps/logo.js";
-import { DishonoredNPCSheet } from "./src/actors/sheets/npc-sheet.js";
-import { DishonoredPowerSheet } from "./src/items/power-sheet.js";
-import { DishonoredTalentSheet } from "./src/items/talent-sheet.js";
-import { DishonoredTracker } from "./src/apps/tracker.js";
-import { DishonoredTruthSheet } from "./src/items/truth-sheet.js";
-import { DishonoredWeaponSheet } from "./src/items/weapon-sheet.js";
+import { DishonoredActor } from "./src/actors/actor.mjs";
+import { DishonoredArmorSheet } from "./src/items/armor-sheet.mjs";
+import { DishonoredBonecharmSheet } from "./src/items/bonecharm-sheet.mjs";
+import { DishonoredCharacterSheet } from "./src/actors/sheets/character-sheet.mjs";
+import { DishonoredContactSheet } from "./src/items/contact-sheet.mjs";
+import { DishonoredFocusSheet } from "./src/items/focus-sheet.mjs";
+import { DishonoredItem } from "./src/items/item.mjs";
+import { DishonoredItemSheet } from "./src/items/item-sheet.mjs";
+import { DishonoredLogo } from "./src/apps/logo.mjs";
+import { DishonoredNPCSheet } from "./src/actors/sheets/npc-sheet.mjs";
+import { DishonoredPowerSheet } from "./src/items/power-sheet.mjs";
+import { DishonoredTalentSheet } from "./src/items/talent-sheet.mjs";
+import { DishonoredTracker } from "./src/apps/tracker.mjs";
+import { DishonoredTruthSheet } from "./src/items/truth-sheet.mjs";
+import { DishonoredWeaponSheet } from "./src/items/weapon-sheet.mjs";
 
-import * as macros from "./src/macro.js";
+import * as macros from "./src/macro.mjs";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */

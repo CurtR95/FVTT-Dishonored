@@ -6,10 +6,10 @@ import gulpIf from "gulp-if";
 import mergeStream from "merge-stream";
 import nodeResolve from "@rollup/plugin-node-resolve";
 
-const LINT_SRC_PATHS = ["./system/dishonored.js", "./system/src/"];
+const LINT_SRC_PATHS = ["./system/dishonored.mjs", "./system/src/"];
 
-const BUILD_SRC_PATH = "./system/dishonored.js";
-const BUILD_DST_PATH = "./system/dishonored-compiled.js";
+const BUILD_SRC_PATH = "./system/dishonored.mjs";
+const BUILD_DST_PATH = "./system/dishonored-compiled.mjs";
 
 function cleanupJavascriptFiles() {
 	return deleteAsync([BUILD_DST_PATH, `${BUILD_DST_PATH}.map`]);
@@ -37,7 +37,7 @@ export const compile = compileJavascript;
 function lintJavascript() {
 	const tasks = LINT_SRC_PATHS.map(path => {
 		const src = path.endsWith("/")
-			? `${path}**/*.js`
+			? `${path}**/*.mjs`
 			: path;
 
 		const dest = path.endsWith("/")

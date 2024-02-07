@@ -1,9 +1,9 @@
 import {
 	DishonoredRollDialog,
-} from "../apps/roll-dialog.js";
+} from "../apps/roll-dialog.mjs";
 import {
 	DishonoredRoll,
-} from "../roll.js";
+} from "../roll.mjs";
 
 export class DishonoredActor extends Actor {
 
@@ -24,10 +24,6 @@ export class DishonoredActor extends Actor {
 	}
 
 	prepareData() {
-		if (!this.img) this.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
-		if (this.img === "icons/svg/mystery-man.svg") this.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
-		if (this.prototypeToken.img === "icons/svg/mystery-man.svg") this.prototypeToken.img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
-
 		this._validateSkillValues();
 		this._validateStyleValues();
 		this._validateStressValues();

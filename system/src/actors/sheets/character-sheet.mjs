@@ -1,8 +1,8 @@
 import {
 	DishonoredSharedActorFunctions,
-} from "../actor.js";
+} from "../actor.mjs";
 
-export class DishonoredNPCSheet extends ActorSheet {
+export class DishonoredCharacterSheet extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -10,10 +10,10 @@ export class DishonoredNPCSheet extends ActorSheet {
 				"dishonored",
 				"sheet",
 				"actor",
-				"npc",
+				"character",
 			],
 			width: 700,
-			height: 700,
+			height: 800,
 			tabs: [{
 				navSelector: ".sheet-tabs",
 				contentSelector: ".sheet-body",
@@ -41,14 +41,14 @@ export class DishonoredNPCSheet extends ActorSheet {
 		// the limited sheet, otherwise, continue as usual.
 		const template = !game.user.isGM && this.actor.limited
 			? "systems/FVTT-Dishonored/templates/actors/limited-sheet.hbs"
-			: "systems/FVTT-Dishonored/templates/actors/npc-sheet.hbs";
+			: "systems/FVTT-Dishonored/templates/actors/character-sheet.hbs";
 
 		return template;
 	}
 
 	/* -------------------------------------------- */
 
-	/** @override */
+	// /** @override */
 	async getData() {
 		const context = await super.getData();
 
@@ -74,37 +74,57 @@ export class DishonoredNPCSheet extends ActorSheet {
 		let dishonoredActor = new DishonoredSharedActorFunctions();
 
 		// If the player has limited access to the actor, there is nothing to see here. Return.
-		if ( !game.user.isGM && this.actor.limited) return;
+		if (!game.user.isGM && this.actor.limited) return;
 
-		// We use i alot in for loops. Best to assign it now for use later in multiple places.
+		// We use i a lot in for loops. Best to assign it now for use later in multiple places.
 		let i;
 
-		// We use div alot to define text blocks. Define here.
+		// We use div a lot to define text blocks. Define here.
 		let div;
 
-		// Here we are checking how many bonecharms, helmets and armors are
+		// Here we are checking how many bonecharms, helmets and armours are
 		// equipped.
-		// The player can only have three bonecharms, and one of each armor
+		// The player can only have three bonecharms, and one of each armour
 		// type. As such, we will use this later.
 		let armorNumber = 0;
 		let bonecharmNumber = 0;
 		let helmetNumber = 0;
 		let stressTrackMax = 0;
-		let armorCount = function(currentActor) {
-			armorNumber = 0;
-			helmetNumber = 0;
-			currentActor.actor.items.forEach(values => {
-				if (values.type === "armor") {
-					if (
-						values.system.helmet === true && values.system.equipped === true
-					) helmetNumber += 1;
-					if (
-						values.system.helmet === false && values.system.equipped === true
-					) armorNumber += 1;
+		armorNumber = 0;
+		bonecharmNumber = 0;
+		helmetNumber = 0;
+		this.actor.items.forEach(values => {
+			if (values.type === "armor") {
+				if (values.system.helmet === true && values.system.equipped === true) {
+					helmetNumber += 1;
 				}
-			});
-		};
-		armorCount(this);
+				if (values.system.helmet === false && values.system.equipped === true) {
+					armorNumber += 1;
+				}
+			}
+			else if (values.type === "bonecharm" && values.system.equipped === true) bonecharmNumber += 1;
+		});
+		html.find("[name =\"system.bonecharmequipped\"]")[0].value = bonecharmNumber;
+
+		// For ease of access we may as well turn the tooltip for bonecharm counts red.
+		if (bonecharmNumber > 3) {
+			html.find(".bonecharmCount")[0].style.backgroundColor = "#fd0000";
+			html.find(".bonecharmCount")[0].style.color = "#ffffff";
+		}
+
+		// This creates a dynamic Void Point tracker. It polls for the hidden
+		// control "max-void" and for the value, creates a new div for each and
+		// places it under a child called "bar-void-renderer"
+		let voidPointsMax = html.find("#max-void")[0].value;
+		for (i = 1; i <= voidPointsMax; i++) {
+			div = document.createElement("DIV");
+			div.className = "box";
+			div.id = `void-${i}`;
+			div.innerHTML = i;
+			div.style = `width: calc(100% / ${html.find("#max-void")[0].value});`;
+			html.find("#bar-void-renderer")[0].appendChild(div);
+		}
+
 		// This creates a dynamic Stress tracker. It polls for the value of the
 		// survive skill, adds any protection from armor.
 		// With the total value, creates a new div for each and places it under
@@ -134,12 +154,23 @@ export class DishonoredNPCSheet extends ActorSheet {
 		};
 		stressTrackUpdate();
 
-		// Fires the function dishonoredRenderTracks as soon as the parameters
-		// exist to do so.
-		dishonoredActor.dishonoredRenderTracks(html, stressTrackMax);
+		// This creates a dynamic Experience tracker.
+		// It creates a new div for each and places it under a child called "bar-void-renderer"
+		let expPointsMax = game.settings.get("FVTT-Dishonored", "maxNumberOfExperience");
+		for (i = 1; i <= expPointsMax; i++) {
+			div = document.createElement("DIV");
+			div.className = "box";
+			div.id = `exp-${i}`;
+			div.innerHTML = i;
+			div.style = `width: calc(100% / ${expPointsMax});`;
+			html.find("#bar-exp-renderer")[0].appendChild(div);
+		}
+
+		// Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
+		dishonoredActor.dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax);
 
 		// This allows for each item-edit image to link open an item sheet.
-		// This uses Simple Worldbuilding System Code.
+		// This uses Simple WorldBuilding System Code.
 		html.find(".control.edit").click(ev => {
 			const li = $(ev.currentTarget).parents(".entry");
 			const item = this.actor.items.get(li.data("itemId"));
@@ -206,7 +237,7 @@ export class DishonoredNPCSheet extends ActorSheet {
 					return false;
 				}
 			}
-			return this.actor.items.get(itemId).update({"system.equipped": !getProperty(item, "system.equipped")});
+			return this.actor.items.get(itemId).update({ "system.equipped": !getProperty(item, "system.equipped") });
 		});
 
 		// This allows for all items to be rolled, it gets the current targets
@@ -240,18 +271,57 @@ export class DishonoredNPCSheet extends ActorSheet {
 				data: data,
 			};
 			delete itemData.data.type;
-
 			stressTrackUpdate();
 
 			return this.actor.createEmbeddedDocuments("Item", [(itemData)]);
 		});
 
 		// Allows item-delete images to allow deletion of the selected item.
-		// This uses Simple Worldbuilding System Code.
+		// This uses Simple WorldBuilding System Code.
 		html.find(".control.delete").click(ev => {
 			const li = $(ev.currentTarget).parents(".entry");
 			this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
-			li.slideUp(200, () => this.render(false));
+
+			return li.slideUp(200, () => this.render(false));
+		});
+
+		// Reads if a experience track box has been clicked, and if it has will
+		// either: set the value to the clicked box, or reduce the value by one.
+		// This check is dependent on various requirements, see comments in code.
+		html.find("[id^=\"exp\"]").click(ev => {
+			let newTotalObject = $(ev.currentTarget)[0];
+			let newTotal = newTotalObject.id.replace(/\D/g, "");
+			let total;
+			// Data-selected stores whether the track box is currently activated
+			// or not. This checks that the box is activated
+			if (newTotalObject.getAttribute("data-selected") === "true") {
+				// Now we check that the "next" track box is not activated.
+				// If there isn't one, or it isn't activated, we only want to
+				// decrease the value by 1 rather than setting the value.
+				let nextCheck = `exp-${parseInt(newTotal, 10) + 1}`;
+				if (!html.find(`#${nextCheck}`)[0] || html.find(`#${nextCheck}`)[0].getAttribute("data-selected") !== "true") {
+					html.find("#total-exp")[0].value = html.find("#total-exp")[0].value - 1;
+					this.submit();
+				}
+				// If it isn't caught by the if, the next box is likely
+				// activated. If something happened, its safer to set the value
+				// anyway.
+				else {
+					total = html.find("#total-exp")[0].value;
+					if (total !== newTotal) {
+						html.find("#total-exp")[0].value = newTotal;
+						this.submit();
+					}
+				}
+			}
+			// If the clicked box wasn't activated, we need to activate it now.
+			else {
+				total = html.find("#total-exp")[0].value;
+				if (total !== newTotal) {
+					html.find("#total-exp")[0].value = newTotal;
+					this.submit();
+				}
+			}
 		});
 
 		// Reads if a stress track box has been clicked, and if it has will
@@ -285,6 +355,54 @@ export class DishonoredNPCSheet extends ActorSheet {
 			}
 		});
 
+		// Reads if a void track box has been clicked, and if it has will
+		// either: set the value to the clicked box, or reduce the value by one.
+		// See line 186-220 for a more detailed break down on the context of
+		// each scenario. Void uses the same logic.
+		html.find("[id^=\"void\"]").click(ev => {
+			let newTotalObject = $(ev.currentTarget)[0];
+			let newTotal = newTotalObject.id.replace(/\D/g, "");
+			let total;
+			if (newTotalObject.getAttribute("data-selected") === "true") {
+				let nextCheck = `void-${parseInt(newTotal, 10) + 1}`;
+				if (!html.find(`#${nextCheck}`)[0] || html.find(`#${nextCheck}`)[0].getAttribute("data-selected") !== "true") {
+					html.find("#total-void")[0].value = html.find("#total-void")[0].value - 1;
+					this.submit();
+				}
+				else {
+					total = html.find("#total-void")[0].value;
+					if (total !== newTotal) {
+						html.find("#total-void")[0].value = newTotal;
+						this.submit();
+					}
+				}
+			}
+			else {
+				total = html.find("#total-void")[0].value;
+				if (total !== newTotal) {
+					html.find("#total-void")[0].value = newTotal;
+					this.submit();
+				}
+			}
+		});
+
+		// If the decrease-void-max button is clicked it removes a point off the
+		// max-void and two points from max-mana.
+		html.find("[id=\"decrease-void-max\"]").click(() => {
+			html.find("#max-void")[0].value--;
+			html.find("#max-mana")[0].value--;
+			html.find("#max-mana")[0].value--;
+			this.submit();
+		});
+
+		// If the increase-void-max button is clicked it adds a point to the
+		// max-void and two points to max-mana.
+		html.find("[id=\"increase-void-max\"]").click(() => {
+			html.find("#max-void")[0].value++;
+			html.find("#max-mana")[0].value++;
+			html.find("#max-mana")[0].value++;
+			this.submit();
+		});
 
 		// Turns the Skill checkboxes into essentially a radio button. It
 		// removes any other ticks, and then checks the new skill.
@@ -309,7 +427,7 @@ export class DishonoredNPCSheet extends ActorSheet {
 		});
 
 		// If the check-button is clicked it grabs the selected skill and the
-		// selected style and fires the method rollSkillTest. See actor.js for
+		// selected style and fires the method rollSkillTest. See actor.mjs for
 		// further info.
 		html.find(".check-button").click(ev => {
 			let selectedSkill;
@@ -330,7 +448,8 @@ export class DishonoredNPCSheet extends ActorSheet {
 					selectedStyleValue = html.find(`#${selectedStyle}`)[0].value;
 				}
 			}
-			let checkTarget = parseInt(selectedSkillValue, 10) + parseInt(selectedStyleValue, 10);
+			let checkTarget = parseInt(selectedSkillValue, 10)
+				+ parseInt(selectedStyleValue, 10);
 
 			dishonoredActor.rollSkillTest(
 				ev,

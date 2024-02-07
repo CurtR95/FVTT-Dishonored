@@ -22,7 +22,7 @@
 		}
 	],
 	"esmodules": [
-		"dishonored-compiled.js"
+		"dishonored-compiled.mjs"
 	],
 	"styles": [
 		"css/dishonored.css"

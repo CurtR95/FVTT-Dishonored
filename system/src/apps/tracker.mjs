@@ -10,7 +10,7 @@ export class DishonoredTracker extends Application {
 
 	activateListeners(html) {
 		// Define variables chaos and momentum as the game settings defined in
-		// dishonored.js
+		// dishonored.mjs
 		let chaos = game.settings.get("FVTT-Dishonored", "chaos");
 		let momentum = game.settings.get("FVTT-Dishonored", "momentum");
 		// Fire renderTracker once which populates the Momentum and Chaos
