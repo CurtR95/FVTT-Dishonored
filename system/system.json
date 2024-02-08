@@ -32,6 +32,14 @@
 	],
 	"packs": [
 		{
+			"name": "belongings",
+			"label": "Belongings",
+			"type": "Item",
+			"path": "./packs/belongings",
+			"private": false,
+			"flags": {}
+		},
+		{
 			"name": "focuses",
 			"label": "Focuses",
 			"type": "Item",
@@ -54,6 +62,7 @@
 			"sorting": "a",
 			"color": "#2e3830",
 			"packs": [
+				"belongings",
 				"focuses",
 				"system-documentation"
 			]
@@ -79,5 +88,6 @@
 	"url": "https://github.com/Muttley/foundryvtt-dishonored",
 	"manifest": "https://raw.githubusercontent.com/Muttley/foundryvtt-dishonored/main/system/system.json",
 	"download": "https://github.com/Muttley/foundryvtt-dishonored/releases/latest/download/dishonored.zip",
+	"background": "systems/FVTT-Dishonored/assets/images/dishonored-splash.webp",
 	"license": "LICENSE.txt"
 }
