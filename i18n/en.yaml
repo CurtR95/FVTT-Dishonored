@@ -93,19 +93,14 @@ dishonored.migration.completed_migration: Completed data updgrades for Dishonore
 dishonored.migration.completed_schema: Completed applying updates for Dishonored schema v{version}
 dishonored.notifications.armorAlreadyEquipped: The current actor has an equipped armor already! Doing Nothing.
 dishonored.notifications.armorAlreadyEquippedNew: The current actor has an equipped armor already! Adding as unequipped.
-dishonored.notifications.chaosGreater: THERE IS TOO MUCH CHAOS!
-dishonored.notifications.chaosGreaterSet: THAT IS TOO MUCH CHAOS!
-dishonored.notifications.chaosLess: You can't set Chaos to a value below 0!
 dishonored.notifications.helmetAlreadyEquipped: The current actor has an equipped helmet already! Doing Nothing.
-dishonored.notifications.lackPermission: You do not have permission to view this item!
 dishonored.notifications.macroActor: Please provide an actor to the macro!
-dishonored.notifications.macroDiceGreater: You cannot roll more than 5 die!
-dishonored.notifications.macroDiceLess: You must roll a dice!
-dishonored.notifications.macroFocus: Focus cannot be less than 1!
+dishonored.notifications.macroDiceGreater: You cannot roll more than five dice!
+dishonored.notifications.macroDiceLess: You must roll at least one die!
+dishonored.notifications.macroFocus: Focus cannot be less than one!
 dishonored.notifications.macroSkill: Please provide an skill to the macro!
 dishonored.notifications.macroStyle: Please provide an style to the macro!
-dishonored.notifications.NaN: The value is not a number, plus only use numeric values
-dishonored.notifications.s2A: "NPC with the name: |#| has been created!"
+dishonored.notifications.s2A: NPC with the name <b>|#|</b> has been created!
 dishonored.notifications.tooManyBonecharms: The current actor has 3 equipped bonecharms already! Doing Nothing.
 dishonored.notifications.tooManyBonecharmsNew: The current actor has 3 equipped bonecharms already! Adding as unequipped.
 dishonored.roll.armor.protect: <b>|#|</b> Protection
