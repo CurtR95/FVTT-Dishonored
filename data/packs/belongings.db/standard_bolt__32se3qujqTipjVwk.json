@@ -1,0 +1,15 @@
+{
+	"_id": "32se3qujqTipjVwk",
+	"_key": "!items!32se3qujqTipjVwk",
+	"effects": [
+	],
+	"folder": "iPwce7uR7XRzSgC1",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Standard Bolt",
+	"system": {
+		"cost": 4,
+		"description": "",
+		"quantity": 1
+	},
+	"type": "item"
+}

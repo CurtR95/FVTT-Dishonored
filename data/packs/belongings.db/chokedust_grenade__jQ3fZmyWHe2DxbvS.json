@@ -1,0 +1,28 @@
+{
+	"_id": "jQ3fZmyWHe2DxbvS",
+	"_key": "!items!jQ3fZmyWHe2DxbvS",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Chokedust Grenade",
+	"system": {
+		"cost": 70,
+		"damage": 0,
+		"description": "<p>Containing unrefined whale oil, these grenades produce an oily, choking cloud upon detonation, stunning the targets and leaving them disoriented and choking.</p>\n<p>Prison guards often use chokedust grenades as a riot suppression device, subduing groups of prisoners quickly and safely. Assassins and thieves who can get hold of them often use chokedust grenades to escape when cornered.</p>\n<p>A chokedust grenade is used to inflict the truth <em><strong>choking</strong></em> and <em><strong>disoriented</strong></em> upon enemies instead of defeating them.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": true,
+			"blast": true,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": false,
+			"messy": false,
+			"mine": false,
+			"rangeddistant": false,
+			"rangednearby": true
+		}
+	},
+	"type": "weapon"
+}

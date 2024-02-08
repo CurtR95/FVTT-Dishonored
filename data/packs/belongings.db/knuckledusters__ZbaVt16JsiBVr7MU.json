@@ -1,0 +1,28 @@
+{
+	"_id": "ZbaVt16JsiBVr7MU",
+	"_key": "!items!ZbaVt16JsiBVr7MU",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Knuckledusters",
+	"system": {
+		"cost": 10,
+		"damage": 2,
+		"description": "<p>Knuckledusters cover a range of items that reinforce the fist, particularly the knuckles, to make punches hit harder than normal, while also protecting the puncher&rsquo;s hand from the impact.</p>\n<p>They&rsquo;re a common street weapon, and while purpose-made versions exist, most are improvised tools, modified work gloves, handwraps with metal studs or coins folded into the cloth, or roughly-shaped metal that fits around the hand.</p>\n<p>While they make for effective weapons&ndash;when used by someone who knows how to punch&ndash; they have no real place outside of street gangs and other low-born fights.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": false,
+			"blast": false,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": true,
+			"messy": false,
+			"mine": false,
+			"rangeddistant": false,
+			"rangednearby": false
+		}
+	},
+	"type": "weapon"
+}

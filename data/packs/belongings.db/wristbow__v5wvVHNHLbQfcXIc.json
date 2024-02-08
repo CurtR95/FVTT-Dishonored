@@ -1,0 +1,28 @@
+{
+	"_id": "v5wvVHNHLbQfcXIc",
+	"_key": "!items!v5wvVHNHLbQfcXIc",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Wristbow",
+	"system": {
+		"cost": 100,
+		"damage": 3,
+		"description": "<p>Though not especially common anymore, crossbows were once a widespread form of weapon across the isles.</p>\n<p>Today, their quiet operation and versatility has them used by highly-skilled specialists rather than soldiers. The ability to operate almost silently makes them valuable when stealth is essential, and they can employ a wide variety of different projectiles for differing effects.</p>\n<p>Other crossbow-like weapons also exist, from the compact wristbow to the electrically-powered voltaic gun.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": false,
+			"blast": false,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": false,
+			"messy": false,
+			"mine": false,
+			"rangeddistant": false,
+			"rangednearby": true
+		}
+	},
+	"type": "weapon"
+}

@@ -1,0 +1,17 @@
+{
+	"_id": "Sp30KOAYCoMptaq8",
+	"_key": "!items!Sp30KOAYCoMptaq8",
+	"effects": [
+	],
+	"folder": "Qqf6JUnkN31wUPgd",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Armored Mantle Coat",
+	"system": {
+		"cost": 120,
+		"description": "<p>A mantle of thick leather and thin metal plates riveted together, protecting the neck, shoulders, upper chest, and upper back.</p>\n<p>This armor is light enough to be worn for prolonged periods, and doesn&rsquo;t significantly impede mobility, making it ideal for use by the Dunwall City Watch and other gendarmes across the Isles.</p>\n<p>It does nothing to protect the limbs or abdomen, however, and it is still quite obviously armor.</p>",
+		"equipped": false,
+		"helmet": false,
+		"protection": 2
+	},
+	"type": "armor"
+}

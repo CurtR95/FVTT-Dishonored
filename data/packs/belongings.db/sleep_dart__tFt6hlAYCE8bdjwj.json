@@ -1,0 +1,15 @@
+{
+	"_id": "tFt6hlAYCE8bdjwj",
+	"_key": "!items!tFt6hlAYCE8bdjwj",
+	"effects": [
+	],
+	"folder": "iPwce7uR7XRzSgC1",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Sleep Dart",
+	"system": {
+		"cost": 20,
+		"description": "<p>Sleep darts inflict the <em><strong>fast asleep</strong></em> truth instead of dealing damage.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

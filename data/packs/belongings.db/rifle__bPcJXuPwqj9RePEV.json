@@ -1,0 +1,28 @@
+{
+	"_id": "bPcJXuPwqj9RePEV",
+	"_key": "!items!bPcJXuPwqj9RePEV",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Rifle",
+	"system": {
+		"cost": 300,
+		"damage": 5,
+		"description": "<p>Using the same oil-fired mechanism as pistols, rifles provide the same firepower in a long-ranged, stable form.</p>\n<p>While the only mass-produced rifles are reserved almost exclusively for military use, a number of custom-made hunting rifles&mdash;sometimes referred to as jezails&mdash;are used by big game hunters and explorers venturing into the Pandyssian continent, to fend off whatever monstrous beasts they find there.</p>\n<p>Their longer barrels and larger ammunition allows them to be deadlier and more effective at longer ranges than a pistol, but they still need to be reloaded after each shot, and they also possess a small chance of destroying themselves with a misfire.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": false,
+			"blast": false,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": false,
+			"messy": true,
+			"mine": false,
+			"rangeddistant": true,
+			"rangednearby": false
+		}
+	},
+	"type": "weapon"
+}

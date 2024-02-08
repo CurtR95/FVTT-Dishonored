@@ -1,0 +1,28 @@
+{
+	"_id": "6bAzTI9RxUMecMCv",
+	"_key": "!items!6bAzTI9RxUMecMCv",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Pistol",
+	"system": {
+		"cost": 150,
+		"damage": 4,
+		"description": "<p>The contemporary pistol uses a mechanism which pierces and ignites a small reservoir of whale oil at the base of each bullet, propelling the bullet forwards with explosive force, often shattering the metal cap of the bullet into a cloud of shrapnel.</p>\n<p>Pistols are loud but highly effective weapons at relatively close ranges, though the expense of manufacturing them and their ammunition means that they are reserved for the wealthy.</p>\n<p>Though fairly reliable, pistols do have a small chance of misfiring, typically destroying the pistol, and even when they work perfectly, they need to be reloaded between shots.</p>\n<p>Many inventors dabble in new pistol designs as a sideline to their main works, so custom pistols are occasionally found amongst wealthy gun aficionados, more often as a conversation piece than a practical weapon.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": false,
+			"blast": false,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": false,
+			"messy": true,
+			"mine": false,
+			"rangeddistant": false,
+			"rangednearby": true
+		}
+	},
+	"type": "weapon"
+}
