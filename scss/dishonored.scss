@@ -482,7 +482,7 @@
 					}
 				}
 			}
-			&.contact {
+			.contact {
 				.header-fields {
 					.row {
 						.send2actor {
@@ -497,7 +497,7 @@
 					height: calc(100% - 70px);
 				}
 			}
-			&.weapon {
+			.weapon {
 				.header-fields {
 					.row {
 						.column-x4 {
@@ -681,7 +681,7 @@
 						pointer-events: none;
 						text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 						&.svg {
-							&:hover {
+							&:not(.disable):hover {
 								filter: drop-shadow(0 0 6px red);
 							}
 						}
@@ -706,22 +706,8 @@
 						font-weight: bold;
 						cursor: pointer;
 						text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-						&:hover {
-							& ~ .dishonored {
-								&.tracker {
-									&.momentum {
-										&.track {
-											&.item {
-												&.background {
-													&.svg {
-														filter: drop-shadow(0 0 6px red);
-													}
-												}
-											}
-										}
-									}
-								}
-							}
+						&:not(.disable):hover {
+							filter: drop-shadow(0 0 6px red);
 						}
 					}
 				}

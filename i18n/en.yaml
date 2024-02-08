@@ -87,11 +87,12 @@ dishonored.contact.relation.poor: Poor
 dishonored.item.armor.helmet: Is Helmet?
 dishonored.item.contact.send2actor: Send to Actor
 dishonored.item.truth: Truth
+dishonored.migration.begin_migration: Performing data upgrades for Dishonored
+dishonored.migration.begin_schema: Applying updates for Dishonored schema v{version}
+dishonored.migration.completed_migration: Completed data updgrades for Dishonored
+dishonored.migration.completed_schema: Completed applying updates for Dishonored schema v{version}
 dishonored.notifications.armorAlreadyEquipped: The current actor has an equipped armor already! Doing Nothing.
 dishonored.notifications.armorAlreadyEquippedNew: The current actor has an equipped armor already! Adding as unequipped.
-dishonored.notifications.chaos.trackerPermissions1: The <b>Chaos Tracker User Role</b> does not have permissions to <b>Modify Configuration Settings</b>. Please either change
-dishonored.notifications.chaos.trackerPermissions3:  has permission to <b>Modify Configuration Settings</b> or, increase the User Role requirement for <b>Chaos Tracker User Role</b> in
-dishonored.notifications.chaosButtonInvalidPermissions: You do not have sufficient permissions to change the Chaos tracker.
 dishonored.notifications.chaosGreater: THERE IS TOO MUCH CHAOS!
 dishonored.notifications.chaosGreaterSet: THAT IS TOO MUCH CHAOS!
 dishonored.notifications.chaosLess: You can't set Chaos to a value below 0!
@@ -103,19 +104,10 @@ dishonored.notifications.macroDiceLess: You must roll a dice!
 dishonored.notifications.macroFocus: Focus cannot be less than 1!
 dishonored.notifications.macroSkill: Please provide an skill to the macro!
 dishonored.notifications.macroStyle: Please provide an style to the macro!
-dishonored.notifications.momentum.trackerPermissions1: The <b>Momentum Tracker User Role</b> does not have permissions to <b>Modify Configuration Settings</b>. Please either change
-dishonored.notifications.momentum.trackerPermissions3:  has permission to <b>Modify Configuration Settings</b> or, increase the User Role requirement for <b>Momentum Tracker User Role</b> in
-dishonored.notifications.momentumButtonInvalidPermissions: You do not have sufficient permissions to change the Momentum tracker.
-dishonored.notifications.momentumGreater: THERE IS TOO MUCH MOMENTUM!
-dishonored.notifications.momentumGreaterSet: THAT IS TOO MUCH MOMENTUM!
-dishonored.notifications.momentumLess: You can't set Momentum to a value below 0!
 dishonored.notifications.NaN: The value is not a number, plus only use numeric values
 dishonored.notifications.s2A: "NPC with the name: |#| has been created!"
 dishonored.notifications.tooManyBonecharms: The current actor has 3 equipped bonecharms already! Doing Nothing.
 dishonored.notifications.tooManyBonecharmsNew: The current actor has 3 equipped bonecharms already! Adding as unequipped.
-dishonored.notifications.trackerPermissions2:  "so that User Role:"
-dishonored.notifications.trackerPermissions4: .
-dishonored.notifications.trackerPermissionsClickHere: To ignore this message until next update Click Here.
 dishonored.roll.armor.protect: <b>|#|</b> Protection
 dishonored.roll.complication: There was a complication!
 dishonored.roll.complicationPlural: There were |#| complications!
@@ -132,20 +124,29 @@ dishonored.roll.successPlural:  Successes
 dishonored.roll.talent.type: <b>|#|</b> Talent
 dishonored.roll.test:  Skill Test
 dishonored.roll.weapon.damage: <b>|#|</b> Damage
-dishonored.settings.hints.chaosPermissionLevel: Who should be allowed to amend the chaos tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.
+dishonored.settings.hints.chaosPermissionLevel: Who should be allowed to amend the chaos tracker?
 dishonored.settings.hints.maxNumberOfExperience: Max number of experience that can be given to a character. 30 is default, anything past 50 becomes almost unreadable.
-dishonored.settings.hints.momentumPermissionLevel: Who should be allowed to amend the momentum tracker? Please note, the permission level MUST have the Modify Configuration Settings permission.
+dishonored.settings.hints.momentumPermissionLevel: Who should be allowed to amend the momentum tracker?
 dishonored.settings.hints.multipleComplications: The rulebook states \"Any die which rolled 20 causes a complication\". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display \"There were x Complications\" if multiple 20s are rolled. Disabling will just state a single complication.
 dishonored.settings.hints.send2ActorPermissionLevel: The contact item type has the ability to create an NPC, who should be allowed to see & use this functionality?
-dishonored.settings.hints.trackerRefreshRate: In seconds, how often should the tracker refresh. It is inadvisable to set this too low. Up this if it appears to be causing optimisation issues.
-dishonored.settings.names.chaosPermissionLevel: "Chaos Tracker User Role:"
-dishonored.settings.names.maxNumberOfExperience: "Maximum amount of Experience:"
-dishonored.settings.names.momentumPermissionLevel: "Momentum Tracker User Role:"
-dishonored.settings.names.multipleComplications: "Multiple Complications:"
-dishonored.settings.names.send2ActorPermissionLevel: "Send2Actor User Role:"
-dishonored.settings.names.trackerRefreshRate: "Refresh Rate of Chaos & Momentum:"
+dishonored.settings.names.chaosPermissionLevel: Chaos Tracker User Role
+dishonored.settings.names.maxNumberOfExperience: Maximum amount of Experience
+dishonored.settings.names.momentumPermissionLevel: Momentum Tracker User Role
+dishonored.settings.names.multipleComplications: Multiple Complications
+dishonored.settings.names.send2ActorPermissionLevel: Send2Actor User Role
 dishonored.titles.createItem: Create Item
 dishonored.titles.deleteItem: Delete Item
 dishonored.titles.editItem: Edit Item
 dishonored.tracker.chaos: Chaos
 dishonored.tracker.momentum: Momentum
+TYPES.Actor.character: Character
+TYPES.Actor.npc: NPC
+TYPES.Item.armor: Armor
+TYPES.Item.bonecharm: Bonecharm
+TYPES.Item.contact: Contact
+TYPES.Item.focus: Focus
+TYPES.Item.item: Item
+TYPES.Item.power: Power
+TYPES.Item.talent: Talent
+TYPES.Item.truth: Truth
+TYPES.Item.weapon: Weapon

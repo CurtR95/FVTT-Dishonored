@@ -1,8 +1,8 @@
 import {
 	DishonoredSharedActorFunctions,
-} from "../../documents/DishonoredActor.mjs";
+} from "../documents/DishonoredActor.mjs";
 
-export class DishonoredCharacterSheet extends ActorSheet {
+export default class DishonoredCharacterSheet extends ActorSheet {
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {

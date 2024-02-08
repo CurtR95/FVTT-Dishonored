@@ -1,52 +1,9 @@
 {
 	"Actor": {
-		"character": {
-			"archetype": "",
-			"bonecharmequipped": 0,
-			"coins": 0,
-			"experience": 0,
-			"mana": {
-				"max": 6,
-				"value": 0
-			},
-			"momentum": {
-				"max": 6,
-				"value": 0
-			},
-			"outlook": "",
-			"runes": 0,
-			"templates": [
-				"common"
-			],
-			"void": {
-				"max": 3,
-				"value": 3
-			}
-		},
-		"npc": {
-			"templates": [
-				"common"
-			],
-			"type": "Incidental",
-			"types": {
-				"incidental": {
-					"dtype": "String",
-					"label": "dishonored.actor.npc.incidental"
-				},
-				"major": {
-					"dtype": "String",
-					"label": "dishonored.actor.npc.major"
-				},
-				"minor": {
-					"dtype": "String",
-					"label": "dishonored.actor.npc.minor"
-				},
-				"notable": {
-					"dtype": "String",
-					"label": "dishonored.actor.npc.notable"
-				}
-			}
-		},
+		"types": [
+			"character",
+			"npc"
+		],
 		"templates": {
 			"common": {
 				"age": 21,
@@ -121,12 +78,71 @@
 				}
 			}
 		},
-		"types": [
-			"character",
-			"npc"
-		]
+		"character": {
+			"archetype": "",
+			"bonecharmequipped": 0,
+			"coins": 0,
+			"experience": 0,
+			"mana": {
+				"max": 6,
+				"value": 0
+			},
+			"momentum": {
+				"max": 6,
+				"value": 0
+			},
+			"outlook": "",
+			"runes": 0,
+			"templates": [
+				"common"
+			],
+			"void": {
+				"max": 3,
+				"value": 3
+			}
+		},
+		"npc": {
+			"templates": [
+				"common"
+			],
+			"type": "Incidental",
+			"types": {
+				"incidental": {
+					"dtype": "String",
+					"label": "dishonored.actor.npc.incidental"
+				},
+				"major": {
+					"dtype": "String",
+					"label": "dishonored.actor.npc.major"
+				},
+				"minor": {
+					"dtype": "String",
+					"label": "dishonored.actor.npc.minor"
+				},
+				"notable": {
+					"dtype": "String",
+					"label": "dishonored.actor.npc.notable"
+				}
+			}
+		}
 	},
 	"Item": {
+		"types": [
+			"armor",
+			"bonecharm",
+			"contact",
+			"focus",
+			"item",
+			"power",
+			"talent",
+			"truth",
+			"weapon"
+		],
+		"templates": {
+			"common": {
+				"description": ""
+			}
+		},
 		"armor": {
 			"cost": 0,
 			"equipped": false,
@@ -196,23 +212,11 @@
 			],
 			"type": ""
 		},
-		"templates": {
-			"common": {
-				"description": ""
-			}
+		"truth": {
+			"templates": [
+				"common"
+			]
 		},
-		"truth": {},
-		"types": [
-			"armor",
-			"bonecharm",
-			"contact",
-			"focus",
-			"item",
-			"power",
-			"talent",
-			"truth",
-			"weapon"
-		],
 		"weapon": {
 			"cost": 0,
 			"damage": 0,

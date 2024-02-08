@@ -1,6 +1,4 @@
-import {
-	DishonoredRoll,
-} from "./roll.mjs";
+import { DishonoredRoll } from "./system/DishonoredRoll.mjs";
 
 export function skillTest(actor, skillName, styleName, focusRating, numberOfDice) {
 	let fail = false;

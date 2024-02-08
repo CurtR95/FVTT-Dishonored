@@ -7,6 +7,9 @@
 		"minimum": "10",
 		"verified": "11"
 	},
+	"flags": {
+		"schemaVersion": "240207.1"
+	},
 	"authors": [
 		{
 			"name": "Paul Maskelyne",
@@ -72,8 +75,9 @@
 	"gridUnits": "ft",
 	"primaryTokenAttribute": "stress",
 	"secondaryTokenAttribute": "void",
-	"url": "https://github.com/CurtR95/FVTT-Dishonored",
-	"manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/master/system.json",
-	"download": "https://github.com/CurtR95/FVTT-Dishonored/archive/master.zip",
+	"socket": true,
+	"url": "https://github.com/Muttley/foundryvtt-dishonored",
+	"manifest": "https://raw.githubusercontent.com/Muttley/foundryvtt-dishonored/main/system/system.json",
+	"download": "https://github.com/Muttley/foundryvtt-dishonored/releases/latest/download/dishonored.zip",
 	"license": "LICENSE.txt"
 }

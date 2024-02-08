@@ -1,8 +1,8 @@
 import {
 	DishonoredSharedActorFunctions,
-} from "../../documents/DishonoredActor.mjs";
+} from "../documents/DishonoredActor.mjs";
 
-export class DishonoredNPCSheet extends ActorSheet {
+export default class DishonoredNPCSheet extends ActorSheet {
 
 	/** @override */
 	static get defaultOptions() {

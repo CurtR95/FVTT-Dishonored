@@ -61,10 +61,10 @@ export class DishonoredRoll {
 		// "1 Successes" doesn't make grammatical sense). We create a string
 		// for the Successes.
 		if (success === 1) {
-			successText = success + game.i18n.format("dishonored.roll.success");
+			successText = `${success} ${game.i18n.format("dishonored.roll.success")}`;
 		}
 		else {
-			successText = success + game.i18n.format("dishonored.roll.successPlural");
+			successText = `${success} ${game.i18n.format("dishonored.roll.successPlural")}`;
 		}
 
 		// Check if we allow multiple complications, or if only one complication

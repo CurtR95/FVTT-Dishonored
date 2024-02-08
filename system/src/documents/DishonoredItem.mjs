@@ -9,7 +9,8 @@ export default class DishonoredItem extends Item {
 
 		if (data.img) return; // Already had an image set so we won't change it
 
-		const img = "systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
+		const img = CONFIG.DISHONORED.DEFAULT_IMAGES.SYMBOL_WHITE;
+
 		this.updateSource({img});
 	}
 

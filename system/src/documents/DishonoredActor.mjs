@@ -1,23 +1,19 @@
 import {
-	DishonoredRollDialog,
-} from "../apps/roll-dialog.mjs";
-import {
 	DishonoredRoll,
-} from "../roll.mjs";
+} from "../system/DishonoredRoll.mjs";
 
 export default class DishonoredActor extends Actor {
 
 	async _preCreate(data, options, user) {
 		await super._preCreate(data, options, user);
 
-		if (data.img) return; // Already had an image set so we won"t change it
+		if (data.img) return; // Already had an image set so we won't change it
 
-		const img = "/systems/FVTT-Dishonored/icons/dishonoredDefaultLogo.webp";
 		this.updateSource({
-			img,
+			img: CONFIG.DISHONORED.DEFAULT_IMAGES.SYMBOL_WHITE,
 			prototypeToken: {
 				texture: {
-					src: img,
+					src: CONFIG.DISHONORED.DEFAULT_TOKEN,
 				},
 			},
 		});
@@ -187,7 +183,7 @@ export class DishonoredSharedActorFunctions {
 	async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, speaker) {
 		event.preventDefault();
 		// This creates a dialog to gather details regarding the roll and waits for a response
-		let rolldialog = await DishonoredRollDialog.create();
+		let rolldialog = await dishonored.rollDialog.create();
 		if (rolldialog) {
 			let dicePool = rolldialog.get("dicePoolSlider");
 			let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
