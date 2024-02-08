@@ -9,7 +9,12 @@
 - [#4] Remove unecessary code duplication
 - [#5] Implement a more robust data migration process
 - [#6] Display release notes when new version/world is launched for the first time
-- [#8] Setup Crowdin translation project (see https://crowdin.com/project/foundryvtt-dishonored)
+- [#8] Setup Crowdin translation project. https://crowdin.com/project/foundryvtt-dishonored
 
 ## Chores
 - [#9] PixiJS Deprecation Warning: utils.rgb2hex is deprecated
+
+## Notes
+With the change of system developer/maintainer, the system has now been migrated to a new home and build process.
+
+*Many thanks to KaitoR95 for all their hard work on developing and maintaining the original system*
