@@ -4,7 +4,7 @@
 ![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2FFVTT-Dishonored)
 [![Crowdin](https://badges.crowdin.net/foundryvtt-dishonored/localized.svg)](https://crowdin.com/project/foundryvtt-dishonored)
 
-# Dishonored RPG for Foundry VTT
+# Dishonored: The Roleplaying Game for Foundry VTT
 
 **foundryvtt-dishonored** is a community contributed and maintained system for playing the [Dishonored RPG][1] with the [Foundry VTT][2] virtual tabletop software produced with the explicit consent of [Modiphius Entertainment][4].
 
