@@ -1,7 +1,7 @@
 {
 	"id": "FVTT-Dishonored",
 	"title": "Dishonored: The Roleplaying Game",
-	"description": "The Unofficial Dishonored 2d20 System for FoundryVTT",
+	"description": "A system for playing Dishonored: The Roleplaying Game from Modiphius Entertainment Ltd.",
 	"version": "0.6.0",
 	"compatibility": {
 		"minimum": "10",
