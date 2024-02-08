@@ -48,6 +48,22 @@
 			"flags": {}
 		},
 		{
+			"name": "powers",
+			"label": "Powers",
+			"type": "Item",
+			"path": "./packs/powers",
+			"private": false,
+			"flags": {}
+		},
+		{
+			"name": "talents",
+			"label": "Talents",
+			"type": "Item",
+			"path": "./packs/talents",
+			"private": false,
+			"flags": {}
+		},
+		{
 			"name": "system-documentation",
 			"label": "System Documentation",
 			"path": "packs/system-documentation",
@@ -59,11 +75,13 @@
 	"packFolders": [
 		{
 			"name": "Dishonored RPG",
-			"sorting": "a",
+			"sorting": "m",
 			"color": "#2e3830",
 			"packs": [
 				"belongings",
 				"focuses",
+				"powers",
+				"talents",
 				"system-documentation"
 			]
 		}

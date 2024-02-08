@@ -11,6 +11,7 @@ import DishonoredUtils from "../utils/DishonoredUtils.mjs";
 import Logger from "../utils/Logger.mjs";
 
 import installTokenBarShim from "../tokens.mjs";
+import preloadTemplates from "../templates.mjs";
 import registerSettings from "../settings.mjs";
 
 export async function initHook() {
@@ -38,6 +39,7 @@ export async function initHook() {
 
 	registerSettings();
 
+	preloadTemplates();
 	installTokenBarShim();
 
 	DishonoredHooks.attach();

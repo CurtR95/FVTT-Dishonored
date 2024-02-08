@@ -20,7 +20,6 @@ If you would like to contribute to this system, please see the [project wiki][3]
 * [LucifurMacomb](https://github.com/LucifurMacomb) (original design)
 * [Regik](https://github.com/Damaskian) (Spanish translation)
 
-
 ---
 
 ## Thanks

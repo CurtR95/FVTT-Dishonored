@@ -64,6 +64,7 @@ export default class DishonoredItemSheet extends ItemSheet {
 			this.item.system.description,
 			{
 				async: true,
+				secrets: this.item.isOwner,
 			}
 		);
 
