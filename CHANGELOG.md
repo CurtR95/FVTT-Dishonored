@@ -11,6 +11,8 @@
 - [#5] Implement a more robust data migration process
 - [#6] Display release notes when new version/world is launched for the first time
 - [#8] Setup Crowdin translation project. https://crowdin.com/project/foundryvtt-dishonored
+- [#12] Switch all sheet note and description text editors to use ProseMirror
+- [#13] Ensure all Note and Description text fields use enriched HTML for display
 
 ## Chores
 - [#9] PixiJS Deprecation Warning: utils.rgb2hex is deprecated

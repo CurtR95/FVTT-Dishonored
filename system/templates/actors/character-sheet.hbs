@@ -200,9 +200,13 @@
                     <div class="column-x6 small"></div>
                     <div class="column-x6 bold">{{localize 'dishonored.actor.abilities.mana'}}</div>
                     <div class="column-x6 small">
-                        <div class="small"><input name="system.mana.value" type="number" value="{{system.mana.value}}" placeholder="0" data-dtype="Number" /></div>
-                        <div class="advisory">/</div>
-                        <div class="small disabled"><input id="max-mana" name="system.mana.max" type="number" value="{{system.mana.max}}" data-dtype="Number"  readonly/></div>
+                        <div class="small" style="text-align: center;">
+							<input name="system.mana.value" type="number" value="{{system.mana.value}}" placeholder="0" data-dtype="Number" />
+						</div>
+                        <div class="advisory">&nbsp;/&nbsp;</div>
+                        <div class="small disabled" style="text-align: center;">
+							<input id="max-mana" name="system.mana.max" type="number" value="{{system.mana.max}}" data-dtype="Number"  readonly/>
+						</div>
                     </div>
                     <div class="column-x6 small"></div>
                     <div class="column-x6 small"></div>
@@ -259,7 +263,9 @@
                     <div class="currency row">
                         <div class="column-x6 bold">{{localize 'dishonored.actor.belonging.collectable.bonecharm'}}</div>
                         <div class="column-x6 small bonecharmCount">
-                            <span class="small bonecharm disabled"><input name="system.bonecharmequipped" type="text" value="{{system.bonecharmequipped}}" readonly/></span>/3
+                            <span class="small bonecharm disabled">
+								<input name="system.bonecharmequipped" type="text" value="{{system.bonecharmequipped}}" readonly/>
+							</span> / 3
                         </div>
                         <div class="column-x6 bold">{{localize 'dishonored.actor.belonging.collectable.rune'}}</div>
                         <div class="column-x6 small"><input name="system.runes" type="text" value="{{system.runes}}" placeholder="0"/></div>
@@ -412,10 +418,11 @@
                     <div class="notes">
                         {{editor
 							notesHTML
-							target="system.notes"
 							button=true
-							owner=owner
 							editable=editable
+							engine="prosemirror"
+							owner=owner
+							target="system.notes"
 						}}
                     </div>
                 </div>
