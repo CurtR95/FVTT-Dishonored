@@ -3,6 +3,7 @@
 ## Bugfixes
 - [#1] NPC sheet won't open
 - [#2] Unable to edit Note sections on Items and Actors
+- [#10] Status bar on abilities and belongings tabs of character sheet overflow the sheet
 
 ## Enhancements
 - [#3] Remove Momentum/Chaos tracker permission requirements
