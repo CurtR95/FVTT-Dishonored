@@ -1,0 +1,15 @@
+{
+	"_id": "surDjAo9gGzd2i7f",
+	"_key": "!items!surDjAo9gGzd2i7f",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Sokolov's Elixir",
+	"system": {
+		"cost": 100,
+		"description": "<p>The more popular of the anti-plague elixirs produced during the Rat Plague, Sokolov’s elixir was produced by Royal Physician Anton Sokolov, and is claimed to “promote robust health and fitness”. The elixir is widespread across Dunwall, but supplies are strictly rationed—indeed, the Watch remain loyal to the Lord Regent in part because they are guaranteed a decent ration.</p><p>A genuine elixir clears all filled-in spaces on the drinker’s stress track. Diluted or bootleg versions may have a lesser effect, no effect, or even a harmful effect, as described above for Piero’s Spiritual Remedy.</p><p>Bootleg elixirs cost less but may have little or no effect.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

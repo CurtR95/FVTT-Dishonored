@@ -8,7 +8,7 @@
 	"name": "Cheater's Tools",
 	"system": {
 		"cost": 30,
-		"description": "<p>These seemingly ordinary gambling items have been subtly altered to favor particular results, or make it easier to gain an unfair advantage.</p>\n<p>Weighted dice that tend to roll a particular number are a common example, as are playing cards which are marked in a way only their owner can detect or which allow them to shuffle or deal in a particular way.</p>\n<p>The latter are also favored by self-proclaimed fortune tellers, who can use a rigged deck of tarot cards to falsify the fortunes they tell.</p>\n<p>Regardless, it&rsquo;s not a good idea to be caught using the tools of a cheater.</p>",
+		"description": "<p>These seemingly ordinary gambling items have been subtly altered to favor particular results, or make it easier to gain an unfair advantage. Weighted dice that tend to roll a particular number are a common example, as are playing cards which are marked in a way only their owner can detect or which allow them to shuffle or deal in a particular way. The latter are also favored by self-proclaimed fortune tellers, who can use a rigged deck of tarot cards to falsify the fortunes they tell. Regardless, it’s not a good idea to be caught using the tools of a cheater.</p>",
 		"quantity": 1
 	},
 	"type": "item"

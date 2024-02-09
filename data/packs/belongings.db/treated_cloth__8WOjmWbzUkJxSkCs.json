@@ -8,7 +8,7 @@
 	"name": "Treated Cloth",
 	"system": {
 		"cost": 60,
-		"description": "<p>There are a number of processes used in treating cloth and leather to make them more durable, each with their own advantages and disadvantages.</p>\n<p>Some make the fabric stiffer and less comfortable, while others become uncomfortably warm and sweatsoaked during prolonged wear, or cause irritation in the skin.</p>\n<p>Nevertheless, treated cloth can turn a garment into simple protective gear, able to absorb impacts and withstand the cut of a sword to an extent.</p>\n<p>It&rsquo;s not as durable as proper armor, and also lacks the appearance, weight, and inflexibility of armor that is purpose made.</p>",
+		"description": "<p>There are a number of processes used in treating cloth and leather to make them more durable, each with their own advantages and disadvantages. Some make the fabric stiffer and less comfortable, while others become uncomfortably warm and sweatsoaked during prolonged wear, or cause irritation in the skin. Nevertheless, treated cloth can turn a garment into simple protective gear, able to absorb impacts and withstand the cut of a sword to an extent. It’s not as durable as proper armor, and also lacks the appearance, weight, and inflexibility of armor that is purpose made.</p>",
 		"equipped": false,
 		"helmet": false,
 		"protection": 1

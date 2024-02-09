@@ -9,7 +9,7 @@
 	"system": {
 		"cost": 300,
 		"damage": 5,
-		"description": "<p>Using the same oil-fired mechanism as pistols, rifles provide the same firepower in a long-ranged, stable form.</p>\n<p>While the only mass-produced rifles are reserved almost exclusively for military use, a number of custom-made hunting rifles&mdash;sometimes referred to as jezails&mdash;are used by big game hunters and explorers venturing into the Pandyssian continent, to fend off whatever monstrous beasts they find there.</p>\n<p>Their longer barrels and larger ammunition allows them to be deadlier and more effective at longer ranges than a pistol, but they still need to be reloaded after each shot, and they also possess a small chance of destroying themselves with a misfire.</p>",
+		"description": "<p>Using the same oil-fired mechanism as pistols, rifles provide the same firepower in a long-ranged, stable form. While the only mass-produced rifles are reserved almost exclusively for military use, a number of custom-made hunting rifles—sometimes referred to as jezails—are used by big game hunters and explorers venturing into the Pandyssian continent, to fend off whatever monstrous beasts they find there. Their longer barrels and larger ammunition allows them to be deadlier and more effective at longer ranges than a pistol, but they still need to be reloaded after each shot, and they also possess a small chance of destroying themselves with a misfire.</p><p><span class=\"fontstyle0\">Higher quality rifles may cost more. Bullets cost 5 coin apiece.</span></p>",
 		"qualities": {
 			"armorpierce": false,
 			"awkward": false,

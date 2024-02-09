@@ -9,7 +9,7 @@
 	"system": {
 		"cost": 100,
 		"damage": 3,
-		"description": "<p>Though not especially common anymore, crossbows were once a widespread form of weapon across the isles.</p>\n<p>Today, their quiet operation and versatility has them used by highly-skilled specialists rather than soldiers. The ability to operate almost silently makes them valuable when stealth is essential, and they can employ a wide variety of different projectiles for differing effects.</p>\n<p>Other crossbow-like weapons also exist, from the compact wristbow to the electrically-powered voltaic gun.</p>",
+		"description": "<p>Though not especially common anymore, crossbows were once a widespread form of weapon across the isles. Today, their quiet operation and versatility has them used by highly-skilled specialists rather than soldiers. The ability to operate almost silently makes them valuable when stealth is essential, and they can employ a wide variety of different projectiles for differing effects. Other crossbow-like weapons also exist, from the compact wristbow to the electrically-powered voltaic gun.</p><p><span class=\"fontstyle0\">Sleep darts inflict the </span><span class=\"fontstyle2\">fast asleep </span><span class=\"fontstyle0\">truth instead of dealing damage. Incendiary bolts add the </span><span class=\"fontstyle2\">burn </span><span class=\"fontstyle0\">quality.</span></p><p><span class=\"fontstyle0\">Standard bolts cost 4 coin apiece. Sleep darts cost 20 coin each. Incendiary bolts cost 30 coin each.</span></p>",
 		"qualities": {
 			"armorpierce": false,
 			"awkward": false,

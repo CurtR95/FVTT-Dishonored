@@ -8,7 +8,7 @@
 	"name": "Helmet",
 	"system": {
 		"cost": 20,
-		"description": "<p>A metal cap, normally lined with leather or other padding, for protecting the head.</p>\n<p>Found in a variety of styles and designs to denote organization, rank, or status.</p>\n<p>The unnerving masks used by the Abbey&rsquo;s Warfare Overseers can also be thought of as a type of helmet, though providing more protection to the face.</p>",
+		"description": "<p>A metal cap, normally lined with leather or other padding, for protecting the head. Found in a variety of styles and designs to denote organization, rank, or status. The unnerving masks used by the Abbey’s Warfare Overseers can also be thought of as a type of helmet, though providing more protection to the face.</p><p><span class=\"fontstyle0\">A helmet’s protection stacks with protection from other armor.</span></p>",
 		"equipped": false,
 		"helmet": true,
 		"protection": 1

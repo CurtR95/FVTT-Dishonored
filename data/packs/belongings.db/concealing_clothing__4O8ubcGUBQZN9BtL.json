@@ -8,7 +8,7 @@
 	"name": "Concealing Clothing",
 	"system": {
 		"cost": 50,
-		"description": "<p>Concealing clothing is typically worn over other clothes, as a cloak, overcoat, or similar item.</p>\n<p>Clothing of this sort is designed to match the approximate colors of the environment, break up the wearer&rsquo;s outline, and generally make the wearer harder to spot.</p>\n<p>They&rsquo;re normally made of lightweight, fine materials that don&rsquo;t impede the wearer or slow them down.</p>\n<p>Some concealing clothing is made only by specialized tailors out of unusual or exotic materials, and can help conceal the wearer in almost any condition.</p>\n<p>Concealing clothing that works in any environment is much more expensive.</p>",
+		"description": "<p>Concealing clothing is typically worn over other clothes, as a cloak, overcoat, or similar item. Clothing of this sort is designed to match the approximate colors of the environment, break up the wearer’s outline, and generally make the wearer harder to spot. They’re normally made of lightweight, fine materials that don’t impede the wearer or slow them down. Some concealing clothing is made only by specialized tailors out of unusual or exotic materials, and can help conceal the wearer in almost any condition.</p><p>Concealing clothing that works in any environment is much more expensive.</p>",
 		"quantity": 1
 	},
 	"type": "item"

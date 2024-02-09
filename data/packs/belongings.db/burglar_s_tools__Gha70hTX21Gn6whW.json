@@ -8,7 +8,7 @@
 	"name": "Burglar's Tools",
 	"system": {
 		"cost": 50,
-		"description": "<p>A burglar needs a decent set of tools to do their &ldquo;job&rdquo;, and they&rsquo;ll construct their own toolkits from readily-available tools.</p>\n<p>This normally includes a set of lockpicks for dealing with common locks, a pry bar for forcing open windows and hatches, and a few small measures of oil or grease to silence noisy hinges or ease a stiff mechanism.</p>\n<p>Most kits contain a few other small, cheap items, added based on the experiences and needs of each burglar.</p>",
+		"description": "<p>A burglar needs a decent set of tools to do their “job”, and they’ll construct their own toolkits from readily-available tools. This normally includes a set of lockpicks for dealing with common locks, a pry bar for forcing open windows and hatches, and a few small measures of oil or grease to silence noisy hinges or ease a stiff mechanism. Most kits contain a few other small, cheap items, added based on the experiences and needs of each burglar.</p>",
 		"quantity": 1
 	},
 	"type": "item"

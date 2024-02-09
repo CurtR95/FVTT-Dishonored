@@ -1,0 +1,15 @@
+{
+	"_id": "rMjq4dSeohWTM0Pd",
+	"_key": "!items!rMjq4dSeohWTM0Pd",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Disguise Kit",
+	"system": {
+		"cost": 50,
+		"description": "<p>These bags are used as often by actors and other performers as by those seeking to disguise their appearance for illicit purposes. They contain a collection of cosmetics to color the skin, as well as prosthetics that can add or conceal details such as scars, a differently-shaped nose, and similar. Better ones contain a wider range of prosthetics and cosmetics, and may also include several wigs and dyes that can be used to change hair color. When skillfully used, a disguise kit can make a person unrecognizable, or even make them appear as someone else entirely.</p><p>Better kits may cost twice this.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

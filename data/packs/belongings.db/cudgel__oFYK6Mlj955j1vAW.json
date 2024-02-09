@@ -9,7 +9,7 @@
 	"system": {
 		"cost": 10,
 		"damage": 2,
-		"description": "<p>Cudgels are seldom balanced for combat, but brute force makes them quite capable of breaking bones and overpowering the unwary.</p>\n<p>A solid blow from a cudgel is no less deadly than a sword, and while they&rsquo;re awkward to use, it is still possible to batter through an enemy&rsquo;s defenses, and it can still block a sword strike if the wielder is quick enough.</p>\n<p>A character who carries a cudgel of some kind is clearly ready for trouble, and often looking for it. Purpose-made cudgels are often used by prison guards and animal trainers to discipline their charges.</p>",
+		"description": "<p>Cudgels are seldom balanced for combat, but brute force makes them quite capable of breaking bones and overpowering the unwary. A solid blow from a cudgel is no less deadly than a sword, and while they’re awkward to use, it is still possible to batter through an enemy’s defenses, and it can still block a sword strike if the wielder is quick enough. A character who carries a cudgel of some kind is clearly ready for trouble, and often looking for it. Purpose-made cudgels are often used by prison guards and animal trainers to discipline their charges.</p>",
 		"qualities": {
 			"armorpierce": false,
 			"awkward": true,

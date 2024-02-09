@@ -1,0 +1,15 @@
+{
+	"_id": "VZWi8SZ1SU53xpIK",
+	"_key": "!items!VZWi8SZ1SU53xpIK",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Tinkering Tools",
+	"system": {
+		"cost": 200,
+		"description": "<p>A common accompaniment to any inventor, engineer, or enterprising natural philosopher, a set of tinkering tools provide a basis for performing detailed work. The tools will all be of fine and delicate quality, for maximum precision. Most toolkits include a loupe—a magnifying eyepiece for seeing small details more closely–and slim sets of screwdrivers, tweezers, and pliers for manipulating small objects carefully.</p><p>Better toolkits may cost far more, or require custom parts which must be hand-made or commissioned separately.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}
