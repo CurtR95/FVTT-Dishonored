@@ -1,4 +1,5 @@
 dishonored.actor.abilities.mana: Mana Points
+dishonored.actor.abilities.title: Abilities
 dishonored.actor.belonging.armor.protect: Protección
 dishonored.actor.belonging.armor.protection: Protección
 dishonored.actor.belonging.armor.title: Armadura
@@ -26,6 +27,7 @@ dishonored.actor.belonging.weapon.nearby: Cercano
 dishonored.actor.belonging.weapon.rangeddistant: Rango (Distancia)
 dishonored.actor.belonging.weapon.rangednearby: Rango (Cercano)
 dishonored.actor.belonging.weapon.title: Armas
+dishonored.actor.biography.title: Biography
 dishonored.actor.character.age: Edad
 dishonored.actor.character.archetype: Arquetipo
 dishonored.actor.character.experience: Puntos de Experiencia
