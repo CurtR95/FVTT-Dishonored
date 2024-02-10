@@ -1,8 +1,8 @@
 import { DishonoredUpdateBase } from "../DishonoredUpdateBase";
 
-export default class Update_240209_2 extends DishonoredUpdateBase {
+export default class Update_240209_3 extends DishonoredUpdateBase {
 
-	static version = 240209.2;
+	static version = 240209.3;
 
 	async updateItem(itemData, actorData) {
 		if (itemData.type !== "contact") return;
