@@ -19,9 +19,14 @@
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="send2actor btn">{{localize 'dishonored.item.contact.send2actor'}}</div>
-        </div>
+		{{#if canSendToActor}}
+			<div class="row">
+				<div class="send2actor btn">
+					{{localize 'dishonored.item.contact.send2actor'}}
+				</div>
+			</div>
+		{{/if}}
     </div>
+
     {{> items/partials/description }}
 </form>

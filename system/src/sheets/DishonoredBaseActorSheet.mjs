@@ -1,8 +1,4 @@
-import { DishonoredSharedActorFunctions } from "../documents/DishonoredActor.mjs";
-
 export default class DishonoredBaseActorSheet extends ActorSheet {
-
-	dishonoredActor = new DishonoredSharedActorFunctions();
 
 	/** @override */
 	static get defaultOptions() {
@@ -39,117 +35,14 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 		return template;
 	}
 
-	/* -------------------------------------------- */
-
-	/** @override */
-	async getData() {
-		const context = await super.getData();
-
-		context.DISHONORED = CONFIG.DISHONORED;
-		context.inventory = await this._prepareInventory();
-		context.isCharacter = this.actor.type === "character";
-		context.isNPC = this.actor.type === "npc";
-		context.system = duplicate(context.data.system);
-
-		context.notesHTML = await TextEditor.enrichHTML(
-			this.actor.system.notes,
-			{
-				async: true,
-			}
-		);
-
-		// Populate status of values on the Stress track
-		//
-		const maxStress = this.actor.system.stress.max;
-
-		context.stressBaseStyle = `width: calc(100% / ${maxStress});`;
-		context.stressTrackData = this._calculateTrackerValues(
-			this.actor.system.stress.value,
-			maxStress
-		);
-
-		return context;
-	}
-
-	/* -------------------------------------------- */
-
 	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		// Opens the class DishonoredSharedActorFunctions for access at various stages.
-		let dishonoredActor = new DishonoredSharedActorFunctions();
+		// -------------------------------------------------------------
+		// ! Everything below here is only needed if the sheet is editable
+		if (!this.isEditable) return;
 
-		// If the player has limited access to the actor, there is nothing to see here. Return.
-		if (!game.user.isGM && this.actor.limited) return;
-
-		// We use i a lot in for loops. Best to assign it now for use later in multiple places.
-		let i;
-
-		// This allows for each item-edi1t image to link open an item sheet.
-		// This uses Simple WorldBuilding System Code.
-		html.find(".control.edit").click(ev => {
-			const li = $(ev.currentTarget).parents(".entry");
-			const item = this.actor.items.get(li.data("itemId"));
-			item.sheet.render(true);
-		});
-
-		// This if statement checks if the form is editable, if not it hides
-		// control used by the owner, then aborts any more of the script.
-		if (!this.options.editable) {
-			// This hides the ability to Perform a Skill Test for the character.
-			for (i = 0; i < html.find(".check-button").length; i++) {
-				html.find(".check-button")[i].style.display = "none";
-			}
-			// This hides the ability to change the amount of Void Points the character has.
-			for (i = 0; i < html.find(".voidchange").length; i++) {
-				html.find(".voidchange")[i].style.display = "none";
-			}
-			// This hides all toggle, add and delete item images.
-			for (i = 0; i < html.find(".control.create").length; i++) {
-				html.find(".control.create")[i].style.display = "none";
-			}
-			for (i = 0; i < html.find(".control.delete").length; i++) {
-				html.find(".control.delete")[i].style.display = "none";
-			}
-			for (i = 0; i < html.find(".control.toggle").length; i++) {
-				html.find(".control.delete")[i].style.display = "none";
-			}
-			// This hides all skill and style check boxes (and titles)
-			for (i = 0; i < html.find(".selector").length; i++) {
-				html.find(".selector")[i].style.display = "none";
-			}
-			for (i = 0; i < html.find(".selector").length; i++) {
-				html.find(".selector")[i].style.display = "none";
-			}
-			// Remove hover CSS from clickables that are no longer clickable.
-			for (i = 0; i < html.find(".box").length; i++) {
-				html.find(".box")[i].classList.add("unset-clickables");
-			}
-			for (i = 0; i < html.find(".rollable").length; i++) {
-				html.find(".rollable")[i].classList.add("unset-clickables");
-			}
-			return;
-		}
-
-		// This toggles whether the item is equipped or not. Equipped items count towards item caps.
-		html.find(".control.toggle").click(async event => {
-			event.preventDefault();
-			const itemId = event.currentTarget.closest(".entry").dataset.itemId;
-			this.actor.equipItem(itemId);
-		});
-
-		// This allows for all items to be rolled, it gets the current targets
-		// type and id and sends it to the rollGenericItem function.
-		html.find(".rollable").click(ev => {
-			let itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
-			let itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
-			dishonoredActor.rollGenericItem(ev, itemType, itemId, this.actor);
-		});
-
-		// Allows item-create images to create an item of a type defined
-		// individually by each button. This uses code found via the Foundry
-		// VTT System Tutorial.
 		html.find(".control.create").click(ev => {
 			ev.preventDefault();
 			const header = ev.currentTarget;
@@ -164,18 +57,35 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 			};
 			delete itemData.data.type;
 
-			// stressTrackUpdate();
-
 			return this.actor.createEmbeddedDocuments("Item", [(itemData)]);
 		});
 
-		// Allows item-delete images to allow deletion of the selected item.
-		// This uses Simple WorldBuilding System Code.
 		html.find(".control.delete").click(ev => {
 			const li = $(ev.currentTarget).parents(".entry");
 			this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
 
 			return li.slideUp(200, () => this.render(false));
+		});
+
+		html.find(".control.edit").click(ev => {
+			const li = $(ev.currentTarget).parents(".entry");
+			const item = this.actor.items.get(li.data("itemId"));
+			item.sheet.render(true);
+		});
+
+		// This toggles whether the item is equipped or not. Equipped items count towards item caps.
+		html.find(".control.toggle").click(async event => {
+			event.preventDefault();
+			const itemId = event.currentTarget.closest(".entry").dataset.itemId;
+			this.actor.equipItem(itemId);
+		});
+
+		// This allows for all items to be rolled, it gets the current targets
+		// type and id and sends it to the rollGenericItem function.
+		html.find(".rollable").click(ev => {
+			let itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
+			let itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
+			this.actor.rollGenericItem(ev, itemType, itemId);
 		});
 
 		// Stress track
@@ -230,7 +140,7 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 			let checkTarget = parseInt(selectedSkillValue, 10)
 				+ parseInt(selectedStyleValue, 10);
 
-			dishonoredActor.rollSkillTest(
+			this.actor.rollSkillTest(
 				ev,
 				checkTarget,
 				selectedSkill,
@@ -239,6 +149,36 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 			);
 		});
 	}
+
+	/** @override */
+	async getData() {
+		const context = await super.getData();
+
+		context.DISHONORED = CONFIG.DISHONORED;
+
+		context.inventory = await this._prepareInventory();
+		context.isCharacter = this.actor.type === "character";
+		context.isNPC = this.actor.type === "npc";
+		context.system = duplicate(context.data.system);
+
+		context.notesHTML = await TextEditor.enrichHTML(
+			this.actor.system.notes,
+			{
+				async: true,
+			}
+		);
+
+		// Populate status of values on the Stress track
+		//
+		context.maxStress = this.actor.system.stress.max;
+		context.stressTrackData = this._calculateTrackerValues(
+			this.actor.system.stress.value,
+			context.maxStress
+		);
+
+		return context;
+	}
+
 
 	_calculateTrackerValues(current, max) {
 		const values = [];

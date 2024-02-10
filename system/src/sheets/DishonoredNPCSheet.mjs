@@ -1,4 +1,3 @@
-// import { DishonoredSharedActorFunctions } from "../documents/DishonoredActor.mjs";
 import DishonoredBaseActorSheet from "./DishonoredBaseActorSheet.mjs";
 
 export default class DishonoredNPCSheet extends DishonoredBaseActorSheet {

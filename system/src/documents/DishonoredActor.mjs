@@ -1,7 +1,3 @@
-import {
-	DishonoredRoll,
-} from "../system/DishonoredRoll.mjs";
-
 export default class DishonoredActor extends Actor {
 
 	get armorEquippedCount() {
@@ -90,6 +86,63 @@ export default class DishonoredActor extends Actor {
 		return this;
 	}
 
+	// This handles performing an "item" roll by clicking the item's image.
+	async rollGenericItem(event, type, id) {
+		event.preventDefault();
+		let item = this.items.get(id);
+
+		switch (type) {
+			case "item":
+				dishonored.roll.performItemRoll(item, this);
+				break;
+			case "focus":
+				dishonored.roll.performFocusRoll(item, this);
+				break;
+			case "bonecharm":
+				dishonored.roll.performBonecharmRoll(item, this);
+				break;
+			case "weapon":
+				dishonored.roll.performWeaponRoll(item, this);
+				break;
+			case "armor":
+				dishonored.roll.performArmorRoll(item, this);
+				break;
+			case "talent":
+				dishonored.roll.performTalentRoll(item, this);
+				break;
+			case "truth":
+				dishonored.roll.performTruthRoll(item, this);
+				break;
+			case "contact":
+				dishonored.roll.performContactRoll(item, this);
+				break;
+			case "power":
+				dishonored.roll.performPowerRoll(item, this);
+				break;
+		}
+	}
+
+	// This handles performing a skill test using the "Perform Check" button.
+	async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, speaker) {
+		event.preventDefault();
+		// This creates a dialog to gather details regarding the roll and waits for a response
+		let rolldialog = await dishonored.rollDialog.create();
+		if (rolldialog) {
+			let dicePool = rolldialog.get("dicePoolSlider");
+			let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
+			// Once the response has been collected it then sends it to be rolled.
+			let dishonoredRoll = new DishonoredRoll();
+			dishonoredRoll.performSkillTest(
+				dicePool,
+				checkTarget,
+				focusTarget,
+				selectedSkill,
+				selectedStyle,
+				speaker
+			);
+		}
+	}
+
 	_prepareCharacterData() {
 		// Checks if mana max is not equal to double the void max, if it
 		// isn't, set it so.
@@ -163,67 +216,6 @@ export default class DishonoredActor extends Actor {
 			this.system.skills[skill].value = dishonored.utils.clampValue(
 				this.system.skills[skill].value, 4, 8
 			);
-		}
-	}
-}
-
-export class DishonoredSharedActorFunctions {
-
-	// This handles performing a skill test using the "Perform Check" button.
-	async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, speaker) {
-		event.preventDefault();
-		// This creates a dialog to gather details regarding the roll and waits for a response
-		let rolldialog = await dishonored.rollDialog.create();
-		if (rolldialog) {
-			let dicePool = rolldialog.get("dicePoolSlider");
-			let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
-			// Once the response has been collected it then sends it to be rolled.
-			let dishonoredRoll = new DishonoredRoll();
-			dishonoredRoll.performSkillTest(
-				dicePool,
-				checkTarget,
-				focusTarget,
-				selectedSkill,
-				selectedStyle,
-				speaker
-			);
-		}
-	}
-
-	// This handles performing an "item" roll by clicking the item's image.
-	async rollGenericItem(event, type, id, speaker) {
-		event.preventDefault();
-		let item = speaker.items.get(id);
-		let dishonoredRoll = new DishonoredRoll();
-		// It will send it to a different method depending what item type was sent to it.
-		switch (type) {
-			case "item":
-				dishonoredRoll.performItemRoll(item, speaker);
-				break;
-			case "focus":
-				dishonoredRoll.performFocusRoll(item, speaker);
-				break;
-			case "bonecharm":
-				dishonoredRoll.performBonecharmRoll(item, speaker);
-				break;
-			case "weapon":
-				dishonoredRoll.performWeaponRoll(item, speaker);
-				break;
-			case "armor":
-				dishonoredRoll.performArmorRoll(item, speaker);
-				break;
-			case "talent":
-				dishonoredRoll.performTalentRoll(item, speaker);
-				break;
-			case "truth":
-				dishonoredRoll.performTruthRoll(item, speaker);
-				break;
-			case "contact":
-				dishonoredRoll.performContactRoll(item, speaker);
-				break;
-			case "power":
-				dishonoredRoll.performPowerRoll(item, speaker);
-				break;
 		}
 	}
 }

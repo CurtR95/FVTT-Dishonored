@@ -4,6 +4,7 @@ import * as documents from "../documents/_module.mjs";
 import * as sheets from "../sheets/_module.mjs";
 
 import { DishonoredHooks } from "../system/DishonoredHooks.mjs";
+import { DishonoredRoll } from "../system/DishonoredRoll.mjs";
 
 import DishonoredRollDialog from "../apps/DishonoredRollDialog.mjs";
 import DishonoredTracker from "../apps/DishonoredTracker.mjs";
@@ -25,6 +26,7 @@ export async function initHook() {
 
 	globalThis.dishonored = {
 		logger: Logger,
+		roll: new DishonoredRoll(),
 		rollDialog: DishonoredRollDialog,
 		tracker: new DishonoredTracker(),
 		utils: DishonoredUtils,

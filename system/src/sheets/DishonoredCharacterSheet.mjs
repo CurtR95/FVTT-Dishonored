@@ -2,6 +2,7 @@
 import DishonoredBaseActorSheet from "./DishonoredBaseActorSheet.mjs";
 
 export default class DishonoredCharacterSheet extends DishonoredBaseActorSheet {
+
 	/** @override */
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
@@ -15,32 +16,26 @@ export default class DishonoredCharacterSheet extends DishonoredBaseActorSheet {
 		});
 	}
 
-	/* -------------------------------------------- */
-
 	/** @override */
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		// Handle experience track clicks
-		//
+		// -------------------------------------------------------------
+		// ! Everything below here is only needed if the sheet is editable
+		if (!this.isEditable) return;
+
+		// Experience track
 		html.find("[id^=\"exp\"]").click(
 			event => this._updateFromClickedTrack(event)
 		);
 
-		// Handle void track clicks
-		//
+		// Void track
 		html.find("[id^=\"void\"]").click(
 			event => this._updateFromClickedTrack(event)
 		);
 
 		html.find("#decrease-void-max").click(() => this.actor.adjustVoidMax(-1));
 		html.find("#increase-void-max").click(() => this.actor.adjustVoidMax(1));
-
-		// Fires the function dishonoredRenderTracks as soon as the parameters exist to do so.
-		// dishonoredActor.dishonoredRenderTracks(
-		// 	html, this.actor.system.stress.max, voidPointsMax, 0
-		// );
-
 	}
 
 	/** @override */
@@ -52,23 +47,19 @@ export default class DishonoredCharacterSheet extends DishonoredBaseActorSheet {
 		// Populate status of values on the XP track to make rendering it more
 		// efficient
 		//
-		const maxXP = game.settings.get(SYSTEM_ID, "maxNumberOfExperience");
-
-		context.xpBaseStyle = `width: calc(100% / ${maxXP});`;
+		context.maxXP = game.settings.get(SYSTEM_ID, "maxNumberOfExperience");
 		context.xpTrackData = this._calculateTrackerValues(
 			this.actor.system.experience,
-			maxXP
+			context.maxXP
 		);
 
 		// Populate status of values on the XP track to make rendering it more
 		// efficient
 		//
-		const maxVoid = this.actor.system.void.max;
-
-		context.voidBaseStyle = `width: calc(100% / ${maxVoid});`;
+		context.maxVoid = this.actor.system.void.max;
 		context.voidTrackData = this._calculateTrackerValues(
 			this.actor.system.void.value,
-			maxVoid
+			context.maxVoid
 		);
 
 		return context;
