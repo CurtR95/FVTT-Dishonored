@@ -1,0 +1,46 @@
+<div class="column">
+	<div class="section skill">
+		<div class="title bold">
+			{{localize 'dishonored.actor.skill.title'}}
+		</div>
+		<div class="stat row">
+			<div class="selector-space"></div>
+			<div class="text bold head-text">
+				{{localize 'dishonored.actor.skill.name'}}
+			</div>
+			<div class="field bold head-text">
+				{{localize 'dishonored.actor.skisty.mod'}}
+			</div>
+		</div>
+		{{#each system.skills as |skill key|}}
+			<div class="stat row">
+				<input
+					class="selector skill"
+					data-dtype="Boolean"
+					id="{{key}}.selector"
+					name="system.skills.{{key}}.selected"
+					type="checkbox"
+					{{checked skill.selected}}
+				>
+				<div class="text">
+					{{localize (lookup ../DISHONORED.SKILLS key)}}
+				</div>
+				<input
+					class="field"
+					data-dtype="Number"
+					id="{{key}}"
+					name="system.skills.{{key}}.value"
+					type="number"
+					value="{{skill.value}}"
+				/>
+			</div>
+		{{/each}}
+		<div class="separator"></div>
+		<div
+			class="check-button btn"
+			title="{{localize 'dishonored.actor.skisty.check'}}"
+		>
+			{{localize 'dishonored.actor.skisty.check'}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,73 @@
+<div class="slot">
+	<div class="row">
+		<div
+			class="column bold title"
+			style="width:85%"
+		>
+			{{localize 'dishonored.actor.character.name'}}
+		</div>
+
+		<div
+			class="column bold title"
+			style="width:15%"
+		>
+			{{localize 'dishonored.actor.character.age'}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div
+			class="column"
+			style="width:85%"
+		>
+			<input
+				name="name"
+				type="text"
+				value="{{actor.name}}"
+				placeholder="Name"
+			/>
+		</div>
+
+		<div
+			class="column"
+			style="width:15%"
+		>
+			<input
+				name="system.age"
+				type="text"
+				value="{{system.age}}"
+				placeholder="21"
+			/>
+		</div>
+	</div>
+
+	<div class="row">
+		<div
+			class="column bold title"
+			style="width:100%"
+		>
+			{{localize 'dishonored.actor.npc.types'}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div
+			class="column"
+			style="width:100%"
+		>
+			<select
+				class="type"
+				name="system.type"
+				data-type="String"
+			>
+				{{#select system.type}}
+					{{#each DISHONORED.NPC_TYPES as |type key|}}
+						<option value="{{key}}">
+							{{localize type}}
+						</option>
+					{{/each}}
+				{{/select}}
+			</select>
+		</div>
+	</div>
+</div>

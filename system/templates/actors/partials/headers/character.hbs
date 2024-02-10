@@ -1,0 +1,91 @@
+{{> actors/partials/decorations/header-svg }}
+
+<div class="slot">
+	<div class="row">
+		<div
+			class="column bold title"
+			style="width:85%"
+		>
+			{{localize 'dishonored.actor.character.name'}}
+		</div>
+
+		<div
+			class="column bold title"
+			style="width:15%"
+		>
+			{{localize 'dishonored.actor.character.age'}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div
+			class="column"
+			style="width:85%"
+		>
+			<input
+				name="name"
+				type="text"
+				value="{{actor.name}}"
+				placeholder="Name"
+			/>
+		</div>
+
+		<div
+			class="column"
+			style="width:15%"
+		>
+			<input
+				name="system.age"
+				type="text"
+				value="{{system.age}}"
+				placeholder="21"
+			/>
+		</div>
+	</div>
+
+	<div class="row">
+		<div
+			class="column bold title"
+			style="width:100%"
+		>
+			{{localize 'dishonored.actor.character.outlook'}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div
+			class="column"
+			style="width:100%"
+		>
+			<input
+				name="system.outlook"
+				type="text"
+				value="{{system.outlook}}"
+			/>
+		</div>
+	</div>
+
+	<div class="row">
+		<div
+			class="column bold title"
+			style="width:100%"
+		>
+			{{localize 'dishonored.actor.character.archetype'}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div
+			class="column"
+			style="width:100%"
+		>
+			<input
+				name="system.archetype"
+				type="text"
+				value="{{system.archetype}}"
+			/>
+		</div>
+	</div>
+</div>
+
+{{> actors/partials/tracks/xp }}

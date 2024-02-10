@@ -1,0 +1,31 @@
+<div class="column">
+	<div class="section stress">
+		<div class="title bold">
+			{{localize 'dishonored.actor.character.stress'}}
+		</div>
+		<div class="track">
+			<div
+				class="bar"
+				id="bar-stress-renderer"
+				data-current-value="{{system.stress.value}}"
+				data-system-key="system.stress.value"
+			>
+				{{#each stressTrackData}}
+					<div
+						{{#if this.selected}}
+							class="box selected"
+						{{else}}
+							class="box"
+						{{/if}}
+						data-clicked-value="{{this.value}}"
+						id="stress-{{this.value}}"
+						style="{{../stressBaseStyle}}"
+					>
+						{{this.value}}
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+
+</div>

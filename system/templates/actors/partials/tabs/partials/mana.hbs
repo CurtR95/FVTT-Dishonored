@@ -1,0 +1,39 @@
+<div class="mana">
+	<div class="column-x6 small"></div>
+	<div class="column-x6 small"></div>
+	<div class="column-x6 bold">
+		{{localize 'dishonored.actor.abilities.mana'}}
+	</div>
+	<div class="column-x6 small">
+		<div
+			class="small"
+			style="text-align: center;"
+		>
+			<input
+				data-dtype="Number"
+				name="system.mana.value"
+				placeholder="0"
+				type="number"
+				value="{{system.mana.value}}"
+			/>
+		</div>
+		<div class="advisory">
+			&nbsp;/&nbsp;
+		</div>
+		<div
+			class="small disabled"
+			style="text-align: center;"
+		>
+			<input
+				data-dtype="Number"
+				id="max-mana"
+				name="system.mana.max"
+				type="number"
+				value="{{system.mana.max}}"
+				readonly
+			/>
+		</div>
+	</div>
+	<div class="column-x6 small"></div>
+	<div class="column-x6 small"></div>
+</div>

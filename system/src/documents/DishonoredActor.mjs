@@ -4,6 +4,29 @@ import {
 
 export default class DishonoredActor extends Actor {
 
+	get armorEquippedCount() {
+		return this.equippedArmor
+			.filter(i => !i.system.helmet)
+			.length;
+	}
+
+	get bonecharmsEquippedCount() {
+		return this.itemsByType("bonecharm")
+			.filter(i => i.system.equipped)
+			.length;
+	}
+
+	get equippedArmor() {
+		return this.itemsByType("armor")
+			.filter(i => i.system.equipped);
+	}
+
+	get helmetsEquippedCount() {
+		return this.equippedArmor
+			.filter(i => i.system.helmet)
+			.length;
+	}
+
 	async _preCreate(data, options, user) {
 		await super._preCreate(data, options, user);
 
@@ -19,21 +42,59 @@ export default class DishonoredActor extends Actor {
 		});
 	}
 
+	async adjustVoidMax(amount) {
+		const newVoidMax = this.system.void.max + amount;
+
+		this.update({"system.void.max": Math.max(1, newVoidMax)});
+	}
+
+	async equipItem(itemId) {
+		const item = this.items.get(itemId);
+
+		const isHelmet = item.isHelmet;
+
+		if (!item.system.equipped) {
+			if (item.type === "bonecharm" && this.bonecharmsEquippedCount >= 3) {
+				return ui.notifications.error(
+					game.i18n.localize("dishonored.notifications.tooManyBonecharms")
+				);
+			}
+			else if (item.type === "armor" && !isHelmet && this.armorEquippedCount >= 1) {
+				return ui.notifications.error(
+					game.i18n.localize("dishonored.notifications.armorAlreadyEquipped")
+				);
+			}
+			else if (item.type === "armor" && isHelmet && this.helmetsEquippedCount >= 1) {
+				return ui.notifications.error(
+					game.i18n.localize("dishonored.notifications.helmetAlreadyEquipped")
+				);
+			}
+		}
+
+		return item.update({ "system.equipped": !item.system.equipped});
+	}
+
+	itemsByType(type) {
+		return this.items.filter(i => i.type === type);
+	}
+
 	prepareData() {
-		this._validateSkillValues();
-		this._validateStyleValues();
-		this._validateStressValues();
+		this._prepareSkillValues();
+		this._prepareStyleValues();
+		this._prepareStressValues();
 
 		if (this.type === "character") {
-			this._validateCharacterData();
+			this._prepareCharacterData();
 		}
 
 		return this;
 	}
 
-	_validateCharacterData() {
+	_prepareCharacterData() {
 		// Checks if mana max is not equal to double the void max, if it
 		// isn't, set it so.
+		if (this.system.void.max < 1) this.system.void.max = 1;
+
 		if (this.system.mana.max !== 2 * this.system.void.max) {
 			this.system.mana.max = 2 * this.system.void.max;
 		}
@@ -45,29 +106,33 @@ export default class DishonoredActor extends Actor {
 			this.system.mana.value = this.system.mana.max;
 		}
 
-		if (this.system.void.max < 1) this.system.void.max = 1;
-
-		if (this.system.void.value > this.system.void.max) {
-			this.system.void.value = this.system.void.max;
-		}
-		if (this.system.void.value < 0) {
-			this.system.void.value = 0;
-		}
+		this.system.void.value = dishonored.utils.clampValue(
+			this.system.void.value,
+			0,
+			this.system.void.max
+		);
 
 		if (this.system.experience < 0) this.system.experience = 0;
 		if (this.system.mana.value < 0) this.system.mana.value = 0;
 	}
 
-	_validateStressValues() {
-		if (this.system.stress.value > this.system.stress.max) {
-			this.system.stress.value = this.system.stress.max;
+	_prepareStressValues() {
+		let bonusStressFromArmor = 0;
+		for (const item of this.equippedArmor) {
+			bonusStressFromArmor += item.system.protection;
 		}
-		if (this.system.stress.value < 0) {
-			this.system.stress.value = 0;
-		}
+
+		this.system.stress.max =
+			this.system.skills.survive.value + bonusStressFromArmor;
+
+		this.system.stress.value = dishonored.utils.clampValue(
+			this.system.stress.value,
+			0,
+			this.system.stress.max
+		);
 	}
 
-	_validateStyleValues() {
+	_prepareStyleValues() {
 		const styles = [
 			"boldly",
 			"carefully",
@@ -78,16 +143,13 @@ export default class DishonoredActor extends Actor {
 		];
 
 		for (const style of styles) {
-			if (this.system.styles[style].value > 8) {
-				this.system.styles[style].value = 8;
-			}
-			if (this.system.styles[style].value < 4) {
-				this.system.styles[style].value = 4;
-			}
+			this.system.styles[style].value = dishonored.utils.clampValue(
+				this.system.styles[style].value, 4, 8
+			);
 		}
 	}
 
-	_validateSkillValues() {
+	_prepareSkillValues() {
 		const skills = [
 			"fight",
 			"move",
@@ -98,86 +160,14 @@ export default class DishonoredActor extends Actor {
 		];
 
 		for (const skill of skills) {
-			if (this.system.skills[skill].value > 8) {
-				this.system.skills[skill].value = 8;
-			}
-			if (this.system.skills[skill].value < 4) {
-				this.system.skills[skill].value = 4;
-			}
+			this.system.skills[skill].value = dishonored.utils.clampValue(
+				this.system.skills[skill].value, 4, 8
+			);
 		}
 	}
 }
 
 export class DishonoredSharedActorFunctions {
-
-	// This function renders all the tracks. This will be used every time the
-	// character sheet is loaded. It is a vital element as such it runs before
-	// most other code!
-	dishonoredRenderTracks(html, stressTrackMax, voidPointsMax, expPointsMax, momentumMax) {
-		let i;
-		// Checks if details for the Stress Track was included, this should happen in all cases!
-		if (stressTrackMax) {
-			for (i = 0; i < stressTrackMax; i++) {
-				if (i + 1 <= html.find("#total-stress")[0].value) {
-					html.find("[id^=\"stress\"]")[i].setAttribute("data-selected", "true");
-					html.find("[id^=\"stress\"]")[i].style.backgroundColor = "#191813";
-					html.find("[id^=\"stress\"]")[i].style.color = "#ffffff";
-				}
-				else {
-					html.find("[id^=\"stress\"]")[i].removeAttribute("data-selected");
-					html.find("[id^=\"stress\"]")[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-					html.find("[id^=\"stress\"]")[i].style.color = "";
-				}
-			}
-		}
-		// Checks if details for the Void Track was included, this should happen for all Characters!
-		if (voidPointsMax) {
-			for (i = 0; i < voidPointsMax; i++) {
-				if (i + 1 <= html.find("#total-void")[0].value) {
-					html.find("[id^=\"void\"]")[i].setAttribute("data-selected", "true");
-					html.find("[id^=\"void\"]")[i].style.backgroundColor = "#191813";
-					html.find("[id^=\"void\"]")[i].style.color = "#ffffff";
-				}
-				else {
-					html.find("[id^=\"void\"]")[i].removeAttribute("data-selected");
-					html.find("[id^=\"void\"]")[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-					html.find("[id^=\"void\"]")[i].style.color = "";
-				}
-			}
-		}
-		// Checks if details for the Experience Track was included, this should
-		// happen for all Characters!
-		if (expPointsMax) {
-			for (i = 0; i < expPointsMax; i++) {
-				if (i + 1 <= html.find("#total-exp")[0].value) {
-					html.find("[id^=\"exp\"]")[i].setAttribute("data-selected", "true");
-					html.find("[id^=\"exp\"]")[i].style.backgroundColor = "#191813";
-					html.find("[id^=\"exp\"]")[i].style.color = "#ffffff";
-				}
-				else {
-					html.find("[id^=\"exp\"]")[i].removeAttribute("data-selected");
-					html.find("[id^=\"exp\"]")[i].style.backgroundColor = "rgb(255, 255, 255, 0.8)";
-					html.find("[id^=\"exp\"]")[i].style.color = "";
-				}
-			}
-		}
-		// Checks if details for the Momentum Track was included, this should
-		// happen for all Characters!
-		if (momentumMax) {
-			for (i = 0; i < 6; i++) {
-				if (i + 1 <= html.find("#total-mom")[0].value) {
-					html.find("[id^=\"mom\"]")[i].setAttribute("data-selected", "true");
-					html.find("[id^=\"mom\"]")[i].style.backgroundColor = "#191813";
-					html.find("[id^=\"mom\"]")[i].style.color = "#ffffff";
-				}
-				else {
-					html.find("[id^=\"mom\"]")[i].removeAttribute("data-selected");
-					html.find("[id^=\"mom\"]")[i].style.backgroundColor = "rgb(255, 255, 255, 0.3)";
-					html.find("[id^=\"mom\"]")[i].style.color = "";
-				}
-			}
-		}
-	}
 
 	// This handles performing a skill test using the "Perform Check" button.
 	async rollSkillTest(event, checkTarget, selectedSkill, selectedStyle, speaker) {

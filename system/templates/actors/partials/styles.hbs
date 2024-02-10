@@ -1,0 +1,47 @@
+<div class="column">
+	<div class="section style">
+		<div class="title bold">
+			{{localize 'dishonored.actor.style.title'}}
+		</div>
+		<div class="stat row">
+			<div class="field bold head-text">
+				{{localize 'dishonored.actor.skisty.mod'}}
+			</div>
+			<div class="text bold head-text">
+				{{localize 'dishonored.actor.style.name'}}
+			</div>
+			<div class="selector-space"></div>
+		</div>
+		{{#each system.styles as |style key|}}
+			<div class="stat row">
+				<input
+					class="field"
+					data-dtype="Number"
+					id="{{key}}"
+					name="system.styles.{{key}}.value"
+					placeholder="0"
+					type="number"
+					value="{{style.value}}"
+				/>
+				<div class="text">
+					{{localize (lookup ../DISHONORED.STYLES key)}}
+				</div>
+				<input
+					class="selector style"
+					data-dtype="Boolean"
+					id="{{key}}.selector"
+					name="system.styles.{{key}}.selected"
+					type="checkbox"
+					{{checked style.selected}}
+				>
+			</div>
+		{{/each}}
+		<div class="separator"></div>
+		<div
+			class="check-button btn"
+			title="{{localize 'dishonored.actor.skisty.check'}}"
+		>
+			{{localize 'dishonored.actor.skisty.check'}}
+		</div>
+	</div>
+</div>

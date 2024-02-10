@@ -236,21 +236,15 @@ export default class DishonoredMigrationRunner {
 
 		await this.buildMigrations();
 
-		// Unless you actually set the value, the default is not stored in the
-		// db which causes issues with old schema updates being run unecessarily
-		// on brand new worlds.  So here we set the schemaVersion to the current
-		// system value if it has not already been set by a previous data
-		// migration.
+		// If this is a brand new world then we don't need to do any migrations.
 		//
-		const currentVersion = this.currentVersion;
-		if (currentVersion < 0) {
+		if (game.world.playtime === 0) {
 			// Should be a brand new world
 			await game.settings.set(
 				SYSTEM_ID, "worldSchemaVersion",
-				Number(game.system.flags.schemaVersion)
+				this.latestVersion
 			);
 		}
-
 
 		if (!this.needsMigration()) return;
 

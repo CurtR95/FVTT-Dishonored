@@ -1,0 +1,25 @@
+<div class="tab abilities" data-group="primary" data-tab="abilities">
+	{{> actors/partials/decorations/column-svg }}
+
+	<div class="main">
+		<div class="section talents">
+			{{> actors/partials/inventory-section
+				itemNameLabel="dishonored.actor.genericitem.name"
+				itemNameStyle="column-x1"
+				sectionTitle="dishonored.actor.talent.title"
+				sectionType="talent"
+			}}
+		</div>
+
+		<div class="section powers">
+			{{> actors/partials/inventory-section
+				itemNameLabel="dishonored.actor.genericitem.name"
+				itemNameStyle="column-x1"
+				sectionTitle="dishonored.actor.power.title"
+				sectionType="power"
+			}}
+		</div>
+	</div>
+
+	{{> actors/partials/tabs/partials/mana }}
+</div>

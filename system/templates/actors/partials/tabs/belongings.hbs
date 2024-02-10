@@ -1,0 +1,33 @@
+<div class="tab belongings" data-group="primary" data-tab="belongings">
+	<div class="section belongings">
+		{{> actors/partials/tabs/partials/currency }}
+
+		<div class="main">
+			{{> actors/partials/inventory-section
+				itemNameLabel="dishonored.actor.belonging.weapon.title"
+				itemNameStyle="column-x2-big"
+				sectionType="weapon"
+			}}
+
+			{{> actors/partials/inventory-section
+				equipable=true
+				itemNameLabel="dishonored.actor.belonging.armor.title"
+				itemNameStyle="column-x2-big"
+				sectionType="armor"
+			}}
+
+			{{> actors/partials/inventory-section
+				equipable=true
+				itemNameLabel="dishonored.actor.belonging.bonecharm.title"
+				itemNameStyle="column-x2-big"
+				sectionType="bonecharm"
+			}}
+
+			{{> actors/partials/inventory-section
+				itemNameLabel="dishonored.actor.belonging.other.title"
+				itemNameStyle="column-x2-big"
+				sectionType="item"
+			}}
+		</div>
+	</div>
+</div>

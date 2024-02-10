@@ -54,6 +54,13 @@
 				display: block;
 				font-size: 8pt;
 				text-align: center;
+				background: rgb(255, 255, 255, 0.8);
+
+				&.selected {
+					background: #191813;
+					color: #ffffff;
+				}
+
 				&:hover {
 					box-shadow: 0 0 8px red;
 					cursor: pointer;

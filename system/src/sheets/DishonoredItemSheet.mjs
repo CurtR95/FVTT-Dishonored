@@ -58,6 +58,8 @@ export default class DishonoredItemSheet extends ItemSheet {
 	async getData(options={}) {
 		const context = await super.getData(options);
 
+		context.DISHONORED = CONFIG.DISHONORED;
+
 		context.cssClass += ` ${this.item.type}`;
 
 		context.descriptionHTML = await TextEditor.enrichHTML(

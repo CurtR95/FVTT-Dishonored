@@ -13,6 +13,7 @@ import Logger from "../utils/Logger.mjs";
 import installTokenBarShim from "../tokens.mjs";
 import preloadTemplates from "../templates.mjs";
 import registerSettings from "../settings.mjs";
+import registerHandlebarsHelpers from "../handlebars.mjs";
 
 export async function initHook() {
 	console.debug(`${SYSTEM_NAME} | Running init hook`);
@@ -38,6 +39,7 @@ export async function initHook() {
 	registerDocumentSheets();
 
 	registerSettings();
+	registerHandlebarsHelpers();
 
 	preloadTemplates();
 	installTokenBarShim();
