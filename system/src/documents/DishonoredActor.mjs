@@ -130,9 +130,9 @@ export default class DishonoredActor extends Actor {
 		if (rolldialog) {
 			let dicePool = rolldialog.get("dicePoolSlider");
 			let focusTarget = parseInt(rolldialog.get("dicePoolFocus"));
+
 			// Once the response has been collected it then sends it to be rolled.
-			let dishonoredRoll = new DishonoredRoll();
-			dishonoredRoll.performSkillTest(
+			dishonored.roll.performSkillTest(
 				dicePool,
 				checkTarget,
 				focusTarget,
