@@ -43,49 +43,51 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div
-			class="column bold title"
-			style="width:100%"
-		>
-			{{localize 'dishonored.actor.character.outlook'}}
+	{{#unless limited}}
+		<div class="row">
+			<div
+				class="column bold title"
+				style="width:100%"
+			>
+				{{localize 'dishonored.actor.character.outlook'}}
+			</div>
+		</div>
+
+		<div class="row">
+			<div
+				class="column"
+				style="width:100%"
+			>
+				<input
+					name="system.outlook"
+					type="text"
+					value="{{system.outlook}}"
+				/>
+			</div>
+		</div>
+
+		<div class="row">
+			<div
+				class="column bold title"
+				style="width:100%"
+			>
+				{{localize 'dishonored.actor.character.archetype'}}
+			</div>
+		</div>
+
+		<div class="row">
+			<div
+				class="column"
+				style="width:100%"
+			>
+				<input
+					name="system.archetype"
+					type="text"
+					value="{{system.archetype}}"
+				/>
+			</div>
 		</div>
 	</div>
 
-	<div class="row">
-		<div
-			class="column"
-			style="width:100%"
-		>
-			<input
-				name="system.outlook"
-				type="text"
-				value="{{system.outlook}}"
-			/>
-		</div>
-	</div>
-
-	<div class="row">
-		<div
-			class="column bold title"
-			style="width:100%"
-		>
-			{{localize 'dishonored.actor.character.archetype'}}
-		</div>
-	</div>
-
-	<div class="row">
-		<div
-			class="column"
-			style="width:100%"
-		>
-			<input
-				name="system.archetype"
-				type="text"
-				value="{{system.archetype}}"
-			/>
-		</div>
-	</div>
-</div>
-
-{{> actors/partials/tracks/xp }}
+	{{> actors/partials/tracks/xp }}
+{{/unless}}

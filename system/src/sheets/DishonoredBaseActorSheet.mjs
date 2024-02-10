@@ -32,8 +32,6 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 
 	/** @override */
 	get template() {
-		// If the player is not a GM and has limited permissions - send them to
-		// the limited sheet, otherwise, continue as usual.
 		const template = !game.user.isGM && this.actor.limited
 			? "systems/FVTT-Dishonored/templates/actors/limited-sheet.hbs"
 			: "systems/FVTT-Dishonored/templates/actors/actor-sheet.hbs";

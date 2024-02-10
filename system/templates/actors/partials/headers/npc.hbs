@@ -1,3 +1,7 @@
+{{#if limited}}
+	{{> actors/partials/decorations/header-svg }}
+{{/if}}
+
 <div class="slot">
 	<div class="row">
 		<div
@@ -41,33 +45,35 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div
-			class="column bold title"
-			style="width:100%"
-		>
-			{{localize 'dishonored.actor.npc.types'}}
-		</div>
-	</div>
-
-	<div class="row">
-		<div
-			class="column"
-			style="width:100%"
-		>
-			<select
-				class="type"
-				name="system.type"
-				data-type="String"
+	{{#unless limited}}
+		<div class="row">
+			<div
+				class="column bold title"
+				style="width:100%"
 			>
-				{{#select system.type}}
-					{{#each DISHONORED.NPC_TYPES as |type key|}}
-						<option value="{{key}}">
-							{{localize type}}
-						</option>
-					{{/each}}
-				{{/select}}
-			</select>
+				{{localize 'dishonored.actor.npc.types'}}
+			</div>
 		</div>
-	</div>
+
+		<div class="row">
+			<div
+				class="column"
+				style="width:100%"
+			>
+				<select
+					class="type"
+					name="system.type"
+					data-type="String"
+				>
+					{{#select system.type}}
+						{{#each DISHONORED.NPC_TYPES as |type key|}}
+							<option value="{{key}}">
+								{{localize type}}
+							</option>
+						{{/each}}
+					{{/select}}
+				</select>
+			</div>
+		</div>
+	{{/unless}}
 </div>
