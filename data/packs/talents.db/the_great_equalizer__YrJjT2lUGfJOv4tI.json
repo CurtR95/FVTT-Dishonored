@@ -1,0 +1,14 @@
+{
+	"_id": "YrJjT2lUGfJOv4tI",
+	"_key": "!items!YrJjT2lUGfJOv4tI",
+	"effects": [
+	],
+	"folder": "ZMgHHNvGcwpljgum",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "The Great Equalizer",
+	"system": {
+		"description": "<p>Once per session, whenever you roll to attack someone with murderous intent, you can spend any number of Momentum. The GM loses that same number of Chaos. Then, reduce the result of each die rolled by that same number.</p>",
+		"type": "Assassin"
+	},
+	"type": "talent"
+}

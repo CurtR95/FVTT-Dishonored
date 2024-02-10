@@ -1,0 +1,14 @@
+{
+	"_id": "CZ4Tz35kbzbzmdoD",
+	"_key": "!items!CZ4Tz35kbzbzmdoD",
+	"effects": [
+	],
+	"folder": "ZMgHHNvGcwpljgum",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Outsider's Grin",
+	"system": {
+		"description": "<p>Once per session, if you are in the same room as your current assassination target, you can add up to 4 Chaos to the pool. Roll a d20. If you the result is equal to or lower than the amount of Chaos you added, your target dies due to natural causes (you are free to specify the details).</p>",
+		"type": "Assassin"
+	},
+	"type": "talent"
+}

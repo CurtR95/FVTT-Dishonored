@@ -1,0 +1,15 @@
+{
+	"_id": "rQykXPKimt3wiuXX",
+	"_key": "!items!rQykXPKimt3wiuXX",
+	"effects": [
+	],
+	"folder": "iPwce7uR7XRzSgC1",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Pistol Bullet",
+	"system": {
+		"cost": 3,
+		"description": "",
+		"quantity": 1
+	},
+	"type": "item"
+}

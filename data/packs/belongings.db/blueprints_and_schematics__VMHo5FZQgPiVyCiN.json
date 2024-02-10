@@ -1,0 +1,15 @@
+{
+	"_id": "VMHo5FZQgPiVyCiN",
+	"_key": "!items!VMHo5FZQgPiVyCiN",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Blueprints and Schematics",
+	"system": {
+		"cost": 100,
+		"description": "<p>The industrial age has swept across the Empire, designed upon reams and reams of blueprints and schematics. These designs are often copied using a chemical process that creates the familiar blueprint—white lines on a blue background, a negative imprint of the original—and sent to those who are responsible for constructing the new building, or assembling the new device. Inventors and engineers often seek out blueprints designed by their rivals, and they’re a valuable resource for criminals looking for secret ways into secure buildings or the means to bypass the latest security device.</p><p>Original schematics, especially for rare items or secure places may cost far more—multiply the cost by the rarity of the item.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

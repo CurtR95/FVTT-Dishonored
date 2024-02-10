@@ -1,0 +1,15 @@
+{
+	"_id": "S3IBZnRkIatHee0O",
+	"_key": "!items!S3IBZnRkIatHee0O",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Fine Clothing and Accessories",
+	"system": {
+		"cost": 150,
+		"description": "<p>The rich and powerful are sure to dress the part, wearing the finest clothing made of the finest materials. It wouldn’t do to be mistaken for poor, after all. This can be an expensive endeavor, with few outfits worn more than a handful of times, and the fashionable styles changing with the seasons and whatever is novel and exciting at court. Appearing in such clothing can make a person appear wealthy, though they will still need to act appropriately to maintain the guise.</p><p>No less than 150 coin for a single outfit. Not less than 1000 coin for a modest wardrobe of fine clothing.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

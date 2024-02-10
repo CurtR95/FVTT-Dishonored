@@ -1,0 +1,14 @@
+{
+	"_id": "ZpU7dcYrgD9mMTGB",
+	"_key": "!items!ZpU7dcYrgD9mMTGB",
+	"effects": [
+	],
+	"folder": "2SwJA0QHl4yqXsQo",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Personal Notes",
+	"system": {
+		"description": "<p>Your notes, designs, and all documents and schematics you produce, are written in a unique shorthand or cipher that only you know. Other characters require a Study Carefully test with a difficulty of 4 in order to decipher your works. When you work with schematics or blueprints you have created yourself (or which you have transcribed into your style), you reduce the difficulty of Tinker tests by 1, to a minimum of 0.</p>",
+		"type": "Inventor"
+	},
+	"type": "talent"
+}

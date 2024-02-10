@@ -1,0 +1,28 @@
+{
+	"_id": "oFYK6Mlj955j1vAW",
+	"_key": "!items!oFYK6Mlj955j1vAW",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Cudgel",
+	"system": {
+		"cost": 10,
+		"damage": 2,
+		"description": "<p>Cudgels are seldom balanced for combat, but brute force makes them quite capable of breaking bones and overpowering the unwary. A solid blow from a cudgel is no less deadly than a sword, and while they’re awkward to use, it is still possible to batter through an enemy’s defenses, and it can still block a sword strike if the wielder is quick enough. A character who carries a cudgel of some kind is clearly ready for trouble, and often looking for it. Purpose-made cudgels are often used by prison guards and animal trainers to discipline their charges.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": true,
+			"blast": false,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": true,
+			"messy": false,
+			"mine": false,
+			"rangeddistant": false,
+			"rangednearby": false
+		}
+	},
+	"type": "weapon"
+}

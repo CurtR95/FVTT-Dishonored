@@ -1,0 +1,15 @@
+{
+	"_id": "wczyUCBMkH4rTO6E",
+	"_key": "!items!wczyUCBMkH4rTO6E",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Saboteur's Tools",
+	"system": {
+		"cost": 100,
+		"description": "<p>A collection of tools and substances ideal for sabotage and controlled (or not-so-controlled) destruction. This typically includes a drill–either hand-cranked, or powered by an oil reservoir–a mallet, a collection of steel spikes, a pry bar, a small tank of whale oil, and an assortment of clamps and other fixtures. More extensive kits may also include vials of acid, or a cutting torch (fueled by an oil reservoir). These are as useful for deliberate and legitimate demolitions operations–clearing out old or derelict buildings to allow new ones to be built–as they are for industrial sabotage and other illicit acts.</p><p>Better kits may cost much more.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

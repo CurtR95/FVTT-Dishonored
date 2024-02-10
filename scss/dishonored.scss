@@ -54,6 +54,13 @@
 				display: block;
 				font-size: 8pt;
 				text-align: center;
+				background: rgb(255, 255, 255, 0.8);
+
+				&.selected {
+					background: #191813;
+					color: #ffffff;
+				}
+
 				&:hover {
 					box-shadow: 0 0 8px red;
 					cursor: pointer;
@@ -321,7 +328,7 @@
 								input {
 									padding: 0;
 									min-width: 0;
-									width: 10px;
+									width: 20px;
 								}
 							}
 						}
@@ -408,7 +415,7 @@
 			}
 			&.character {
 				.tab {
-					height: calc(100% - 528px);
+					height: calc(100% - 542px);
 					&.abilities {
 						.main {
 							height: calc(80% - 23px);
@@ -482,7 +489,7 @@
 					}
 				}
 			}
-			&.contact {
+			.contact {
 				.header-fields {
 					.row {
 						.send2actor {
@@ -497,7 +504,7 @@
 					height: calc(100% - 70px);
 				}
 			}
-			&.weapon {
+			.weapon {
 				.header-fields {
 					.row {
 						.column-x4 {
@@ -681,7 +688,7 @@
 						pointer-events: none;
 						text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 						&.svg {
-							&:hover {
+							&:not(.disable):hover {
 								filter: drop-shadow(0 0 6px red);
 							}
 						}
@@ -706,22 +713,8 @@
 						font-weight: bold;
 						cursor: pointer;
 						text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-						&:hover {
-							& ~ .dishonored {
-								&.tracker {
-									&.momentum {
-										&.track {
-											&.item {
-												&.background {
-													&.svg {
-														filter: drop-shadow(0 0 6px red);
-													}
-												}
-											}
-										}
-									}
-								}
-							}
+						&:not(.disable):hover {
+							filter: drop-shadow(0 0 6px red);
 						}
 					}
 				}

@@ -1,0 +1,15 @@
+{
+	"_id": "ynoOT5ZdcD4Ho8ca",
+	"_key": "!items!ynoOT5ZdcD4Ho8ca",
+	"effects": [
+	],
+	"folder": "iPwce7uR7XRzSgC1",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Incendiary Bolt",
+	"system": {
+		"cost": 30,
+		"description": "<p>Incendiary bolts add the <em><strong>burn</strong></em> quality.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

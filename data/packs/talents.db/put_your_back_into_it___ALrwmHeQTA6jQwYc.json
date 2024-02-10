@@ -1,0 +1,14 @@
+{
+	"_id": "ALrwmHeQTA6jQwYc",
+	"_key": "!items!ALrwmHeQTA6jQwYc",
+	"effects": [
+	],
+	"folder": "I9WvxUCIpqB7d74f",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Put Your Back into It!",
+	"system": {
+		"description": "<p>When you attempt a skill test Forcefully, you may choose to put in extra effort. If you do so, you gain two bonus Momentum on the skill test, but after the test has been resolved, you automatically gain the truth fatigued.</p>",
+		"type": "Miscreant"
+	},
+	"type": "talent"
+}

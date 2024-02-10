@@ -1,0 +1,14 @@
+{
+	"_id": "NGDt3AJu8598TJPR",
+	"_key": "!items!NGDt3AJu8598TJPR",
+	"effects": [
+	],
+	"folder": "XauYjIXGCZrP5kLk",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Librarian",
+	"system": {
+		"description": "<p>Whenever you attempt a Study test to research a subject, you may add an extra d20.</p>",
+		"type": "Scholar"
+	},
+	"type": "talent"
+}

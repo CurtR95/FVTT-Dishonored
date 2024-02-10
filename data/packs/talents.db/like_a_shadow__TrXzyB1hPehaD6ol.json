@@ -1,0 +1,14 @@
+{
+	"_id": "TrXzyB1hPehaD6ol",
+	"_key": "!items!TrXzyB1hPehaD6ol",
+	"effects": [
+	],
+	"folder": "YIrOk35vIFgj8apl",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Like a Shadow",
+	"system": {
+		"description": "<p>Whenever you would inflict stress on an opponent’s stealth track, you inflict 1 less stress to a minimum of 1.</p>",
+		"type": "Scout"
+	},
+	"type": "talent"
+}

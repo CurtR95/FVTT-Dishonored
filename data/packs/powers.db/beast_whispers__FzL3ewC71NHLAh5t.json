@@ -1,0 +1,15 @@
+{
+	"_id": "FzL3ewC71NHLAh5t",
+	"_key": "!items!FzL3ewC71NHLAh5t",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Beast Whispers",
+	"system": {
+		"description": "<p>You can communicate with beasts. When this power is learned, select a single type of animal—commonly rats, bloodflies, or similar vermin. You can communicate with an animal of that type within reach, learning what they know about the nearby area or the movements of other creatures. As beasts have a different perspective on the world, the information they provide can often be cryptic or difficult to understand.</p>",
+		"manacost": 0,
+		"runecost": 2
+	},
+	"type": "power"
+}

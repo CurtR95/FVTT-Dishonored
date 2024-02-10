@@ -1,0 +1,14 @@
+{
+	"_id": "OJKyiXURBZQpu2ww",
+	"_key": "!items!OJKyiXURBZQpu2ww",
+	"effects": [
+	],
+	"folder": "I9WvxUCIpqB7d74f",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Dauntless",
+	"system": {
+		"description": "<p>When you Survive Forcefully as part of a contest to resist being threatened or intimidated, you reduce the difficulty of your test by 1, to a minimum of 0.</p>",
+		"type": "Miscreant"
+	},
+	"type": "talent"
+}

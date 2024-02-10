@@ -1,0 +1,14 @@
+{
+	"_id": "F2g3oKUuyIz6148T",
+	"_key": "!items!F2g3oKUuyIz6148T",
+	"effects": [
+	],
+	"folder": "RcEN41HNIX4SXbbt",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Whiskey and Cigars",
+	"system": {
+		"description": "<p>When you need to persuade or negotiate with an officer or member of the aristocracy, you may add an extra d20 to any related rolls, so long as you are, or appear to be, of similar standing or rank.</p>",
+		"type": "Commander"
+	},
+	"type": "talent"
+}

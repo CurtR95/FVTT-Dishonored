@@ -1,0 +1,14 @@
+{
+	"_id": "Dy7rzN1L9ENYVUFB",
+	"_key": "!items!Dy7rzN1L9ENYVUFB",
+	"effects": [
+	],
+	"folder": "rf29BTInEf1m3TNw",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Prized Weapon",
+	"system": {
+		"description": "<p>When you make an attack with a ranged weapon that you own, you ignore the first complication suffered. In addition, you reduce the difficulty of any skill test to obtain or make ammunition for your ranged weapon by 1, to a minimum of 0.</p>",
+		"type": "Sharpshooter"
+	},
+	"type": "talent"
+}

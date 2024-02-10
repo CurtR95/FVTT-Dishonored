@@ -1,0 +1,15 @@
+{
+	"_id": "jZCWYXIXx8XSDEol",
+	"_key": "!items!jZCWYXIXx8XSDEol",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Eye Within",
+	"system": {
+		"description": "<p>You see the souls of those around you laid bare, with their fears and their intentions revealed to you. Using this power requires an action. When you activate eye within, you can ask the GM about the personal truths of those around you, clear as the day for you to see. This effect lasts for a scene.</p>",
+		"manacost": 1,
+		"runecost": 2
+	},
+	"type": "power"
+}

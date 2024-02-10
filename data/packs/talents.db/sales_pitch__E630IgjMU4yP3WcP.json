@@ -1,0 +1,14 @@
+{
+	"_id": "E630IgjMU4yP3WcP",
+	"_key": "!items!E630IgjMU4yP3WcP",
+	"effects": [
+	],
+	"folder": "7sMPVrxGywBEyrRB",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Sales Pitch",
+	"system": {
+		"description": "<p>When you Talk Boldly to persuade someone to buy something you’re selling, or to persuade them that you have something that they want, you can either reduce the difficulty of your test by one, or, if you’re in a contest, you may increase your opponent’s difficulty by one instead.</p>",
+		"type": "Entrepreneur"
+	},
+	"type": "talent"
+}

@@ -1,0 +1,28 @@
+{
+	"_id": "yKBDEnv5Z2sAAzIQ",
+	"_key": "!items!yKBDEnv5Z2sAAzIQ",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Stun Mine",
+	"system": {
+		"cost": 70,
+		"damage": 8,
+		"description": "<p>A refinement of the arc pylon concept, made smaller and more portable, arc mines were devised by Anton Sokolov to help the Watch deal with rioters and other malcontents, but fell out of use due to the expense, the risk of accidental detonation, and the availability of the cheaper springrazor. An arc mine generates a bolt of electricity that obliterates the target in a similar manner to an arc pylon, though the charge is somewhat smaller and the mine’s whale oil supply is emptied after one or two discharges. They take a few seconds to arm after being placed, but once armed, they will discharge at the first creature who steps too close. With a little adjustment, the discharge from an Arc Mine can be made to incapacitate rather than kill, creating a stun mine that renders foes unconscious.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": false,
+			"blast": true,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": false,
+			"messy": false,
+			"mine": true,
+			"rangeddistant": false,
+			"rangednearby": false
+		}
+	},
+	"type": "weapon"
+}

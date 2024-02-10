@@ -1,0 +1,14 @@
+{
+	"_id": "lYQrYf6DHDwePnN1",
+	"_key": "!items!lYQrYf6DHDwePnN1",
+	"effects": [
+	],
+	"folder": "7jSTtibUHrxRYsnZ",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Hardy Traveler",
+	"system": {
+		"description": "<p><span class=\"fontstyle0\">Your stress track is one step higher than normal.</span></p>",
+		"type": "Explorer"
+	},
+	"type": "talent"
+}

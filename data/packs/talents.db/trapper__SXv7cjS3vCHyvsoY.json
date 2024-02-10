@@ -1,0 +1,14 @@
+{
+	"_id": "SXv7cjS3vCHyvsoY",
+	"_key": "!items!SXv7cjS3vCHyvsoY",
+	"effects": [
+	],
+	"folder": "FvC9omJumxvmpVCU",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Trapper",
+	"system": {
+		"description": "<p>When you set a trap, the difficulty for enemy tests to avoid springing that trap is one higher than the difficulty you choose, rather than equal to as is normally the case.</p>",
+		"type": "Hunter"
+	},
+	"type": "talent"
+}

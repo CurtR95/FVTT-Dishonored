@@ -1,0 +1,14 @@
+{
+	"_id": "Z48t8iNSF3JCu6uW",
+	"_key": "!items!Z48t8iNSF3JCu6uW",
+	"effects": [
+	],
+	"folder": "RcEN41HNIX4SXbbt",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Pull Rank",
+	"system": {
+		"description": "<p>When you attempt to persuade or intimidate someone, and their rank or status is lower than yours, the difficulty of any skill test is reduced by one so long as they believe in, or have proof of, your higher rank and status.</p>",
+		"type": "Commander"
+	},
+	"type": "talent"
+}

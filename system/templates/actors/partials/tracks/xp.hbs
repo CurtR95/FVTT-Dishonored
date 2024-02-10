@@ -1,0 +1,28 @@
+<div class="section experience">
+	<div class="title bold">
+		{{localize 'dishonored.actor.character.experience'}}
+	</div>
+	<div class="track">
+		<div
+			class="bar"
+			id="bar-exp-renderer"
+			data-current-value="{{system.experience}}"
+			data-system-key="system.experience"
+		>
+			{{#each xpTrackData}}
+				<div
+					{{#if this.selected}}
+						class="box selected"
+					{{else}}
+						class="box"
+					{{/if}}
+					data-clicked-value="{{this.value}}"
+					id="exp-{{this.value}}"
+					style="width: calc(100% / {{../maxXP}});"
+				>
+					{{this.value}}
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

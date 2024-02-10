@@ -1,0 +1,28 @@
+{
+	"_id": "WpkZEMebSWbFmIYU",
+	"_key": "!items!WpkZEMebSWbFmIYU",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Springrazor",
+	"system": {
+		"cost": 8,
+		"damage": 50,
+		"description": "<p>A spring-loaded contraption of steel wires, shrapnel, and razor blades, springrazors are designed to be placed on a solid surface as a trap. They are triggered by nearby vibrations, expelling a cloud of sharp metal and whipping wires that lacerates anything within a couple of feet of the device. Very few people can withstand the deadly effect of a springrazor, and those that do will bear the scars for the rest of their lives.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": false,
+			"blast": true,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": false,
+			"messy": true,
+			"mine": true,
+			"rangeddistant": false,
+			"rangednearby": false
+		}
+	},
+	"type": "weapon"
+}

@@ -1,0 +1,14 @@
+{
+	"_id": "Lt3cYEp6vISO3L3Y",
+	"_key": "!items!Lt3cYEp6vISO3L3Y",
+	"effects": [
+	],
+	"folder": "FvC9omJumxvmpVCU",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Ambush Expertise",
+	"system": {
+		"description": "<p>When you make a ranged attack against an enemy who is not aware of you, and you spend one or more Momentum to buy bonus d20s, the stress inflicted by the attack is increased by +1.</p>",
+		"type": "Hunter"
+	},
+	"type": "talent"
+}

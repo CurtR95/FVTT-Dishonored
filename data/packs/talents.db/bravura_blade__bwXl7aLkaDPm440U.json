@@ -1,0 +1,14 @@
+{
+	"_id": "bwXl7aLkaDPm440U",
+	"_key": "!items!bwXl7aLkaDPm440U",
+	"effects": [
+	],
+	"folder": "qN3uL6pNq1BmPpKG",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Bravura Blade",
+	"system": {
+		"description": "<p>When you Fight Boldly and succeed on an attack, you may spend one Momentum to create a truth on your target to represent their fear, awe, or hesitation.</p>",
+		"type": "Duelist"
+	},
+	"type": "talent"
+}

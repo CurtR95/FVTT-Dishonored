@@ -1,0 +1,15 @@
+{
+	"_id": "sLj3wME2bmyqiCbi",
+	"_key": "!items!sLj3wME2bmyqiCbi",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Spyglass",
+	"system": {
+		"cost": 100,
+		"description": "<p>A collection of lenses and prisms that magnify an image, allowing clear observation at a distance. Valuable in all kinds of work, spyglasses are a simple, reliable technology, that has been adapted to a variety of purposes. Military marksmen and sailors alike often have versions with markings etched on the outer lens, using these marks for finding ranges and preparing to fire on distant targets. Natural philosophers often prize a good spyglass for observing phenomena at a safe distance, and commonly use the most powerful spyglasses to observe the stars in the night sky.</p><p>More specialized spyglasses will cost at least double this.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

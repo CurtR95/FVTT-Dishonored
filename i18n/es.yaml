@@ -1,7 +1,10 @@
+dishonored.actor.abilities.mana: Mana Points
+dishonored.actor.abilities.title: Abilities
 dishonored.actor.belonging.armor.protect: Protección
 dishonored.actor.belonging.armor.protection: Protección
 dishonored.actor.belonging.armor.title: Armadura
 dishonored.actor.belonging.bonecharm.title: Talismanes
+dishonored.actor.belonging.collectable.bonecharm: Bonecharms
 dishonored.actor.belonging.collectable.coin: Monedas
 dishonored.actor.belonging.collectable.rune: Runas
 dishonored.actor.belonging.other.qty: Cant
@@ -24,6 +27,7 @@ dishonored.actor.belonging.weapon.nearby: Cercano
 dishonored.actor.belonging.weapon.rangeddistant: Rango (Distancia)
 dishonored.actor.belonging.weapon.rangednearby: Rango (Cercano)
 dishonored.actor.belonging.weapon.title: Armas
+dishonored.actor.biography.title: Biography
 dishonored.actor.character.age: Edad
 dishonored.actor.character.archetype: Arquetipo
 dishonored.actor.character.experience: Puntos de Experiencia
@@ -41,7 +45,13 @@ dishonored.actor.focus.rating: Valor
 dishonored.actor.focus.title: Enfoques
 dishonored.actor.genericitem.cost: Valor
 dishonored.actor.genericitem.name: Nombre
+dishonored.actor.item.adjectiveNew: New
 dishonored.actor.note.title: Notas
+dishonored.actor.npc.incidental: Incidental
+dishonored.actor.npc.major: Major
+dishonored.actor.npc.minor: Minor
+dishonored.actor.npc.notable: Notable
+dishonored.actor.npc.types: NPC Type
 dishonored.actor.power.mana: Maná
 dishonored.actor.power.rune: Runa
 dishonored.actor.power.title: Poderes
@@ -65,6 +75,8 @@ dishonored.actor.style.swiftly: Veloz
 dishonored.actor.style.title: Estilos
 dishonored.actor.talent.title: Talentos
 dishonored.actor.talent.type: Tipo
+dishonored.actor.truth.content: Content of Truth
+dishonored.actor.truth.title: Truths
 dishonored.apps.dicepoolwindow: Dados
 dishonored.apps.focus: Valor de Enfoque
 dishonored.apps.pool: Número de Dados
@@ -74,21 +86,64 @@ dishonored.contact.relation.fair: Buena
 dishonored.contact.relation.great: Genial
 dishonored.contact.relation.neutral: Neutral
 dishonored.contact.relation.poor: Pobre
-dishonored.item.armor.helmet: ¿Es un casco?
+dishonored.item.armor.helmet: '¿Es un casco?'
 dishonored.item.contact.send2actor: Enviar al Actor
-dishonored.roll.armor.protect: <b>|#|</b> Protección
-dishonored.roll.complication: ¡Ha habido una complicación!
-dishonored.roll.complicationPlural: ¡Había |#| complicaciones!
-dishonored.roll.contact.relation: <b>|#|</b> Relación con el Contacto
-dishonored.roll.focus.rating: Enfoque con Valor de <b>|#|</b>
+dishonored.item.truth: Truth
+dishonored.migration.begin_migration: Performing data upgrades for Dishonored
+dishonored.migration.begin_schema: Applying updates for Dishonored schema v{version}
+dishonored.migration.completed_migration: Completed data updgrades for Dishonored
+dishonored.migration.completed_schema: Completed applying updates for Dishonored schema v{version}
+dishonored.notifications.armorAlreadyEquipped: The current actor has an equipped armor already! Doing Nothing.
+dishonored.notifications.armorAlreadyEquippedNew: The current actor has an equipped armor already! Adding as unequipped.
+dishonored.notifications.helmetAlreadyEquipped: The current actor has an equipped helmet already! Doing Nothing.
+dishonored.notifications.macroActor: Please provide an actor to the macro!
+dishonored.notifications.macroDiceGreater: You cannot roll more than five dice!
+dishonored.notifications.macroDiceLess: You must roll at least one die!
+dishonored.notifications.macroFocus: Focus cannot be less than one!
+dishonored.notifications.macroSkill: Please provide an skill to the macro!
+dishonored.notifications.macroStyle: Please provide an style to the macro!
+dishonored.notifications.sendToActor: An NPC with the name <b>{name}</b> has been created!
+dishonored.notifications.tooManyBonecharms: The current actor has 3 equipped bonecharms already! Doing Nothing.
+dishonored.notifications.tooManyBonecharmsNew: The current actor has 3 equipped bonecharms already! Adding as unequipped.
+dishonored.roll.armor.protect: '<b>|#|</b> Protección'
+dishonored.roll.complication: '¡Ha habido una complicación!'
+dishonored.roll.complicationPlural: '¡Había |#| complicaciones!'
+dishonored.roll.contact.relation: '<b>|#|</b> Relación con el Contacto'
+dishonored.roll.focus.rating: 'Enfoque con Valor de <b>|#|</b>'
+dishonored.roll.html.focus: Focus
+dishonored.roll.html.target: Target
 dishonored.roll.item.quantity: "|#|x Objetos"
 dishonored.roll.item.value: "|#| Monedas"
-dishonored.roll.power.mana: Costs <b>|#|</b> Maná para usar
-dishonored.roll.power.rune: <b>|#|</b> Runas
-dishonored.roll.success:  Éxito
-dishonored.roll.successPlural:  Éxitos
-dishonored.roll.talent.type: <b>|#|</b> Talento
-dishonored.roll.test:  Prueba de Habilidad
-dishonored.roll.weapon.damage: <b>|#|</b> Daño
+dishonored.roll.power.mana: 'Costs <b>|#|</b> Maná para usar'
+dishonored.roll.power.rune: '<b>|#|</b> Runas'
+dishonored.roll.success: Éxito
+dishonored.roll.successPlural: Éxitos
+dishonored.roll.talent.type: '<b>|#|</b> Talento'
+dishonored.roll.test: Prueba de Habilidad
+dishonored.roll.weapon.damage: '<b>|#|</b> Daño'
+dishonored.settings.hints.chaosPermissionLevel: Who should be allowed to amend the chaos tracker?
+dishonored.settings.hints.maxNumberOfExperience: Max number of experience that can be given to a character. 30 is default, anything past 50 becomes almost unreadable.
+dishonored.settings.hints.momentumPermissionLevel: Who should be allowed to amend the momentum tracker?
+dishonored.settings.hints.multipleComplications: The rulebook states \"Any die which rolled 20 causes a complication\". This is slightly unclear and as of Version 8 of the PDF, this is still not clear - likely due to the incredible rarity. Enabling this will allow roles to display \"There were x Complications\" if multiple 20s are rolled. Disabling will just state a single complication.
+dishonored.settings.hints.send2ActorPermissionLevel: The contact item type has the ability to create an NPC, who should be allowed to see & use this functionality?
+dishonored.settings.names.chaosPermissionLevel: Chaos Tracker User Role
+dishonored.settings.names.maxNumberOfExperience: Maximum amount of Experience
+dishonored.settings.names.momentumPermissionLevel: Momentum Tracker User Role
+dishonored.settings.names.multipleComplications: Multiple Complications
+dishonored.settings.names.send2ActorPermissionLevel: Send2Actor User Role
+dishonored.titles.createItem: Create Item
+dishonored.titles.deleteItem: Delete Item
+dishonored.titles.editItem: Edit Item
 dishonored.tracker.chaos: Caos
 dishonored.tracker.momentum: Momentum
+TYPES.Actor.character: Character
+TYPES.Actor.npc: NPC
+TYPES.Item.armor: Armor
+TYPES.Item.bonecharm: Bonecharm
+TYPES.Item.contact: Contact
+TYPES.Item.focus: Focus
+TYPES.Item.item: Item
+TYPES.Item.power: Power
+TYPES.Item.talent: Talent
+TYPES.Item.truth: Truth
+TYPES.Item.weapon: Weapon

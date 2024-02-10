@@ -1,0 +1,14 @@
+{
+	"_id": "CnmpASRE02eP9uzN",
+	"_key": "!items!CnmpASRE02eP9uzN",
+	"effects": [
+	],
+	"folder": "FvC9omJumxvmpVCU",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Familiar Tactics",
+	"system": {
+		"description": "<p>Because you know the best ways to approach unseen, when a nearby enemy attempts to avoid being noticed, you may use Survive instead of Study in the contest.</p>",
+		"type": "Hunter"
+	},
+	"type": "talent"
+}

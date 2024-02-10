@@ -1,0 +1,14 @@
+{
+	"_id": "M0AyPZtXd0GyTS0s",
+	"_key": "!items!M0AyPZtXd0GyTS0s",
+	"effects": [
+	],
+	"folder": "7jSTtibUHrxRYsnZ",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "First Glance",
+	"system": {
+		"description": "<p>When you first enter a location you’ve never been to before, or encounter a type of creature you’ve never seen before, you may make a Study Swiftly test with a difficulty of 0; any Momentum you generate must be spent to ask the GM questions about the location or creature (as appropriate), as per the ask a question Momentum option.</p>",
+		"type": "Explorer"
+	},
+	"type": "talent"
+}

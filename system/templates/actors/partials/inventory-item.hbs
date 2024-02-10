@@ -1,0 +1,80 @@
+<li
+	class="row entry {{#if equipable}}equipable{{/if}}"
+	data-item-id="{{item._id}}"
+	data-item-type="{{item.type}}"
+>
+	<div class="image">
+		<img
+			class="rollable"
+			src="{{item.img}}"
+			title="{{item.name}}"
+		/>
+	</div>
+
+	<h4 class="{{itemNameStyle}}">
+		{{item.name}}
+	</h4>
+
+	{{#ifEq item.type "armor"}}
+		<h4
+			id="protectval-armor-{{item._id}}"
+			class="column-x2-small"
+		>
+			{{item.system.protection}}
+		</h4>
+	{{/ifEq}}
+
+	{{#ifEq item.type "bonecharm"}}
+		<div class="column-x2-small"></div>
+	{{/ifEq}}
+
+	{{#ifEq item.type "contact"}}
+		<h4 class="column-x2">
+			{{localize (fromConfig "RELATIONSHIPS" item.system.relationship)}}
+		</h4>
+	{{/ifEq}}
+
+	{{#ifEq item.type "focus"}}
+		<h4 class="column-x2-small">
+			{{item.system.rating}}
+		</h4>
+	{{/ifEq}}
+
+	{{#ifEq item.type "item"}}
+		<h4 class="column-x2-small">
+			{{item.system.quantity}}
+		</h4>
+	{{/ifEq}}
+
+	{{#ifEq item.type "weapon"}}
+		<h4 class="column-x2-small">
+			{{item.system.damage}}
+		</h4>
+	{{/ifEq}}
+
+	<div class="control">
+		{{#if equipable}}
+			{{#if item.system.equipped}}
+				<a class="control toggle">
+					<i class="fas fa-toggle-on"></i>
+				</a>
+			{{else}}
+				<a class="control toggle">
+					<i class="fas fa-toggle-off"></i>
+				</a>
+			{{/if}}
+		{{/if}}
+		<a
+			class="control edit"
+			title="{{localize 'dishonored.titles.editItem'}}"
+		>
+			<i class="fas fa-edit"></i>
+		</a>
+		<a
+			class="control delete"
+			title="{{localize 'dishonored.titles.deleteItem'}}"
+		>
+			<i class="fas fa-trash"></i>
+		</a>
+	</div>
+</li>

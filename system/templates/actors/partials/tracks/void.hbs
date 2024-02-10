@@ -1,0 +1,44 @@
+<div class="section void">
+	<div class="title bold">
+		{{localize 'dishonored.actor.character.void'}}
+	</div>
+	<div class="track">
+		<div class="bar">
+			<div
+				class="voidchange box"
+				id="decrease-void-max"
+			>
+				<i class="fas fa-minus"></i>
+			</div>
+
+			<div
+				class="bar"
+				data-current-value="{{system.void.value}}"
+				data-system-key="system.void.value"
+				id="bar-void-renderer"
+			>
+				{{#each voidTrackData}}
+					<div
+						{{#if this.selected}}
+							class="box selected"
+						{{else}}
+							class="box"
+						{{/if}}
+						data-clicked-value="{{this.value}}"
+						id="void-{{this.value}}"
+						style="width: calc(100% / {{../maxVoid}});"
+					>
+						{{this.value}}
+					</div>
+				{{/each}}
+			</div>
+
+			<div
+				class="voidchange box"
+				id="increase-void-max"
+			>
+				<i class="fas fa-plus"></i>
+			</div>
+		</div>
+	</div>
+</div>

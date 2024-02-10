@@ -1,0 +1,14 @@
+{
+	"_id": "Zd9cbAlxNcgcoJW5",
+	"_key": "!items!Zd9cbAlxNcgcoJW5",
+	"effects": [
+	],
+	"folder": "rf29BTInEf1m3TNw",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Saboteur",
+	"system": {
+		"description": "<p>When you attack an object, structure, machine, or stationary vehicle, you may use Tinker instead of Fight, and you inflict +2 stress.</p>",
+		"type": "Sharpshooter"
+	},
+	"type": "talent"
+}

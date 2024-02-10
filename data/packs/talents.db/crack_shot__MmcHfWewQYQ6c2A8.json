@@ -1,0 +1,14 @@
+{
+	"_id": "MmcHfWewQYQ6c2A8",
+	"_key": "!items!MmcHfWewQYQ6c2A8",
+	"effects": [
+	],
+	"folder": "rf29BTInEf1m3TNw",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Crack Shot",
+	"system": {
+		"description": "<p>You may spend one Momentum to take careful aim before making a ranged attack, reducing the difficulty of the attack by 1.</p>",
+		"type": "Sharpshooter"
+	},
+	"type": "talent"
+}

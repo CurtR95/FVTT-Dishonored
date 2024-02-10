@@ -1,0 +1,14 @@
+{
+	"_id": "GsBdEFb1A74LjRQ4",
+	"_key": "!items!GsBdEFb1A74LjRQ4",
+	"effects": [
+	],
+	"folder": "YIrOk35vIFgj8apl",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Hit and Run",
+	"system": {
+		"description": "<p>When you succeed at an attack against an unaware opponent, you may spend 1 Momentum to move to anywhere nearby.</p>",
+		"type": "Scout"
+	},
+	"type": "talent"
+}

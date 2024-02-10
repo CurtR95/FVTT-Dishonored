@@ -1,0 +1,15 @@
+{
+	"_id": "4O8ubcGUBQZN9BtL",
+	"_key": "!items!4O8ubcGUBQZN9BtL",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Concealing Clothing",
+	"system": {
+		"cost": 50,
+		"description": "<p>Concealing clothing is typically worn over other clothes, as a cloak, overcoat, or similar item. Clothing of this sort is designed to match the approximate colors of the environment, break up the wearer’s outline, and generally make the wearer harder to spot. They’re normally made of lightweight, fine materials that don’t impede the wearer or slow them down. Some concealing clothing is made only by specialized tailors out of unusual or exotic materials, and can help conceal the wearer in almost any condition.</p><p>Concealing clothing that works in any environment is much more expensive.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

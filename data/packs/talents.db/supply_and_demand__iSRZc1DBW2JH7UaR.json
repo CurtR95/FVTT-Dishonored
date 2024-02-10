@@ -1,0 +1,14 @@
+{
+	"_id": "iSRZc1DBW2JH7UaR",
+	"_key": "!items!iSRZc1DBW2JH7UaR",
+	"effects": [
+	],
+	"folder": "qKeUR6fiMEr8JH0F",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Supply and Demand",
+	"system": {
+		"description": "<p><span class=\"fontstyle0\">When you attempt to purchase or sell an item, you may reduce the difficulty of a skill test to locate a buyer or seller by 2.</span></p>",
+		"type": "Courier"
+	},
+	"type": "talent"
+}

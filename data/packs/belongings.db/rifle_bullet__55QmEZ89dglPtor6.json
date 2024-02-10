@@ -1,0 +1,15 @@
+{
+	"_id": "55QmEZ89dglPtor6",
+	"_key": "!items!55QmEZ89dglPtor6",
+	"effects": [
+	],
+	"folder": "iPwce7uR7XRzSgC1",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Rifle Bullet",
+	"system": {
+		"cost": 5,
+		"description": "",
+		"quantity": 1
+	},
+	"type": "item"
+}

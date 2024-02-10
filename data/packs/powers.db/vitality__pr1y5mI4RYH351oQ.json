@@ -1,0 +1,15 @@
+{
+	"_id": "pr1y5mI4RYH351oQ",
+	"_key": "!items!pr1y5mI4RYH351oQ",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Vitality",
+	"system": {
+		"description": "<p>Your body is fueled by the Void, giving you greater durability and resistance to harm. Your stress track is increased by 2.</p>",
+		"manacost": 0,
+		"runecost": 1
+	},
+	"type": "power"
+}

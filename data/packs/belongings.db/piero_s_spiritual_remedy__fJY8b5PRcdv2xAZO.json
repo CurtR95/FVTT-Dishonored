@@ -1,0 +1,15 @@
+{
+	"_id": "fJY8b5PRcdv2xAZO",
+	"_key": "!items!fJY8b5PRcdv2xAZO",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Piero's Spiritual Remedy",
+	"system": {
+		"cost": 100,
+		"description": "<p>One of two anti-plague elixirs created, Piero’s Spiritual Remedy has the ability to revitalize the mind, according to its claims. It has the ability to aid those with supernatural abilities, though this is less well known side effect of its use. Due to its high demand, genuine sources of the elixir are expensive, and there are many who sell bootleg versions of it to varying effect.</p><p>A genuine elixir restores the drinker’s Mana to full; if they do not have powers, the elixir has no effect. Some bootleg elixirs may also have the same effect, some do nothing and at worst some may inflict 2 stress upon its user due to its ingredients being mildly toxic. The gamemaster has discretion over how common genuine elixir is, and characters can detect a fake elixir by making a Study Carefully test. The difficulty of the test is set by the gamemaster, based on how (if at all) effective the bootleg elixir is and how well its appearance has been replicated. Dangerous fakes are easier to spot, with those producing benign or real results being more difficult.</p><p>Bootleg elixirs may cost significantly less, with a chance they may be entirely fake.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

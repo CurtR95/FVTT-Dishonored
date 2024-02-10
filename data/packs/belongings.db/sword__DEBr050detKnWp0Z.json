@@ -1,0 +1,28 @@
+{
+	"_id": "DEBr050detKnWp0Z",
+	"_key": "!items!DEBr050detKnWp0Z",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Sword",
+	"system": {
+		"cost": 50,
+		"damage": 3,
+		"description": "<p>The majority of trained fighters in the Empire wield swords, whether as a primary weapon or as a sidearm. Soldiers, City Watch, and other professional fighters tend to carry sturdy, mass-produced blades of industrial steel, while officers and others wealthy enough to afford the swordsmith’s craft can get blades with better balance, a keener edge, or simply a finer finish. Even street gangs and criminals use something swordlike, often making them out of repurposed cleavers or shears reinforced for fighting, or picking up military surplus. A sword is a potent tool for offense and defense, and a decent blade is good for cutting, stabbing, and parrying. A good quality sword is also a sign of status and discernment, while a particular style of sword may signify membership in an organization.</p><p>Higher quality swords may cost much more.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": false,
+			"blast": false,
+			"block": true,
+			"burn": false,
+			"concealed": false,
+			"melee": true,
+			"messy": false,
+			"mine": false,
+			"rangeddistant": false,
+			"rangednearby": false
+		}
+	},
+	"type": "weapon"
+}

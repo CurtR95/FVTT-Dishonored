@@ -1,0 +1,15 @@
+{
+	"_id": "3Jwj6zpNmZcoofAB",
+	"_key": "!items!3Jwj6zpNmZcoofAB",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Agility",
+	"system": {
+		"description": "<p>You move more quickly and surely than others, and can jump and leap far greater distances. You gain one automatic successes on any Move test you attempt.</p>",
+		"manacost": 0,
+		"runecost": 2
+	},
+	"type": "power"
+}

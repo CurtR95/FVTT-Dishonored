@@ -1,0 +1,14 @@
+{
+	"_id": "S5ipJbSKfkjVol0Y",
+	"_key": "!items!S5ipJbSKfkjVol0Y",
+	"effects": [
+	],
+	"folder": "FvC9omJumxvmpVCU",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Predator's Patience",
+	"system": {
+		"description": "<p>When you hide yourself, and remain stationary, the difficulty for other creatures to detect you is increased by 1. The difficulty increase becomes +2 if you have remained hidden and stationary for longer than half an hour.</p>",
+		"type": "Hunter"
+	},
+	"type": "talent"
+}

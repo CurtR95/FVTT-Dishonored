@@ -1,0 +1,15 @@
+{
+	"_id": "m5KUuhiGziQNSg1R",
+	"_key": "!items!m5KUuhiGziQNSg1R",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Bend Time",
+	"system": {
+		"description": "<p>You have the ability to manipulate time, slowing its passage while leaving your actions unhindered. When you use bend time, you may take two actions instead of one, resolving them one after the other. While time is slowed, other characters’ actions are slowed, adding +2 to the difficulty of any tests they attempt as part of a contest against you. This lasts for one round, or approximately ten seconds.</p>",
+		"manacost": 4,
+		"runecost": 2
+	},
+	"type": "power"
+}

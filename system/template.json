@@ -1,8 +1,72 @@
 {
 	"Actor": {
+		"types": [
+			"character",
+			"npc"
+		],
+		"templates": {
+			"common": {
+				"age": 21,
+				"notes": "",
+				"skills": {
+					"fight": {
+						"selected": true,
+						"value": 4
+					},
+					"move": {
+						"selected": false,
+						"value": 4
+					},
+					"study": {
+						"selected": false,
+						"value": 4
+					},
+					"survive": {
+						"selected": false,
+						"value": 4
+					},
+					"talk": {
+						"selected": false,
+						"value": 4
+					},
+					"tinker": {
+						"selected": false,
+						"value": 4
+					}
+				},
+				"stress": {
+					"value": 0
+				},
+				"styles": {
+					"boldly": {
+						"selected": true,
+						"value": 4
+					},
+					"carefully": {
+						"selected": false,
+						"value": 4
+					},
+					"cleverly": {
+						"selected": false,
+						"value": 4
+					},
+					"forcefully": {
+						"selected": false,
+						"value": 4
+					},
+					"quietly": {
+						"selected": false,
+						"value": 4
+					},
+					"swiftly": {
+						"selected": false,
+						"value": 4
+					}
+				}
+			}
+		},
 		"character": {
 			"archetype": "",
-			"bonecharmequipped": 0,
 			"coins": 0,
 			"experience": 0,
 			"mana": {
@@ -27,106 +91,26 @@
 			"templates": [
 				"common"
 			],
-			"type": "Incidental",
-			"types": {
-				"incidental": {
-					"dtype": "String",
-					"label": "dishonored.actor.npc.incidental"
-				},
-				"major": {
-					"dtype": "String",
-					"label": "dishonored.actor.npc.major"
-				},
-				"minor": {
-					"dtype": "String",
-					"label": "dishonored.actor.npc.minor"
-				},
-				"notable": {
-					"dtype": "String",
-					"label": "dishonored.actor.npc.notable"
-				}
-			}
-		},
-		"templates": {
-			"common": {
-				"age": 21,
-				"notes": "",
-				"skills": {
-					"fight": {
-						"label": "dishonored.actor.skill.fight",
-						"selected": true,
-						"value": 4
-					},
-					"move": {
-						"label": "dishonored.actor.skill.move",
-						"selected": false,
-						"value": 4
-					},
-					"study": {
-						"label": "dishonored.actor.skill.study",
-						"selected": false,
-						"value": 4
-					},
-					"survive": {
-						"label": "dishonored.actor.skill.survive",
-						"selected": false,
-						"value": 4
-					},
-					"talk": {
-						"label": "dishonored.actor.skill.talk",
-						"selected": false,
-						"value": 4
-					},
-					"tinker": {
-						"label": "dishonored.actor.skill.tinker",
-						"selected": false,
-						"value": 4
-					}
-				},
-				"stress": {
-					"max": 4,
-					"value": 0
-				},
-				"styles": {
-					"boldly": {
-						"label": "dishonored.actor.style.boldly",
-						"selected": true,
-						"value": 4
-					},
-					"carefully": {
-						"label": "dishonored.actor.style.carefully",
-						"selected": false,
-						"value": 4
-					},
-					"cleverly": {
-						"label": "dishonored.actor.style.cleverly",
-						"selected": false,
-						"value": 4
-					},
-					"forcefully": {
-						"label": "dishonored.actor.style.forcefully",
-						"selected": false,
-						"value": 4
-					},
-					"quietly": {
-						"label": "dishonored.actor.style.quietly",
-						"selected": false,
-						"value": 4
-					},
-					"swiftly": {
-						"label": "dishonored.actor.style.swiftly",
-						"selected": false,
-						"value": 4
-					}
-				}
-			}
-		},
-		"types": [
-			"character",
-			"npc"
-		]
+			"type": "incidental"
+		}
 	},
 	"Item": {
+		"types": [
+			"armor",
+			"bonecharm",
+			"contact",
+			"focus",
+			"item",
+			"power",
+			"talent",
+			"truth",
+			"weapon"
+		],
+		"templates": {
+			"common": {
+				"description": ""
+			}
+		},
 		"armor": {
 			"cost": 0,
 			"equipped": false,
@@ -137,35 +121,13 @@
 			]
 		},
 		"bonecharm": {
-			"equipped": true,
+			"equipped": false,
 			"templates": [
 				"common"
 			]
 		},
 		"contact": {
 			"relationship": "neutral",
-			"relationships": {
-				"great": {
-					"dtype": "String",
-					"label": "dishonored.contact.relation.great"
-				},
-				"fair": {
-					"dtype": "String",
-					"label": "dishonored.contact.relation.fair"
-				},
-				"neutral": {
-					"dtype": "String",
-					"label": "dishonored.contact.relation.neutral"
-				},
-				"poor": {
-					"dtype": "String",
-					"label": "dishonored.contact.relation.poor"
-				},
-				"dire": {
-					"dtype": "String",
-					"label": "dishonored.contact.relation.dire"
-				}
-			},
 			"templates": [
 				"common"
 			]
@@ -196,23 +158,11 @@
 			],
 			"type": ""
 		},
-		"templates": {
-			"common": {
-				"description": ""
-			}
+		"truth": {
+			"templates": [
+				"common"
+			]
 		},
-		"truth": {},
-		"types": [
-			"armor",
-			"bonecharm",
-			"contact",
-			"focus",
-			"item",
-			"power",
-			"talent",
-			"truth",
-			"weapon"
-		],
 		"weapon": {
 			"cost": 0,
 			"damage": 0,

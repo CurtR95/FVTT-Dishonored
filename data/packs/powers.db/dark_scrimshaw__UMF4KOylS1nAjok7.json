@@ -1,0 +1,15 @@
+{
+	"_id": "UMF4KOylS1nAjok7",
+	"_key": "!items!UMF4KOylS1nAjok7",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Dark Scrimshaw",
+	"system": {
+		"description": "<p>You have peculiar insights into the ways of bonecharms and runes, allowing you to craft ones yourself. You reduce the difficulty of all skill tests to research bonecharm recipes or to craft bonecharms by 2, and roll an extra die when performing a skill test to craft a bonecharm.</p>",
+		"manacost": 0,
+		"runecost": 3
+	},
+	"type": "power"
+}

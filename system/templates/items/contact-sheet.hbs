@@ -9,25 +9,24 @@
             <div class="column-x2-x3-small">
                 <label>{{localize 'dishonored.actor.contact.relation'}}</label>
                 <select class="relationship" name="system.relationship" data-type="String">
-                    {{#select system.relationship}}
-                    {{#each item.system.relationships as |relation key|}}
-                    <option value="{{localize relation.label}}">{{localize relation.label}}</option>
-                    {{/each}}
+                    {{#select item.system.relationship}}
+						{{#each DISHONORED.RELATIONSHIPS as |relation key|}}
+							<option value="{{key}}">
+								{{localize relation}}
+							</option>
+						{{/each}}
                     {{/select}}
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="send2actor btn">{{localize 'dishonored.item.contact.send2actor'}}</div>
-        </div>
+		{{#if canSendToActor}}
+			<div class="row">
+				<div class="send2actor btn">
+					{{localize 'dishonored.item.contact.send2actor'}}
+				</div>
+			</div>
+		{{/if}}
     </div>
-    <div class="description">
-        {{editor
-			descriptionHTML
-			target="system.description"
-			button=true
-			owner=owner
-			editable=editable
-		}}
-	</div>
+
+    {{> items/partials/description }}
 </form>

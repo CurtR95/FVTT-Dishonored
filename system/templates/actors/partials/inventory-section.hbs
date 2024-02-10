@@ -1,0 +1,62 @@
+{{#if sectionTitle}}
+	<div class="title">
+		{{localize sectionTitle}}
+	</div>
+{{/if}}
+
+<div class="row item {{#if equipable}}equipable{{/if}}">
+	<div class="image"></div>
+
+	<div class="{{itemNameStyle}} bold">
+		{{localize itemNameLabel}}
+	</div>
+
+	{{#ifEq sectionType "armor"}}
+		<div class="column-x2-small bold">
+			{{localize 'dishonored.actor.belonging.armor.protect'}}
+		</div>
+	{{/ifEq}}
+
+	{{#ifEq sectionType "bonecharm"}}
+		<div class="column-x2-small bold"></div>
+	{{/ifEq}}
+
+	{{#ifEq sectionType "contact"}}
+		<div class="column-x2 bold">
+			{{localize 'dishonored.actor.contact.relation'}}
+		</div>
+	{{/ifEq}}
+
+	{{#ifEq sectionType "focus"}}
+		<div class="column-x2-small bold">
+			{{localize 'dishonored.actor.focus.rating'}}
+		</div>
+	{{/ifEq}}
+
+	{{#ifEq sectionType "item"}}
+		<div class="column-x2-small bold">
+			{{localize 'dishonored.actor.belonging.other.qty'}}
+		</div>
+	{{/ifEq}}
+
+	{{#ifEq sectionType "weapon"}}
+		<div class="column-x2-small bold">
+			{{localize 'dishonored.actor.belonging.weapon.dmg'}}
+		</div>
+	{{/ifEq}}
+
+	<a
+		class="control create"
+		title="{{localize 'dishonored.titles.createItem'}}"
+		data-type="{{sectionType}}"
+	>
+		<i class="fas fa-plus"></i>
+	</a>
+</div>
+{{#each (lookup inventory sectionType)}}
+	{{> actors/partials/inventory-item
+		equipable=../equipable
+		item=this
+		itemNameStyle=../itemNameStyle
+	}}
+{{/each}}

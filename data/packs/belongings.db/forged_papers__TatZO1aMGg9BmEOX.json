@@ -1,0 +1,15 @@
+{
+	"_id": "TatZO1aMGg9BmEOX",
+	"_key": "!items!TatZO1aMGg9BmEOX",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Forged Papers",
+	"system": {
+		"cost": 50,
+		"description": "<p>At a glance, these papers provide the same powers and opportunities as official documents would. However, they’re illegitimate fakes, made by someone other than the rightful people. The better the forgery, the harder it is to tell fake from legitimate, but even the best fake cannot withstand scrutiny forever.</p><p>The better quality the forgery or the rarer the document being forged, the higher the cost.</p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

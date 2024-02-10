@@ -1,0 +1,15 @@
+{
+	"_id": "H3SYLlbBLokvzoTV",
+	"_key": "!items!H3SYLlbBLokvzoTV",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Possession",
+	"system": {
+		"description": "<p>You can enter the body of an animal, controlling its movements for a short while. As an action, you select an animal nearby which you can see clearly. Your body vanishes, and you take control of the animal. Using possession, you cannot make any attacks or use any other powers, but you can otherwise act freely, and people will respond to you as if you were the animal you possess. If the animal you are possessing is harmed, you are harmed as well; if not dead, you’ll then instantly reappear within reach of the animal.</p><p>Possession lasts for a number of rounds/minutes equal to your Forcefully rating. When it ends, you reappear within reach, typically behind the creature. If you had possessed a small animal (rats, bloodflies, fish, and similar), it is killed, while larger animals (such as wolfhounds) gain the truth dazed and nauseous until the end of their next turn.</p>",
+		"manacost": 4,
+		"runecost": 3
+	},
+	"type": "power"
+}

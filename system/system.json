@@ -1,10 +1,10 @@
 {
 	"id": "FVTT-Dishonored",
 	"title": "Dishonored: The Roleplaying Game",
-	"description": "The Unofficial Dishonored 2d20 System for FoundryVTT",
-	"version": "0.6.0",
+	"description": "A system for playing Dishonored: The Roleplaying Game from Modiphius Entertainment Ltd.",
+	"version": "1.0.0",
 	"compatibility": {
-		"minimum": "10",
+		"minimum": "11",
 		"verified": "11"
 	},
 	"authors": [
@@ -29,10 +29,34 @@
 	],
 	"packs": [
 		{
+			"name": "belongings",
+			"label": "Belongings",
+			"type": "Item",
+			"path": "./packs/belongings",
+			"private": false,
+			"flags": {}
+		},
+		{
 			"name": "focuses",
 			"label": "Focuses",
 			"type": "Item",
 			"path": "./packs/focuses",
+			"private": false,
+			"flags": {}
+		},
+		{
+			"name": "powers",
+			"label": "Powers and Enhancements",
+			"type": "Item",
+			"path": "./packs/powers",
+			"private": false,
+			"flags": {}
+		},
+		{
+			"name": "talents",
+			"label": "Talents",
+			"type": "Item",
+			"path": "./packs/talents",
 			"private": false,
 			"flags": {}
 		},
@@ -48,10 +72,13 @@
 	"packFolders": [
 		{
 			"name": "Dishonored RPG",
-			"sorting": "a",
+			"sorting": "m",
 			"color": "#2e3830",
 			"packs": [
+				"belongings",
 				"focuses",
+				"powers",
+				"talents",
 				"system-documentation"
 			]
 		}
@@ -72,8 +99,10 @@
 	"gridUnits": "ft",
 	"primaryTokenAttribute": "stress",
 	"secondaryTokenAttribute": "void",
-	"url": "https://github.com/CurtR95/FVTT-Dishonored",
-	"manifest": "https://raw.githubusercontent.com/CurtR95/FVTT-Dishonored/master/system.json",
-	"download": "https://github.com/CurtR95/FVTT-Dishonored/archive/master.zip",
+	"socket": true,
+	"url": "https://github.com/Muttley/foundryvtt-dishonored",
+	"manifest": "https://raw.githubusercontent.com/Muttley/foundryvtt-dishonored/main/system/system.json",
+	"download": "https://github.com/Muttley/foundryvtt-dishonored/releases/latest/download/dishonored.zip",
+	"background": "systems/FVTT-Dishonored/assets/images/dishonored-splash.webp",
 	"license": "LICENSE.txt"
 }

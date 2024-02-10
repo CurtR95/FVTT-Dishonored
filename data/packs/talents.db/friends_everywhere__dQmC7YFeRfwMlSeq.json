@@ -1,0 +1,14 @@
+{
+	"_id": "dQmC7YFeRfwMlSeq",
+	"_key": "!items!dQmC7YFeRfwMlSeq",
+	"effects": [
+	],
+	"folder": "qKeUR6fiMEr8JH0F",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Friends Everywhere",
+	"system": {
+		"description": "<p>You gain one additional contact, with a neutral relationship. This talent may be selected up to three times.</p>",
+		"type": "Courier"
+	},
+	"type": "talent"
+}

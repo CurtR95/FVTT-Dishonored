@@ -1,0 +1,15 @@
+{
+	"_id": "6GNDo2p5MiBZB43t",
+	"_key": "!items!6GNDo2p5MiBZB43t",
+	"effects": [
+	],
+	"folder": "6pNMf14m2jeed5Cf",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Climbing Gear",
+	"system": {
+		"cost": 50,
+		"description": "<p><span class=\"fontstyle0\">This is normally a sturdy bag containing a few useful tools: one or two coils of rope, grappling hooks, and a pouch of chalk dust to improve grip and mark safe handholds. Better climbing gear may add a harness, a set of pitons and a small mallet to create extra anchor points.</span></p><p><span class=\"fontstyle0\">Better kits may cost twice this.</span></p>",
+		"quantity": 1
+	},
+	"type": "item"
+}

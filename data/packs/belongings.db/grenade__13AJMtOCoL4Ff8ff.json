@@ -1,0 +1,28 @@
+{
+	"_id": "13AJMtOCoL4Ff8ff",
+	"_key": "!items!13AJMtOCoL4Ff8ff",
+	"effects": [
+	],
+	"folder": "MB8WZFneWZrTvPaN",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Grenade",
+	"system": {
+		"cost": 70,
+		"damage": 4,
+		"description": "<p>A metal shell, packed with a volatile tar made from whale oil. When detonated, the tar shatters the casing, sending hot shrapnel in every direction. An unsubtle, indiscriminate weapon, grenades are used when care and precision are unnecessary. The Abbey’s Warfare Overseers often carry them, to flush foes out from hiding places. Grenades detonate a few seconds after being triggered.</p>",
+		"qualities": {
+			"armorpierce": false,
+			"awkward": true,
+			"blast": true,
+			"block": false,
+			"burn": false,
+			"concealed": false,
+			"melee": false,
+			"messy": true,
+			"mine": false,
+			"rangeddistant": false,
+			"rangednearby": true
+		}
+	},
+	"type": "weapon"
+}

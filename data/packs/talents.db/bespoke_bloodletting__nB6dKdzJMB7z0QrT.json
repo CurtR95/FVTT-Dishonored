@@ -1,0 +1,14 @@
+{
+	"_id": "nB6dKdzJMB7z0QrT",
+	"_key": "!items!nB6dKdzJMB7z0QrT",
+	"effects": [
+	],
+	"folder": "ZMgHHNvGcwpljgum",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Bespoke Bloodletting",
+	"system": {
+		"description": "<p>Once per session, whenever you source and shop for tools (whether they be weapons, chemical compounds, clothes, etc.) that will be used to carry out an assassination, you can add two extra d20 to a single roll to either find or haggle for the required tools.</p>",
+		"type": "Assassin"
+	},
+	"type": "talent"
+}

@@ -1,0 +1,15 @@
+{
+	"_id": "3pZwpNFpOd1q57Up",
+	"_key": "!items!3pZwpNFpOd1q57Up",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Dark Vision",
+	"system": {
+		"description": "<p>You shift your perceptions, giving yourself greater clarity of sight for a short while. When you activate dark vision, you can see other characters and creatures nearby more clearly, even through the walls. It also allows you to see valuables, dangers and hazards such as security systems. This effect lasts until the end of the scene.</p>",
+		"manacost": 1,
+		"runecost": 2
+	},
+	"type": "power"
+}

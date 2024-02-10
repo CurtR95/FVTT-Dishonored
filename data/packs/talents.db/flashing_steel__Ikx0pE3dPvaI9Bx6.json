@@ -1,0 +1,14 @@
+{
+	"_id": "Ikx0pE3dPvaI9Bx6",
+	"_key": "!items!Ikx0pE3dPvaI9Bx6",
+	"effects": [
+	],
+	"folder": "qN3uL6pNq1BmPpKG",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Flashing Steel",
+	"system": {
+		"description": "<p>When you Fight Swiftly and succeed on an attack, you may spend one Momentum to make a second attack at +1 difficulty. You may only gain one additional attack per round in this manner.</p>",
+		"type": "Duelist"
+	},
+	"type": "talent"
+}

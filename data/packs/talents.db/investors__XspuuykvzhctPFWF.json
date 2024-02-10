@@ -1,0 +1,14 @@
+{
+	"_id": "XspuuykvzhctPFWF",
+	"_key": "!items!XspuuykvzhctPFWF",
+	"effects": [
+	],
+	"folder": "7sMPVrxGywBEyrRB",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Investors",
+	"system": {
+		"description": "<p>You may go to a contact to gain coin when you seek assistance from them. You may gain up to 100 coin from a contact, or up to 100 coin per point of Reputation from a faction. When you gain coin in this way, the contact will typically expect to be repaid in future with a cut of your profits or similar recompense.</p>",
+		"type": "Entrepreneur"
+	},
+	"type": "talent"
+}
