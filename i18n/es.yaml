@@ -102,7 +102,7 @@ dishonored.notifications.macroDiceLess: You must roll at least one die!
 dishonored.notifications.macroFocus: Focus cannot be less than one!
 dishonored.notifications.macroSkill: Please provide an skill to the macro!
 dishonored.notifications.macroStyle: Please provide an style to the macro!
-dishonored.notifications.s2A: 'NPC with the name <b>|#|</b> has been created!'
+dishonored.notifications.sendToActor: An NPC with the name <b>{name}</b> has been created!
 dishonored.notifications.tooManyBonecharms: The current actor has 3 equipped bonecharms already! Doing Nothing.
 dishonored.notifications.tooManyBonecharmsNew: The current actor has 3 equipped bonecharms already! Adding as unequipped.
 dishonored.roll.armor.protect: '<b>|#|</b> Protección'
