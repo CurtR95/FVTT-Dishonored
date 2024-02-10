@@ -21,21 +21,6 @@ export default class DishonoredCharacterSheet extends DishonoredBaseActorSheet {
 	activateListeners(html) {
 		super.activateListeners(html);
 
-		// const dishonoredActor = new DishonoredSharedActorFunctions();
-
-		// This creates a dynamic Void Point tracker. It polls for the hidden
-		// control "max-void" and for the value, creates a new div for each and
-		// places it under a child called "bar-void-renderer"
-		// const voidPointsMax = html.find("#max-void")[0].value;
-		// for (let i = 1; i <= voidPointsMax; i++) {
-		// 	const div = document.createElement("DIV");
-		// 	div.className = "box";
-		// 	div.id = `void-${i}`;
-		// 	div.innerHTML = i;
-		// 	div.style = `width: calc(100% / ${html.find("#max-void")[0].value});`;
-		// 	html.find("#bar-void-renderer")[0].appendChild(div);
-		// }
-
 		// Handle experience track clicks
 		//
 		html.find("[id^=\"exp\"]").click(

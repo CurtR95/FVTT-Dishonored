@@ -36,7 +36,7 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 		// the limited sheet, otherwise, continue as usual.
 		const template = !game.user.isGM && this.actor.limited
 			? "systems/FVTT-Dishonored/templates/actors/limited-sheet.hbs"
-			: `systems/FVTT-Dishonored/templates/actors/${this.actor.type}-sheet.hbs`;
+			: "systems/FVTT-Dishonored/templates/actors/actor-sheet.hbs";
 
 		return template;
 	}
