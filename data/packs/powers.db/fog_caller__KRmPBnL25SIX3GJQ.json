@@ -1,0 +1,15 @@
+{
+	"_id": "KRmPBnL25SIX3GJQ",
+	"_key": "!items!KRmPBnL25SIX3GJQ",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Fog Caller",
+	"system": {
+		"description": "<p>A thick fog rises from the ground around you, baffling foes and concealing your actions. Using fog caller creates the truth thick fog which obscures the vision of any characters nearby. The fog remains for the rest of the scene, until strong winds disperse it, or until you choose to end it, whichever comes first.</p>",
+		"manacost": 2,
+		"runecost": 1
+	},
+	"type": "power"
+}

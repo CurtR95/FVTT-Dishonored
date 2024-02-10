@@ -1,0 +1,15 @@
+{
+	"_id": "mhv3r2ji89kpdwAq",
+	"_key": "!items!mhv3r2ji89kpdwAq",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Blink",
+	"system": {
+		"description": "<p>You can traverse short distances in an instant, vanishing from one spot and appearing in another in the blink of an eye. This ability doesn’t take an action to use (it can be triggered at any time). When you use blink, you may select any point nearby which you can see—even if you could not reach that place by walking, jumping, or climbing normally—and you instantly appear there. You do physically cross the space between your starting point and your destination, so if you would pass through an obstacle such as a window, an opponent, or a wall of light, you’ll interact with that obstacle as if traveling at high speed.</p>",
+		"manacost": 1,
+		"runecost": 1
+	},
+	"type": "power"
+}

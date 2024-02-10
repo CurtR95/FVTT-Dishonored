@@ -1,0 +1,15 @@
+{
+	"_id": "Cmwz4Ue5DBWcxSaO",
+	"_key": "!items!Cmwz4Ue5DBWcxSaO",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Blood Briar",
+	"system": {
+		"description": "<p>You conjure a savage mass of tendrils and vines. It takes an action to conjure the blood briar, after which it will lash out at anyone who gets within reach who doesn’t have this power, imposing the immobilized truth. Getting out of the blood briar’s grasp is a difficulty 3 skill test.</p>",
+		"manacost": 3,
+		"runecost": 2
+	},
+	"type": "power"
+}

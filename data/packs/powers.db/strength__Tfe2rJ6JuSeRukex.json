@@ -1,0 +1,15 @@
+{
+	"_id": "Tfe2rJ6JuSeRukex",
+	"_key": "!items!Tfe2rJ6JuSeRukex",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Strength",
+	"system": {
+		"description": "<p>Your strength is prodigious, allowing you to perform feats of might that others can only dream of. You gain one automatic success on all Fight Forcefully tests, and may throw objects (including grenades and other thrown weapons) at distant targets as if they had the Range (distant) quality.</p>",
+		"manacost": 0,
+		"runecost": 2
+	},
+	"type": "power"
+}

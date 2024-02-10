@@ -1,0 +1,15 @@
+{
+	"_id": "6GXyACP1kqG3Ytx1",
+	"_key": "!items!6GXyACP1kqG3Ytx1",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Mesmerize",
+	"system": {
+		"description": "<p>You call a spirit from the Void to seize the attention of others. As an action, you summon the spirit and target it at up to two nearby enemies. Those enemies are immediately sent into a dream-like hypnotic state, unable to perceive their surroundings. The spirit remains until the end of the next round, at which point, the affected enemies forget being mesmerized (and what happened immediately before being mesmerized) and return to what they were doing before.</p><p>Enemies not affected by the spirit cannot see it, but they can see other people acting strangely, and will respond accordingly, often becoming more alert and suspicious.</p>",
+		"manacost": 3,
+		"runecost": 3
+	},
+	"type": "power"
+}

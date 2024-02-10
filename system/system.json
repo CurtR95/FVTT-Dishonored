@@ -46,7 +46,7 @@
 		},
 		{
 			"name": "powers",
-			"label": "Powers",
+			"label": "Powers and Enhancements",
 			"type": "Item",
 			"path": "./packs/powers",
 			"private": false,

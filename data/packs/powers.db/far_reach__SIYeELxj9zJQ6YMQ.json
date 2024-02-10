@@ -1,0 +1,15 @@
+{
+	"_id": "SIYeELxj9zJQ6YMQ",
+	"_key": "!items!SIYeELxj9zJQ6YMQ",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Far Reach",
+	"system": {
+		"description": "<p>You shoot out a long tendril of shadow, which then grabs onto the target surface and pulls. It can act as a sort of grappling hook that reels you in, and it can also be used to pull objects and other living beings towards you. The tendrils have nearby range.</p>",
+		"manacost": 1,
+		"runecost": 1
+	},
+	"type": "power"
+}

@@ -1,0 +1,15 @@
+{
+	"_id": "1xivAokUYJUEpbE6",
+	"_key": "!items!1xivAokUYJUEpbE6",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Dark Inspiration",
+	"system": {
+		"description": "<p>You have an extraordinary talent for craft or artistry, heightened by the Void’s touch upon your mind. Select a single one of your focuses with a creative application in mind. When you make a skill test which uses that focus, you gain one automatic success.</p>",
+		"manacost": 0,
+		"runecost": 1
+	},
+	"type": "power"
+}

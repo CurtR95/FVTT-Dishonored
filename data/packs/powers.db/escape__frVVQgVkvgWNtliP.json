@@ -1,0 +1,15 @@
+{
+	"_id": "frVVQgVkvgWNtliP",
+	"_key": "!items!frVVQgVkvgWNtliP",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Escape",
+	"system": {
+		"description": "<p>You have a peculiar way of cheating death. To benefit from this power, you must have a shrine or other sanctuary you can return to. The first time in a scene you are killed, you avoid death automatically. You transform into a swarm of animals, typically rats or bloodflies (chosen when you learn this enhancement) which attack whomever killed you on your next action, and then disperse (refer to the corresponding NPC profile). After the swarm disperses, you reappear at your shrine or sanctuary with the same number of empty stress track boxes you had before suffering the killing blow.</p><p>Once you have avoided death and reformed in this way, you cannot use escape again until after the next full moon.</p>",
+		"manacost": 0,
+		"runecost": 3
+	},
+	"type": "power"
+}

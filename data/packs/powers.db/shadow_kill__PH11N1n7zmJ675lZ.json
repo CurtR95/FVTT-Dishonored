@@ -1,0 +1,15 @@
+{
+	"_id": "PH11N1n7zmJ675lZ",
+	"_key": "!items!PH11N1n7zmJ675lZ",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Shadow Kill",
+	"system": {
+		"description": "<p>Those you slay dissolve into ashes and smoke, leaving no trace of your kill but the absence of your victim. Whenever you kill an enemy, you generate only one Chaos, rather than two, as the body turns to ash and disappears into the Void.</p>",
+		"manacost": 0,
+		"runecost": 1
+	},
+	"type": "power"
+}

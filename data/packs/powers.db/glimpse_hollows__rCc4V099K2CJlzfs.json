@@ -1,0 +1,15 @@
+{
+	"_id": "rCc4V099K2CJlzfs",
+	"_key": "!items!rCc4V099K2CJlzfs",
+	"effects": [
+	],
+	"folder": "LNAaRJGg5adfu9F3",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Glimpse Hollows",
+	"system": {
+		"description": "<p>You can see places in the world which are cracked, where the Void leaks through. Through these cracks, you can see other times, other places, and other possible versions of reality. What exactly you see is up to the GM, and what you do with that knowledge is up to you.</p>",
+		"manacost": 0,
+		"runecost": 1
+	},
+	"type": "power"
+}

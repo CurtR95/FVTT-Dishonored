@@ -1,0 +1,15 @@
+{
+	"_id": "iMh15Jm6aNMR3Zre",
+	"_key": "!items!iMh15Jm6aNMR3Zre",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Thorns",
+	"system": {
+		"description": "<p>With a gesture, you hurl a shower of dart-like projectiles. These count as a stress 3 ranged attack, which requires no ammunition.</p>",
+		"manacost": 2,
+		"runecost": 1
+	},
+	"type": "power"
+}

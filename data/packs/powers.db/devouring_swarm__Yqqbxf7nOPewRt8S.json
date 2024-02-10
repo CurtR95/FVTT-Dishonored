@@ -1,0 +1,15 @@
+{
+	"_id": "Yqqbxf7nOPewRt8S",
+	"_key": "!items!Yqqbxf7nOPewRt8S",
+	"effects": [
+	],
+	"folder": "QZJHE6DCgSPofP7X",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Devouring Swarm",
+	"system": {
+		"description": "<p>You call forth a swarm of verminous creatures that attacks those nearby. This power takes an action to use. When you use devouring swarm, a swarm of creatures (rats, bloodflies, or something else appropriate chosen when the power is learned) emerges to attack the nearest enemy. The swarm will dissipate once there are no other targets nearby, or if the swarm is defeated. The swarms you summon will not attack you or anyone else who can summon the same kind of swarm, nor will they attack kindred creatures—rats will not attack Weepers, bloodflies won’t attack Nest Keepers, and so forth.</p>",
+		"manacost": 3,
+		"runecost": 3
+	},
+	"type": "power"
+}
