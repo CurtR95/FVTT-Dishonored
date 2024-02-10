@@ -1,0 +1,14 @@
+{
+	"_id": "7rROJuyPTd7lHa09",
+	"_key": "!items!7rROJuyPTd7lHa09",
+	"effects": [
+	],
+	"folder": "NCRFe3kH93NuOcjk",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Companion",
+	"system": {
+		"description": "<p>You have a companion, typically a wolfhound, but the GM may allow you to have another animal instead. The wolfhound has the profile shown on page 257, and it is treated as an allied NPC under your command, following the rules laid out in Chapter 11: Of Street Urchins & Masked Aristocrats. If your companion dies, you immediately gain a Void point, and you have a choice between retraining the talent or getting a replacement companion.</p>",
+		"type": "Guide"
+	},
+	"type": "talent"
+}

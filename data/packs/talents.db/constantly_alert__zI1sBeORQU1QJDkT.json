@@ -1,0 +1,14 @@
+{
+	"_id": "zI1sBeORQU1QJDkT",
+	"_key": "!items!zI1sBeORQU1QJDkT",
+	"effects": [
+	],
+	"folder": "YIrOk35vIFgj8apl",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Constantly Alert",
+	"system": {
+		"description": "<p>Whenever you attempt a skill test to detect danger or hidden threats, reduce the difficulty by 1, to a minimum of 0.</p>",
+		"type": "Scout"
+	},
+	"type": "talent"
+}

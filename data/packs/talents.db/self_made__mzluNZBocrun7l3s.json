@@ -1,0 +1,14 @@
+{
+	"_id": "mzluNZBocrun7l3s",
+	"_key": "!items!mzluNZBocrun7l3s",
+	"effects": [
+	],
+	"folder": "7sMPVrxGywBEyrRB",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Self-Made",
+	"system": {
+		"description": "<p>When you make a skill test to negotiate with or persuade someone of higher social status than you, you may reroll a single d20 so long as you maintain an outward appearance of pedigree.</p>",
+		"type": "Entrepreneur"
+	},
+	"type": "talent"
+}

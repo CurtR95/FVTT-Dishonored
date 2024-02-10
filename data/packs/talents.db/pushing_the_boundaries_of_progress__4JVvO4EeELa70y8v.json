@@ -1,0 +1,14 @@
+{
+	"_id": "4JVvO4EeELa70y8v",
+	"_key": "!items!4JVvO4EeELa70y8v",
+	"effects": [
+	],
+	"folder": "2SwJA0QHl4yqXsQo",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Pushing the Boundaries of Progress",
+	"system": {
+		"description": "<p>When you attempt to Tinker Cleverly to design or construct a new device or machine, and you buy one or more d20s by adding to Chaos, you may also reduce the difficulty of the test by 1, to a minimum of 0.</p>",
+		"type": "Inventor"
+	},
+	"type": "talent"
+}

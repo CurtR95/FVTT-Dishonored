@@ -1,0 +1,14 @@
+{
+	"_id": "5KXs8BbDC3O1R5lg",
+	"_key": "!items!5KXs8BbDC3O1R5lg",
+	"effects": [
+	],
+	"folder": "NCRFe3kH93NuOcjk",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Forager",
+	"system": {
+		"description": "<p>When you set out to find food, water, or shelter for yourself and a group of others, you may make a difficulty 1 Survive test to find enough resources for a single day, for a number of people equal to your Survive skill. You may increase the number of people or days you provide for by spending Momentum, adding people equal to half your Survive skill per Momentum spent.</p>",
+		"type": "Guide"
+	},
+	"type": "talent"
+}

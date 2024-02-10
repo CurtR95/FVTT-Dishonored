@@ -1,0 +1,14 @@
+{
+	"_id": "wOnmdp5tDLmRHMAa",
+	"_key": "!items!wOnmdp5tDLmRHMAa",
+	"effects": [
+	],
+	"folder": "WEkm5bjMGiEL3gU5",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "The Outsider's Mark",
+	"system": {
+		"description": "<p>You may select this talent instead of choosing a talent from your archetype, with the GM’s permission. This may be done during character creation, or later in play as part of character advancement.</p><p>You met the Outsider in a dream, and he branded you with his mark—a jagged symbol on the back of your left hand. You gain an additional personal truth, marked by the Outsider. In addition, you gain a selection of supernatural powers and enhancements which you are able to learn and use, as described in Chapter 7: Into the Void.</p>",
+		"type": "Supernatural"
+	},
+	"type": "talent"
+}

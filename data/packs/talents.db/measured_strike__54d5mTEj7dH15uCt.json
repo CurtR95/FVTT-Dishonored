@@ -1,0 +1,14 @@
+{
+	"_id": "54d5mTEj7dH15uCt",
+	"_key": "!items!54d5mTEj7dH15uCt",
+	"effects": [
+	],
+	"folder": "qN3uL6pNq1BmPpKG",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Measured Strike",
+	"system": {
+		"description": "<p>When you attempt a skill test to remove an equipment piece from an enemy—in essence, disarming them—you may add an extra d20.</p>",
+		"type": "Duelist"
+	},
+	"type": "talent"
+}

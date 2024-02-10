@@ -1,0 +1,14 @@
+{
+	"_id": "vsPjZOwX5wirHziU",
+	"_key": "!items!vsPjZOwX5wirHziU",
+	"effects": [
+	],
+	"folder": "XauYjIXGCZrP5kLk",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Erudite Exposition",
+	"system": {
+		"description": "<p>Whenever you spend any Momentum to ask a question during a scene, you may reduce the Momentum cost of one bonus d20 you purchase later that scene by 1, to a minimum of 0.</p>",
+		"type": "Scholar"
+	},
+	"type": "talent"
+}

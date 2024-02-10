@@ -1,0 +1,14 @@
+{
+	"_id": "8MMurbP940QXT2Ep",
+	"_key": "!items!8MMurbP940QXT2Ep",
+	"effects": [
+	],
+	"folder": "2SwJA0QHl4yqXsQo",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Controlled Detonation",
+	"system": {
+		"description": "<p>When you attempt a Tinker Carefully test to use a grenade, explosives, or some other volatile substance (such as a canister of whale oil) to damage or destroy an object or structure, and you buy one or more d20s by spending Momentum, you may reroll a single d20 and ignore the first complication suffered.</p>",
+		"type": "Inventor"
+	},
+	"type": "talent"
+}

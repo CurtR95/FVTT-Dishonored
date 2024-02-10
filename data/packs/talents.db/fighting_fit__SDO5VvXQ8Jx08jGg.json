@@ -1,0 +1,14 @@
+{
+	"_id": "SDO5VvXQ8Jx08jGg",
+	"_key": "!items!SDO5VvXQ8Jx08jGg",
+	"effects": [
+	],
+	"folder": "YIrOk35vIFgj8apl",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Fighting Fit",
+	"system": {
+		"description": "<p>Whenever you attempt a Move test, you may ignore the first complication you would suffer.</p>",
+		"type": "Scout"
+	},
+	"type": "talent"
+}

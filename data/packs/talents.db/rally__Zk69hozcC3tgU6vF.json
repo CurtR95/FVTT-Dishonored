@@ -1,0 +1,14 @@
+{
+	"_id": "Zk69hozcC3tgU6vF",
+	"_key": "!items!Zk69hozcC3tgU6vF",
+	"effects": [
+	],
+	"folder": "RcEN41HNIX4SXbbt",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Rally",
+	"system": {
+		"description": "<p>Once per scene, as an action, you may attempt to Talk Forcefully (difficulty 1) to bolster your allies’ morale and determination. If you succeed, then each of your allies nearby may remove 1 stress from their stress tracks immediately.</p>",
+		"type": "Commander"
+	},
+	"type": "talent"
+}

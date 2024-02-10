@@ -1,0 +1,14 @@
+{
+	"_id": "Qsa3avLlRIUb1EaL",
+	"_key": "!items!Qsa3avLlRIUb1EaL",
+	"effects": [
+	],
+	"folder": "XauYjIXGCZrP5kLk",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Deep Expertise",
+	"system": {
+		"description": "<p>When you succeed at a skill test which uses one of your focuses, you may ask a question once without spending Momentum.</p>",
+		"type": "Scholar"
+	},
+	"type": "talent"
+}

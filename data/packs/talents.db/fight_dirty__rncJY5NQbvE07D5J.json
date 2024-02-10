@@ -1,0 +1,14 @@
+{
+	"_id": "rncJY5NQbvE07D5J",
+	"_key": "!items!rncJY5NQbvE07D5J",
+	"effects": [
+	],
+	"folder": "I9WvxUCIpqB7d74f",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Fight Dirty",
+	"system": {
+		"description": "<p>When you attempt a Fight test to make an attack, and you buy one or more dice by adding to Chaos, you may inflict +1 stress for each die you bought by adding to Chaos.</p>",
+		"type": "Miscreant"
+	},
+	"type": "talent"
+}

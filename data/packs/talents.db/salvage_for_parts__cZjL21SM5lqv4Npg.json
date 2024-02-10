@@ -1,0 +1,14 @@
+{
+	"_id": "cZjL21SM5lqv4Npg",
+	"_key": "!items!cZjL21SM5lqv4Npg",
+	"effects": [
+	],
+	"folder": "2SwJA0QHl4yqXsQo",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Salvage for Parts",
+	"system": {
+		"description": "<p>You may attempt a Tinker test with a difficulty of 1 to erase an existing piece of equipment, transforming them into spare parts, which can be used to help construct other items and devices.</p>",
+		"type": "Inventor"
+	},
+	"type": "talent"
+}

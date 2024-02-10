@@ -1,0 +1,14 @@
+{
+	"_id": "QyRCf2aTIXYccfjE",
+	"_key": "!items!QyRCf2aTIXYccfjE",
+	"effects": [
+	],
+	"folder": "NCRFe3kH93NuOcjk",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Sage Advice",
+	"system": {
+		"description": "<p>When an ally attempts a Survive test, you may spend 2 Momentum to allow them to use your Survive score. If one of your focuses also applies to that test, they may use that as well.</p>",
+		"type": "Guide"
+	},
+	"type": "talent"
+}

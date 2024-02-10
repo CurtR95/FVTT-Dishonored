@@ -1,0 +1,14 @@
+{
+	"_id": "JObsnJqVaNP3CiRr",
+	"_key": "!items!JObsnJqVaNP3CiRr",
+	"effects": [
+	],
+	"folder": "NCRFe3kH93NuOcjk",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Fieldcraft",
+	"system": {
+		"description": "<p>When you attempt to Move Quietly in a place you’re familiar with, you may reroll a single d20.</p>",
+		"type": "Guide"
+	},
+	"type": "talent"
+}

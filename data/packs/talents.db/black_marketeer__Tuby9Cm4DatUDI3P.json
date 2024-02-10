@@ -1,0 +1,14 @@
+{
+	"_id": "Tuby9Cm4DatUDI3P",
+	"_key": "!items!Tuby9Cm4DatUDI3P",
+	"effects": [
+	],
+	"folder": "7sMPVrxGywBEyrRB",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Black Marketeer",
+	"system": {
+		"description": "<p>When you attempt a skill test to negotiate with criminals or attempt to buy or sell illegal or illicit goods, you may add an extra d20.</p>",
+		"type": "Entrepreneur"
+	},
+	"type": "talent"
+}

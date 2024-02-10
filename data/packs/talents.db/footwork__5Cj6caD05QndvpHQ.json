@@ -1,0 +1,14 @@
+{
+	"_id": "5Cj6caD05QndvpHQ",
+	"_key": "!items!5Cj6caD05QndvpHQ",
+	"effects": [
+	],
+	"folder": "qN3uL6pNq1BmPpKG",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Footwork",
+	"system": {
+		"description": "<p>When you attempt a skill test to create a truth that represents positioning or maneuvering for advantage, the difficulty is reduced by one, to a minimum of zero.</p>",
+		"type": "Duelist"
+	},
+	"type": "talent"
+}

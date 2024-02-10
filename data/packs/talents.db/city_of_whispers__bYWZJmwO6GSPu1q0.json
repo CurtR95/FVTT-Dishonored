@@ -1,0 +1,14 @@
+{
+	"_id": "bYWZJmwO6GSPu1q0",
+	"_key": "!items!bYWZJmwO6GSPu1q0",
+	"effects": [
+	],
+	"folder": "qKeUR6fiMEr8JH0F",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "City of Whispers",
+	"system": {
+		"description": "<p>At the start of the scene, you may spend two Momentum or add two points to Chaos to ask the GM about one additional detail about the situation or location; the information the GM gives you will have come from the rumors you’ve heard from various sources.</p>",
+		"type": "Courier"
+	},
+	"type": "talent"
+}

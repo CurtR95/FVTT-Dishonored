@@ -1,0 +1,14 @@
+{
+	"_id": "AL8Se2c0IkOJABaM",
+	"_key": "!items!AL8Se2c0IkOJABaM",
+	"effects": [
+	],
+	"folder": "I9WvxUCIpqB7d74f",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Shoulder Charge",
+	"system": {
+		"description": "<p>When you succeed at a Fight Forcefully test to make an attack, and you moved into reach of your enemy as part of this action, then you may spend 1 Momentum to impose a Knocked Prone truth on your opponent in addition to the attack’s normal effects.</p>",
+		"type": "Miscreant"
+	},
+	"type": "talent"
+}

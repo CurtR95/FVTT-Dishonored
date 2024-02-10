@@ -1,0 +1,14 @@
+{
+	"_id": "q8zSka1xIg0l7HHk",
+	"_key": "!items!q8zSka1xIg0l7HHk",
+	"effects": [
+	],
+	"folder": "7jSTtibUHrxRYsnZ",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Surveyor",
+	"system": {
+		"description": "<p>When you make a Study Carefully test to find something that’s hidden or rare, you may reroll a single d20.</p>",
+		"type": "Explorer"
+	},
+	"type": "talent"
+}

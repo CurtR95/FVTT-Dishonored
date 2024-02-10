@@ -1,0 +1,14 @@
+{
+	"_id": "tuznxJDiyMvKnmFC",
+	"_key": "!items!tuznxJDiyMvKnmFC",
+	"effects": [
+	],
+	"folder": "ZMgHHNvGcwpljgum",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Inhuman Determination",
+	"system": {
+		"description": "<p><span class=\"fontstyle0\">Whenever you kill someone, reduce the Chaos you generate by 1.</span></p>",
+		"type": "Assassin"
+	},
+	"type": "talent"
+}

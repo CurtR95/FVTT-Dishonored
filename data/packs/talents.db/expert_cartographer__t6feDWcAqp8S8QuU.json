@@ -1,0 +1,14 @@
+{
+	"_id": "t6feDWcAqp8S8QuU",
+	"_key": "!items!t6feDWcAqp8S8QuU",
+	"effects": [
+	],
+	"folder": "7jSTtibUHrxRYsnZ",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Expert Cartographer",
+	"system": {
+		"description": "<p>Any skill test you attempt to create a map of an area, or produce detailed directions to navigate through an area, is reduced in difficulty by 2, to a minimum of 0.</p>",
+		"type": "Explorer"
+	},
+	"type": "talent"
+}

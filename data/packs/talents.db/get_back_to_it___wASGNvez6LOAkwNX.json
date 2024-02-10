@@ -1,0 +1,14 @@
+{
+	"_id": "wASGNvez6LOAkwNX",
+	"_key": "!items!wASGNvez6LOAkwNX",
+	"effects": [
+	],
+	"folder": "RcEN41HNIX4SXbbt",
+	"img": "/systems/FVTT-Dishonored/assets/images/dishonored-symbol-white.webp",
+	"name": "Get Back to It!",
+	"system": {
+		"description": "<p>Once per scene, when an ally or subordinate would see their stress track filled, you may add 2 to Chaos as an action in order to berate and shame them into recovering immediately. After adding all stress, they may take one out (leaving them with one blank box in the track).</p>",
+		"type": "Commander"
+	},
+	"type": "talent"
+}
