@@ -43,9 +43,9 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 		// ! Everything below here is only needed if the sheet is editable
 		if (!this.isEditable) return;
 
-		html.find(".control.create").click(ev => {
-			ev.preventDefault();
-			const header = ev.currentTarget;
+		html.find(".control.create").click(event => {
+			event.preventDefault();
+			const header = event.currentTarget;
 			const type = header.dataset.type;
 			const data = duplicate(header.dataset);
 			const name = `${game.i18n.format("dishonored.actor.item.adjectiveNew")} ${type.charAt(0).toUpperCase()}${type.slice(1)}`;
@@ -60,15 +60,17 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 			return this.actor.createEmbeddedDocuments("Item", [(itemData)]);
 		});
 
-		html.find(".control.delete").click(ev => {
-			const li = $(ev.currentTarget).parents(".entry");
+		html.find(".control.delete").click(event => {
+			event.preventDefault();
+			const li = $(event.currentTarget).parents(".entry");
 			this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
 
 			return li.slideUp(200, () => this.render(false));
 		});
 
-		html.find(".control.edit").click(ev => {
-			const li = $(ev.currentTarget).parents(".entry");
+		html.find(".control.edit").click(event => {
+			event.preventDefault();
+			const li = $(event.currentTarget).parents(".entry");
 			const item = this.actor.items.get(li.data("itemId"));
 			item.sheet.render(true);
 		});
@@ -82,10 +84,11 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 
 		// This allows for all items to be rolled, it gets the current targets
 		// type and id and sends it to the rollGenericItem function.
-		html.find(".rollable").click(ev => {
-			let itemType = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
-			let itemId = $(ev.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
-			this.actor.rollGenericItem(ev, itemType, itemId);
+		html.find(".rollable").click(event => {
+			event.preventDefault();
+			let itemType = $(event.currentTarget).parents(".entry")[0].getAttribute("data-item-type");
+			let itemId = $(event.currentTarget).parents(".entry")[0].getAttribute("data-item-id");
+			this.actor.rollGenericItem(event, itemType, itemId);
 		});
 
 		// Stress track
@@ -96,41 +99,41 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 		// Turns the Skill checkboxes into essentially a radio button. It
 		// removes any other ticks, and then checks the new skill.
 		// Finally a submit is required as data has changed.
-		html.find(".selector.skill").click(ev => {
-			for (i = 0; i <= 5; i++) {
+		html.find(".selector.skill").click(event => {
+			for (let i = 0; i <= 5; i++) {
 				html.find(".selector.skill")[i].checked = false;
 			}
-			$(ev.currentTarget)[0].checked = true;
+			$(event.currentTarget)[0].checked = true;
 			this.submit();
 		});
 
 		// Turns the Style checkboxes into essentially a radio button. It
 		// removes any other ticks, and then checks the new style.
 		// Finally a submit is required as data has changed.
-		html.find(".selector.style").click(ev => {
-			for (i = 0; i <= 5; i++) {
+		html.find(".selector.style").click(event => {
+			for (let i = 0; i <= 5; i++) {
 				html.find(".selector.style")[i].checked = false;
 			}
-			$(ev.currentTarget)[0].checked = true;
+			$(event.currentTarget)[0].checked = true;
 			this.submit();
 		});
 
 		// If the check-button is clicked it grabs the selected skill and the
 		// selected style and fires the method rollSkillTest. See actor.mjs for
 		// further info.
-		html.find(".check-button").click(ev => {
+		html.find(".check-button").click(event => {
 			let selectedSkill;
 			let selectedSkillValue;
 			let selectedStyle;
 			let selectedStyleValue;
-			for (i = 0; i <= 5; i++) {
+			for (let i = 0; i <= 5; i++) {
 				if (html.find(".selector.skill")[i].checked === true) {
 					let selectedSkillHTML = html.find(".selector.skill")[i].id;
 					selectedSkill = selectedSkillHTML.slice(0, -9);
 					selectedSkillValue = html.find(`#${selectedSkill}`)[0].value;
 				}
 			}
-			for (i = 0; i <= 5; i++) {
+			for (let i = 0; i <= 5; i++) {
 				if (html.find(".selector.style")[i].checked === true) {
 					let selectedStyleHTML = html.find(".selector.style")[i].id;
 					selectedStyle = selectedStyleHTML.slice(0, -9);
@@ -141,7 +144,7 @@ export default class DishonoredBaseActorSheet extends ActorSheet {
 				+ parseInt(selectedStyleValue, 10);
 
 			this.actor.rollSkillTest(
-				ev,
+				event,
 				checkTarget,
 				selectedSkill,
 				selectedStyle,
