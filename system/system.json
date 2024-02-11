@@ -2,7 +2,7 @@
 	"id": "FVTT-Dishonored",
 	"title": "Dishonored: The Roleplaying Game",
 	"description": "A system for playing Dishonored: The Roleplaying Game from Modiphius Entertainment Ltd.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"compatibility": {
 		"minimum": "11",
 		"verified": "11"
@@ -101,7 +101,7 @@
 	"secondaryTokenAttribute": "void",
 	"socket": true,
 	"url": "https://github.com/Muttley/foundryvtt-dishonored",
-	"manifest": "https://raw.githubusercontent.com/Muttley/foundryvtt-dishonored/main/system/system.json",
+	"manifest": "https://raw.githubusercontent.com/Muttley/foundryvtt-dishonored/master/system/system.json",
 	"download": "https://github.com/Muttley/foundryvtt-dishonored/releases/latest/download/dishonored.zip",
 	"background": "systems/FVTT-Dishonored/assets/images/dishonored-splash.webp",
 	"license": "LICENSE.txt"
