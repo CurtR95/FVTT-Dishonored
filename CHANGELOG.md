@@ -1,3 +1,10 @@
+# v1.0.1
+
+## Bugfixes
+- [#19] Manifest path incorrect
+
+---
+
 # v1.0.0
 
 ## Bugfixes
