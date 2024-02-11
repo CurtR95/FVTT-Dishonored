@@ -101,7 +101,7 @@
 	"secondaryTokenAttribute": "void",
 	"socket": true,
 	"url": "https://github.com/Muttley/foundryvtt-dishonored",
-	"manifest": "https://raw.githubusercontent.com/Muttley/foundryvtt-dishonored/main/system/system.json",
+	"manifest": "https://raw.githubusercontent.com/Muttley/foundryvtt-dishonored/master/system/system.json",
 	"download": "https://github.com/Muttley/foundryvtt-dishonored/releases/latest/download/dishonored.zip",
 	"background": "systems/FVTT-Dishonored/assets/images/dishonored-splash.webp",
 	"license": "LICENSE.txt"
